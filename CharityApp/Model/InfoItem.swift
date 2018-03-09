@@ -9,7 +9,7 @@
 import Firebase
 import Foundation
 
-class InfoItem: ImageContentContainer {
+class InfoItem: ImageContentCollectionContainer {
     
     // MARK: - Properties
 
@@ -17,24 +17,24 @@ class InfoItem: ImageContentContainer {
     var text: String
     var likes: Int
     var date: Date
-    var imageURLs: [String : String]?
+    var imageUrlsCollection: [String : String]?
+    var tagsCollection: [String: String]?
     
     // MARK: - Initialization
     
     init(title: String, text: String, date:
-        Date, imageURLs: [String : String]?) {
+        Date, imageUrlsCollection: [String : String]?, tagsCollection: [String: String]?) {
         self.title = title
         self.text = text
         self.date = date
-        if let imageURLs = imageURLs {
-            self.imageURLs = imageURLs
-        }
+        self.imageUrlsCollection = imageUrlsCollection
+        self.tagsCollection = tagsCollection
         likes = 0
     }
     
     // MARK: - ConvertibleToDictionaty
     
-    func primitivePropertiesToDictionary() -> [String : Any] {
+    func convertingPrimitivePropertiesToDictionary() -> [String : Any] {
         let dateString = dateFormatter.string(from: date)
         let dict: [String : Any] = [
             "title": title,

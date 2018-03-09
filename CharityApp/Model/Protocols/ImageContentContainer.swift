@@ -6,6 +6,6 @@
 //  Copyright © 2018 Artur. All rights reserved.
 //
 
-protocol ImageContentContainer {
-    var imageURLs: [String: String]? { get set }
+protocol ImageContentCollectionContainer {
+    var imageUrlsCollection: [String: String]? { get set }
 }

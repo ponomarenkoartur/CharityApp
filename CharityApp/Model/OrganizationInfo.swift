@@ -28,7 +28,7 @@ class OrganizationInfo {
 }
 
 extension OrganizationInfo: ConvertibleToDictionaty {
-    func primitivePropertiesToDictionary() -> [String : Any] {
+    func convertingPrimitivePropertiesToDictionary() -> [String : Any] {
         return [
             "name": name,
             "description": description,

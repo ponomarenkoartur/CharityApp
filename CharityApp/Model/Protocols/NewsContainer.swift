@@ -6,6 +6,6 @@
 //  Copyright © 2018 Artur. All rights reserved.
 //
 
-protocol NewsContainer {
-    var news: [String: News]? { get set }
+protocol NewsCollectionContainer {
+    var newsCollection: [String: News]? { get set }
 }
