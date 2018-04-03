@@ -17,10 +17,6 @@ let dateFormatter: DateFormatter = {
 
 class News: InfoItem {
     
-    // MARK: - Properties
-    
-    var key: String?
-    
     // MARK: - Initialization
     
     override init(title: String, text: String, date: Date, imageUrlsCollection: [String: String]?, tagsCollection: [String: String]?) {
@@ -30,7 +26,6 @@ class News: InfoItem {
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: Any]
         
-        key = snapshotValue["newsKey"] as? String
         
         let dateString = snapshotValue["dateString"] as! String
         let date = dateFormatter.date(from: dateString)!
@@ -40,6 +35,8 @@ class News: InfoItem {
                    date: date,
                    imageUrlsCollection: snapshotValue["imageUrls"] as? [String: String],
                    tagsCollection: snapshotValue["tags"] as? [String: String])
+        
+        key = snapshotValue["newsKey"] as? String
     }
     
     // MARK: - Methods

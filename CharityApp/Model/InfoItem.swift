@@ -13,6 +13,7 @@ class InfoItem: ImageContentCollectionContainer {
     
     // MARK: - Properties
 
+    var key: String?
     var title: String
     var text: String
     var likes: Int

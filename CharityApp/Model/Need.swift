@@ -12,7 +12,6 @@ class Need: InfoItem, NewsCollectionContainer {
     
     // MARK: - Properties
     
-    var key: String?
     var isCompleted: Bool
     var newsCollection: [String: News]?
     
@@ -27,7 +26,6 @@ class Need: InfoItem, NewsCollectionContainer {
     init(snapshot: DataSnapshot) {
         let snapshotValue = snapshot.value as! [String: Any]
         
-        key = snapshotValue["charityNeedKey"] as? String
         isCompleted = snapshotValue["completed"] as! Bool
         
         newsCollection = [String: News]()
@@ -44,12 +42,13 @@ class Need: InfoItem, NewsCollectionContainer {
                    date: date,
                    imageUrlsCollection: snapshotValue["imageUrls"] as? [String: String],
                    tagsCollection: snapshotValue["tags"] as? [String: String])
+        
+        key = snapshotValue["charityNeedKey"] as? String
     }
     
     // MARK: - Methods
     
     /// This will make all list variables null for correct saving into database.
-    
     func dropAllListData() {
         imageUrlsCollection = nil
         tagsCollection = nil

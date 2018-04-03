@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179039204EFD1A00476E17 /* AppDelegate.swift */; };
-		7517903C204EFD1A00476E17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517903B204EFD1A00476E17 /* ViewController.swift */; };
+		7517903C204EFD1A00476E17 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517903B204EFD1A00476E17 /* HomeViewController.swift */; };
 		7517903F204EFD1A00476E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7517903D204EFD1A00476E17 /* Main.storyboard */; };
 		75179041204EFD1A00476E17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75179040204EFD1A00476E17 /* Assets.xcassets */; };
 		75179044204EFD1A00476E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75179042204EFD1A00476E17 /* LaunchScreen.storyboard */; };
 		751CA37E205006B500B55A44 /* OrganizationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CA37D205006B500B55A44 /* OrganizationInfo.swift */; };
 		75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D9320503C260015D506 /* IDatabaseResultListener.swift */; };
 		75246D96205059030015D506 /* ConvertibleToDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D95205059030015D506 /* ConvertibleToDictionary.swift */; };
+		75308AA9205447EC00AB1364 /* NeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AA8205447EC00AB1364 /* NeedsViewController.swift */; };
+		75308AAB2054480400AB1364 /* DonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAA2054480400AB1364 /* DonationsViewController.swift */; };
+		75308AAD2054481400AB1364 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAC2054481400AB1364 /* AccountViewController.swift */; };
+		75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* NewsCell.swift */; };
+		75308AB22054549E00AB1364 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AB12054549E00AB1364 /* Functions.swift */; };
 		755F80E7204F07EB006DAAA5 /* Need.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80E6204F07EB006DAAA5 /* Need.swift */; };
 		755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */; };
 		75A5F3D4204F009700137D28 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D3204F009700137D28 /* News.swift */; };
@@ -33,7 +38,7 @@
 		3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75179036204EFD1A00476E17 /* CharityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75179039204EFD1A00476E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7517903B204EFD1A00476E17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7517903B204EFD1A00476E17 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7517903E204EFD1A00476E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75179040204EFD1A00476E17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75179043204EFD1A00476E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +46,11 @@
 		751CA37D205006B500B55A44 /* OrganizationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfo.swift; sourceTree = "<group>"; };
 		75246D9320503C260015D506 /* IDatabaseResultListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabaseResultListener.swift; sourceTree = "<group>"; };
 		75246D95205059030015D506 /* ConvertibleToDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertibleToDictionary.swift; sourceTree = "<group>"; };
+		75308AA8205447EC00AB1364 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
+		75308AAA2054480400AB1364 /* DonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewController.swift; sourceTree = "<group>"; };
+		75308AAC2054481400AB1364 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		75308AAE2054536E00AB1364 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		75308AB12054549E00AB1364 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		755F80E6204F07EB006DAAA5 /* Need.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Need.swift; sourceTree = "<group>"; };
 		755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFireDatabase.swift; sourceTree = "<group>"; };
 		75A5F3D0204EFF6600137D28 /* CharityApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharityApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -103,13 +113,14 @@
 		75179038204EFD1A00476E17 /* CharityApp */ = {
 			isa = PBXGroup;
 			children = (
-				75A5F3D1204EFFFE00137D28 /* Model */,
 				75179040204EFD1A00476E17 /* Assets.xcassets */,
 				75179045204EFD1A00476E17 /* Info.plist */,
-				7517904E204EFD6500476E17 /* Controllers */,
 				7517904C204EFD3B00476E17 /* Layouts */,
+				75A5F3D1204EFFFE00137D28 /* Model */,
 				7517904D204EFD5B00476E17 /* Other */,
 				7517904B204EFD2B00476E17 /* Support Files */,
+				75308AB02054537900AB1364 /* ViewCells */,
+				7517904E204EFD6500476E17 /* ViewControllers */,
 			);
 			path = CharityApp;
 			sourceTree = "<group>";
@@ -136,16 +147,28 @@
 			isa = PBXGroup;
 			children = (
 				75179039204EFD1A00476E17 /* AppDelegate.swift */,
+				75308AB12054549E00AB1364 /* Functions.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
 		};
-		7517904E204EFD6500476E17 /* Controllers */ = {
+		7517904E204EFD6500476E17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7517903B204EFD1A00476E17 /* ViewController.swift */,
+				7517903B204EFD1A00476E17 /* HomeViewController.swift */,
+				75308AA8205447EC00AB1364 /* NeedsViewController.swift */,
+				75308AAA2054480400AB1364 /* DonationsViewController.swift */,
+				75308AAC2054481400AB1364 /* AccountViewController.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		75308AB02054537900AB1364 /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				75308AAE2054536E00AB1364 /* NewsCell.swift */,
+			);
+			path = ViewCells;
 			sourceTree = "<group>";
 		};
 		75A5F3D1204EFFFE00137D28 /* Model */ = {
@@ -313,14 +336,19 @@
 				75246D96205059030015D506 /* ConvertibleToDictionary.swift in Sources */,
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
 				755F80E7204F07EB006DAAA5 /* Need.swift in Sources */,
+				75308AAD2054481400AB1364 /* AccountViewController.swift in Sources */,
 				75A5F3D6204F00C000137D28 /* InfoItem.swift in Sources */,
 				75A5F3DE204F01E200137D28 /* Organization.swift in Sources */,
 				755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */,
+				75308AAB2054480400AB1364 /* DonationsViewController.swift in Sources */,
 				75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */,
+				75308AA9205447EC00AB1364 /* NeedsViewController.swift in Sources */,
 				751CA37E205006B500B55A44 /* OrganizationInfo.swift in Sources */,
+				75308AB22054549E00AB1364 /* Functions.swift in Sources */,
 				75A5F3D4204F009700137D28 /* News.swift in Sources */,
 				75A5F3D8204F00E500137D28 /* ImageContentContainer.swift in Sources */,
-				7517903C204EFD1A00476E17 /* ViewController.swift in Sources */,
+				75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */,
+				7517903C204EFD1A00476E17 /* HomeViewController.swift in Sources */,
 				7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */,
 				75A5F3DC204F01C400137D28 /* IDatabase.swift in Sources */,
 			);

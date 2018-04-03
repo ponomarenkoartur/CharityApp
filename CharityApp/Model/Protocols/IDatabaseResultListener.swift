@@ -7,6 +7,7 @@
 //
 
 protocol IDatabaseResultListener {
-    func onInfoItemsListRetrieved(resultList: [InfoItem])
+    func onNewsListRetrieved(resultList: [String: News])
+    func onNeedsListRetrieved(resultList: [String: Need])
     func onError()
 }

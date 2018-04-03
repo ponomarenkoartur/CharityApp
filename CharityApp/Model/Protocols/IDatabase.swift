@@ -8,6 +8,8 @@
 
 protocol IDatabase {
     
+    // MARK: - Organization
+    
     /**
      Add a new `Organization` object to the database.
      - parameters:
@@ -20,7 +22,9 @@ protocol IDatabase {
      - parameters:
      - organizationKey: Unique id key of the `Organization` to be deleted.
      */
-    func deleteOrganizationWithKey(_ organizationKey: String)
+    func deleteOrganization(withKey organizationKey: String)
+    
+    // MARK: - Needs
     
     /**
      Method for adding a new `Need` to a certain `Organization`.
@@ -46,7 +50,7 @@ protocol IDatabase {
      - needKey: The unique id key of the `Need` to be deleted.
      - organizationKey: The unique id key of the `Organization` in which the `Need` to delete is located.
      */
-    func deleteNeedWithKey(_ needKey: String, toOrganizationWithKey organizationKey: String)
+    func deleteNeed(withKey needKey: String, toOrganizationWithKey organizationKey: String)
     
     /**
      Method for retrieving list of `Need` from database.
@@ -54,7 +58,9 @@ protocol IDatabase {
         - organizationKey: Unique id key of `Organization` from which to retrieve.
         - listener: The callback listener in which the result will come.
      */
-    func getNeedsFromOrganizationWithKey(_ organizationKey: String, to listener: IDatabaseResultListener)
+    func getNeedsFromOrganization(withKey organizationKey: String, to listener: IDatabaseResultListener)
+    
+    // MARK: - News
     
     /**
      Method for adding a `News` (of global organization event) to a particular `Organization`.

@@ -29,36 +29,6 @@ class MyFireDatabase {
     // MARK: - Properties
     
     let root = Database.database().reference()
-    
-    // MARK: - Methods
-    
-    private func addNews(_ news: News, to target: DatabaseReference) {
-        let imageUrlsCollection = news.imageUrlsCollection
-        news.dropImageURLs()
-        let newsKey = target.childByAutoId().key
-        news.key = newsKey
-        target.child(newsKey).observe(.value) { _ in
-            if let imageUrlsCollection = imageUrlsCollection {
-                for imageURL in imageUrlsCollection {
-                    target.child(newsKey).child(MyFireDatabase.NEWS_IMAGE_URLS_ROOT).childByAutoId().setValue(imageURL)
-                }
-            }
-        }
-        target.child(newsKey).setValue(news.convertingPrimitivePropertiesToDictionary())
-        target.child(newsKey).child(MyFireDatabase.NEEDS_IMAGE_URLS_ROOT).setValue(imageUrlsCollection)
-    }
-    
-    private func retrieveInfoItemsListFrom(_ reference: DatabaseReference, to listener: IDatabaseResultListener) {
-        reference.observeSingleEvent(of: .value) { dataSnapshot in
-            var newsList = [InfoItem]()
-            for snapshot in dataSnapshot.children{
-                let item = snapshot as! InfoItem
-                newsList.append(item)
-            }
-            
-            listener.onInfoItemsListRetrieved(resultList: newsList)
-        }
-    }
 }
 
 extension MyFireDatabase: IDatabase {
@@ -92,7 +62,7 @@ extension MyFireDatabase: IDatabase {
         root.child(key).child(MyFireDatabase.ORGANIZATION_INFO_ROOT).setValue(organization.info.convertingPrimitivePropertiesToDictionary())
     }
     
-    func deleteOrganizationWithKey(_ organizationKey: String) {
+    func deleteOrganization(withKey organizationKey: String) {
         root.child(organizationKey).setValue(nil)
     }
     
@@ -144,13 +114,14 @@ extension MyFireDatabase: IDatabase {
         
     }
     
-    func deleteNeedWithKey(_ needKey: String, toOrganizationWithKey organizationKey: String) {
+    func deleteNeed(withKey needKey: String, toOrganizationWithKey organizationKey: String) {
         root.child(organizationKey).child(MyFireDatabase.CHARITY_NEEDS_ROOT).child(needKey).setValue(nil)
     }
     
-    func getNeedsFromOrganizationWithKey(_ organizationKey: String, to listener: IDatabaseResultListener) {
+    func getNeedsFromOrganization(withKey organizationKey: String, to listener: IDatabaseResultListener) {
         let reference = Database.database().reference().root.child(organizationKey).child(MyFireDatabase.CHARITY_NEEDS_ROOT)
-        retrieveInfoItemsListFrom(reference, to: listener)
+        retrieveNeedsCollectionFrom(reference, to: listener)
+//        retrieveInfoItemsListFrom(reference, to: listener)
     }
     
     // MARK: - News
@@ -167,7 +138,50 @@ extension MyFireDatabase: IDatabase {
     
     func getNewsFromOrganizationWithKey(_ organizationKey: String, to listener: IDatabaseResultListener) {
         let reference = Database.database().reference().root.child(organizationKey).child(MyFireDatabase.ORGANIZATION_NEWS_ROOT)
-        retrieveInfoItemsListFrom(reference, to: listener)
+        retrieveNewsCollectionFrom(reference, to: listener)
+//        retrieveInfoItemsListFrom(reference, to: listener)
     }
     
+    // MARK: - Methods
+    
+    private func addNews(_ news: News, to target: DatabaseReference) {
+        let imageUrlsCollection = news.imageUrlsCollection
+        news.dropImageURLs()
+        let newsKey = target.childByAutoId().key
+        news.key = newsKey
+        target.child(newsKey).observe(.value) { _ in
+            if let imageUrlsCollection = imageUrlsCollection {
+                for imageURL in imageUrlsCollection {
+                    target.child(newsKey).child(MyFireDatabase.NEWS_IMAGE_URLS_ROOT).childByAutoId().setValue(imageURL)
+                }
+            }
+        }
+        target.child(newsKey).setValue(news.convertingPrimitivePropertiesToDictionary())
+        target.child(newsKey).child(MyFireDatabase.NEEDS_IMAGE_URLS_ROOT).setValue(imageUrlsCollection)
+    }
+    
+    private func retrieveNewsCollectionFrom(_ newsCollectionReference: DatabaseReference, to listener: IDatabaseResultListener) {
+        newsCollectionReference.observeSingleEvent(of: .value) { snapshot in
+            
+            var newsCollection = [String: News]()
+            for newsSnapshot in snapshot.children {
+                let news = News(snapshot: newsSnapshot as! DataSnapshot)
+                newsCollection[news.key!] = news
+            }
+            
+            listener.onNewsListRetrieved(resultList: newsCollection)
+        }
+    }
+    
+    private func retrieveNeedsCollectionFrom(_ needsCollectionReference: DatabaseReference, to listener: IDatabaseResultListener) {
+        needsCollectionReference.observeSingleEvent(of: .value) { snapshot in
+            
+            var needsCollection = [String: Need]()
+            for needSnapshot in snapshot.children {
+                let need = Need(snapshot: needSnapshot as! DataSnapshot)
+                needsCollection[need.key!] = need
+            }
+            listener.onNeedsListRetrieved(resultList: needsCollection)
+        }
+    }
 }
