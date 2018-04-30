@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="-1002" y="-855"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="OIN-KX-yCg">
             <objects>
-                <viewController id="VLs-QW-0T9" sceneMemberID="viewController">
+                <viewController id="VLs-QW-0T9" customClass="LoginViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ag3-zl-oQn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,23 +68,25 @@
                                     <color key="titleColor" red="1" green="0.99672237519999995" blue="0.98990703280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ROw-vq-Ebp">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ROw-vq-Ebp">
                                 <rect key="frame" x="56" y="221" width="208" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="no" textContentType="username"/>
                                 <connections>
-                                    <outlet property="delegate" destination="VLs-QW-0T9" id="XYo-DF-DjE"/>
+                                    <action selector="didEndEditingLogin:" destination="VLs-QW-0T9" eventType="editingDidEndOnExit" id="Nwv-BI-beE"/>
+                                    <outlet property="delegate" destination="VLs-QW-0T9" id="HkV-a3-AOd"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6H5-ey-beY">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6H5-ey-beY">
                                 <rect key="frame" x="56" y="259" width="208" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" smartInsertDeleteType="no" textContentType="password"/>
                                 <connections>
+                                    <action selector="login" destination="VLs-QW-0T9" eventType="editingDidEndOnExit" id="S5b-db-e7O"/>
                                     <outlet property="delegate" destination="VLs-QW-0T9" id="NmY-S9-F14"/>
                                 </connections>
                             </textField>
@@ -99,6 +101,9 @@
                                 <state key="normal" title="Войти">
                                     <color key="titleColor" red="1" green="0.99672237519999995" blue="0.98990703280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="login" destination="VLs-QW-0T9" eventType="touchUpInside" id="D3a-JF-z6c"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KbD-yU-2fx">
                                 <rect key="frame" x="56" y="449" width="208" height="43"/>
@@ -119,6 +124,11 @@
                         <color key="backgroundColor" red="0.16470588235294117" green="0.40000000000000002" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="LpO-uU-XPY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="ROw-vq-Ebp" id="T3g-5d-lnT"/>
+                        <outlet property="passwordTextField" destination="6H5-ey-beY" id="tc3-Hz-Zia"/>
+                        <segue destination="sDB-7X-3fW" kind="presentation" identifier="Login" modalTransitionStyle="flipHorizontal" id="84z-Tk-iGd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvq-84-IqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

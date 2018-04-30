@@ -10,11 +10,35 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
 
+    
+    @IBAction func didEndEditingLogin(_ sender: UITextField) {
+        passwordTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func login() {
+        // TODO: Add database business here
+        
+        // Prevent try to login with empty fields
+        if (loginTextField.text!.isEmpty) {
+            shakeView(loginTextField)
+            loginTextField.becomeFirstResponder()
+            return
+        } else if (passwordTextField.text!.isEmpty) {
+            shakeView(passwordTextField)
+            passwordTextField.becomeFirstResponder()
+            return
+        }
+        
+        performSegue(withIdentifier: "Login", sender: nil)
+    }
     
     /*
     // MARK: - Navigation
@@ -25,4 +49,8 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+extension LoginViewController: UITextFieldDelegate {
+
 }
