@@ -131,6 +131,8 @@
                     <connections>
                         <outlet property="loginTextField" destination="ROw-vq-Ebp" id="T3g-5d-lnT"/>
                         <outlet property="passwordTextField" destination="6H5-ey-beY" id="tc3-Hz-Zia"/>
+                        <outletCollection property="buttonsWithFilledBackground" destination="yBe-G0-OYo" collectionClass="NSMutableArray" id="LxO-Kw-B4W"/>
+                        <outletCollection property="buttonsWithFilledBackground" destination="sEr-uq-aVC" collectionClass="NSMutableArray" id="QL8-zr-aeI"/>
                         <segue destination="sDB-7X-3fW" kind="presentation" identifier="Login" modalTransitionStyle="flipHorizontal" id="84z-Tk-iGd"/>
                     </connections>
                 </viewController>

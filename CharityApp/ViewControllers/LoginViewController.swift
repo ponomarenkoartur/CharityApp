@@ -13,9 +13,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet var buttonsWithFilledBackground: [UIButton]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        buttonsWithFilledBackground.forEach { button in
+            print(button)
+            roundCorners(of: button, withCornerRadius: 5)
+        }
     }
 
     

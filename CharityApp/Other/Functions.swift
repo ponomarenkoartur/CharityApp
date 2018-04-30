@@ -24,3 +24,8 @@ func shakeView(_ viewToShake: UIView) {
     
     viewToShake.layer.add(animation, forKey: "position")
 }
+
+func roundCorners(of viewToRound: UIView, withCornerRadius cornerRadius: CGFloat) {
+    viewToRound.layer.cornerRadius = cornerRadius
+    viewToRound.clipsToBounds = true
+}
