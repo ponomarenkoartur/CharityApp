@@ -23,14 +23,15 @@ class InfoItem: ImageContentCollectionContainer {
     
     // MARK: - Initialization
     
-    init(title: String, text: String, date:
-        Date, imageUrlsCollection: [String : String]?, tagsCollection: [String: String]?) {
+    init(key: String?, title: String, text: String, date:
+        Date, likes: Int, imageUrlsCollection: [String : String]?, tagsCollection: [String: String]?) {
+        self.key = key
         self.title = title
         self.text = text
         self.date = date
+        self.likes = likes
         self.imageUrlsCollection = imageUrlsCollection
         self.tagsCollection = tagsCollection
-        likes = 0
     }
     
     // MARK: - ConvertibleToDictionaty

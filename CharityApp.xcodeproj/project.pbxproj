@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750F6B392075EFFD009B5514 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750F6B382075EFFD009B5514 /* NewsCell.xib */; };
 		7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179039204EFD1A00476E17 /* AppDelegate.swift */; };
 		7517903C204EFD1A00476E17 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517903B204EFD1A00476E17 /* HomeViewController.swift */; };
 		7517903F204EFD1A00476E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7517903D204EFD1A00476E17 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D9204F013C00137D28 /* NewsContainer.swift */; };
 		75A5F3DC204F01C400137D28 /* IDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3DB204F01C400137D28 /* IDatabase.swift */; };
 		75A5F3DE204F01E200137D28 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3DD204F01E200137D28 /* Organization.swift */; };
+		75BF5D4420978873000AFFB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF5D4320978873000AFFB2 /* LoginViewController.swift */; };
 		75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FECA42204EFE8A00003210 /* GoogleService-Info.plist */; };
 		84DF44B8240A11C6AFED4CA6 /* Pods_CharityApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,7 @@
 		19A8CD0548096350A1118D67 /* Pods-CharityApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp.debug.xcconfig"; sourceTree = "<group>"; };
 		351D9F021CBE898F11AA1E9E /* Pods-CharityApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp.release.xcconfig"; sourceTree = "<group>"; };
 		3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		750F6B382075EFFD009B5514 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		75179036204EFD1A00476E17 /* CharityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75179039204EFD1A00476E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7517903B204EFD1A00476E17 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		75A5F3D9204F013C00137D28 /* NewsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsContainer.swift; sourceTree = "<group>"; };
 		75A5F3DB204F01C400137D28 /* IDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabase.swift; sourceTree = "<group>"; };
 		75A5F3DD204F01E200137D28 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		75BF5D4320978873000AFFB2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75FECA42204EFE8A00003210 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +96,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		750F6B372075EF91009B5514 /* NIBs */ = {
+			isa = PBXGroup;
+			children = (
+				750F6B382075EFFD009B5514 /* NewsCell.xib */,
+			);
+			path = NIBs;
+			sourceTree = "<group>";
+		};
 		7517902D204EFD1A00476E17 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +129,7 @@
 				75179045204EFD1A00476E17 /* Info.plist */,
 				7517904C204EFD3B00476E17 /* Layouts */,
 				75A5F3D1204EFFFE00137D28 /* Model */,
+				750F6B372075EF91009B5514 /* NIBs */,
 				7517904D204EFD5B00476E17 /* Other */,
 				7517904B204EFD2B00476E17 /* Support Files */,
 				75308AB02054537900AB1364 /* ViewCells */,
@@ -155,6 +168,7 @@
 		7517904E204EFD6500476E17 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				75BF5D4320978873000AFFB2 /* LoginViewController.swift */,
 				7517903B204EFD1A00476E17 /* HomeViewController.swift */,
 				75308AA8205447EC00AB1364 /* NeedsViewController.swift */,
 				75308AAA2054480400AB1364 /* DonationsViewController.swift */,
@@ -227,7 +241,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = Artur;
 				TargetAttributes = {
 					75179035204EFD1A00476E17 = {
@@ -262,6 +276,7 @@
 				75179044204EFD1A00476E17 /* LaunchScreen.storyboard in Resources */,
 				75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */,
 				75179041204EFD1A00476E17 /* Assets.xcassets in Resources */,
+				750F6B392075EFFD009B5514 /* NewsCell.xib in Resources */,
 				7517903F204EFD1A00476E17 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +352,7 @@
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
 				755F80E7204F07EB006DAAA5 /* Need.swift in Sources */,
 				75308AAD2054481400AB1364 /* AccountViewController.swift in Sources */,
+				75BF5D4420978873000AFFB2 /* LoginViewController.swift in Sources */,
 				75A5F3D6204F00C000137D28 /* InfoItem.swift in Sources */,
 				75A5F3DE204F01E200137D28 /* Organization.swift in Sources */,
 				755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */,
@@ -390,6 +406,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -397,6 +414,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -447,6 +465,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -454,6 +473,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

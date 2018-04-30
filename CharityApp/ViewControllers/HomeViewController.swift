@@ -15,16 +15,22 @@ class HomeViewController: UITableViewController {
     
     var myFireDatabase: MyFireDatabase!
     var newsCollection = [News]()
-    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myFireDatabase.getNewsFromOrganizationWithKey("Example", to: self)
+        let news1 = News(key: nil, title: "News1Title", text: "News1Text", date: Date(), likes: 34, imageUrlsCollection: nil, tagsCollection: nil)
         
-        if let url = URL(string: "http://www.apple.com/euro/ios/ios8/a/generic/images/og.png") {
-//            downloadImage(url: url)
-        }
+        let news2 = News(key: nil, title: "News2Title", text: "News2Text", date: Date(), likes: 23, imageUrlsCollection: nil, tagsCollection: nil)
+        
+        newsCollection.append(contentsOf: [news1, news2])
+        
+        //myFireDatabase.getNewsFromOrganizationWithKey("Example", to: self)
+        
+        
+        // Register Cells from a Nib
+        let cellNib = UINib(nibName: TableViewCellIdenifiers.newsCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdenifiers.newsCell)
     }
 
     // MARK: - Actions
@@ -43,10 +49,9 @@ extension HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let news = newsCollection[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as! NewsCell
-        cell.titleLabel.text = news.title
-        cell.dateLabel.text = dateFormatter.string(from: news.date)
+        let pieceOfNews = newsCollection[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdenifiers.newsCell, for: indexPath) as! NewsCell
+        configure(cell, for: pieceOfNews)
         return cell
     }
     
@@ -60,6 +65,11 @@ extension HomeViewController {
 //        let news = newsCollection[indexPath.row]
 //        let key = organization.info.name
 //        myFireDatabase.deleteOrganizationWithKey(key)
+    }
+    
+    func configure(_ cell: NewsCell, for news: News) {
+        cell.titleLabel.text = news.title
+        cell.dateLabel.text = dateFormatter.string(from: news.date)
     }
 }
 
@@ -78,5 +88,11 @@ extension HomeViewController: IDatabaseResultListener {
     
     func onError() {
         
+    }
+}
+
+extension HomeViewController {
+    struct TableViewCellIdenifiers {
+        static let newsCell = "NewsCell"
     }
 }

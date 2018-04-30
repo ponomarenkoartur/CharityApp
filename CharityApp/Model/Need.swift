@@ -17,10 +17,10 @@ class Need: InfoItem, NewsCollectionContainer {
     
     // MARK: - Initialization
     
-    init(title: String, text: String, isCompleted: Bool, likes: Int, date: Date, imageUrlsCollection: [String: String]?, tagsCollection: [String: String]?, newsCollection: [String: News]?) {
+    init(key: String?, title: String, text: String, date: Date, likes: Int, imageUrlsCollection: [String: String]?, tagsCollection: [String: String]?, newsCollection: [String: News]?, isCompleted: Bool) {
         self.isCompleted = isCompleted
         self.newsCollection = newsCollection
-        super.init(title: title, text: text, date: date, imageUrlsCollection: imageUrlsCollection, tagsCollection: tagsCollection)
+        super.init(key: key, title: title, text: text, date: date, likes: likes, imageUrlsCollection: imageUrlsCollection, tagsCollection: tagsCollection)
     }
     
     init(snapshot: DataSnapshot) {
@@ -37,13 +37,14 @@ class Need: InfoItem, NewsCollectionContainer {
         let dateString = snapshotValue["dateString"] as! String
         let date = dateFormatter.date(from: dateString)!
         
-        super.init(title: snapshotValue["title"] as! String,
+        
+        super.init(key: snapshotValue["charityNeedKey"] as? String,
+                   title: snapshotValue["title"] as! String,
                    text: snapshotValue["text"] as! String,
                    date: date,
+                   likes: snapshotValue["likes"] as! Int,
                    imageUrlsCollection: snapshotValue["imageUrls"] as? [String: String],
                    tagsCollection: snapshotValue["tags"] as? [String: String])
-        
-        key = snapshotValue["charityNeedKey"] as? String
     }
     
     // MARK: - Methods

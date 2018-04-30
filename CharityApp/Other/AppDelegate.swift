@@ -17,12 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var myFireDatabase = MyFireDatabase()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
-        
-        let tabBarController = window!.rootViewController as! UITabBarController
-        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
-        let controller = navigationController.viewControllers[0] as! HomeViewController
-        controller.myFireDatabase = myFireDatabase
+//        FirebaseApp.configure()
+//        
+//        let tabBarController = window!.rootViewController as! UITabBarController
+//        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
+//        let controller = navigationController.viewControllers[0] as! HomeViewController
+//        controller.myFireDatabase = myFireDatabase
         return true
     }
 
