@@ -190,12 +190,12 @@
         <!--Recover Password View Controller-->
         <scene sceneID="Hhj-1c-51a">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0p2-qg-7FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="sKA-T6-Ni1" customClass="RecoverPasswordViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="hMH-Zq-tcN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <gestureRecognizers/>
                         <sections>
                             <tableViewSection headerTitle="Введите e-mail" id="z68-FZ-mzb">
                                 <cells>
@@ -245,6 +245,7 @@
                         <outlet property="emailTextField" destination="j0P-DT-jSh" id="utS-aa-0YS"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0p2-qg-7FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-922.5" y="1123.943661971831"/>
         </scene>

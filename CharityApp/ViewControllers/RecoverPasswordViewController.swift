@@ -12,9 +12,13 @@ class RecoverPasswordViewController: UITableViewController {
     // MARK: Outlets
     
     @IBOutlet weak var emailTextField: UITextField!
-    
+
     
     // MARK: View Behaviour
+    
+    override func viewWillAppear(_ animated: Bool) {
+        emailTextField.becomeFirstResponder()
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         emailTextField.resignFirstResponder()

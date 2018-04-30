@@ -1,4 +1,4 @@
-//
+
 //  LoginViewController.swift
 //  CharityApp
 //
@@ -47,8 +47,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
-        loginTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+        if loginTextField.isFirstResponder {
+            loginTextField.resignFirstResponder()
+        } else if passwordTextField.isFirstResponder {
+            passwordTextField.resignFirstResponder()            
+        }
     }
     
     
