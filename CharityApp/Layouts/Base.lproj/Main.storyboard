@@ -75,7 +75,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="no" textContentType="username"/>
                                 <connections>
-                                    <action selector="didEndEditingLogin:" destination="VLs-QW-0T9" eventType="editingDidEndOnExit" id="Nwv-BI-beE"/>
+                                    <action selector="beginEditingPassword:" destination="VLs-QW-0T9" eventType="editingDidEndOnExit" id="vR5-Iu-EUe"/>
                                     <outlet property="delegate" destination="VLs-QW-0T9" id="HkV-a3-AOd"/>
                                 </connections>
                             </textField>
@@ -122,7 +122,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16470588235294117" green="0.40000000000000002" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="LpO-uU-XPY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="mzF-Lm-Kjc" appends="YES" id="cPn-aW-Dp8"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="loginTextField" destination="ROw-vq-Ebp" id="T3g-5d-lnT"/>
@@ -131,6 +135,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvq-84-IqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mzF-Lm-Kjc">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="VLs-QW-0T9" id="iAr-hs-rnl"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2788.125" y="198.59154929577466"/>
         </scene>

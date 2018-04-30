@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     }
 
     
-    @IBAction func didEndEditingLogin(_ sender: UITextField) {
+    @IBAction func beginEditingPassword(_ sender: UITextField) {
         passwordTextField.becomeFirstResponder()
     }
     
@@ -27,11 +27,11 @@ class LoginViewController: UIViewController {
         // TODO: Add database business here
         
         // Prevent try to login with empty fields
-        if (loginTextField.text!.isEmpty) {
+        if loginTextField.text!.isEmpty {
             shakeView(loginTextField)
             loginTextField.becomeFirstResponder()
             return
-        } else if (passwordTextField.text!.isEmpty) {
+        } else if passwordTextField.text!.isEmpty {
             shakeView(passwordTextField)
             passwordTextField.becomeFirstResponder()
             return
@@ -39,6 +39,12 @@ class LoginViewController: UIViewController {
         
         performSegue(withIdentifier: "Login", sender: nil)
     }
+    
+    @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+    
     
     /*
     // MARK: - Navigation
@@ -49,8 +55,4 @@ class LoginViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
-
-extension LoginViewController: UITextFieldDelegate {
-
 }
