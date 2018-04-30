@@ -23,6 +23,7 @@
 		75308AB22054549E00AB1364 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AB12054549E00AB1364 /* Functions.swift */; };
 		755F80E7204F07EB006DAAA5 /* Need.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80E6204F07EB006DAAA5 /* Need.swift */; };
 		755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */; };
+		75774E842097A0BC0021B348 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75774E832097A0BC0021B348 /* RecoverPasswordViewController.swift */; };
 		75A5F3D4204F009700137D28 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D3204F009700137D28 /* News.swift */; };
 		75A5F3D6204F00C000137D28 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D5204F00C000137D28 /* InfoItem.swift */; };
 		75A5F3D8204F00E500137D28 /* ImageContentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D7204F00E500137D28 /* ImageContentContainer.swift */; };
@@ -56,6 +57,7 @@
 		75308AB12054549E00AB1364 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		755F80E6204F07EB006DAAA5 /* Need.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Need.swift; sourceTree = "<group>"; };
 		755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFireDatabase.swift; sourceTree = "<group>"; };
+		75774E832097A0BC0021B348 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecoverPasswordViewController.swift; path = "/Volumes/Files Speed/Development/CharityApp/CharityApp/ViewControllers/RecoverPasswordViewController.swift"; sourceTree = "<absolute>"; };
 		75A5F3D0204EFF6600137D28 /* CharityApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharityApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		75A5F3D3204F009700137D28 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		75A5F3D5204F00C000137D28 /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				75BF5D4320978873000AFFB2 /* LoginViewController.swift */,
+				75774E832097A0BC0021B348 /* RecoverPasswordViewController.swift */,
 				7517903B204EFD1A00476E17 /* HomeViewController.swift */,
 				75308AA8205447EC00AB1364 /* NeedsViewController.swift */,
 				75308AAA2054480400AB1364 /* DonationsViewController.swift */,
@@ -366,6 +369,7 @@
 				75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */,
 				7517903C204EFD1A00476E17 /* HomeViewController.swift in Sources */,
 				7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */,
+				75774E842097A0BC0021B348 /* RecoverPasswordViewController.swift in Sources */,
 				75A5F3DC204F01C400137D28 /* IDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

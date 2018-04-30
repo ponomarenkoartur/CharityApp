@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Volumes/Files Speed/Development/CharityApp/CharityApp/ViewControllers/RecoverPasswordViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:CharityApp.xcodeproj">
    </FileRef>
    <FileRef
