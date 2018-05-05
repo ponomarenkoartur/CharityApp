@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UITableViewController {
+class NewsViewController: UITableViewController {
 
     // MARK: - Properties
     
@@ -40,7 +40,7 @@ class HomeViewController: UITableViewController {
     }
 }
 
-extension HomeViewController {
+extension NewsViewController {
     
     // MARK: - UITableViewDataSource
     
@@ -58,22 +58,20 @@ extension HomeViewController {
     // MARK: - UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        let news = newsCollection[indexPath.row]
-//        let key = organization.info.name
-//        myFireDatabase.deleteOrganizationWithKey(key)
+        return 400
     }
     
     func configure(_ cell: NewsCell, for news: News) {
         cell.titleLabel.text = news.title
         cell.dateLabel.text = dateFormatter.string(from: news.date)
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
 }
 
-extension HomeViewController: IDatabaseResultListener {
+extension NewsViewController: IDatabaseResultListener {
     func onNewsListRetrieved(resultList: [String : News]) {
         newsCollection.removeAll()
         for item in resultList {
@@ -91,7 +89,7 @@ extension HomeViewController: IDatabaseResultListener {
     }
 }
 
-extension HomeViewController {
+extension NewsViewController {
     struct TableViewCellIdenifiers {
         static let newsCell = "NewsCell"
     }

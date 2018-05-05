@@ -16,3 +16,5 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
 }
+
+

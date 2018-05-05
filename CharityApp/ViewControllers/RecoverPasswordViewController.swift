@@ -2,26 +2,27 @@
 //  RecoverPasswordViewController.swift
 //  
 //
-//  Created by Artur on 4/30/18.
+//  Created by Artur on 5/3/18.
 //
 
 import UIKit
 
 class RecoverPasswordViewController: UITableViewController {
-
+    
     // MARK: Outlets
-    
-    @IBOutlet weak var emailTextField: UITextField!
 
+    @IBOutlet weak var emailTextField: UITextField!
     
-    // MARK: View Behaviour
+    // MARK: View behavior
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         emailTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        emailTextField.resignFirstResponder()
+        view.endEditing(true)
     }
     
     // MARK: Action
@@ -33,11 +34,4 @@ class RecoverPasswordViewController: UITableViewController {
     @IBAction func done(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
-
-    // MARK: UITableViewDelegate
-    
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
-    }
-
 }

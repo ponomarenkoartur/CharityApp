@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLs-QW-0T9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sDB-7X-3fW">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chut' pomáhat-->
+        <!--News-->
         <scene sceneID="qV2-fY-dLT">
             <objects>
-                <tableViewController id="RM9-fA-ZKF" customClass="HomeViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="RM9-fA-ZKF" customClass="NewsViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YwP-zv-7qu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                             <outlet property="delegate" destination="RM9-fA-ZKF" id="3MR-Pq-6La"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Chut' pomáhat" id="C1M-pL-S7b">
+                    <navigationItem key="navigationItem" title="News" id="C1M-pL-S7b">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="bsT-Ks-RC1">
                             <connections>
                                 <action selector="refresh:" destination="RM9-fA-ZKF" id="ZuT-ol-J9T"/>
@@ -68,7 +68,7 @@
                                     <color key="titleColor" red="1" green="0.99672237519999995" blue="0.98990703280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ROw-vq-Ebp">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ROw-vq-Ebp">
                                 <rect key="frame" x="56" y="221" width="208" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -127,9 +127,6 @@
                         <color key="backgroundColor" red="0.16470588235294117" green="0.40000000000000002" blue="0.68235294117647061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="LpO-uU-XPY"/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="mzF-Lm-Kjc" appends="YES" id="cPn-aW-Dp8"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="loginTextField" destination="ROw-vq-Ebp" id="T3g-5d-lnT"/>
@@ -140,11 +137,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvq-84-IqJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="mzF-Lm-Kjc">
-                    <connections>
-                        <action selector="hideKeyboard:" destination="VLs-QW-0T9" id="iAr-hs-rnl"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2788.125" y="198.59154929577466"/>
         </scene>
@@ -187,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="-919" y="-429"/>
         </scene>
-        <!--Recover Password View Controller-->
+        <!--Recover-->
         <scene sceneID="Hhj-1c-51a">
             <objects>
                 <tableViewController id="sKA-T6-Ni1" customClass="RecoverPasswordViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -197,17 +189,17 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <gestureRecognizers/>
                         <sections>
-                            <tableViewSection headerTitle="Введите e-mail" id="z68-FZ-mzb">
+                            <tableViewSection headerTitle="Введите ваш e-mail" id="z68-FZ-mzb">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="NZT-Vh-Z1h">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="NZT-Vh-Z1h">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NZT-Vh-Z1h" id="mep-oh-9Z5">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="j0P-DT-jSh">
-                                                    <rect key="frame" x="16" y="6" width="288" height="36"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="j0P-DT-jSh">
+                                                    <rect key="frame" x="16" y="6" width="288" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
@@ -229,20 +221,20 @@
                             <outlet property="delegate" destination="sKA-T6-Ni1" id="bI6-Zl-Mel"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="fUU-uD-Ncn">
+                    <navigationItem key="navigationItem" title="Recover" id="fUU-uD-Ncn">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rOL-HW-OF8">
                             <connections>
-                                <action selector="cancel:" destination="sKA-T6-Ni1" id="6Dd-GT-YTg"/>
+                                <action selector="cancel:" destination="sKA-T6-Ni1" id="lPh-GA-sGN"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="hsv-TY-zoa">
                             <connections>
-                                <action selector="done:" destination="sKA-T6-Ni1" id="DnE-mP-iES"/>
+                                <action selector="done:" destination="sKA-T6-Ni1" id="a9R-lf-E4t"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="emailTextField" destination="j0P-DT-jSh" id="utS-aa-0YS"/>
+                        <outlet property="emailTextField" destination="j0P-DT-jSh" id="UFN-jS-q5c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0p2-qg-7FY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -256,14 +248,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="ODa-KT-qH4">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="0.99672237519999995" blue="0.98990703280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.1647058824" green="0.40000000000000002" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="0.99672237519999995" blue="0.98990703280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" red="1" green="0.99672237519999995" blue="0.98990703280000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="sKA-T6-Ni1" kind="relationship" relationship="rootViewController" id="uFG-tE-xXp"/>

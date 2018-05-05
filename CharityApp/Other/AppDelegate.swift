@@ -23,6 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
 //        let controller = navigationController.viewControllers[0] as! HomeViewController
 //        controller.myFireDatabase = myFireDatabase
+        
+        // Set appearence
+        let navigationBarAppearance = UINavigationBar.appearance()
+        navigationBarAppearance.tintColor = UIColor.white
+//        navigationBarAppearance.barTintColor = UIColor(red: 42, green: 102, blue: 174, alpha: 0.0)
+        navigationBarAppearance.barTintColor = UIColor(hex: 0x2A66AE)
+        navigationBarAppearance.titleTextAttributes = [
+            NSAttributedStringKey.foregroundColor : UIColor.white
+        ]
+        navigationBarAppearance.isTranslucent = false
+        
         return true
     }
 

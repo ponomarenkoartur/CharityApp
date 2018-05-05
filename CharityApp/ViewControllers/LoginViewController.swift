@@ -17,13 +17,12 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        hideKeyboardWhenTappedAround()
         buttonsWithFilledBackground.forEach { button in
             print(button)
             roundCorners(of: button, withCornerRadius: 5)
         }
     }
-
     
     @IBAction func beginEditingPassword(_ sender: UITextField) {
         passwordTextField.becomeFirstResponder()
@@ -44,14 +43,6 @@ class LoginViewController: UIViewController {
         }
         
         performSegue(withIdentifier: "Login", sender: nil)
-    }
-    
-    @IBAction func hideKeyboard(_ sender: UITapGestureRecognizer) {
-        if loginTextField.isFirstResponder {
-            loginTextField.resignFirstResponder()
-        } else if passwordTextField.isFirstResponder {
-            passwordTextField.resignFirstResponder()            
-        }
     }
     
     

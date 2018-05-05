@@ -29,3 +29,25 @@ func roundCorners(of viewToRound: UIView, withCornerRadius cornerRadius: CGFloat
     viewToRound.layer.cornerRadius = cornerRadius
     viewToRound.clipsToBounds = true
 }
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension UIColor {
+    convenience init(hex: UInt32, alpha: Double = 1.0) {
+        let red = CGFloat((hex & 0xFF0000) >> 16) / 256.0
+        let green = CGFloat((hex & 0xFF00) >> 8) / 256.0
+        let blue = CGFloat(hex & 0xFF) / 256.0
+        self.init(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
+    }
+}
+
