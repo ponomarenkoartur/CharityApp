@@ -17,21 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var myFireDatabase = MyFireDatabase()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-//        FirebaseApp.configure()
-//        
-//        let tabBarController = window!.rootViewController as! UITabBarController
-//        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
-//        let controller = navigationController.viewControllers[0] as! HomeViewController
-//        controller.myFireDatabase = myFireDatabase
+        FirebaseApp.configure()
+
+//        if let _ = Auth.auth().currentUser {
+//            window?.rootViewController?.performSegue(withIdentifier: "Login", sender: nil)
+//        }
         
         // Set appearence
         let navigationBarAppearance = UINavigationBar.appearance()
         navigationBarAppearance.tintColor = UIColor.white
-//        navigationBarAppearance.barTintColor = UIColor(red: 42, green: 102, blue: 174, alpha: 0.0)
         navigationBarAppearance.barTintColor = UIColor(hex: 0x2A66AE)
-        navigationBarAppearance.titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor : UIColor.white
-        ]
+        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationBarAppearance.isTranslucent = false
         
         return true

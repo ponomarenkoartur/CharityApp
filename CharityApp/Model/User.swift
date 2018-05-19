@@ -9,16 +9,18 @@
 import Foundation
 
 class User {
+    var email: String
+    var password: String
     var firstName: String?
     var surname: String?
-    var email: String
     var accountCreationDate: Date
     var isAdmin: Bool
     var likedNewsIds: [String]
     var likedOrganizationNewsIds: [String]
     
-    init(email: String, firstName: String, surname: String, accountCreationDate: Date, isAdmin: Bool, likedNewsIds: [String], likedOrganizationNewsIds: [String]) {
+    init(email: String, password: String, firstName: String?, surname: String?, accountCreationDate: Date, isAdmin: Bool, likedNewsIds: [String], likedOrganizationNewsIds: [String]) {
         self.email = email
+        self.password = password
         self.firstName = firstName
         self.surname = surname
         self.accountCreationDate = accountCreationDate
@@ -28,7 +30,24 @@ class User {
     }
     
     func getSnapshot() -> [String: Any] {
-        return ["email": self.email]
+        var snapshot: [String: Any] = [
+            "email": email,
+            "password": password,
+            "accountCreationDate": dateFormatter.string(from: accountCreationDate),
+            "isAdmin": isAdmin,
+            "likedNewsIds": likedNewsIds,
+            "likedOrganizationNewsIds": likedOrganizationNewsIds
+            ]
+        
+        if let firstName = firstName {
+            snapshot["firstName"] = firstName
+        }
+        
+        if let surname = surname {
+            snapshot["surname"] = surname
+        }
+        
+        return snapshot
     }
     
     

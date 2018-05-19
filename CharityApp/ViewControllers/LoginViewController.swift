@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet var buttonsWithFilledBackground: [UIButton]!
@@ -28,18 +28,25 @@ class LoginViewController: UIViewController {
         passwordTextField.becomeFirstResponder()
     }
     
-    @IBAction func login() {
+    @IBAction func signIn() {
         // TODO: Add database business here
         
-        // Prevent try to login with empty fields
-        if loginTextField.text!.isEmpty {
-            loginTextField.shake()
-            loginTextField.becomeFirstResponder()
+        // Prevent try to sign in with empty fields
+        if emailTextField.text!.isEmpty {
+            emailTextField.shake()
+            emailTextField.becomeFirstResponder()
             return
         } else if passwordTextField.text!.isEmpty {
             passwordTextField.shake()
             passwordTextField.becomeFirstResponder()
             return
+        }
+        
+        if let email = emailTextField.text,
+            let password = passwordTextField.text {
+            AuthService.instance.loginUser(withEmail: email, andPassword: password) { (status, error) in
+                
+            }
         }
         
         performSegue(withIdentifier: "Login", sender: nil)

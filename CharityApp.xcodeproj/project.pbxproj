@@ -17,6 +17,7 @@
 		7523F62E20B023E8005D8CEA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F62D20B023E8005D8CEA /* AuthService.swift */; };
 		7523F63020B02446005D8CEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F62F20B02446005D8CEA /* User.swift */; };
 		7523F63220B04650005D8CEA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F63120B04650005D8CEA /* DataService.swift */; };
+		7523F64020B071AC005D8CEA /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F63F20B071AC005D8CEA /* RegistrationVC.swift */; };
 		75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D9320503C260015D506 /* IDatabaseResultListener.swift */; };
 		75246D96205059030015D506 /* ConvertibleToDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D95205059030015D506 /* ConvertibleToDictionary.swift */; };
 		75308AA9205447EC00AB1364 /* NeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AA8205447EC00AB1364 /* NeedsViewController.swift */; };
@@ -55,6 +56,7 @@
 		7523F62D20B023E8005D8CEA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7523F62F20B02446005D8CEA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7523F63120B04650005D8CEA /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		7523F63F20B071AC005D8CEA /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		75246D9320503C260015D506 /* IDatabaseResultListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabaseResultListener.swift; sourceTree = "<group>"; };
 		75246D95205059030015D506 /* ConvertibleToDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertibleToDictionary.swift; sourceTree = "<group>"; };
 		75308AA8205447EC00AB1364 /* NeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				75308AA8205447EC00AB1364 /* NeedsViewController.swift */,
 				7517903B204EFD1A00476E17 /* NewsViewController.swift */,
 				751E4902209AE697003CDAE1 /* RecoverPasswordViewController.swift */,
+				7523F63F20B071AC005D8CEA /* RegistrationVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */,
 				75308AA9205447EC00AB1364 /* NeedsViewController.swift in Sources */,
 				751CA37E205006B500B55A44 /* OrganizationInfo.swift in Sources */,
+				7523F64020B071AC005D8CEA /* RegistrationVC.swift in Sources */,
 				75308AB22054549E00AB1364 /* Functions.swift in Sources */,
 				75A5F3D4204F009700137D28 /* News.swift in Sources */,
 				7523F63220B04650005D8CEA /* DataService.swift in Sources */,
