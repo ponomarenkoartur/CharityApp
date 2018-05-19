@@ -64,6 +64,7 @@ extension NewsViewController {
     func configure(_ cell: NewsCell, for news: News) {
         cell.titleLabel.text = news.title
         cell.dateLabel.text = dateFormatter.string(from: news.date)
+        cell.setLikeCounterLabelText(to: String(news.likes))
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

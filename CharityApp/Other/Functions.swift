@@ -8,26 +8,34 @@
 
 import UIKit
 
+let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy.MM.dd HH:mm"
+    return formatter
+}()
+
 func makeCell(for tableView: UITableView, withIdentifier identifier: String, style: UITableViewCellStyle = .default) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
                 UITableViewCell(style: style, reuseIdentifier: identifier)
     return cell
 }
 
-func shakeView(_ viewToShake: UIView) {
-    let animation = CABasicAnimation(keyPath: "position")
-    animation.duration = 0.07
-    animation.repeatCount = 3
-    animation.autoreverses = true
-    animation.fromValue = NSValue(cgPoint: CGPoint(x: viewToShake.center.x - 2, y: viewToShake.center.y))
-    animation.toValue = NSValue(cgPoint: CGPoint(x: viewToShake.center.x + 2, y: viewToShake.center.y))
+extension UIView {
+    func roundCorners(withRadius radius: CGFloat) {
+        layer.cornerRadius = radius
+        clipsToBounds = true
+    }
     
-    viewToShake.layer.add(animation, forKey: "position")
-}
-
-func roundCorners(of viewToRound: UIView, withCornerRadius cornerRadius: CGFloat) {
-    viewToRound.layer.cornerRadius = cornerRadius
-    viewToRound.clipsToBounds = true
+    func shake() {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 3
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 2, y: self.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 2, y: self.center.y))
+        
+        self.layer.add(animation, forKey: "position")
+    }
 }
 
 extension UIViewController {

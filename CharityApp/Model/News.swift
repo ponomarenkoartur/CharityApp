@@ -9,12 +9,6 @@
 import Foundation
 import Firebase
 
-let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy.MM.dd HH:mm"
-    return formatter
-}()
-
 class News: InfoItem {
     
     // MARK: - Initialization

@@ -14,7 +14,14 @@ class NewsCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var likeCountLabel: UILabel!
     
+    // MARK: - Methods
+    
+    func setLikeCounterLabelText(to text: String) {
+        likeCountLabel.text = "\(text) likes"
+        likeCountLabel.sizeToFit()
+    }
 }
 
 

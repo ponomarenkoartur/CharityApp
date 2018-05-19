@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         buttonsWithFilledBackground.forEach { button in
             print(button)
-            roundCorners(of: button, withCornerRadius: 5)
+            button.roundCorners(withRadius: 5)
         }
     }
     
@@ -33,11 +33,11 @@ class LoginViewController: UIViewController {
         
         // Prevent try to login with empty fields
         if loginTextField.text!.isEmpty {
-            shakeView(loginTextField)
+            loginTextField.shake()
             loginTextField.becomeFirstResponder()
             return
         } else if passwordTextField.text!.isEmpty {
-            shakeView(passwordTextField)
+            passwordTextField.shake()
             passwordTextField.becomeFirstResponder()
             return
         }
