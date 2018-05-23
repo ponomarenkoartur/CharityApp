@@ -24,14 +24,17 @@ class AuthService {
         }
     }
     
-    func loginUser(withEmail email: String, andPassword password: String, loginComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
+    func loginUser(withEmail email: String, andPassword password: String, loginComplete: @escaping (_ status: Bool, _ errorCode: AuthErrorCode?) -> ()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             guard let _ = user else {
-                loginComplete(false, error)
+                if let error = error as NSError? {
+                    let errorCode = AuthErrorCode(rawValue: error.code)
+                    loginComplete(false, errorCode)
+                }
                 return
             }
-            
             loginComplete(true, nil)
         }
     }
 }
+

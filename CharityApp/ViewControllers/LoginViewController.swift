@@ -44,22 +44,31 @@ class LoginViewController: UIViewController {
         
         if let email = emailTextField.text,
             let password = passwordTextField.text {
-            AuthService.instance.loginUser(withEmail: email, andPassword: password) { (status, error) in
-                
+            AuthService.instance.loginUser(withEmail: email, andPassword: password) { (status, errorCode) in
+                if status {
+                    self.performSegue(withIdentifier: "Login", sender: nil)
+                } else {
+                    if let errorCode = errorCode {
+                        // TODO: Replace standart alert controller with custim hud view
+                        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+                        let okAction = UIAlertAction(title: "OK", style: .default)
+                        alert.addAction(okAction)
+                        
+                        switch errorCode {
+                        case .invalidEmail:
+                            alert.title = "Wrong email"
+                            alert.message = "You entered wrong email.\nThere are no user with this email."
+                        case .wrongPassword:
+                            alert.title = "Wrong password"
+                            alert.message = "You entered wrong password."
+                        default:
+                            alert.title = "Error"
+                        }
+                        
+                        self.present(alert, animated: true)
+                    }
+                }
             }
         }
-        
-        performSegue(withIdentifier: "Login", sender: nil)
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }

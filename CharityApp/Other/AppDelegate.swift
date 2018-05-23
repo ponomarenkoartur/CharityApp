@@ -19,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
 
-//        if let _ = Auth.auth().currentUser {
-//            window?.rootViewController?.performSegue(withIdentifier: "Login", sender: nil)
-//        }
+        // Perform segue from 'Login' if user is signed in.
+        if let _ = Auth.auth().currentUser {
+            window?.rootViewController?.performSegue(withIdentifier: "Login", sender: nil)
+        }
         
         // Set appearence
         let navigationBarAppearance = UINavigationBar.appearance()

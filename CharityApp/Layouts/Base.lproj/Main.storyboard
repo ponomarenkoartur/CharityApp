@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="21A-Fo-ZTi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLs-QW-0T9">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -334,7 +334,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Registration" id="FW8-aB-NXG">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="g9O-gL-N4e"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="g9O-gL-N4e">
+                            <connections>
+                                <action selector="cancel:" destination="4HL-DD-KRu" id="Z2r-yT-Y48"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Sign Up" style="done" id="C0t-Ag-H3d">
                             <connections>
                                 <action selector="signUp" destination="4HL-DD-KRu" id="bGp-Ic-EJN"/>
