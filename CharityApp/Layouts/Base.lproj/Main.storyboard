@@ -33,13 +33,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ir-7c-JAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="-821"/>
+            <point key="canvasLocation" x="1609" y="-1296"/>
         </scene>
         <!--Home-->
         <scene sceneID="hV3-Iy-3b2">
             <objects>
                 <navigationController id="Fvm-0g-VAe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="erl-tK-EBO"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-outline" selectedImage="home-filled" id="erl-tK-EBO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="den-fU-GFp">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -50,7 +50,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwO-tw-bHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="-821"/>
+            <point key="canvasLocation" x="863" y="-1297"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="OIN-KX-yCg">
@@ -155,6 +155,7 @@
                     <connections>
                         <segue destination="Fvm-0g-VAe" kind="relationship" relationship="viewControllers" id="EgH-W6-PgZ"/>
                         <segue destination="hIF-eY-ngI" kind="relationship" relationship="viewControllers" id="kkE-dU-xcS"/>
+                        <segue destination="jCF-8i-qlX" kind="relationship" relationship="viewControllers" id="dKQ-U6-WvT"/>
                         <segue destination="0eu-aj-nUs" kind="relationship" relationship="viewControllers" id="KvJ-sR-3QS"/>
                         <segue destination="ELr-Ad-VCN" kind="relationship" relationship="viewControllers" id="Tln-AT-QIa"/>
                     </connections>
@@ -176,11 +177,11 @@
                             <outlet property="delegate" destination="0eu-aj-nUs" id="sAl-FN-LEb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Donations" id="TxO-go-tIb"/>
+                    <tabBarItem key="tabBarItem" title="Donations" image="money-bag-outline" selectedImage="money-bag-filled" id="TxO-go-tIb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNr-UK-Xmr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="578"/>
+            <point key="canvasLocation" x="863" y="1158"/>
         </scene>
         <!--Recover-->
         <scene sceneID="Hhj-1c-51a">
@@ -385,11 +386,30 @@
                             <outlet property="delegate" destination="ELr-Ad-VCN" id="FiR-kF-rR0"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Account" id="NL5-Fq-5ub"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="user-outline" selectedImage="user-filled" id="NL5-Fq-5ub"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0r-HS-UYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="1320"/>
+            <point key="canvasLocation" x="863" y="1899"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="sEF-Kt-vr5">
+            <objects>
+                <tableViewController id="jCF-8i-qlX" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tMF-Ra-pqE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="jCF-8i-qlX" id="Zm8-qz-ZNQ"/>
+                            <outlet property="delegate" destination="jCF-8i-qlX" id="EmT-Hw-cpB"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="News" image="news-feed-outline" selectedImage="news-feed-filled" id="FKP-Jn-9x5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rnr-ab-8en" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="238"/>
         </scene>
         <!--Needs-->
         <scene sceneID="hVG-S7-A7a">
@@ -404,15 +424,25 @@
                             <outlet property="delegate" destination="hIF-eY-ngI" id="CkK-gl-XbE"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Needs" id="7GN-1h-Bbk"/>
+                    <tabBarItem key="tabBarItem" title="Needs" image="need-outline" selectedImage="need-filled" id="7GN-1h-Bbk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyh-Lg-I1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="-116"/>
+            <point key="canvasLocation" x="863" y="-590"/>
         </scene>
     </scenes>
     <resources>
+        <image name="home-filled" width="25" height="25"/>
+        <image name="home-outline" width="25" height="25"/>
         <image name="logo" width="302" height="203"/>
+        <image name="money-bag-filled" width="25" height="25"/>
+        <image name="money-bag-outline" width="25" height="25"/>
+        <image name="need-filled" width="25" height="25"/>
+        <image name="need-outline" width="25" height="25"/>
+        <image name="news-feed-filled" width="25" height="25"/>
+        <image name="news-feed-outline" width="25" height="25"/>
+        <image name="user-filled" width="25" height="25"/>
+        <image name="user-outline" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LWY-Bb-bjD"/>
