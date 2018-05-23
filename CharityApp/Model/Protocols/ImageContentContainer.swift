@@ -7,5 +7,5 @@
 //
 
 protocol ImageContentCollectionContainer {
-    var imageUrlsCollection: [String: String]? { get set }
+    var imageUrlsCollection: [String: String] { get set }
 }

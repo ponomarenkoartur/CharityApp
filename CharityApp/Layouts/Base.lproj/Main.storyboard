@@ -24,9 +24,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="C1M-pL-S7b">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="bsT-Ks-RC1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="bsT-Ks-RC1">
                             <connections>
                                 <action selector="refresh:" destination="RM9-fA-ZKF" id="ZuT-ol-J9T"/>
+                                <segue destination="VT8-YX-8Ud" kind="presentation" id="4KC-dg-ZGL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -34,6 +35,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ir-7c-JAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1609" y="-1296"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mPd-xh-SuF">
+            <objects>
+                <navigationController id="VT8-YX-8Ud" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="62V-hB-wQW">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Je8-D2-X1X" kind="relationship" relationship="rootViewController" id="v0G-dv-OeM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbu-zt-8sy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2436" y="-1296"/>
+        </scene>
+        <!--Add News-->
+        <scene sceneID="rBy-Dl-1Cj">
+            <objects>
+                <viewController id="Je8-D2-X1X" customClass="AddOrganizationNewsVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5BW-kL-0JR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNy-TO-Chh">
+                                <rect key="frame" x="16" y="77" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPU-uU-Gbd">
+                                <rect key="frame" x="16" y="144" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TsM-qW-JEN">
+                                <rect key="frame" x="16" y="106" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Je8-D2-X1X" id="HBk-p4-rUV"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Enter news text here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="K7P-hP-7vp">
+                                <rect key="frame" x="16" y="173" width="288" height="208"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Je8-D2-X1X" id="zha-sJ-uMr"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="q9s-0M-w93"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add News" id="snk-UF-eIv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="DJI-KL-l9f">
+                            <connections>
+                                <action selector="cancel:" destination="Je8-D2-X1X" id="hZw-Au-yLK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" image="forward" style="done" id="fd4-lj-Clk">
+                            <connections>
+                                <action selector="send:" destination="Je8-D2-X1X" id="FtQ-5p-2T9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="messageTextView" destination="K7P-hP-7vp" id="al5-LV-y96"/>
+                        <outlet property="titleTextField" destination="TsM-qW-JEN" id="kbT-yj-ilK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DiE-Dt-UW3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3247.5" y="-1296.1267605633802"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hV3-Iy-3b2">
@@ -161,10 +245,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="Fvm-0g-VAe" kind="relationship" relationship="viewControllers" id="EgH-W6-PgZ"/>
-                        <segue destination="hIF-eY-ngI" kind="relationship" relationship="viewControllers" id="kkE-dU-xcS"/>
                         <segue destination="jCF-8i-qlX" kind="relationship" relationship="viewControllers" id="dKQ-U6-WvT"/>
                         <segue destination="0eu-aj-nUs" kind="relationship" relationship="viewControllers" id="KvJ-sR-3QS"/>
                         <segue destination="ELr-Ad-VCN" kind="relationship" relationship="viewControllers" id="Tln-AT-QIa"/>
+                        <segue destination="vfC-o9-wEq" kind="relationship" relationship="viewControllers" id="mZq-Gs-PJ3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zf-38-oe1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -416,29 +500,59 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnr-ab-8en" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="238"/>
+            <point key="canvasLocation" x="863" y="238"/>
         </scene>
-        <!--Needs View Controller-->
-        <scene sceneID="hVG-S7-A7a">
+        <!--Projects-->
+        <scene sceneID="5oe-13-bHZ">
             <objects>
-                <tableViewController id="hIF-eY-ngI" customClass="NeedsViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2fe-Zd-FVM">
+                <tableViewController id="xcD-qb-DRm" customClass="ProjectsVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Kpa-YQ-7Yt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Uje-Oi-eTs">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uje-Oi-eTs" id="1We-U0-Es1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="hIF-eY-ngI" id="qVS-Hc-PGV"/>
-                            <outlet property="delegate" destination="hIF-eY-ngI" id="CkK-gl-XbE"/>
+                            <outlet property="dataSource" destination="xcD-qb-DRm" id="ECE-N9-9K6"/>
+                            <outlet property="delegate" destination="xcD-qb-DRm" id="ljb-NF-Q60"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="need-outline" selectedImage="need-filled" id="7GN-1h-Bbk"/>
+                    <navigationItem key="navigationItem" title="Projects" id="U6f-Uh-zOr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Bo7-16-Ou8"/>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oyh-Lg-I1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jfb-yf-F4e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="-590"/>
+            <point key="canvasLocation" x="1609" y="-578"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Fp-un-EAJ">
+            <objects>
+                <navigationController id="vfC-o9-wEq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="need-outline" selectedImage="need-filled" id="LXq-RU-hMj"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bq8-X2-EEo">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xcD-qb-DRm" kind="relationship" relationship="rootViewController" id="fwb-4S-dyb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kY-h7-eIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="863" y="-577"/>
         </scene>
     </scenes>
     <resources>
+        <image name="forward" width="25" height="25"/>
         <image name="home-filled" width="25" height="25"/>
         <image name="home-outline" width="25" height="25"/>
         <image name="logo" width="302" height="203"/>

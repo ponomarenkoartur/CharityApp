@@ -13,19 +13,10 @@ class NewsViewController: UITableViewController {
 
     // MARK: - Properties
     
-    var myFireDatabase: MyFireDatabase!
     var newsCollection = [News]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let news1 = News(key: nil, title: "News1Title", text: "News1Text", date: Date(), likes: 34, imageUrlsCollection: nil, tagsCollection: nil)
-        
-        let news2 = News(key: nil, title: "News2Title", text: "News2Text", date: Date(), likes: 23, imageUrlsCollection: nil, tagsCollection: nil)
-        
-        newsCollection.append(contentsOf: [news1, news2])
-        
-        //myFireDatabase.getNewsFromOrganizationWithKey("Example", to: self)
         
         
         // Register Cells from a Nib
@@ -64,29 +55,11 @@ extension NewsViewController {
     func configure(_ cell: NewsCell, for news: News) {
         cell.titleLabel.text = news.title
         cell.dateLabel.text = dateFormatter.string(from: news.date)
-        cell.setLikeCounterLabelText(to: String(news.likes))
+        cell.setLikeCounterLabelText(to: String(news.likesCount))
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
-    }
-}
-
-extension NewsViewController: IDatabaseResultListener {
-    func onNewsListRetrieved(resultList: [String : News]) {
-        newsCollection.removeAll()
-        for item in resultList {
-            newsCollection.append(item.value)
-        }
-        tableView.reloadData()
-    }
-    
-    func onNeedsListRetrieved(resultList: [String : Need]) {
-        
-    }
-    
-    func onError() {
-        
     }
 }
 

@@ -1,14 +1,14 @@
 //
-//  NeedsController.swift
+//  ProjectsVC.swift
 //  CharityApp
 //
-//  Created by Artur on 3/10/18.
+//  Created by Artur on 5/23/18.
 //  Copyright © 2018 Artur. All rights reserved.
 //
 
 import UIKit
 
-class NeedsViewController: UITableViewController {
+class ProjectsVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
