@@ -35,11 +35,13 @@
             </objects>
             <point key="canvasLocation" x="1609" y="-1296"/>
         </scene>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="hV3-Iy-3b2">
             <objects>
                 <navigationController id="Fvm-0g-VAe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="home-outline" selectedImage="home-filled" id="erl-tK-EBO"/>
+                    <tabBarItem key="tabBarItem" title="" image="home-outline" selectedImage="home-filled" id="erl-tK-EBO">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="den-fU-GFp">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -146,11 +148,16 @@
         <!--Tab Bar Controller-->
         <scene sceneID="gaC-P1-0fD">
             <objects>
-                <tabBarController id="sDB-7X-3fW" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uYt-OO-wo0">
+                <tabBarController storyboardIdentifier="MainTabBarVC" id="sDB-7X-3fW" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uYt-OO-wo0" customClass="MainTabBar" customModule="CharityApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="height">
+                                <real key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Fvm-0g-VAe" kind="relationship" relationship="viewControllers" id="EgH-W6-PgZ"/>
@@ -164,7 +171,7 @@
             </objects>
             <point key="canvasLocation" x="19" y="238"/>
         </scene>
-        <!--Donations-->
+        <!--Donations View Controller-->
         <scene sceneID="IPc-DF-Lsg">
             <objects>
                 <tableViewController id="0eu-aj-nUs" customClass="DonationsViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -177,7 +184,7 @@
                             <outlet property="delegate" destination="0eu-aj-nUs" id="sAl-FN-LEb"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Donations" image="money-bag-outline" selectedImage="money-bag-filled" id="TxO-go-tIb"/>
+                    <tabBarItem key="tabBarItem" title="" image="money-bag-outline" selectedImage="money-bag-filled" id="TxO-go-tIb"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CNr-UK-Xmr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -373,7 +380,7 @@
             </objects>
             <point key="canvasLocation" x="-1764" y="1777"/>
         </scene>
-        <!--Account-->
+        <!--Account View Controller-->
         <scene sceneID="uW4-BY-n3x">
             <objects>
                 <tableViewController id="ELr-Ad-VCN" customClass="AccountViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -386,13 +393,13 @@
                             <outlet property="delegate" destination="ELr-Ad-VCN" id="FiR-kF-rR0"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Account" image="user-outline" selectedImage="user-filled" id="NL5-Fq-5ub"/>
+                    <tabBarItem key="tabBarItem" title="" image="user-outline" selectedImage="user-filled" id="NL5-Fq-5ub"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0r-HS-UYj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="863" y="1899"/>
         </scene>
-        <!--News-->
+        <!--Table View Controller-->
         <scene sceneID="sEF-Kt-vr5">
             <objects>
                 <tableViewController id="jCF-8i-qlX" sceneMemberID="viewController">
@@ -405,13 +412,13 @@
                             <outlet property="delegate" destination="jCF-8i-qlX" id="EmT-Hw-cpB"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="News" image="news-feed-outline" selectedImage="news-feed-filled" id="FKP-Jn-9x5"/>
+                    <tabBarItem key="tabBarItem" title="" image="news-feed-outline" selectedImage="news-feed-filled" id="FKP-Jn-9x5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnr-ab-8en" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="889" y="238"/>
         </scene>
-        <!--Needs-->
+        <!--Needs View Controller-->
         <scene sceneID="hVG-S7-A7a">
             <objects>
                 <tableViewController id="hIF-eY-ngI" customClass="NeedsViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -424,7 +431,7 @@
                             <outlet property="delegate" destination="hIF-eY-ngI" id="CkK-gl-XbE"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Needs" image="need-outline" selectedImage="need-filled" id="7GN-1h-Bbk"/>
+                    <tabBarItem key="tabBarItem" title="" image="need-outline" selectedImage="need-filled" id="7GN-1h-Bbk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oyh-Lg-I1M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -445,6 +452,6 @@
         <image name="user-outline" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LWY-Bb-bjD"/>
+        <segue reference="84z-Tk-iGd"/>
     </inferredMetricsTieBreakers>
 </document>

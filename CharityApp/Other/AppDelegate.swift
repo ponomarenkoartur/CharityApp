@@ -21,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Perform segue from 'Login' if user is signed in.
         if let _ = Auth.auth().currentUser {
-            window?.rootViewController?.performSegue(withIdentifier: "Login", sender: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let mainTabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarVC")
+            window?.makeKeyAndVisible()
+            window?.rootViewController?.present(mainTabBarVC, animated: true)
         }
         
         // Set appearence
@@ -31,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationBarAppearance.isTranslucent = false
         
+        let tabBarAppearence = UITabBar.appearance()
+        tabBarAppearence.tintColor = UIColor(hex: 0x2A66AE)
+        tabBarAppearence.isTranslucent = false
         return true
     }
 

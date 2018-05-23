@@ -25,6 +25,7 @@
 		75308AAD2054481400AB1364 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAC2054481400AB1364 /* AccountViewController.swift */; };
 		75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* NewsCell.swift */; };
 		75308AB22054549E00AB1364 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AB12054549E00AB1364 /* Functions.swift */; };
+		75479B6420B59CC20021B73A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479B6320B59CC20021B73A /* MainTabBar.swift */; };
 		754B04F9209DD9AB00A13967 /* HeartSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B04F8209DD9AB00A13967 /* HeartSwitchButton.swift */; };
 		755F80E7204F07EB006DAAA5 /* Need.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80E6204F07EB006DAAA5 /* Need.swift */; };
 		755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */; };
@@ -64,6 +65,7 @@
 		75308AAC2054481400AB1364 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		75308AAE2054536E00AB1364 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		75308AB12054549E00AB1364 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		75479B6320B59CC20021B73A /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		754B04F8209DD9AB00A13967 /* HeartSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeartSwitchButton.swift; path = "CharityApp/Other views/HeartSwitchButton.swift"; sourceTree = SOURCE_ROOT; };
 		755F80E6204F07EB006DAAA5 /* Need.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Need.swift; sourceTree = "<group>"; };
 		755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFireDatabase.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				754B04F8209DD9AB00A13967 /* HeartSwitchButton.swift */,
+				75479B6320B59CC20021B73A /* MainTabBar.swift */,
 			);
 			path = "Other views";
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				75308AAB2054480400AB1364 /* DonationsViewController.swift in Sources */,
 				75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */,
 				75308AA9205447EC00AB1364 /* NeedsViewController.swift in Sources */,
+				75479B6420B59CC20021B73A /* MainTabBar.swift in Sources */,
 				751CA37E205006B500B55A44 /* OrganizationInfo.swift in Sources */,
 				7523F64020B071AC005D8CEA /* RegistrationVC.swift in Sources */,
 				75308AB22054549E00AB1364 /* Functions.swift in Sources */,
