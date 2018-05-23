@@ -29,8 +29,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signIn() {
-        // TODO: Add database business here
-        
         // Prevent try to sign in with empty fields
         if emailTextField.text!.isEmpty {
             emailTextField.shake()
@@ -55,7 +53,7 @@ class LoginViewController: UIViewController {
                         alert.addAction(okAction)
                         
                         switch errorCode {
-                        case .invalidEmail:
+                        case .userNotFound:
                             alert.title = "Wrong email"
                             alert.message = "You entered wrong email.\nThere are no user with this email."
                         case .wrongPassword:

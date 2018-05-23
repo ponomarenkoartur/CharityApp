@@ -34,13 +34,39 @@ class RegistrationVC: UITableViewController {
             let user = User.init(email: email, password: password, firstName: nil, surname: nil, accountCreationDate: Date(), isAdmin: false, likedNewsIds: [], likedOrganizationNewsIds: [])
             
             
-            AuthService.instance.registerUser(user) { (success, registrationError) in
-                if let error = registrationError {
-                    // TODO: Handle error
-                    print(error)
+            AuthService.instance.registerUser(user) { (success, errorCode) in
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(okAction)
+                
+                if success {
+                    alert.title = "Success"
+                    alert.message = "Account successfully created."
+                    
+                    self.present(alert, animated: true) {
+                        self.performSegue(withIdentifier: "LoginAfterRegistration", sender: nil)
+                    }
                 } else {
-                    self.performSegue(withIdentifier: "LoginAfterRegistration", sender: nil)
+                    if let errorCode = errorCode {
+                        // TODO: Replace standart alert controller with custim hud view
+                        switch errorCode {
+                        case .emailAlreadyInUse:
+                            alert.title = "Error"
+                            alert.message = "The account with this email already exist."
+                        case .invalidEmail:
+                            alert.title = "Wrong email"
+                            alert.message = "You entered wrong email."
+                        // TODO: Handle this error on client side
+                        case .weakPassword:
+                            alert.title = "Weak password"
+                            alert.message = "Your password is to weak."
+                        default:
+                            alert.title = "Error"
+                        }
+                    }
+                    self.present(alert, animated: true)
                 }
+                
             }
         }
     }

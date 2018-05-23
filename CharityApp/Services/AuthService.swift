@@ -12,10 +12,13 @@ import Firebase
 class AuthService {
     static let instance = AuthService()
     
-    func registerUser(_ user: User, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> ()) {
+    func registerUser(_ user: User, userCreationComplete: @escaping (_ status: Bool, _ errorCode: AuthErrorCode?) -> ()) {
         Auth.auth().createUser(withEmail: user.email, password: user.password) { (userInDatabase, error) in
             guard let userInDatabase = userInDatabase else {
-                userCreationComplete(false, error)
+                if let error = error as NSError? {
+                    let errorCode = AuthErrorCode(rawValue: error.code)
+                    userCreationComplete(false, errorCode)
+                }
                 return
             }
             
