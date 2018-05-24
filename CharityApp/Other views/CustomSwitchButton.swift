@@ -30,7 +30,6 @@ class CustomSwitchButton: UIButton {
         offImage = #imageLiteral(resourceName: "heart-outine")
         isOn = true
         super.init(coder: aDecoder)
-        setImage()
         addTarget(self, action: #selector(toggle), for: .touchUpInside)
     }
     

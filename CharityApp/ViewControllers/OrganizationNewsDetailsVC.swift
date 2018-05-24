@@ -22,7 +22,7 @@ class OrganizationNewsDetailsVC: UIViewController {
     }
     
     @IBAction func send(_ sender: UIBarButtonItem) {
-        let news = OrganizationNews(key: nil, title: titleTextField.text!, text: messageTextView.text, date: Date(), imageUrlsCollection: [:], tagsCollection: [:])
+        let news = OrganizationNews(key: nil, title: titleTextField.text!, text: messageTextView.text, date: Date(), imageUrlsCollection: [:], tagsCollection: [])
         DataService.instance.uploadOrganizationNews(news) { (status) in
             print(status)
         }

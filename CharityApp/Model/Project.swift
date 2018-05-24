@@ -12,15 +12,9 @@ class Project: InfoItem, NewsCollectionContainer {
     
     // MARK: - Properties
     
-    var key: String?
-    var title: String
-    var text: String
-    var date: Date
     var isCompleted: Bool
     var needMoney: Double
     var collectedMoney: Double
-    var imageUrlsCollection: [String : String]
-    var tagsCollection: [String]
     var newsCollection: [String: News]
     
     // MARK: - Computed properties
@@ -32,23 +26,21 @@ class Project: InfoItem, NewsCollectionContainer {
     // MARK: - Initialization
     
     init(key: String?, title: String, text: String, date:
-        Date, isCompleted: Bool, needMoney: Double, collectedMoney: Double = 0, imageUrlsCollection: [String : String] = [:], tagsCollection: [String] = [], newsCollection: [String: News] = [:]) {
-        self.key = key
-        self.title = title
-        self.text = text
-        self.date = date
+        Date, isCompleted: Bool, needMoney: Double, collectedMoney: Double = 0, imageUrlsCollection: [String : String] = [:], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = [], newsCollection: [String: News] = [:]) {
         self.isCompleted = isCompleted
         self.needMoney = needMoney
         self.collectedMoney = collectedMoney
-        self.imageUrlsCollection = imageUrlsCollection
-        self.tagsCollection = tagsCollection
         self.newsCollection = newsCollection
+        super.init(key: key, title: title, text: text, date: date, imageUrlsCollection: imageUrlsCollection, videoUrlsCollection: videoUrlsCollection, tagsCollection: tagsCollection)
     }
     
     // MARK: - SnapshotConvertible
     
-    func convertToSnapshot() -> [String : Any] {
-        let snapshot = [String: Any]()
+    override func convertToSnapshot() -> [String : Any] {
+        var snapshot = super.convertToSnapshot()
+        snapshot["completed"] = isCompleted
+        snapshot["needMoney"] = needMoney
+        snapshot["collectedMoney"] = collectedMoney
         return snapshot
     }
 }

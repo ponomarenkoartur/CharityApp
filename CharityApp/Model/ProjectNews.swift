@@ -12,35 +12,25 @@ class ProjectNews: News {
     
     // MARK: - Properties
     
-    var key: String?
-    var title: String
-    var text: String
-    var likesCount: Int
-    var date: Date
-    var imageUrlsCollection: [String : String]
-    var tagsCollection: [String]
     var parentNeedKey: String?
     var parentNeedTitle: String?
     
     // MARK: - Initialization
     
     init(key: String?, title: String, text: String, date:
-        Date, likes: Int = 0, imageUrlsCollection: [String : String] = [:], tagsCollection: [String] = [], parentNeedKey: String?, parentNeedTitle: String?) {
-        self.key = key
-        self.title = title
-        self.text = text
-        self.date = date
-        self.likesCount = likes
-        self.imageUrlsCollection = imageUrlsCollection
-        self.tagsCollection = tagsCollection
+        Date, likesCount: Int = 0, imageUrlsCollection: [String : String] = [:], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = [], parentNeedKey: String?, parentNeedTitle: String?) {
         self.parentNeedKey = parentNeedKey
         self.parentNeedTitle = parentNeedTitle
+        super.init(key: key, title: title, text: text, date: date, likesCount: likesCount, imageUrlsCollection: imageUrlsCollection, videoUrlsCollection: videoUrlsCollection, tagsCollection: tagsCollection)
     }
     
     // MARK: SnapshotConvertible
     
-    func convertToSnapshot() -> [String: Any] {
-        var snapshot = [String: Any]()
+    override func convertToSnapshot() -> [String: Any] {
+        var snapshot = super.convertToSnapshot()
+        snapshot["organizationNews"] = true
+        snapshot["parentNeedKey"] = parentNeedKey
+        snapshot["parentNeedTitle"] = parentNeedTitle
         return snapshot
     }
 }

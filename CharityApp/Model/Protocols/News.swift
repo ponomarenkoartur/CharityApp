@@ -7,9 +7,25 @@
 //
 import Foundation
 
-protocol News: InfoItem {
+class News: InfoItem {
     
     // MARK: - Properties
     
-    var likesCount: Int { get set }
+    var likesCount: Int
+    
+    // MARK: - Initialization
+    
+    init(key: String?, title: String, text: String, date:
+        Date, likesCount: Int = 0, imageUrlsCollection: [String : String] = [:], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = []) {
+        self.likesCount = likesCount
+        super.init(key: key, title: title, text: text, date: date, imageUrlsCollection: imageUrlsCollection, videoUrlsCollection: videoUrlsCollection, tagsCollection: tagsCollection)
+    }
+    
+    // MARK: - SnapshotConvertible
+    
+    override func convertToSnapshot() -> [String: Any] {
+        var snapshot = super.convertToSnapshot()
+        snapshot["likes"] = likesCount
+        return snapshot
+    }
 }

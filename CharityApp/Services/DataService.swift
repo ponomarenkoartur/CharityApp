@@ -43,8 +43,8 @@ class DataService {
     
     func uploadProject(_ project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
         let newsReference = REF_ORGANIZATION_NEWS.childByAutoId()
-        news.key = newsReference.key
-        newsReference.updateChildValues(news.convertToSnapshot())
+        project.key = newsReference.key
+        newsReference.updateChildValues(project.convertToSnapshot())
         sendComplete(true)
     }
 }
