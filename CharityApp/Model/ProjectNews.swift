@@ -11,18 +11,21 @@ import Foundation
 class ProjectNews: News {
     
     // MARK: - Properties
+    
     var key: String?
     var title: String
     var text: String
     var likesCount: Int
     var date: Date
     var imageUrlsCollection: [String : String]
-    var tagsCollection: [String: String]
+    var tagsCollection: [String]
     var parentNeedKey: String?
     var parentNeedTitle: String?
     
+    // MARK: - Initialization
+    
     init(key: String?, title: String, text: String, date:
-        Date, likes: Int = 0, imageUrlsCollection: [String : String], tagsCollection: [String: String], parentNeedKey: String?, parentNeedTitle: String?) {
+        Date, likes: Int = 0, imageUrlsCollection: [String : String] = [:], tagsCollection: [String] = [], parentNeedKey: String?, parentNeedTitle: String?) {
         self.key = key
         self.title = title
         self.text = text

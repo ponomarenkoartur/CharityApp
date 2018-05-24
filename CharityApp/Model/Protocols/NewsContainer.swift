@@ -7,5 +7,7 @@
 //
 
 protocol NewsCollectionContainer {
-    var newsCollection: [String: News]? { get set }
+    
+    var newsCollection: [String: News] { get set }
+    
 }

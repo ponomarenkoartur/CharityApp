@@ -8,7 +8,10 @@
 
 import Foundation
 
-class User {
+class User: SnapshotConvertible {
+    
+    // MARK: - Properties
+    
     var email: String
     var password: String
     var firstName: String?
@@ -17,6 +20,8 @@ class User {
     var isAdmin: Bool
     var likedNewsIds: [String]
     var likedOrganizationNewsIds: [String]
+    
+    // MARK: - Initialization
     
     init(email: String, password: String, firstName: String?, surname: String?, accountCreationDate: Date, isAdmin: Bool, likedNewsIds: [String], likedOrganizationNewsIds: [String]) {
         self.email = email
@@ -29,7 +34,9 @@ class User {
         self.likedOrganizationNewsIds = likedOrganizationNewsIds
     }
     
-    func getSnapshot() -> [String: Any] {
+    // MARK: - SnapshotConvertible
+    
+    func convertToSnapshot() -> [String: Any] {
         var snapshot: [String: Any] = [
             "email": email,
             "password": password,

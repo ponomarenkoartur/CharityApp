@@ -22,7 +22,7 @@ class AuthService {
                 return
             }
             
-            DataService.instance.createDBUser(uid: userInDatabase.uid, userData: user.getSnapshot())
+            DataService.instance.createDBUser(uid: userInDatabase.uid, userData: user.convertToSnapshot())
             userCreationComplete(true, nil)
         }
     }

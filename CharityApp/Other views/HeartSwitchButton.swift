@@ -1,5 +1,5 @@
 //
-//  HeartSwitchButton.swift
+//  CustomSwitchButton.swift
 //  CharityApp
 //
 //  Created by Artur on 5/5/18.
@@ -8,23 +8,30 @@
 
 import UIKit
 
-class HeartSwitchButton: UIButton {
+@IBDesignable
+class CustomSwitchButton: UIButton {
+    
+    @IBInspectable
     var isOn: Bool {
         didSet {
-            setImage()
+            let stateImage = isOn ? onImage : offImage
+            setImage(stateImage, for: .normal)
         }
     }
     
+    @IBInspectable
+    var onImage: UIImage
+    
+    @IBInspectable
+    var offImage: UIImage
+    
     required init?(coder aDecoder: NSCoder) {
+        onImage = #imageLiteral(resourceName: "heart-filled")
+        offImage = #imageLiteral(resourceName: "heart-outine")
         isOn = true
         super.init(coder: aDecoder)
         setImage()
         addTarget(self, action: #selector(toggle), for: .touchUpInside)
-    }
-    
-    private func setImage() {
-        let stateImage = isOn ? #imageLiteral(resourceName: "heart-filled") : #imageLiteral(resourceName: "heart-outine")
-        setImage(stateImage, for: .normal)
     }
     
     @objc private func toggle() {

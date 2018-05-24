@@ -44,7 +44,7 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvT-kx-2hl" customClass="HeartSwitchButton" customModule="CharityApp" customModuleProvider="target">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvT-kx-2hl" customClass="CustomSwitchButton" customModule="CharityApp" customModuleProvider="target">
                         <rect key="frame" x="20" y="310" width="25" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="tintColor" red="0.87058823529999996" green="0.12549019610000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
