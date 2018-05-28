@@ -15,6 +15,13 @@ class ProjectDetailsVC: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
     
+    // MARK: - View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
     // MARK: - Actions
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {

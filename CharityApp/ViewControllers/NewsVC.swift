@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class NewsViewController: UITableViewController {
+class NewsVC: UITableViewController {
 
     // MARK: - Properties
     
@@ -24,14 +24,17 @@ class NewsViewController: UITableViewController {
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdenifiers.newsCell)
     }
 
-    // MARK: - Actions
+    // MARK: - Segue
     
-    @IBAction func refresh(_ sender: UIBarButtonItem) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ComposeNews" {
+            let addNewsVC = segue.destination as! NewsDetailsVC
+            addNewsVC.isOrganizationNews = true
+        }
     }
 }
 
-extension NewsViewController {
+extension NewsVC {
     
     // MARK: - UITableViewDataSource
     
@@ -63,7 +66,7 @@ extension NewsViewController {
     }
 }
 
-extension NewsViewController {
+extension NewsVC {
     struct TableViewCellIdenifiers {
         static let newsCell = "NewsCell"
     }

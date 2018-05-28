@@ -14,10 +14,8 @@ let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-func makeCell(for tableView: UITableView, withIdentifier identifier: String, style: UITableViewCellStyle = .default) -> UITableViewCell {
+func makeCell(for tableView: UITableView, withIdentifier identifier: String = "Cell", style: UITableViewCellStyle = .default) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ??
                 UITableViewCell(style: style, reuseIdentifier: identifier)
     return cell
 }
-
-
