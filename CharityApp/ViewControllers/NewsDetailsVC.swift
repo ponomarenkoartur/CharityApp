@@ -15,22 +15,33 @@ class NewsDetailsVC: UITableViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var bottomButtonsStackView: UIButton!
+    @IBOutlet weak var deleteTableViewCell: UITableViewCell!
+    @IBOutlet weak var projectPickerTableViewCell: UITableViewCell!
+    
     
     // MARK: - Properties
     
     var news: News?
-    var isOrganizationNews = false
+    var isOrganizationNews = true
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // If existing news is editing
+        projectPickerTableViewCell.imageView!.image = imageWithImage(#imageLiteral(resourceName: "logo-simplified"), scaledToSize: CGSize(width: 30, height: 30))
+        projectPickerTableViewCell.textLabel!.text = "Organization"
+        // If edit news
         if let news = news {
             title = "Edit news"
             titleTextField.text = news.title
             messageTextView.text = news.text
+            if let _ = news as? OrganizationNews {
+                projectPickerTableViewCell.isHidden = false
+            } else if let projectNews = news as? ProjectNews {
+                projectPickerTableViewCell.isHidden = true
+                projectPickerTableViewCell.textLabel!.text = projectNews.parentNeedTitle
+            }
         }
 //        bottomButtonsStackView.bindToKeyboard()
     }
@@ -76,13 +87,24 @@ class NewsDetailsVC: UITableViewController {
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1))!
         
         let controller = segue.source as! ProjectPickerVC
-        isOrganizationNews = controller.isOrganizationNews
-        if isOrganizationNews {
-            cell.imageView!.image = #imageLiteral(resourceName: "logo-simplified")
-            cell.textLabel!.text = "Organization"
-        } else if let project = controller.project {
+        if let project = controller.project {
             news = ProjectNews(key: nil, title: "", text: "", date: Date(), parentNeedKey: project.key, parentNeedTitle: project.title)
+            cell.imageView!.isHidden = true
             cell.textLabel!.text = project.title
+        } else {
+            cell.imageView!.isHidden = false
+            cell.textLabel!.text = "Organization"
+        }
+    }
+}
+
+extension NewsDetailsVC {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // Hide 'delete' section if add new news
+        if let _ = news {
+            return 5
+        } else {
+            return 4
         }
     }
 }

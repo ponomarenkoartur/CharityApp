@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		750F6B392075EFFD009B5514 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750F6B382075EFFD009B5514 /* NewsCell.xib */; };
 		7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179039204EFD1A00476E17 /* AppDelegate.swift */; };
 		7517903C204EFD1A00476E17 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517903B204EFD1A00476E17 /* NewsVC.swift */; };
 		7517903F204EFD1A00476E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7517903D204EFD1A00476E17 /* Main.storyboard */; };
@@ -53,7 +52,6 @@
 		19A8CD0548096350A1118D67 /* Pods-CharityApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp.debug.xcconfig"; sourceTree = "<group>"; };
 		351D9F021CBE898F11AA1E9E /* Pods-CharityApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp.release.xcconfig"; sourceTree = "<group>"; };
 		3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		750F6B382075EFFD009B5514 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		75179036204EFD1A00476E17 /* CharityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75179039204EFD1A00476E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7517903B204EFD1A00476E17 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
@@ -126,14 +124,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		750F6B372075EF91009B5514 /* NIBs */ = {
-			isa = PBXGroup;
-			children = (
-				750F6B382075EFFD009B5514 /* NewsCell.xib */,
-			);
-			path = NIBs;
-			sourceTree = "<group>";
-		};
 		7517902D204EFD1A00476E17 = {
 			isa = PBXGroup;
 			children = (
@@ -155,15 +145,14 @@
 		75179038204EFD1A00476E17 /* CharityApp */ = {
 			isa = PBXGroup;
 			children = (
-				75AC197920BC3A9700C0C89A /* Extensions */,
-				7523F62C20B023CB005D8CEA /* Services */,
 				75F2365D209CA2F1007AC1D2 /* Assets.xcassets */,
+				75AC197920BC3A9700C0C89A /* Extensions */,
 				75179045204EFD1A00476E17 /* Info.plist */,
 				7517904C204EFD3B00476E17 /* Layouts */,
 				75A5F3D1204EFFFE00137D28 /* Model */,
-				750F6B372075EF91009B5514 /* NIBs */,
 				7517904D204EFD5B00476E17 /* Other */,
 				75F2365F209CA5C6007AC1D2 /* Other views */,
+				7523F62C20B023CB005D8CEA /* Services */,
 				7517904B204EFD2B00476E17 /* Support Files */,
 				7517904E204EFD6500476E17 /* ViewControllers */,
 			);
@@ -284,7 +273,6 @@
 				75179033204EFD1A00476E17 /* Frameworks */,
 				75179034204EFD1A00476E17 /* Resources */,
 				F52E8E293E3F9E152370B5F2 /* [CP] Embed Pods Frameworks */,
-				E110EEC4919FB46757C9AFF0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,7 +324,6 @@
 			files = (
 				75179044204EFD1A00476E17 /* LaunchScreen.storyboard in Resources */,
 				75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */,
-				750F6B392075EFFD009B5514 /* NewsCell.xib in Resources */,
 				7517903F204EFD1A00476E17 /* Main.storyboard in Resources */,
 				75F2365E209CA2F1007AC1D2 /* Assets.xcassets in Resources */,
 			);
@@ -363,21 +350,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E110EEC4919FB46757C9AFF0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F52E8E293E3F9E152370B5F2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +359,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -394,6 +367,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);

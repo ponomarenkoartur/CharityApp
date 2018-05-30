@@ -16,6 +16,7 @@ class DataService {
     
     private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.child("users")
+    private var _REF_PROJECTS = DB_BASE.child("charityNeeds")
     private var _REF_ORGANIZATION_NEWS = DB_BASE.child("organizationNews")
     
     var REF_BASE: DatabaseReference {
@@ -24,6 +25,10 @@ class DataService {
     
     var REF_USERS: DatabaseReference {
         return _REF_USERS
+    }
+    
+    var REF_PROJECTS: DatabaseReference {
+        return _REF_PROJECTS
     }
     
     var REF_ORGANIZATION_NEWS: DatabaseReference {
@@ -46,5 +51,19 @@ class DataService {
         project.key = newsReference.key
         newsReference.updateChildValues(project.convertToSnapshot())
         sendComplete(true)
+    }
+    
+    func uploadProjectNews(_ news: ProjectNews, for project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
+        if let projectKey = project.key {
+            // TODO: Check in Sasha's brach if string is right
+            let newsReference = REF_PROJECTS.child(projectKey).child("news").childByAutoId()
+            news.key = newsReference.key
+            news.parentNeedKey = projectKey
+            news.parentNeedTitle = project.title
+            newsReference.updateChildValues(news.convertToSnapshot())
+            sendComplete(true)
+        } else {
+            sendComplete(false)
+        }
     }
 }

@@ -12,7 +12,6 @@ class ProjectPickerVC: UITableViewController {
 
     var projects: [Project]!
     var project: Project?
-    var isOrganizationNews = false
     
     override func viewDidLoad() {
         let project0 = Project(key: nil, title: "Project0", text: "", date: Date(), isCompleted: true, needMoney: 0)
@@ -32,7 +31,7 @@ class ProjectPickerVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = makeCell(for: tableView, withIdentifier: "ProjectCell")
         if indexPath.row == 0 {
-            cell.imageView!.image = #imageLiteral(resourceName: "logo-simplified")
+            cell.imageView!.image = imageWithImage(#imageLiteral(resourceName: "logo-simplified"), scaledToSize: CGSize(width: 30, height: 30))
             cell.textLabel!.text = "Organization"
         } else {
             cell.textLabel!.text = projects[indexPath.row - 1].title
@@ -44,10 +43,7 @@ class ProjectPickerVC: UITableViewController {
         if segue.identifier == "PickedProject" {
             let cell = sender as! UITableViewCell
             if let indexPath = tableView.indexPath(for: cell) {
-                if indexPath.row == 0 {
-                    isOrganizationNews = true
-                } else {
-                    isOrganizationNews = false
+                if indexPath.row != 0 {
                     project = projects[indexPath.row - 1]
                 }
             }
