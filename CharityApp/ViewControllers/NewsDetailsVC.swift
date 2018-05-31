@@ -36,11 +36,10 @@ class NewsDetailsVC: UITableViewController {
             title = "Edit news"
             titleTextField.text = news.title
             messageTextView.text = news.text
-            if let _ = news as? OrganizationNews {
+            if news is OrganizationNews {
                 projectPickerTableViewCell.isHidden = false
-            } else if let projectNews = news as? ProjectNews {
+            } else if news is ProjectNews {
                 projectPickerTableViewCell.isHidden = true
-                projectPickerTableViewCell.textLabel!.text = projectNews.parentNeedTitle
             }
         }
 //        bottomButtonsStackView.bindToKeyboard()
@@ -88,7 +87,7 @@ class NewsDetailsVC: UITableViewController {
         
         let controller = segue.source as! ProjectPickerVC
         if let project = controller.project {
-            news = ProjectNews(key: nil, title: "", text: "", date: Date(), parentNeedKey: project.key, parentNeedTitle: project.title)
+            news = ProjectNews(key: nil, title: "", text: "", date: Date())
             cell.imageView!.isHidden = true
             cell.textLabel!.text = project.title
         } else {

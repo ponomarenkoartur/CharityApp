@@ -58,8 +58,6 @@ class DataService {
             // TODO: Check in Sasha's brach if string is right
             let newsReference = REF_PROJECTS.child(projectKey).child("news").childByAutoId()
             news.key = newsReference.key
-            news.parentNeedKey = projectKey
-            news.parentNeedTitle = project.title
             newsReference.updateChildValues(news.convertToSnapshot())
             sendComplete(true)
         } else {
