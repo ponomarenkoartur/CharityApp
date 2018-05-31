@@ -40,6 +40,37 @@ class ProjectsVC: UITableViewController {
         cell.textView.text = project.text
         cell.raiseMoneyStatusLabel.text = "\(project.collectedMoney)/\(project.needMoney)"
         cell.raiseMoneyStatusProgressView.progress = Float(project.progress)
+        cell.delegate = self
     }
+}
 
+extension ProjectsVC: ProjectCellDelegate {
+    func projectCellDelegateDidTapMoreButton(_ cell: UITableViewCell) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in
+            
+        }
+        let editAction = UIAlertAction(title: "Edit", style: .default) { (_) in
+            
+        }
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            let alert = UIAlertController(title: "Are you shure want to delete this project?", message: nil, preferredStyle: .actionSheet)
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+                // TODO: Delete project
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(deleteAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(moreInfoAction)
+        alert.addAction(editAction)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
 }

@@ -13,12 +13,13 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-//    lazy var myFireDatabase = MyFireDatabase()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
 
+        // TODO: Show initialy main tab bar controller
+        // and if user is not signed in then present 'loginVC'
+        
         // Perform segue from 'Login' if user is signed in.
         if let _ = Auth.auth().currentUser {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)

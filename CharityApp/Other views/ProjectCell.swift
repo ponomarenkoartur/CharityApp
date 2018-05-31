@@ -8,16 +8,35 @@
 
 import UIKit
 
+protocol ProjectCellDelegate: class {
+    func projectCellDelegateDidTapMoreButton(_ cell: UITableViewCell)
+}
+
 class ProjectCell: UITableViewCell {
 
+    // MARK: - Outlets
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var raiseMoneyStatusLabel: UILabel!
     @IBOutlet weak var raiseMoneyStatusProgressView: UIProgressView!
     
+    // MARK: - Properties
+    
+    weak var delegate: ProjectCellDelegate?
+    
+    // MARK: - Cell LifeCycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func moreButtonWasTapped(_ sender: UIButton) {
+        delegate?.projectCellDelegateDidTapMoreButton(self)
+    }
+    
 }
