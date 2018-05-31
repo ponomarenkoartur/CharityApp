@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */; };
 		7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179039204EFD1A00476E17 /* AppDelegate.swift */; };
 		7517903C204EFD1A00476E17 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517903B204EFD1A00476E17 /* NewsVC.swift */; };
 		7517903F204EFD1A00476E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7517903D204EFD1A00476E17 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		19A8CD0548096350A1118D67 /* Pods-CharityApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp.debug.xcconfig"; sourceTree = "<group>"; };
 		351D9F021CBE898F11AA1E9E /* Pods-CharityApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp.release.xcconfig"; sourceTree = "<group>"; };
 		3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		75179036204EFD1A00476E17 /* CharityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75179039204EFD1A00476E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7517903B204EFD1A00476E17 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
@@ -221,6 +223,8 @@
 				75479B6920B5AADD0021B73A /* ProjectNews.swift */,
 				75479B6720B5AAD20021B73A /* OrganizationNews.swift */,
 				755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */,
+				758D7EBB20B5D9B900D84569 /* InfoItem.swift */,
+				75A5F3D5204F00C000137D28 /* News.swift */,
 				75A5F3D2204F000400137D28 /* Protocols */,
 			);
 			path = Model;
@@ -229,8 +233,6 @@
 		75A5F3D2204F000400137D28 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				75A5F3D5204F00C000137D28 /* News.swift */,
-				758D7EBB20B5D9B900D84569 /* InfoItem.swift */,
 				75246D95205059030015D506 /* SnapshotConvertible.swift */,
 				75A5F3D7204F00E500137D28 /* ImageContentContainer.swift */,
 				75A5F3D9204F013C00137D28 /* NewsContainer.swift */,
@@ -257,6 +259,7 @@
 				75308AAE2054536E00AB1364 /* NewsCell.swift */,
 				754B04F8209DD9AB00A13967 /* CustomSwitchButton.swift */,
 				75479B6320B59CC20021B73A /* MainTabBar.swift */,
+				7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */,
 			);
 			path = "Other views";
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */,
 				758D7EB420B5D21D00D84569 /* UIView extension.swift in Sources */,
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
+				7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */,
 				755F80E7204F07EB006DAAA5 /* Project.swift in Sources */,
 				759DA1B820B723DA001AC827 /* VideoContentContainer.swift in Sources */,
 				75308AAD2054481400AB1364 /* AccountViewController.swift in Sources */,

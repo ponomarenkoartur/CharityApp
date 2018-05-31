@@ -66,4 +66,20 @@ class DataService {
             sendComplete(false)
         }
     }
+    
+    func getAllProjects(handler: @escaping (_ projects: [Project]) -> ()) {
+        var projects = [Project]()
+        REF_PROJECTS.observeSingleEvent(of: .value) { (projectsSnapshot) in
+            guard let projectsSnapshot = projectsSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            for projectSnapshot in projectsSnapshot {
+                let project = Project(snapshot: projectSnapshot)
+                projects.append(project)
+            }
+            
+            handler(projects)
+        }
+    }
 }

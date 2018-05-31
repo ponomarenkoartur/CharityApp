@@ -10,18 +10,14 @@ import UIKit
 
 class ProjectPickerVC: UITableViewController {
 
-    var projects: [Project]!
+    var projects = [Project]()
     var project: Project?
     
     override func viewDidLoad() {
-        let project0 = Project(key: nil, title: "Project0", text: "", date: Date(), isCompleted: true, needMoney: 0)
-        let project1 = Project(key: nil, title: "Project1", text: "", date: Date(), isCompleted: true, needMoney: 0)
-        let project2 = Project(key: nil, title: "Project2", text: "", date: Date(), isCompleted: true, needMoney: 0)
-        
-        projects = []
-        projects.append(project0)
-        projects.append(project1)
-        projects.append(project2)
+        DataService.instance.getAllProjects { (projects) in
+            self.projects = projects
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

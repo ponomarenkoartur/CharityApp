@@ -38,7 +38,7 @@ class InfoItem: ImageContentCollectionContainer, VideoContentCollectionContainer
     func convertToSnapshot() -> [String: Any] {
         var snapshot = [String: Any]()
         if let key = key {
-            snapshot["newsKey"] = key
+            snapshot["key"] = key
         }
         snapshot["title"] = title
         snapshot["text"] = text
