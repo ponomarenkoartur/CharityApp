@@ -80,4 +80,20 @@ class DataService {
             handler(projects)
         }
     }
+    
+    func getAllOrganizationNews(handler: @escaping (_ news: [News]) -> ()) {
+        var news = [News]()
+        REF_ORGANIZATION_NEWS.observeSingleEvent(of: .value) { (newsSnapshot) in
+            guard let newsSnapshot = newsSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            for pieceOfNewsSnaphot in newsSnapshot {
+                let pieceOfNews = OrganizationNews(snapshot: pieceOfNewsSnaphot)
+                news.append(pieceOfNews)
+            }
+
+            handler(news)
+        }
+    }
 }

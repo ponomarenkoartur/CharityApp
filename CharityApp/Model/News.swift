@@ -5,7 +5,7 @@
 //  Created by Artur on 3/6/18.
 //  Copyright © 2018 Artur. All rights reserved.
 //
-import Foundation
+import Firebase
 
 class News: InfoItem {
     
@@ -19,6 +19,11 @@ class News: InfoItem {
         Date, likesCount: Int = 0, imageUrlsCollection: [String : String] = [:], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = []) {
         self.likesCount = likesCount
         super.init(key: key, title: title, text: text, date: date, imageUrlsCollection: imageUrlsCollection, videoUrlsCollection: videoUrlsCollection, tagsCollection: tagsCollection)
+    }
+    
+    override init(snapshot: DataSnapshot) {
+        likesCount = snapshot.childSnapshot(forPath: "likes").value as! Int
+        super.init(snapshot: snapshot)
     }
     
     // MARK: - SnapshotConvertible

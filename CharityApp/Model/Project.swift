@@ -34,26 +34,14 @@ class Project: InfoItem, NewsCollectionContainer {
         super.init(key: key, title: title, text: text, date: date, imageUrlsCollection: imageUrlsCollection, videoUrlsCollection: videoUrlsCollection, tagsCollection: tagsCollection)
     }
     
-    init(snapshot: DataSnapshot) {
+    override init(snapshot: DataSnapshot) {
         isCompleted = snapshot.childSnapshot(forPath: "completed").value as! Bool
         needMoney = snapshot.childSnapshot(forPath: "needMoney").value as! Double
         collectedMoney = snapshot.childSnapshot(forPath: "collectedMoney").value as! Double
         
         // TODO: Add getting imageUrls and videoUrls and news
         newsCollection = [:]
-        
-        var tags = [String]()
-        if let tagsDict = snapshot.childSnapshot(forPath: "tags").value as? [String: String] {
-            tags = Array(tagsDict.values)
-        }
-        
-        super.init(key: snapshot.childSnapshot(forPath: "key").value as? String,
-                   title: snapshot.childSnapshot(forPath: "title").value as! String,
-                   text: snapshot.childSnapshot(forPath: "text").value as! String,
-                   date: dateFormatter.date(from: snapshot.childSnapshot(forPath: "dateString").value as! String)!,
-                   imageUrlsCollection: [:],
-                   videoUrlsCollection: [:],
-                   tagsCollection: tags)
+        super.init(snapshot: snapshot)
     }
     
     // MARK: - SnapshotConvertible
