@@ -21,7 +21,7 @@
 		75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D95205059030015D506 /* SnapshotConvertible.swift */; };
 		75308AAB2054480400AB1364 /* DonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAA2054480400AB1364 /* DonationsViewController.swift */; };
 		75308AAD2054481400AB1364 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAC2054481400AB1364 /* AccountViewController.swift */; };
-		75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* NewsCell.swift */; };
+		75308AAF2054536E00AB1364 /* OrganizationNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* OrganizationNewsCell.swift */; };
 		75308AB22054549E00AB1364 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AB12054549E00AB1364 /* Functions.swift */; };
 		75479B6420B59CC20021B73A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479B6320B59CC20021B73A /* MainTabBar.swift */; };
 		75479B6820B5AAD20021B73A /* OrganizationNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479B6720B5AAD20021B73A /* OrganizationNews.swift */; };
@@ -69,7 +69,7 @@
 		75246D95205059030015D506 /* SnapshotConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotConvertible.swift; sourceTree = "<group>"; };
 		75308AAA2054480400AB1364 /* DonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewController.swift; sourceTree = "<group>"; };
 		75308AAC2054481400AB1364 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		75308AAE2054536E00AB1364 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		75308AAE2054536E00AB1364 /* OrganizationNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNewsCell.swift; sourceTree = "<group>"; };
 		75308AB12054549E00AB1364 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		75479B6320B59CC20021B73A /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		75479B6720B5AAD20021B73A /* OrganizationNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNews.swift; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		75F2365F209CA5C6007AC1D2 /* Other views */ = {
 			isa = PBXGroup;
 			children = (
-				75308AAE2054536E00AB1364 /* NewsCell.swift */,
+				75308AAE2054536E00AB1364 /* OrganizationNewsCell.swift */,
 				754B04F8209DD9AB00A13967 /* CustomSwitchButton.swift */,
 				75479B6320B59CC20021B73A /* MainTabBar.swift */,
 				7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */,
@@ -415,7 +415,7 @@
 				7523F63220B04650005D8CEA /* DataService.swift in Sources */,
 				754B04F9209DD9AB00A13967 /* CustomSwitchButton.swift in Sources */,
 				75A5F3D8204F00E500137D28 /* ImageContentContainer.swift in Sources */,
-				75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */,
+				75308AAF2054536E00AB1364 /* OrganizationNewsCell.swift in Sources */,
 				7517903C204EFD1A00476E17 /* NewsVC.swift in Sources */,
 				7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */,
 				751E4903209AE697003CDAE1 /* RecoverPasswordViewController.swift in Sources */,

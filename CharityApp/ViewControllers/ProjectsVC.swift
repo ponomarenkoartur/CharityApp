@@ -15,8 +15,7 @@ class ProjectsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DataService.instance.getAllProjects { (projects) in
-            self.projects = projects
-            self.projects.sort(by: { $0.date > $1.date })
+            self.projects = projects.sorted(by: { $0.date > $1.date })
             self.tableView.reloadData()
         }
     }

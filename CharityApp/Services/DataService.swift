@@ -81,19 +81,19 @@ class DataService {
         }
     }
     
-    func getAllOrganizationNews(handler: @escaping (_ news: [News]) -> ()) {
-        var news = [News]()
-        REF_ORGANIZATION_NEWS.observeSingleEvent(of: .value) { (newsSnapshot) in
-            guard let newsSnapshot = newsSnapshot.children.allObjects as? [DataSnapshot] else {
+    func getAllOrganizationNews(handler: @escaping (_ newsCollection: [News]) -> ()) {
+        var newsCollection = [News]()
+        REF_ORGANIZATION_NEWS.observeSingleEvent(of: .value) { (newsCollectionSnapshot) in
+            guard let newsCollectionSnapshot = newsCollectionSnapshot.children.allObjects as? [DataSnapshot] else {
                 return
             }
             
-            for pieceOfNewsSnaphot in newsSnapshot {
-                let pieceOfNews = OrganizationNews(snapshot: pieceOfNewsSnaphot)
-                news.append(pieceOfNews)
+            for newsSnaphot in newsCollectionSnapshot {
+                let news = OrganizationNews(snapshot: newsSnaphot)
+                newsCollection.append(news)
             }
 
-            handler(news)
+            handler(newsCollection)
         }
     }
 }
