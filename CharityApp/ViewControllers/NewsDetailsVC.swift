@@ -14,7 +14,6 @@ class NewsDetailsVC: UITableViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var messageTextView: UITextView!
-    @IBOutlet weak var bottomButtonsStackView: UIButton!
     @IBOutlet weak var deleteTableViewCell: UITableViewCell!
     @IBOutlet weak var projectPickerTableViewCell: UITableViewCell!
     
@@ -29,6 +28,7 @@ class NewsDetailsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set appearence of standart 'project picker' cell
         projectPickerTableViewCell.imageView!.image = imageWithImage(#imageLiteral(resourceName: "logo-simplified"), scaledToSize: CGSize(width: 30, height: 30))
         projectPickerTableViewCell.textLabel!.text = "Organization"
         // If edit news
@@ -42,7 +42,6 @@ class NewsDetailsVC: UITableViewController {
                 projectPickerTableViewCell.isHidden = true
             }
         }
-//        bottomButtonsStackView.bindToKeyboard()
     }
     
     // MARK: - Actions
