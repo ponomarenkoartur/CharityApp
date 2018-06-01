@@ -486,32 +486,13 @@
                         <segue destination="Fvm-0g-VAe" kind="relationship" relationship="viewControllers" id="EgH-W6-PgZ"/>
                         <segue destination="vfC-o9-wEq" kind="relationship" relationship="viewControllers" id="mZq-Gs-PJ3"/>
                         <segue destination="jCF-8i-qlX" kind="relationship" relationship="viewControllers" id="dKQ-U6-WvT"/>
-                        <segue destination="0eu-aj-nUs" kind="relationship" relationship="viewControllers" id="KvJ-sR-3QS"/>
+                        <segue destination="Lg9-lh-Lj1" kind="relationship" relationship="viewControllers" id="36M-9e-1NO"/>
                         <segue destination="ELr-Ad-VCN" kind="relationship" relationship="viewControllers" id="Tln-AT-QIa"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Zf-38-oe1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19" y="238"/>
-        </scene>
-        <!--Donations View Controller-->
-        <scene sceneID="IPc-DF-Lsg">
-            <objects>
-                <tableViewController id="0eu-aj-nUs" customClass="DonationsViewController" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="btK-cU-9pF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="0eu-aj-nUs" id="8Z7-Mk-Ur8"/>
-                            <outlet property="delegate" destination="0eu-aj-nUs" id="sAl-FN-LEb"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="" image="money-bag-outline" selectedImage="money-bag-filled" id="TxO-go-tIb"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CNr-UK-Xmr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="863" y="1158"/>
         </scene>
         <!--Recover-->
         <scene sceneID="Hhj-1c-51a">
@@ -740,6 +721,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rnr-ab-8en" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="862.5" y="237.67605633802816"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2sQ-Qn-5Z5">
+            <objects>
+                <navigationController id="Lg9-lh-Lj1" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="money-bag-outline" selectedImage="money-bag-filled" id="BeV-I0-ghx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6aW-bL-e5o">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="I6U-fE-n8v" kind="relationship" relationship="rootViewController" id="psI-jl-Lxz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zv-Lg-3hp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="1021"/>
+        </scene>
+        <!--Donations-->
+        <scene sceneID="16l-Y2-EuA">
+            <objects>
+                <viewController id="I6U-fE-n8v" customClass="DonationsVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mKS-QD-exC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DCA-BI-2Eu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DCA-BI-2Eu" firstAttribute="leading" secondItem="eoY-sb-xdQ" secondAttribute="leading" id="4kn-CW-9sV"/>
+                            <constraint firstItem="DCA-BI-2Eu" firstAttribute="top" secondItem="eoY-sb-xdQ" secondAttribute="top" id="5fi-8o-dVJ"/>
+                            <constraint firstItem="eoY-sb-xdQ" firstAttribute="trailing" secondItem="DCA-BI-2Eu" secondAttribute="trailing" id="9BI-mm-XE7"/>
+                            <constraint firstItem="eoY-sb-xdQ" firstAttribute="bottom" secondItem="DCA-BI-2Eu" secondAttribute="bottom" id="w4e-sr-HwY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eoY-sb-xdQ"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Donations" id="Wwr-lB-RXF"/>
+                    <connections>
+                        <outlet property="webView" destination="DCA-BI-2Eu" id="Dii-i1-HOe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wgF-ur-eQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607" y="1021"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VTj-Gx-HlG">
