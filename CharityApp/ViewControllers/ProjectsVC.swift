@@ -10,7 +10,11 @@ import UIKit
 
 class ProjectsVC: UITableViewController {
 
+    // MARK: - Properties
+    
     var projects = [Project]()
+    
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +24,16 @@ class ProjectsVC: UITableViewController {
         }
     }
     
+    // MARK: - Table Datasource
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return projects.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let project = projects[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath) as! ProjectCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.projectCell, for: indexPath) as! ProjectCell
         configure(cell, for: project)
-        print("=================\(project.text)")
         return cell
         
     }
@@ -40,18 +45,31 @@ class ProjectsVC: UITableViewController {
         cell.raiseMoneyStatusLabel.text = "\(project.collectedMoney)/\(project.needMoney)"
         cell.raiseMoneyStatusProgressView.progress = Float(project.progress)
         cell.delegate = self
+        cell.project = project
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdenifiers.editProject {
+            let navigationController = segue.destination as! UINavigationController
+            let projectDetailsVC = navigationController.topViewController as! ProjectDetailsVC
+            
+            let cellSender = sender as! ProjectCell
+            projectDetailsVC.project = cellSender.project
+        }
     }
 }
 
 extension ProjectsVC: ProjectCellDelegate {
-    func projectCellDelegateDidTapMoreButton(_ cell: UITableViewCell) {
+    func projectCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onProject project: Project) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in
             
         }
         let editAction = UIAlertAction(title: "Edit", style: .default) { (_) in
-            
+            self.performSegue(withIdentifier: SegueIdenifiers.editProject, sender: cell)
         }
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             let alert = UIAlertController(title: "Are you shure want to delete this project?", message: nil, preferredStyle: .actionSheet)
@@ -71,5 +89,15 @@ extension ProjectsVC: ProjectCellDelegate {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+}
+
+extension ProjectsVC {
+    struct TableViewCellIdentifiers {
+        static let projectCell = "ProjectCell"
+    }
+    
+    struct SegueIdenifiers {
+        static let editProject = "EditProject"
     }
 }

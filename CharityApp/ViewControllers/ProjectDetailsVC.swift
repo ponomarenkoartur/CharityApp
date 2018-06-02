@@ -23,6 +23,12 @@ class ProjectDetailsVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let project = project {
+            title = "Edit project"
+            titleTextField.text = project.title
+            textView.text = project.text
+        }
     }
     
     // MARK: - Actions

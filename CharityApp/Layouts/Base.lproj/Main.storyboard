@@ -1120,7 +1120,7 @@
                     <navigationItem key="navigationItem" title="Projects" id="fDQ-In-6y1">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="tYE-PR-Sdl">
                             <connections>
-                                <segue destination="h1Y-0Q-MH3" kind="presentation" id="x84-Bd-xby"/>
+                                <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="EditProject" id="x84-Bd-xby"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
