@@ -757,10 +757,25 @@
                     <view key="view" contentMode="scaleToFill" id="mKS-QD-exC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pB-D2-K8S">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eoY-sb-xdQ" firstAttribute="trailing" secondItem="5pB-D2-K8S" secondAttribute="trailing" id="5Xc-ow-lCB"/>
+                            <constraint firstItem="5pB-D2-K8S" firstAttribute="top" secondItem="eoY-sb-xdQ" secondAttribute="top" id="bge-JR-v4U"/>
+                            <constraint firstItem="eoY-sb-xdQ" firstAttribute="bottom" secondItem="5pB-D2-K8S" secondAttribute="bottom" id="k7b-Ng-Wl4"/>
+                            <constraint firstItem="5pB-D2-K8S" firstAttribute="leading" secondItem="eoY-sb-xdQ" secondAttribute="leading" id="pn3-GA-dOP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eoY-sb-xdQ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Donations" id="Wwr-lB-RXF"/>
+                    <connections>
+                        <outlet property="webView" destination="5pB-D2-K8S" id="emC-l2-ggS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgF-ur-eQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
