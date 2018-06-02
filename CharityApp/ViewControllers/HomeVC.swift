@@ -90,6 +90,7 @@ extension HomeVC: OrganizationNewsCellDelegate {
                             self.newsCollection.remove(at: index)
                             self.tableView.reloadData()                            
                         }
+                        // TODO: Add notification that deletion completed
                     } else {
                         // TODO: Add notification that deletion can't be completed
                     }

@@ -74,7 +74,18 @@ extension ProjectsVC: ProjectCellDelegate {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             let alert = UIAlertController(title: "Are you shure want to delete this project?", message: nil, preferredStyle: .actionSheet)
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
-                // TODO: Delete project
+                DataService.instance.removeProject(project, deleteComplete: { (status) in
+                    if status {
+                        let index = self.projects.index(of: project)
+                        if let index = index {
+                            self.projects.remove(at: index)
+                            self.tableView.reloadData()
+                        }
+                        // TODO: Add notification that deletion completed
+                    } else {
+                        // TODO: Add notification that deletion can't be completed
+                    }
+                })
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             alert.addAction(deleteAction)
