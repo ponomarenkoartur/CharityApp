@@ -24,12 +24,17 @@ class HomeVC: UITableViewController {
         }
     }
 
-    // MARK: - Segue
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ComposeNews" {
+        if segue.identifier == SegueIdenifiers.composeNews {
             let addNewsVC = segue.destination as! NewsDetailsVC
             addNewsVC.isOrganizationNews = true
+        } else if segue.identifier == SegueIdenifiers.editNews {
+            let cellSender = sender as! OrganizationNewsCell
+            let navigationController = segue.destination as! UINavigationController
+            let newsDetailsVC = navigationController.topViewController as! NewsDetailsVC
+            newsDetailsVC.news = cellSender.news
         }
     }
 }
@@ -57,6 +62,7 @@ extension HomeVC {
         cell.textView.text = news.text
         cell.likeButton.setTitle(String(news.likesCount), for: .normal)
         cell.delegate = self
+        cell.news = news
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -65,14 +71,14 @@ extension HomeVC {
 }
 
 extension HomeVC: OrganizationNewsCellDelegate {
-    func organizationNewsCellDelegateDidTapMoreButton(_ cell: UITableViewCell) {
+    func organizationNewsCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onNews: News) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in
             
         }
         let editAction = UIAlertAction(title: "Edit", style: .default) { (_) in
-            
+            self.performSegue(withIdentifier: SegueIdenifiers.editNews, sender: cell)
         }
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             let alert = UIAlertController(title: "Are you shure want to delete this news?", message: nil, preferredStyle: .actionSheet)
@@ -93,12 +99,15 @@ extension HomeVC: OrganizationNewsCellDelegate {
         
         present(alert, animated: true)
     }
-    
-    
 }
 
 extension HomeVC {
     struct TableViewCellIdenifiers {
         static let newsCell = "OrganizationNewsCell"
+    }
+    
+    struct SegueIdenifiers {
+        static let composeNews = "ComposeNews"
+        static let editNews = "EditOrganizationNews"
     }
 }

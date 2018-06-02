@@ -10,30 +10,16 @@ import UIKit
 
 class NewsVC: UITableViewController {
 
+    var news = [News]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        let news0 = OrganizationNews(key: nil, title: "Title0", text: "Text0Text0Text0Text0Text0Text0Text0Text0Text0Text0Text0Text0", date: Date())
+        let news1 = ProjectNews(key: nil, title: "Title1", text: "Text1Text1Text1Text1Text1Text1Text1Text1Text1Text1Text1Text1Text1Text1Text1Text1", date: Date())
+        
+        news.append(news0)
+        news.append(news1)
+        // TODO: Load real news for the user from firebase
     }
 }

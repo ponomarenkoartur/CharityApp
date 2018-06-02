@@ -272,7 +272,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSr-LY-b8c">
                                             <rect key="frame" x="282" y="129" width="77" height="25"/>
                                             <state key="normal" title=" Share" image="share-filled">
-                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
                                         </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Text goes here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vKK-VH-Ar6">
@@ -293,8 +293,9 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfG-x9-Swh">
                                             <rect key="frame" x="16" y="129.5" width="59" height="25"/>
+                                            <color key="tintColor" red="0.86506233809999999" green="0.24047465409999999" blue="0.19557666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <state key="normal" title="999" image="heart-filled">
-                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
                                         </button>
                                     </subviews>
@@ -337,12 +338,12 @@
                     <navigationItem key="navigationItem" title="Home" id="dGA-lC-aee">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="pGE-b8-Mpo">
                             <connections>
-                                <segue destination="kWs-GC-N7y" kind="presentation" id="iHG-iJ-fdo"/>
+                                <segue destination="kWs-GC-N7y" kind="presentation" identifier="EditOrganizationNews" id="iHG-iJ-fdo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="PHf-XN-t8N" kind="show" identifier="OrganizationNewsDetails" id="Tdb-Og-PkA"/>
+                        <segue destination="PHf-XN-t8N" kind="show" identifier="ShowOrganizationNews" id="Tdb-Og-PkA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEM-Cn-Am9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1052,13 +1053,13 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-dC-ao4">
                                             <rect key="frame" x="16" y="233" width="111" height="25"/>
                                             <state key="normal" title=" Subscribe" image="bell-outline">
-                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-hU-1bb">
                                             <rect key="frame" x="282" y="233" width="77" height="25"/>
                                             <state key="normal" title=" Share" image="share-filled">
-                                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwH-HD-bhA">
