@@ -79,10 +79,8 @@ extension HomeVC: OrganizationNewsCellDelegate {
         DataService.instance.updateLikeCountOrganizationNews(news)
         if let currentUser = AuthService.instance.currentUser {
             DataService.instance.addLikedOrganizationNewsToUser(news, user: currentUser) { status in
-                if status {
-                    if let key = news.key {
-                        currentUser.likedOrganizationNewsKeys.append(key)
-                    }
+                if status, let key = news.key {
+                    currentUser.likedOrganizationNewsKeys.append(key)
                 }
             }
         }

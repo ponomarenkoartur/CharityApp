@@ -37,6 +37,10 @@ class ProjectsVC: UITableViewController {
         return cell
         
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
 
     func configure(_ cell: ProjectCell, for project: Project) {
         cell.titleLabel.text = project.title
@@ -46,6 +50,10 @@ class ProjectsVC: UITableViewController {
         cell.raiseMoneyStatusProgressView.progress = Float(project.progress)
         cell.delegate = self
         cell.project = project
+        
+        if let currentUser = AuthService.instance.currentUser {
+            cell.isSubscribed = currentUser.isSubscribedProject(project)
+        }
     }
     
     // MARK: - Navigation
@@ -62,6 +70,30 @@ class ProjectsVC: UITableViewController {
 }
 
 extension ProjectsVC: ProjectCellDelegate {
+    func projectCellDidSubscribe(_ cell: UITableViewCell, toProject project: Project) {
+        if let currentUser = AuthService.instance.currentUser {
+            DataService.instance.subcribeUser(currentUser, toProject: project) { (status) in
+                if status, let key = project.key {
+                    currentUser.subcribedProjectsKeys.append(key)
+                }
+            }
+        }
+    }
+    
+    func projectCellDidUnsubscribe(_ cell: UITableViewCell, fromProject project: Project) {
+        if let currentUser = AuthService.instance.currentUser {
+            DataService.instance.unsubcribeUser(currentUser, fromProject: project) { (status) in
+                if status {
+                    for i in 0..<currentUser.subcribedProjectsKeys.count {
+                        if currentUser.subcribedProjectsKeys[i] == project.key {
+                            currentUser.subcribedProjectsKeys.remove(at: i)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func projectCellDidTapMoreButton(_ cell: ProjectCell, onProject project: Project) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         

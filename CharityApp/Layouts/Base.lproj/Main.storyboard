@@ -1074,6 +1074,9 @@
                                             <state key="normal" title=" Subscribe" image="bell-outline">
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="subscribeButtonWasTapped:" destination="3yw-Sk-xh3" eventType="touchUpInside" id="7SU-VO-U1G"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-hU-1bb">
                                             <rect key="frame" x="282" y="233" width="77" height="25"/>
@@ -1126,6 +1129,7 @@
                                     <outlet property="dateLabel" destination="TEk-V2-IcR" id="bCD-y7-HWy"/>
                                     <outlet property="raiseMoneyStatusLabel" destination="ysX-Z1-xxJ" id="5Nd-nF-Wrb"/>
                                     <outlet property="raiseMoneyStatusProgressView" destination="hyE-FF-4yo" id="rAF-fd-2uU"/>
+                                    <outlet property="subscribeButton" destination="cY3-dC-ao4" id="L9a-MV-Jtc"/>
                                     <outlet property="textView" destination="ExK-ag-NLj" id="oav-by-eWB"/>
                                     <outlet property="titleLabel" destination="Mzx-FP-twV" id="She-sR-JHr"/>
                                 </connections>

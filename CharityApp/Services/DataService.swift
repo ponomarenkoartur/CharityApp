@@ -159,28 +159,66 @@ class DataService {
     }
     
     func addLikedOrganizationNewsToUser(_ news: OrganizationNews, user: User, handler: @escaping (_ result: Bool) -> ()) {
-        if let key = user.key {
-            REF_USERS.child(key).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
+        if let userKey = user.key, let newsKey = news.key {
+            REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""
                 if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
                     likedNewsString = valueSnapshot as! String
                 }
-                likedNewsString.append(contentsOf: "\(key),")
-                self.REF_USERS.child(key).child("likedOrganizationNews").setValue(likedNewsString)
+                likedNewsString.append(contentsOf: "\(newsKey),")
+                self.REF_USERS.child(userKey).child("likedOrganizationNews").setValue(likedNewsString)
+                handler(true)
             }
+        } else {
+            handler(false)
         }
     }
     
     func removeLikedOrganizationNewsFromUser(_ news: OrganizationNews, user: User, handler: @escaping (_ result: Bool) -> ()) {
-        if let key = user.key {
-            REF_USERS.child(key).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
+        if let userKey = user.key, let newsKey = news.key {
+            REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""
                 if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
                     likedNewsString = valueSnapshot as! String
                 }
-                likedNewsString = likedNewsString.replacingOccurrences(of: "\(key),", with: "")
-                self.REF_USERS.child(key).child("likedOrganizationNews").setValue(likedNewsString)
+                likedNewsString = likedNewsString.replacingOccurrences(of: "\(newsKey),", with: "")
+                self.REF_USERS.child(userKey).child("likedOrganizationNews").setValue(likedNewsString)
+                handler(true)
             }
+        } else {
+            handler(false)
+        }
+    }
+    
+    func subcribeUser(_ user: User, toProject project: Project, handler: @escaping (_ result: Bool) -> ()) {
+        if let userKey = user.key, let projectKey = project.key {
+            REF_USERS.child(userKey).child("subcribedProjectsIds").observeSingleEvent(of: .value) { (snapshot) in
+                var subcribedProjectsKeysString = ""
+                if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
+                    subcribedProjectsKeysString = valueSnapshot as! String
+                }
+                subcribedProjectsKeysString.append(contentsOf: "\(projectKey),")
+                self.REF_USERS.child(userKey).child("subcribedProjectsIds").setValue(subcribedProjectsKeysString)
+                handler(true)
+            }
+        } else {
+            handler(false)
+        }
+    }
+    
+    func unsubcribeUser(_ user: User, fromProject project: Project, handler: @escaping (_ result: Bool) -> ()) {
+        if let userKey = user.key, let projectKey = project.key {
+            REF_USERS.child(userKey).child("subcribedProjectsIds").observeSingleEvent(of: .value) { (snapshot) in
+                var subcribedProjectsKeysString = ""
+                if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
+                    subcribedProjectsKeysString = valueSnapshot as! String
+                }
+                subcribedProjectsKeysString = subcribedProjectsKeysString.replacingOccurrences(of: "\(projectKey),", with: "")
+                self.REF_USERS.child(userKey).child("subcribedProjectsIds").setValue(subcribedProjectsKeysString)
+                handler(true)
+            }
+        } else {
+            handler(false)
         }
     }
 }

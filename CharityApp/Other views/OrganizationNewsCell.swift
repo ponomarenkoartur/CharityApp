@@ -30,7 +30,7 @@ class OrganizationNewsCell: UITableViewCell {
     var news: OrganizationNews?
     var isLiked = false
     
-    // MARK: Cell LifeCycle
+    // MARK: Cell Lifecycle
     
     override func awakeFromNib() {
         if isLiked {
@@ -63,7 +63,7 @@ class OrganizationNewsCell: UITableViewCell {
                 likeButton.setTitle(" \(news.likesCount)", for: .normal)
                 likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
             }
-            self.isLiked = !isLiked
+            isLiked = !isLiked
         }
     }
 }
