@@ -989,7 +989,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="forward" id="XlN-ZY-o1d">
                             <connections>
-                                <action selector="add:" destination="KBR-nf-oad" id="Zga-eK-AUb"/>
+                                <action selector="send:" destination="KBR-nf-oad" id="Zga-eK-AUb"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

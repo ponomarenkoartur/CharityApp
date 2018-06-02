@@ -19,7 +19,6 @@
 		7523F64020B071AC005D8CEA /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F63F20B071AC005D8CEA /* RegistrationVC.swift */; };
 		75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D9320503C260015D506 /* IDatabaseResultListener.swift */; };
 		75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D95205059030015D506 /* SnapshotConvertible.swift */; };
-		75308AAB2054480400AB1364 /* DonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAA2054480400AB1364 /* DonationsViewController.swift */; };
 		75308AAD2054481400AB1364 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAC2054481400AB1364 /* AccountVC.swift */; };
 		75308AAF2054536E00AB1364 /* OrganizationNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* OrganizationNewsCell.swift */; };
 		75308AB22054549E00AB1364 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AB12054549E00AB1364 /* Functions.swift */; };
@@ -69,7 +68,6 @@
 		7523F63F20B071AC005D8CEA /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		75246D9320503C260015D506 /* IDatabaseResultListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabaseResultListener.swift; sourceTree = "<group>"; };
 		75246D95205059030015D506 /* SnapshotConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotConvertible.swift; sourceTree = "<group>"; };
-		75308AAA2054480400AB1364 /* DonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewController.swift; sourceTree = "<group>"; };
 		75308AAC2054481400AB1364 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		75308AAE2054536E00AB1364 /* OrganizationNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNewsCell.swift; sourceTree = "<group>"; };
 		75308AB12054549E00AB1364 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -196,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				75308AAC2054481400AB1364 /* AccountVC.swift */,
-				75308AAA2054480400AB1364 /* DonationsViewController.swift */,
 				75BF5D4320978873000AFFB2 /* LoginViewController.swift */,
 				7517903B204EFD1A00476E17 /* HomeVC.swift */,
 				751E4902209AE697003CDAE1 /* RecoverPasswordViewController.swift */,
@@ -411,7 +408,6 @@
 				756C772C20BC61120008203F /* ProjectPickerVC.swift in Sources */,
 				758D7EB820B5D25000D84569 /* UIColor extension.swift in Sources */,
 				755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */,
-				75308AAB2054480400AB1364 /* DonationsViewController.swift in Sources */,
 				75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */,
 				75479B6420B59CC20021B73A /* MainTabBar.swift in Sources */,
 				75479B6820B5AAD20021B73A /* OrganizationNews.swift in Sources */,

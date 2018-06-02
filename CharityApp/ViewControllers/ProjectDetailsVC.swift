@@ -38,11 +38,15 @@ class ProjectDetailsVC: UITableViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func add(_ sender: UIBarButtonItem) {
+    @IBAction func send(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Do you want to add project?", message: "Are you shure want to add the project?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            if let _ = self.project {
-                // TODO: Update existed project news
+            if let project = self.project {
+                project.title = self.titleTextField.text!
+                project.text = self.textView.text
+                DataService.instance.updateProject(project, updateComplete: { (status) in
+                    print(status)
+                })
             } else {
                 // TODO: Replace 'needMoney' value '0' with real value
                 let project = Project(key: nil, title: self.titleTextField!.text!, text: self.textView!.text, date: Date(), isCompleted: false, needMoney: 0)

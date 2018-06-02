@@ -123,4 +123,13 @@ class DataService {
             updateComplete(false)
         }
     }
+
+    func updateProject(_ project: Project, updateComplete: @escaping (_ status: Bool) -> ()) {
+        if let key = project.key {
+            REF_PROJECTS.child(key).updateChildValues(project.convertToSnapshot())
+            updateComplete(true)
+        } else {
+            updateComplete(false)
+        }
+    }
 }
