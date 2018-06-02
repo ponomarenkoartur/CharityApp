@@ -31,10 +31,7 @@ class RegistrationVC: UITableViewController {
     @IBAction func signUp() {
         if let email = emailTextField.text,
             let password = passwordTextField.text {
-            let user = User.init(email: email, password: password, firstName: nil, surname: nil, accountCreationDate: Date(), isAdmin: false, likedNewsIds: [], likedOrganizationNewsIds: [])
-            
-            
-            AuthService.instance.registerUser(user) { (success, errorCode) in
+            AuthService.instance.registerUser(withEmail: email, andPassword: password) { (success, errorCode) in
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default)
                 alert.addAction(okAction)

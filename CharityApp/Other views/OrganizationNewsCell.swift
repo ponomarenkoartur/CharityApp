@@ -9,7 +9,9 @@
 import UIKit
 
 protocol OrganizationNewsCellDelegate: class {
-    func organizationNewsCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onNews news: OrganizationNews)
+    func organizationNewsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: OrganizationNews)
+    func organizationNewsCellDidLike(_ cell: UITableViewCell, onNews news: OrganizationNews)
+    func organizationNewsCellDidUnlike(_ cell: UITableViewCell, onNews news: OrganizationNews)
 }
 
 class OrganizationNewsCell: UITableViewCell {
@@ -26,15 +28,42 @@ class OrganizationNewsCell: UITableViewCell {
     
     weak var delegate: OrganizationNewsCellDelegate?
     var news: OrganizationNews?
+    var isLiked = false
+    
+    // MARK: Cell LifeCycle
+    
+    override func awakeFromNib() {
+        if isLiked {
+            likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
+        } else {
+            likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
+        }
+    }
     
     // MARK: - Actions
     
     @IBAction func moreButtonWasTapped(_ sender: UIButton) {
         if let news = news {
-            delegate?.organizationNewsCellDelegateDidTapMoreButton(self, onNews: news)            
+            delegate?.organizationNewsCellDidTapMoreButton(self, onNews: news)            
         }
     }
     
+    @IBAction func likeButtonWasTapped(_ sender: UIButton) {
+        if let news = news {
+            // Remove space between button's image and text
+            likeButton.titleLabel!.text!.removeFirst()
+            if isLiked {
+                news.likesCount -= 1
+                delegate?.organizationNewsCellDidUnlike(self, onNews: news)
+                likeButton.setTitle(" \(news.likesCount)", for: .normal)
+                likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
+            } else {
+                news.likesCount += 1
+                delegate?.organizationNewsCellDidLike(self, onNews: news)
+                likeButton.setTitle(" \(news.likesCount)", for: .normal)
+                likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
+            }
+            self.isLiked = !isLiked
+        }
+    }
 }
-
-

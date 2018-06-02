@@ -62,7 +62,7 @@ class ProjectsVC: UITableViewController {
 }
 
 extension ProjectsVC: ProjectCellDelegate {
-    func projectCellDelegateDidTapMoreButton(_ cell: ProjectCell, onProject project: Project) {
+    func projectCellDidTapMoreButton(_ cell: ProjectCell, onProject project: Project) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in

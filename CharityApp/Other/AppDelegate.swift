@@ -26,6 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainTabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarVC")
             window?.makeKeyAndVisible()
             window?.rootViewController?.present(mainTabBarVC, animated: true)
+            
+            DataService.instance.getCurrentUser { (user) in
+                AuthService.instance.currentUser = user
+            }
         }
         
         // Set appearence

@@ -60,9 +60,13 @@ extension HomeVC {
         cell.titleLabel.text = news.title
         cell.dateLabel.text = dateFormatter.string(from: news.date)
         cell.textView.text = news.text
-        cell.likeButton.setTitle(String(news.likesCount), for: .normal)
+        cell.likeButton.setTitle(String(" \(news.likesCount)"), for: .normal)
         cell.delegate = self
         cell.news = news
+        
+        if let currentUser = AuthService.instance.currentUser {
+            cell.isLiked = currentUser.isLikedOrganizationNews(news)
+        }
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -71,7 +75,36 @@ extension HomeVC {
 }
 
 extension HomeVC: OrganizationNewsCellDelegate {
-    func organizationNewsCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onNews news: OrganizationNews) {
+    func organizationNewsCellDidLike(_ cell: UITableViewCell, onNews news: OrganizationNews) {
+        DataService.instance.updateLikeCountOrganizationNews(news)
+        if let currentUser = AuthService.instance.currentUser {
+            DataService.instance.addLikedOrganizationNewsToUser(news, user: currentUser) { status in
+                if status {
+                    if let key = news.key {
+                        currentUser.likedOrganizationNewsKeys.append(key)
+                    }
+                }
+            }
+        }
+    }
+    
+    func organizationNewsCellDidUnlike(_ cell: UITableViewCell, onNews news: OrganizationNews) {
+        DataService.instance.updateLikeCountOrganizationNews(news)
+        if let currentUser = AuthService.instance.currentUser {
+            DataService.instance.removeLikedOrganizationNewsFromUser(news, user: currentUser) { (status) in
+                if status {
+                    for i in 0..<currentUser.likedOrganizationNewsKeys.count {
+                        if currentUser.likedOrganizationNewsKeys[i] == news.key {
+                            currentUser.likedOrganizationNewsKeys.remove(at: i)
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    
+    func organizationNewsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: OrganizationNews) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in

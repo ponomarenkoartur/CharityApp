@@ -6,54 +6,82 @@
 //  Copyright © 2018 Artur. All rights reserved.
 //
 
-import Foundation
+import Firebase
 
 class User: SnapshotConvertible {
     
     // MARK: - Properties
     
-    var email: String
-    var password: String
-    var firstName: String?
-    var surname: String?
-    var accountCreationDate: Date
+    var key: String?
+    let email: String
+    let accountCreationDate: Date
     var isAdmin: Bool
-    var likedNewsIds: [String]
-    var likedOrganizationNewsIds: [String]
+    var likedNewsKeys: [String: String]
+    var likedOrganizationNewsKeys: [String]
+    var subcribedProjectsKeys: [String]
     
     // MARK: - Initialization
     
-    init(email: String, password: String, firstName: String?, surname: String?, accountCreationDate: Date, isAdmin: Bool, likedNewsIds: [String], likedOrganizationNewsIds: [String]) {
+    init(key: String?, email: String, accountCreationDate: Date = Date(), isAdmin: Bool = false, likedNewsKeys: [String: String] = [:], likedOrganizationNewsKeys: [String] = [], subcribedProjectsKeys: [String] = []) {
+        self.key = key
         self.email = email
-        self.password = password
-        self.firstName = firstName
-        self.surname = surname
         self.accountCreationDate = accountCreationDate
         self.isAdmin = isAdmin
-        self.likedNewsIds = likedNewsIds
-        self.likedOrganizationNewsIds = likedOrganizationNewsIds
+        self.likedNewsKeys = likedNewsKeys
+        self.likedOrganizationNewsKeys = likedOrganizationNewsKeys
+        self.subcribedProjectsKeys = subcribedProjectsKeys
+    }
+    
+    init(snapshot: DataSnapshot) {
+        key = snapshot.key as String
+        email = snapshot.childSnapshot(forPath: "email").value as! String
+        accountCreationDate = dateFormatter.date(from: snapshot.childSnapshot(forPath: "accountCreationDate").value as! String)!
+        isAdmin = snapshot.childSnapshot(forPath: "isAdmin").value as! Bool
+        // TODO: Replace with real data
+        likedNewsKeys = [:]
+        
+        if let likedOrganizationNewsKeysString = snapshot.childSnapshot(forPath: "likedOrganizationNewsIds").value as? String {
+                likedOrganizationNewsKeys = likedOrganizationNewsKeysString.split { $0 == "," }.map(String.init)
+        } else {
+            likedOrganizationNewsKeys = []
+        }
+        
+        if let subcribedProjectsKeysString = snapshot.childSnapshot(forPath: "subcribedProjectsIds").value as? String {
+            subcribedProjectsKeys = subcribedProjectsKeysString.split { $0 == "," }.map(String.init)
+        } else {
+            subcribedProjectsKeys = []
+        }
+    }
+    
+    // MARK: - Methods
+    
+    func isLikedOrganizationNews(_ news: OrganizationNews) -> Bool {
+        if let key = news.key {
+            return likedOrganizationNewsKeys.contains(key)
+        } else {
+            return false
+        }
+    }
+    
+    func isSubscribedProject(_ project: Project) -> Bool {
+        if let key = project.key {
+            return subcribedProjectsKeys.contains(key)
+        } else {
+            return false
+        }
     }
     
     // MARK: - SnapshotConvertible
     
     func convertToSnapshot() -> [String: Any] {
-        var snapshot: [String: Any] = [
+        let snapshot: [String: Any] = [
             "email": email,
-            "password": password,
             "accountCreationDate": dateFormatter.string(from: accountCreationDate),
             "isAdmin": isAdmin,
-            "likedNewsIds": likedNewsIds,
-            "likedOrganizationNewsIds": likedOrganizationNewsIds
+            "likedNewsIds": likedNewsKeys,
+            "likedOrganizationNewsIds": likedOrganizationNewsKeys,
+            "subcribedProjectsIds": subcribedProjectsKeys
             ]
-        
-        if let firstName = firstName {
-            snapshot["firstName"] = firstName
-        }
-        
-        if let surname = surname {
-            snapshot["surname"] = surname
-        }
-        
         return snapshot
     }
     

@@ -33,7 +33,6 @@ class ProjectDetailsVC: UITableViewController {
     
     // MARK: - Actions
     
-    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }

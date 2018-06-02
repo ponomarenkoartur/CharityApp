@@ -297,6 +297,9 @@
                                             <state key="normal" title="999" image="heart-filled">
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
+                                            <connections>
+                                                <action selector="likeButtonWasTapped:" destination="wmr-AD-9cd" eventType="touchUpInside" id="Wce-9j-SFJ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

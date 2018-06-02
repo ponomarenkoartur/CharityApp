@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProjectCellDelegate: class {
-    func projectCellDelegateDidTapMoreButton(_ cell: ProjectCell, onProject project: Project)
+    func projectCellDidTapMoreButton(_ cell: ProjectCell, onProject project: Project)
 }
 
 class ProjectCell: UITableViewCell {
@@ -31,7 +31,7 @@ class ProjectCell: UITableViewCell {
     // MARK: - Actions
     
     @IBAction func moreButtonWasTapped(_ sender: UIButton) {
-        delegate?.projectCellDelegateDidTapMoreButton(self, onProject: project!)
+        delegate?.projectCellDidTapMoreButton(self, onProject: project!)
     }
     
 }

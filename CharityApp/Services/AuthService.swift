@@ -12,8 +12,10 @@ import Firebase
 class AuthService {
     static let instance = AuthService()
     
-    func registerUser(_ user: User, userCreationComplete: @escaping (_ status: Bool, _ errorCode: AuthErrorCode?) -> ()) {
-        Auth.auth().createUser(withEmail: user.email, password: user.password) { (userInDatabase, error) in
+    var currentUser: User?
+    
+    func registerUser(withEmail email: String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ errorCode: AuthErrorCode?) -> ()) {
+        Auth.auth().createUser(withEmail: email, password: password) { (userInDatabase, error) in
             guard let userInDatabase = userInDatabase else {
                 if let error = error as NSError? {
                     let errorCode = AuthErrorCode(rawValue: error.code)
@@ -21,7 +23,7 @@ class AuthService {
                 }
                 return
             }
-            
+            let user = User(key: nil, email: email)
             DataService.instance.createDBUser(uid: userInDatabase.uid, userData: user.convertToSnapshot())
             userCreationComplete(true, nil)
         }
