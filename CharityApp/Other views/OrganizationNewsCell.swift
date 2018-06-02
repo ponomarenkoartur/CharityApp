@@ -9,7 +9,7 @@
 import UIKit
 
 protocol OrganizationNewsCellDelegate: class {
-    func organizationNewsCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onNews news: News)
+    func organizationNewsCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onNews news: OrganizationNews)
 }
 
 class OrganizationNewsCell: UITableViewCell {
@@ -25,7 +25,7 @@ class OrganizationNewsCell: UITableViewCell {
     // MARK: - Properties
     
     weak var delegate: OrganizationNewsCellDelegate?
-    var news: News?
+    var news: OrganizationNews?
     
     // MARK: - Actions
     

@@ -39,8 +39,27 @@ class ProjectDetailsVC: UITableViewController {
     }
     
     @IBAction func add(_ sender: UIBarButtonItem) {
-        // TODO: Add firebase business here
+        let alert = UIAlertController(title: "Do you want to add project?", message: "Are you shure want to add the project?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            if let _ = self.project {
+                // TODO: Update existed project news
+            } else {
+                // TODO: Replace 'needMoney' value '0' with real value
+                let project = Project(key: nil, title: self.titleTextField!.text!, text: self.textView!.text, date: Date(), isCompleted: false, needMoney: 0)
+                DataService.instance.uploadProject(project, sendComplete: { (status) in
+                    print(status)
+                })
+            }
+            self.dismiss(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
+    
+    
 }
 
 extension ProjectDetailsVC {

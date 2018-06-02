@@ -24,12 +24,16 @@ class News: InfoItem {
     override init(snapshot: DataSnapshot) {
         likesCount = snapshot.childSnapshot(forPath: "likes").value as! Int
         super.init(snapshot: snapshot)
+        key = snapshot.childSnapshot(forPath: "newsKey").value as? String
     }
     
     // MARK: - SnapshotConvertible
     
     override func convertToSnapshot() -> [String: Any] {
         var snapshot = super.convertToSnapshot()
+        if let key = key {
+            snapshot["newsKey"] = key
+        }
         snapshot["likes"] = likesCount
         return snapshot
     }

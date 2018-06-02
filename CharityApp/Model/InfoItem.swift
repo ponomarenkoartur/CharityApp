@@ -8,7 +8,7 @@
 
 import Firebase
 
-class InfoItem: ImageContentCollectionContainer, VideoContentCollectionContainer, SnapshotConvertible {
+class InfoItem: NSObject, ImageContentCollectionContainer, VideoContentCollectionContainer, SnapshotConvertible {
     
     // MARK: - Properties
     
@@ -39,8 +39,6 @@ class InfoItem: ImageContentCollectionContainer, VideoContentCollectionContainer
         if let tagsDict = snapshot.childSnapshot(forPath: "tags").value as? [String: String] {
             tags = Array(tagsDict.values)
         }
-        
-        key =  snapshot.childSnapshot(forPath: "key").value as? String
         title = snapshot.childSnapshot(forPath: "title").value as! String
         text = snapshot.childSnapshot(forPath: "text").value as! String
         date = dateFormatter.date(from: snapshot.childSnapshot(forPath: "dateString").value as! String)!
@@ -53,9 +51,6 @@ class InfoItem: ImageContentCollectionContainer, VideoContentCollectionContainer
     
     func convertToSnapshot() -> [String: Any] {
         var snapshot = [String: Any]()
-        if let key = key {
-            snapshot["key"] = key
-        }
         snapshot["title"] = title
         snapshot["text"] = text
         snapshot["dateString"] = dateFormatter.string(from: date)

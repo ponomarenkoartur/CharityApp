@@ -13,11 +13,10 @@ class HomeVC: UITableViewController {
 
     // MARK: - Properties
     
-    var newsCollection = [News]()
+    var newsCollection = [OrganizationNews]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         DataService.instance.getAllOrganizationNews { (newsCollection) in
             self.newsCollection = newsCollection.sorted(by: { $0.date > $1.date })
             self.tableView.reloadData()
@@ -28,7 +27,8 @@ class HomeVC: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdenifiers.composeNews {
-            let addNewsVC = segue.destination as! NewsDetailsVC
+            let navigationController = segue.destination as! UINavigationController
+            let addNewsVC = navigationController.topViewController  as! NewsDetailsVC
             addNewsVC.isOrganizationNews = true
         } else if segue.identifier == SegueIdenifiers.editNews {
             let cellSender = sender as! OrganizationNewsCell
@@ -56,7 +56,7 @@ extension HomeVC {
     
     // MARK: - UITableViewDelegate
     
-    func configure(_ cell: OrganizationNewsCell, for news: News) {
+    func configure(_ cell: OrganizationNewsCell, for news: OrganizationNews) {
         cell.titleLabel.text = news.title
         cell.dateLabel.text = dateFormatter.string(from: news.date)
         cell.textView.text = news.text
@@ -71,7 +71,7 @@ extension HomeVC {
 }
 
 extension HomeVC: OrganizationNewsCellDelegate {
-    func organizationNewsCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onNews: News) {
+    func organizationNewsCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onNews news: OrganizationNews) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in
@@ -83,7 +83,17 @@ extension HomeVC: OrganizationNewsCellDelegate {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             let alert = UIAlertController(title: "Are you shure want to delete this news?", message: nil, preferredStyle: .actionSheet)
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
-                // TODO: Delete news
+                DataService.instance.removeOrganizationNews(news, deleteComplete: { (status) in
+                    if status {
+                        let index = self.newsCollection.index(of: news)
+                        if let index = index {
+                            self.newsCollection.remove(at: index)
+                            self.tableView.reloadData()                            
+                        }
+                    } else {
+                        // TODO: Add notification that deletion can't be completed
+                    }
+                })
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             alert.addAction(deleteAction)

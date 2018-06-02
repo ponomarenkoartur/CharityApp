@@ -16,8 +16,8 @@ class ProjectsVC: UITableViewController {
     
     // MARK: - View Lifecycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         DataService.instance.getAllProjects { (projects) in
             self.projects = projects.sorted(by: { $0.date > $1.date })
             self.tableView.reloadData()
@@ -62,7 +62,7 @@ class ProjectsVC: UITableViewController {
 }
 
 extension ProjectsVC: ProjectCellDelegate {
-    func projectCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onProject project: Project) {
+    func projectCellDelegateDidTapMoreButton(_ cell: ProjectCell, onProject project: Project) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in

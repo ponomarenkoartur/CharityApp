@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProjectCellDelegate: class {
-    func projectCellDelegateDidTapMoreButton(_ cell: UITableViewCell, onProject project: Project)
+    func projectCellDelegateDidTapMoreButton(_ cell: ProjectCell, onProject project: Project)
 }
 
 class ProjectCell: UITableViewCell {

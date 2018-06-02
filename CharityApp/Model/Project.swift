@@ -42,12 +42,16 @@ class Project: InfoItem, NewsCollectionContainer {
         // TODO: Add getting imageUrls and videoUrls and news
         newsCollection = [:]
         super.init(snapshot: snapshot)
+        key = snapshot.childSnapshot(forPath: "charityNeedKey").value as? String
     }
     
     // MARK: - SnapshotConvertible
     
     override func convertToSnapshot() -> [String : Any] {
         var snapshot = super.convertToSnapshot()
+        if let key = key {
+            snapshot["charityNeedKey"] = key
+        }
         snapshot["completed"] = isCompleted
         snapshot["needMoney"] = needMoney
         snapshot["collectedMoney"] = collectedMoney

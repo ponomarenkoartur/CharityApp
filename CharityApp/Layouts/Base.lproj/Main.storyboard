@@ -338,12 +338,13 @@
                     <navigationItem key="navigationItem" title="Home" id="dGA-lC-aee">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="pGE-b8-Mpo">
                             <connections>
-                                <segue destination="kWs-GC-N7y" kind="presentation" identifier="EditOrganizationNews" id="iHG-iJ-fdo"/>
+                                <segue destination="kWs-GC-N7y" kind="presentation" identifier="ComposeNews" id="iHG-iJ-fdo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="PHf-XN-t8N" kind="show" identifier="ShowOrganizationNews" id="Tdb-Og-PkA"/>
+                        <segue destination="kWs-GC-N7y" kind="presentation" identifier="EditOrganizationNews" id="Wal-pk-5ip"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEM-Cn-Am9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1135,10 +1136,13 @@
                     <navigationItem key="navigationItem" title="Projects" id="fDQ-In-6y1">
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="tYE-PR-Sdl">
                             <connections>
-                                <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="EditProject" id="x84-Bd-xby"/>
+                                <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="" id="x84-Bd-xby"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="EditProject" id="wfL-BF-rva"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kC9-kD-zaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1166,6 +1170,8 @@
         <image name="video-camera" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wfL-BF-rva"/>
         <segue reference="84z-Tk-iGd"/>
+        <segue reference="iHG-iJ-fdo"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -47,7 +47,7 @@ class DataService {
     }
     
     func uploadProject(_ project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
-        let newsReference = REF_ORGANIZATION_NEWS.childByAutoId()
+        let newsReference = REF_PROJECTS.childByAutoId()
         project.key = newsReference.key
         newsReference.updateChildValues(project.convertToSnapshot())
         sendComplete(true)
@@ -81,8 +81,8 @@ class DataService {
         }
     }
     
-    func getAllOrganizationNews(handler: @escaping (_ newsCollection: [News]) -> ()) {
-        var newsCollection = [News]()
+    func getAllOrganizationNews(handler: @escaping (_ newsCollection: [OrganizationNews]) -> ()) {
+        var newsCollection = [OrganizationNews]()
         REF_ORGANIZATION_NEWS.observeSingleEvent(of: .value) { (newsCollectionSnapshot) in
             guard let newsCollectionSnapshot = newsCollectionSnapshot.children.allObjects as? [DataSnapshot] else {
                 return
@@ -95,5 +95,21 @@ class DataService {
 
             handler(newsCollection)
         }
+    }
+    
+    func removeOrganizationNews(_ news: OrganizationNews, deleteComplete: @escaping (_ status: Bool) -> ()) {
+        if let key = news.key {
+            REF_ORGANIZATION_NEWS.child(key).removeValue()
+            deleteComplete(true)
+        }
+        deleteComplete(false)
+    }
+    
+    func removeProject(_ project: Project, deleteComplete: @escaping (_ status: Bool) -> ()) {
+        if let key = project.key {
+            REF_PROJECTS.child(key).removeValue()
+            deleteComplete(true)
+        }
+        deleteComplete(false)
     }
 }
