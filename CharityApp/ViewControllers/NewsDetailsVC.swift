@@ -54,8 +54,12 @@ class NewsDetailsVC: UITableViewController {
         let alert = UIAlertController(title: "Do you want to add news?", message: "Are you shure want to add the news?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             if self.isOrganizationNews {
-                if let _ = self.news {
-                    // TODO: Update existed organization news
+                if let news = self.news as? OrganizationNews {
+                    news.title = self.titleTextField.text!
+                    news.text = self.messageTextView.text
+                    DataService.instance.updateOrganizationNews(news) { (status) in
+                        print(status)
+                    }
                 } else {
                     let news = OrganizationNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, date: Date(), imageUrlsCollection: [:], tagsCollection: [])
                     DataService.instance.uploadOrganizationNews(news) { (status) in

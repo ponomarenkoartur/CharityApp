@@ -55,7 +55,6 @@ class DataService {
     
     func uploadProjectNews(_ news: ProjectNews, for project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
         if let projectKey = project.key {
-            // TODO: Check in Sasha's brach if string is right
             let newsReference = REF_PROJECTS.child(projectKey).child("news").childByAutoId()
             news.key = newsReference.key
             newsReference.updateChildValues(news.convertToSnapshot())
@@ -101,15 +100,27 @@ class DataService {
         if let key = news.key {
             REF_ORGANIZATION_NEWS.child(key).removeValue()
             deleteComplete(true)
+        } else {        
+            deleteComplete(false)
         }
-        deleteComplete(false)
     }
+    
     
     func removeProject(_ project: Project, deleteComplete: @escaping (_ status: Bool) -> ()) {
         if let key = project.key {
             REF_PROJECTS.child(key).removeValue()
             deleteComplete(true)
+        } else {
+            deleteComplete(false)
         }
-        deleteComplete(false)
+    }
+    
+    func updateOrganizationNews(_ news: OrganizationNews, updateComplete: @escaping (_ status: Bool) -> ()) {
+        if let key = news.key {
+            REF_ORGANIZATION_NEWS.child(key).updateChildValues(news.convertToSnapshot())
+            updateComplete(true)
+        } else {
+            updateComplete(false)
+        }
     }
 }
