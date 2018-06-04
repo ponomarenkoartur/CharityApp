@@ -36,7 +36,7 @@ class User: SnapshotConvertible {
         key = snapshot.key as String
         email = snapshot.childSnapshot(forPath: "email").value as! String
         accountCreationDate = dateFormatter.date(from: snapshot.childSnapshot(forPath: "accountCreationDate").value as! String)!
-        isAdmin = snapshot.childSnapshot(forPath: "isAdmin").value as! Bool
+        isAdmin = snapshot.childSnapshot(forPath: "admin").value as! Bool
         // TODO: Replace with real data
         likedNewsKeys = [:]
         
@@ -77,7 +77,7 @@ class User: SnapshotConvertible {
         let snapshot: [String: Any] = [
             "email": email,
             "accountCreationDate": dateFormatter.string(from: accountCreationDate),
-            "isAdmin": isAdmin,
+            "admin": isAdmin,
             "likedNewsIds": likedNewsKeys,
             "likedOrganizationNewsIds": likedOrganizationNewsKeys,
             "subcribedProjectsIds": subcribedProjectsKeys
