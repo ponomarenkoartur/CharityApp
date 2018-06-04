@@ -192,13 +192,13 @@ class DataService {
     
     func subcribeUser(_ user: User, toProject project: Project, handler: @escaping (_ result: Bool) -> ()) {
         if let userKey = user.key, let projectKey = project.key {
-            REF_USERS.child(userKey).child("subcribedProjectsIds").observeSingleEvent(of: .value) { (snapshot) in
+            REF_USERS.child(userKey).child("subcribedNeeds").observeSingleEvent(of: .value) { (snapshot) in
                 var subcribedProjectsKeysString = ""
                 if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
                     subcribedProjectsKeysString = valueSnapshot as! String
                 }
                 subcribedProjectsKeysString.append(contentsOf: "\(projectKey),")
-                self.REF_USERS.child(userKey).child("subcribedProjectsIds").setValue(subcribedProjectsKeysString)
+                self.REF_USERS.child(userKey).child("subcribedNeeds").setValue(subcribedProjectsKeysString)
                 handler(true)
             }
         } else {
@@ -208,13 +208,13 @@ class DataService {
     
     func unsubcribeUser(_ user: User, fromProject project: Project, handler: @escaping (_ result: Bool) -> ()) {
         if let userKey = user.key, let projectKey = project.key {
-            REF_USERS.child(userKey).child("subcribedProjectsIds").observeSingleEvent(of: .value) { (snapshot) in
+            REF_USERS.child(userKey).child("subcribedNeeds").observeSingleEvent(of: .value) { (snapshot) in
                 var subcribedProjectsKeysString = ""
                 if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
                     subcribedProjectsKeysString = valueSnapshot as! String
                 }
                 subcribedProjectsKeysString = subcribedProjectsKeysString.replacingOccurrences(of: "\(projectKey),", with: "")
-                self.REF_USERS.child(userKey).child("subcribedProjectsIds").setValue(subcribedProjectsKeysString)
+                self.REF_USERS.child(userKey).child("subcribedNeeds").setValue(subcribedProjectsKeysString)
                 handler(true)
             }
         } else {

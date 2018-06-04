@@ -271,6 +271,7 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSr-LY-b8c">
                                             <rect key="frame" x="282" y="129" width="77" height="25"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <state key="normal" title=" Share" image="share-filled">
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
@@ -286,6 +287,7 @@
                                         </textView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phh-7F-92Q">
                                             <rect key="frame" x="334" y="11" width="25" height="25"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <state key="normal" image="more-filled"/>
                                             <connections>
                                                 <action selector="moreButtonWasTapped:" destination="wmr-AD-9cd" eventType="touchUpInside" id="Xyy-pB-0oZ"/>
@@ -1111,6 +1113,7 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cY3-dC-ao4">
                                             <rect key="frame" x="16" y="233" width="111" height="25"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <state key="normal" title=" Subscribe" image="bell-outline">
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
@@ -1120,12 +1123,14 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oVm-hU-1bb">
                                             <rect key="frame" x="282" y="233" width="77" height="25"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <state key="normal" title=" Share" image="share-filled">
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwH-HD-bhA">
                                             <rect key="frame" x="334" y="11" width="25" height="25"/>
+                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <state key="normal" image="more-filled"/>
                                             <connections>
                                                 <action selector="moreButtonWasTapped:" destination="3yw-Sk-xh3" eventType="touchUpInside" id="YJP-z2-AyU"/>
