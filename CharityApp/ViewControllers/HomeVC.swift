@@ -70,6 +70,7 @@ extension HomeVC {
         cell.likeButton.setTitle(String(" \(news.likesCount)"), for: .normal)
         cell.delegate = self
         cell.news = news
+        print(cell.news is OrganizationNews)
         
         if let currentUser = AuthService.instance.currentUser {
             cell.isLiked = currentUser.isLikedOrganizationNews(news)

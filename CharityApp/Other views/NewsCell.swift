@@ -31,14 +31,25 @@ class NewsCell: UITableViewCell {
     // MARK: - Properties
     
     weak var delegate: NewsCellDelegate?
-    var news: News?
-    var isLiked = false
+    var news: News? {
+        didSet {
+            // Hide view accoriding to cell appointment
+            if news is OrganizationNews {
+                projectNameButton.removeFromSuperview()
+            } else if news is ProjectNews {
+                logoImageView.removeFromSuperview()
+            }
+        }
+    }
     
     // MARK: Cell Lifecycle
     
     override func awakeFromNib() {
+        projectNameButton.sizeToFit()
+        
         // Set appearence of 'projectNameButton'
-        projectNameButton.imageView?.contentMode = .scaleAspectFit
+        
+        // Set appearence of 'likeButton'
         if isLiked {
             likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
         } else {
@@ -56,20 +67,18 @@ class NewsCell: UITableViewCell {
     
     @IBAction func likeButtonWasTapped(_ sender: UIButton) {
         if let news = news {
-            // Remove space between button's image and text
-            likeButton.titleLabel!.text!.removeFirst()
+            isLiked = !isLiked
             if isLiked {
-                news.likesCount -= 1
-                delegate?.newsCellDidUnlike(self, onNews: news)
-                likeButton.setTitle(" \(news.likesCount)", for: .normal)
-                likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
-            } else {
                 news.likesCount += 1
                 delegate?.newsCellDidLike(self, onNews: news)
-                likeButton.setTitle(" \(news.likesCount)", for: .normal)
+                likeButton.setTitle("\(news.likesCount)", for: .normal)
                 likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
+            } else {
+                news.likesCount -= 1
+                delegate?.newsCellDidUnlike(self, onNews: news)
+                likeButton.setTitle("\(news.likesCount)", for: .normal)
+                likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
             }
-            isLiked = !isLiked
         }
     }
 }
