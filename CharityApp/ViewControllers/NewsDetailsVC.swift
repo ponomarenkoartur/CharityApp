@@ -36,6 +36,7 @@ class NewsDetailsVC: UITableViewController {
             title = "Edit news"
             titleTextField.text = news.title
             messageTextView.text = news.text
+            // If edit organization news
             if news is OrganizationNews {
                 projectPickerTableViewCell.isHidden = false
             } else if news is ProjectNews {

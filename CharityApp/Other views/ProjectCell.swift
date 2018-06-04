@@ -25,6 +25,8 @@ class ProjectCell: UITableViewCell {
     @IBOutlet weak var raiseMoneyStatusProgressView: UIProgressView!
     @IBOutlet weak var subscribeButton: UIButton!
     
+    @IBOutlet weak var moneyBagImageView: UIImageView!
+    
     // MARK: - Properties
     
     weak var delegate: ProjectCellDelegate?
@@ -33,7 +35,7 @@ class ProjectCell: UITableViewCell {
     
     // MARK: - Cell Lifecycle
     
-    override func awakeFromNib() {
+    override func awakeFromNib() {        
         if isSubscribed {
             subscribeButton.setImage(#imageLiteral(resourceName: "bell-filled"), for: .normal)
             subscribeButton.setTitle("Unsubscribe", for: .normal)
