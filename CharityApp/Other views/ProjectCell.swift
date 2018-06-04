@@ -25,7 +25,6 @@ class ProjectCell: UITableViewCell {
     @IBOutlet weak var raiseMoneyStatusProgressView: UIProgressView!
     @IBOutlet weak var subscribeButton: UIButton!
     
-    @IBOutlet weak var moneyBagImageView: UIImageView!
     
     // MARK: - Properties
     

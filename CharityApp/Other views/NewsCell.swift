@@ -8,10 +8,11 @@
 
 import UIKit
 
-protocol NewsCellDelegate: class {
+@objc protocol NewsCellDelegate: class {
     func newsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: News)
     func newsCellDidLike(_ cell: UITableViewCell, onNews news: News)
     func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News)
+    @objc optional func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News)
 }
 
 class NewsCell: UITableViewCell {
@@ -35,20 +36,21 @@ class NewsCell: UITableViewCell {
         didSet {
             // Hide view accoriding to cell appointment
             if news is OrganizationNews {
-                projectNameButton.removeFromSuperview()
+                if superview!.subviews.contains(projectNameButton) {
+                    projectNameButton.removeFromSuperview()
+                }
             } else if news is ProjectNews {
-                logoImageView.removeFromSuperview()
+                if superview!.subviews.contains(logoImageView) {
+                    logoImageView.removeFromSuperview()
+                }
             }
         }
     }
+    var isLiked = false
     
     // MARK: Cell Lifecycle
     
     override func awakeFromNib() {
-        projectNameButton.sizeToFit()
-        
-        // Set appearence of 'projectNameButton'
-        
         // Set appearence of 'likeButton'
         if isLiked {
             likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
@@ -81,4 +83,11 @@ class NewsCell: UITableViewCell {
             }
         }
     }
+    
+    @IBAction func projectNameButtonWasTapped(_ sender: UIButton!) {
+        if let news = news {
+            delegate?.newsCellDidTapProjectNameButton!(self, onNews: news)
+        }
+    }
+    
 }

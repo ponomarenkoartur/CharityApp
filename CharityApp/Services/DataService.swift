@@ -158,7 +158,7 @@ class DataService {
         }
     }
     
-    func addLikedOrganizationNewsToUser(_ news: OrganizationNews, user: User, handler: @escaping (_ result: Bool) -> ()) {
+    func likeOrganizationNews(_ news: OrganizationNews, forUser user: User, handler: @escaping (_ result: Bool) -> ()) {
         if let userKey = user.key, let newsKey = news.key {
             REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""
@@ -174,7 +174,7 @@ class DataService {
         }
     }
     
-    func removeLikedOrganizationNewsFromUser(_ news: OrganizationNews, user: User, handler: @escaping (_ result: Bool) -> ()) {
+    func unlikeOrganizationNews(_ news: OrganizationNews, forUser user: User, handler: @escaping (_ result: Bool) -> ()) {
         if let userKey = user.key, let newsKey = news.key {
             REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""

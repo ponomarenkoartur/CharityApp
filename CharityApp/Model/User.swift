@@ -16,7 +16,7 @@ class User: SnapshotConvertible {
     let email: String
     let accountCreationDate: Date
     var isAdmin: Bool
-    var likedNewsKeys: [String: String]
+    var likedProjectNewsKeys: [String: String]
     var likedOrganizationNewsKeys: [String]
     var subcribedProjectsKeys: [String]
     
@@ -27,7 +27,7 @@ class User: SnapshotConvertible {
         self.email = email
         self.accountCreationDate = accountCreationDate
         self.isAdmin = isAdmin
-        self.likedNewsKeys = likedNewsKeys
+        self.likedProjectNewsKeys = likedNewsKeys
         self.likedOrganizationNewsKeys = likedOrganizationNewsKeys
         self.subcribedProjectsKeys = subcribedProjectsKeys
     }
@@ -38,7 +38,7 @@ class User: SnapshotConvertible {
         accountCreationDate = dateFormatter.date(from: snapshot.childSnapshot(forPath: "accountCreationDate").value as! String)!
         isAdmin = snapshot.childSnapshot(forPath: "admin").value as! Bool
         // TODO: Replace with real data
-        likedNewsKeys = [:]
+        likedProjectNewsKeys = [:]
         
         if let likedOrganizationNewsKeysString = snapshot.childSnapshot(forPath: "likedOrganizationNewsIds").value as? String {
                 likedOrganizationNewsKeys = likedOrganizationNewsKeysString.split { $0 == "," }.map(String.init)
@@ -55,20 +55,28 @@ class User: SnapshotConvertible {
     
     // MARK: - Methods
     
-    func isLikedOrganizationNews(_ news: OrganizationNews) -> Bool {
-        if let key = news.key {
-            return likedOrganizationNewsKeys.contains(key)
+    func isLikedNews(_ news: News, ofProject project: Project?) -> Bool {
+        guard let newsKey = news.key else {
+            return false
+        }
+        if let _ = news as? OrganizationNews {
+            return likedOrganizationNewsKeys.contains(newsKey)
+        } else if let _ = news as? ProjectNews,
+            let project = project,
+            let projectKey = project.key,
+            let likedNewsOfProjectString = likedProjectNewsKeys[projectKey] {
+            return likedNewsOfProjectString.contains(newsKey)
         } else {
             return false
         }
+        
     }
     
     func isSubscribedProject(_ project: Project) -> Bool {
-        if let key = project.key {
-            return subcribedProjectsKeys.contains(key)
-        } else {
+        guard let key = project.key else {
             return false
         }
+        return subcribedProjectsKeys.contains(key)
     }
     
     // MARK: - SnapshotConvertible
@@ -78,7 +86,7 @@ class User: SnapshotConvertible {
             "email": email,
             "accountCreationDate": dateFormatter.string(from: accountCreationDate),
             "admin": isAdmin,
-            "likedNewsIds": likedNewsKeys,
+            "likedNewsIds": likedProjectNewsKeys,
             "likedOrganizationNewsIds": likedOrganizationNewsKeys,
             "subcribedProjectsIds": subcribedProjectsKeys
             ]

@@ -29,7 +29,6 @@
 		7547FCD020C1BFC400FE8E65 /* DonationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCCF20C1BFC400FE8E65 /* DonationsVC.swift */; };
 		7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */; };
 		7547FCD620C1C6CF00FE8E65 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */; };
-		754B04F9209DD9AB00A13967 /* CustomSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B04F8209DD9AB00A13967 /* CustomSwitchButton.swift */; };
 		755F80E7204F07EB006DAAA5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80E6204F07EB006DAAA5 /* Project.swift */; };
 		755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */; };
 		756C772C20BC61120008203F /* ProjectPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C772B20BC61120008203F /* ProjectPickerVC.swift */; };
@@ -40,11 +39,14 @@
 		758D7EB820B5D25000D84569 /* UIColor extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758D7EB720B5D25000D84569 /* UIColor extension.swift */; };
 		758D7EBC20B5D9B900D84569 /* InfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758D7EBB20B5D9B900D84569 /* InfoItem.swift */; };
 		759DA1B820B723DA001AC827 /* VideoContentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759DA1B720B723DA001AC827 /* VideoContentContainer.swift */; };
+		75A4A02B20C5C9E9001CBB97 /* ProjectNewsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4A02A20C5C9E9001CBB97 /* ProjectNewsHeaderCell.swift */; };
+		75A4A02D20C5D851001CBB97 /* UITableView inset extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A4A02C20C5D851001CBB97 /* UITableView inset extension.swift */; };
 		75A5F3D6204F00C000137D28 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D5204F00C000137D28 /* News.swift */; };
 		75A5F3D8204F00E500137D28 /* ImageContentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D7204F00E500137D28 /* ImageContentContainer.swift */; };
 		75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D9204F013C00137D28 /* NewsContainer.swift */; };
 		75A5F3DC204F01C400137D28 /* IDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3DB204F01C400137D28 /* IDatabase.swift */; };
 		75A5F3DE204F01E200137D28 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3DD204F01E200137D28 /* Organization.swift */; };
+		75B0024120C5B74A007B8435 /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0024020C5B74A007B8435 /* ProjectDetailsVC.swift */; };
 		75BF5D4420978873000AFFB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF5D4320978873000AFFB2 /* LoginViewController.swift */; };
 		75F2365E209CA2F1007AC1D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F2365D209CA2F1007AC1D2 /* Assets.xcassets */; };
 		75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FECA42204EFE8A00003210 /* GoogleService-Info.plist */; };
@@ -79,7 +81,6 @@
 		7547FCCF20C1BFC400FE8E65 /* DonationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsVC.swift; sourceTree = "<group>"; };
 		7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureProjectVC.swift; sourceTree = "<group>"; };
 		7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
-		754B04F8209DD9AB00A13967 /* CustomSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomSwitchButton.swift; path = "CharityApp/Other views/CustomSwitchButton.swift"; sourceTree = SOURCE_ROOT; };
 		755F80E6204F07EB006DAAA5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFireDatabase.swift; sourceTree = "<group>"; };
 		756C772B20BC61120008203F /* ProjectPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPickerVC.swift; sourceTree = "<group>"; };
@@ -90,12 +91,15 @@
 		758D7EB720B5D25000D84569 /* UIColor extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor extension.swift"; sourceTree = "<group>"; };
 		758D7EBB20B5D9B900D84569 /* InfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoItem.swift; sourceTree = "<group>"; };
 		759DA1B720B723DA001AC827 /* VideoContentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoContentContainer.swift; sourceTree = "<group>"; };
+		75A4A02A20C5C9E9001CBB97 /* ProjectNewsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNewsHeaderCell.swift; sourceTree = "<group>"; };
+		75A4A02C20C5D851001CBB97 /* UITableView inset extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView inset extension.swift"; sourceTree = "<group>"; };
 		75A5F3D0204EFF6600137D28 /* CharityApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CharityApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		75A5F3D5204F00C000137D28 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		75A5F3D7204F00E500137D28 /* ImageContentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageContentContainer.swift; sourceTree = "<group>"; };
 		75A5F3D9204F013C00137D28 /* NewsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsContainer.swift; sourceTree = "<group>"; };
 		75A5F3DB204F01C400137D28 /* IDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabase.swift; sourceTree = "<group>"; };
 		75A5F3DD204F01E200137D28 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		75B0024020C5B74A007B8435 /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
 		75BF5D4320978873000AFFB2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75F2365D209CA2F1007AC1D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CharityApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		75FECA42204EFE8A00003210 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -197,16 +201,17 @@
 			isa = PBXGroup;
 			children = (
 				75308AAC2054481400AB1364 /* AccountVC.swift */,
-				75BF5D4320978873000AFFB2 /* LoginViewController.swift */,
+				7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */,
+				7547FCCF20C1BFC400FE8E65 /* DonationsVC.swift */,
 				7517903B204EFD1A00476E17 /* HomeVC.swift */,
+				75BF5D4320978873000AFFB2 /* LoginViewController.swift */,
+				7578DBDF20BC797F008892D3 /* NewsDetailsVC.swift */,
+				7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */,
+				75B0024020C5B74A007B8435 /* ProjectDetailsVC.swift */,
+				756C772B20BC61120008203F /* ProjectPickerVC.swift */,
+				758D7EB120B5D02900D84569 /* ProjectsVC.swift */,
 				751E4902209AE697003CDAE1 /* RecoverPasswordViewController.swift */,
 				7523F63F20B071AC005D8CEA /* RegistrationVC.swift */,
-				758D7EB120B5D02900D84569 /* ProjectsVC.swift */,
-				756C772B20BC61120008203F /* ProjectPickerVC.swift */,
-				7578DBDF20BC797F008892D3 /* NewsDetailsVC.swift */,
-				7547FCCF20C1BFC400FE8E65 /* DonationsVC.swift */,
-				7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */,
-				7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 				758D7EB320B5D21D00D84569 /* UIView extension.swift */,
 				758D7EB520B5D23900D84569 /* UIViewController extension.swift */,
 				758D7EB720B5D25000D84569 /* UIColor extension.swift */,
+				75A4A02C20C5D851001CBB97 /* UITableView inset extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,9 +269,9 @@
 			isa = PBXGroup;
 			children = (
 				75308AAE2054536E00AB1364 /* NewsCell.swift */,
-				754B04F8209DD9AB00A13967 /* CustomSwitchButton.swift */,
 				75479B6320B59CC20021B73A /* MainTabBar.swift */,
 				7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */,
+				75A4A02A20C5C9E9001CBB97 /* ProjectNewsHeaderCell.swift */,
 			);
 			path = "Other views";
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 			files = (
 				75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */,
 				758D7EB420B5D21D00D84569 /* UIView extension.swift in Sources */,
+				75B0024120C5B74A007B8435 /* ProjectDetailsVC.swift in Sources */,
 				7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */,
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
 				7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */,
@@ -413,15 +420,16 @@
 				758D7EB820B5D25000D84569 /* UIColor extension.swift in Sources */,
 				755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */,
 				75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */,
+				75A4A02D20C5D851001CBB97 /* UITableView inset extension.swift in Sources */,
 				75479B6420B59CC20021B73A /* MainTabBar.swift in Sources */,
 				75479B6820B5AAD20021B73A /* OrganizationNews.swift in Sources */,
 				7523F64020B071AC005D8CEA /* RegistrationVC.swift in Sources */,
 				758D7EB620B5D23900D84569 /* UIViewController extension.swift in Sources */,
 				75308AB22054549E00AB1364 /* Functions.swift in Sources */,
 				7523F63220B04650005D8CEA /* DataService.swift in Sources */,
-				754B04F9209DD9AB00A13967 /* CustomSwitchButton.swift in Sources */,
 				7547FCD020C1BFC400FE8E65 /* DonationsVC.swift in Sources */,
 				75A5F3D8204F00E500137D28 /* ImageContentContainer.swift in Sources */,
+				75A4A02B20C5C9E9001CBB97 /* ProjectNewsHeaderCell.swift in Sources */,
 				75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */,
 				7517903C204EFD1A00476E17 /* HomeVC.swift in Sources */,
 				7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */,

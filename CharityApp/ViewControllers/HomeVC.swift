@@ -1,4 +1,4 @@
-//
+
 //  ViewController.swift
 //  CharityApp
 //
@@ -67,13 +67,11 @@ extension HomeVC {
         cell.titleLabel.text = news.title
         cell.dateLabel.text = dateFormatter.string(from: news.date)
         cell.textView.text = news.text
-        cell.likeButton.setTitle(String(" \(news.likesCount)"), for: .normal)
+        cell.likeButton.setTitle("\(news.likesCount)", for: .normal)
         cell.delegate = self
         cell.news = news
-        print(cell.news is OrganizationNews)
-        
         if let currentUser = AuthService.instance.currentUser {
-            cell.isLiked = currentUser.isLikedOrganizationNews(news)
+            cell.isLiked = currentUser.isLikedNews(news, ofProject: nil)
         }
     }
     
@@ -87,7 +85,7 @@ extension HomeVC: NewsCellDelegate {
         if let organizationNews = news as? OrganizationNews {
             DataService.instance.updateLikeCountOrganizationNews(organizationNews)
             if let currentUser = AuthService.instance.currentUser {
-                DataService.instance.addLikedOrganizationNewsToUser(organizationNews, user: currentUser) { status in
+                DataService.instance.likeOrganizationNews(organizationNews, forUser: currentUser) { status in
                     if status, let key = news.key {
                         currentUser.likedOrganizationNewsKeys.append(key)
                     }
@@ -100,7 +98,7 @@ extension HomeVC: NewsCellDelegate {
         if let organizationNews = news as? OrganizationNews {
             DataService.instance.updateLikeCountOrganizationNews(organizationNews)
             if let currentUser = AuthService.instance.currentUser {
-                DataService.instance.removeLikedOrganizationNewsFromUser(organizationNews, user: currentUser) { (status) in
+                DataService.instance.unlikeOrganizationNews(organizationNews, forUser: currentUser) { (status) in
                     if status {
                         for i in 0..<currentUser.likedOrganizationNewsKeys.count {
                             if currentUser.likedOrganizationNewsKeys[i] == organizationNews.key {

@@ -1033,7 +1033,11 @@
                                             </state>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwH-HD-bhA">
-                                            <rect key="frame" x="334" y="11" width="25" height="25"/>
+                                            <rect key="frame" x="309" y="11" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="IB7-bh-NF4"/>
+                                                <constraint firstAttribute="height" constant="50" id="wg5-Uz-hlb"/>
+                                            </constraints>
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <state key="normal" image="more-filled"/>
                                             <connections>
@@ -1098,7 +1102,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="TEk-V2-IcR" id="bCD-y7-HWy"/>
-                                    <outlet property="moneyBagImageView" destination="ISS-Fh-B9c" id="APF-LM-Zsq"/>
                                     <outlet property="raiseMoneyStatusLabel" destination="ysX-Z1-xxJ" id="5Nd-nF-Wrb"/>
                                     <outlet property="raiseMoneyStatusProgressView" destination="hyE-FF-4yo" id="rAF-fd-2uU"/>
                                     <outlet property="subscribeButton" destination="cY3-dC-ao4" id="L9a-MV-Jtc"/>
@@ -1128,20 +1131,20 @@
             </objects>
             <point key="canvasLocation" x="1605.5999999999999" y="-954.87256371814101"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Project DetailsVC-->
         <scene sceneID="NSy-Sx-xXb">
             <objects>
-                <tableViewController id="Xzq-3L-kS0" sceneMemberID="viewController">
+                <tableViewController id="Xzq-3L-kS0" customClass="ProjectDetailsVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wTn-sc-hCu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="266" id="5Cx-Yn-Dx9">
-                                <rect key="frame" x="0.0" y="28" width="375" height="266"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainInfoCell" rowHeight="222" id="5Cx-Yn-Dx9" customClass="ProjectCell" customModule="CharityApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="222"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Cx-Yn-Dx9" id="tIW-au-ItB">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="265.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="221.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ProjectTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHm-qB-BQq">
@@ -1150,10 +1153,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-Qp-hhS">
-                                            <rect key="frame" x="334" y="11" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-Qp-hhS">
+                                            <rect key="frame" x="334" y="14.5" width="25" height="25"/>
                                             <state key="normal" image="pencil-filled"/>
+                                            <connections>
+                                                <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="EditProject" id="sNS-h7-7rp"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.01.18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNI-cH-aFU">
                                             <rect key="frame" x="166.5" y="46.5" width="42" height="14"/>
@@ -1161,14 +1166,14 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text goes here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-cQ-szk">
-                                            <rect key="frame" x="16" y="68" width="343" height="71.5"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Text goes here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MUg-cQ-szk">
+                                            <rect key="frame" x="16" y="64.5" width="343" height="33"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIl-OQ-fHr">
-                                            <rect key="frame" x="0.0" y="149.5" width="375" height="61"/>
+                                            <rect key="frame" x="0.0" y="105.5" width="375" height="61"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money-bag-filled" translatesAutoresizingMaskIntoConstraints="NO" id="f2y-G5-HaJ">
                                                     <rect key="frame" x="175" y="0.0" width="25" height="25"/>
@@ -1198,31 +1203,44 @@
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXb-1p-GiJ">
-                                            <rect key="frame" x="134" y="225.5" width="107" height="25"/>
+                                            <rect key="frame" x="134" y="181.5" width="107" height="25"/>
                                             <state key="normal" title="Subscribe" image="bell-outline">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="subscribeButtonWasTapped:" destination="5Cx-Yn-Dx9" eventType="touchUpInside" id="jXV-Ko-gFl"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="MUg-cQ-szk" firstAttribute="top" secondItem="tNI-cH-aFU" secondAttribute="bottom" constant="8" id="228-1s-QFa"/>
                                         <constraint firstAttribute="trailing" secondItem="MUg-cQ-szk" secondAttribute="trailing" constant="16" id="3Im-SS-6t9"/>
+                                        <constraint firstItem="Uhf-Qp-hhS" firstAttribute="centerY" secondItem="LHm-qB-BQq" secondAttribute="centerY" id="9eZ-5F-TT2"/>
+                                        <constraint firstItem="MUg-cQ-szk" firstAttribute="top" secondItem="tNI-cH-aFU" secondAttribute="bottom" constant="4" id="CVW-TN-0lg"/>
                                         <constraint firstItem="MUg-cQ-szk" firstAttribute="leading" secondItem="tIW-au-ItB" secondAttribute="leading" constant="16" id="Ifm-68-nNc"/>
-                                        <constraint firstItem="CXb-1p-GiJ" firstAttribute="top" secondItem="gIl-OQ-fHr" secondAttribute="bottom" constant="15" id="Mg4-bl-Nkr"/>
-                                        <constraint firstItem="gIl-OQ-fHr" firstAttribute="top" secondItem="MUg-cQ-szk" secondAttribute="bottom" constant="10" id="WXy-zl-vtQ"/>
-                                        <constraint firstAttribute="bottom" secondItem="CXb-1p-GiJ" secondAttribute="bottom" constant="15" id="cz9-av-gxh"/>
+                                        <constraint firstItem="LHm-qB-BQq" firstAttribute="top" secondItem="tIW-au-ItB" secondAttribute="top" constant="11" id="Ogt-Se-91T"/>
+                                        <constraint firstItem="gIl-OQ-fHr" firstAttribute="top" secondItem="MUg-cQ-szk" secondAttribute="bottom" constant="8" id="RWM-El-njO"/>
+                                        <constraint firstItem="tNI-cH-aFU" firstAttribute="top" secondItem="LHm-qB-BQq" secondAttribute="bottom" constant="4" id="Ra0-XL-d5x"/>
                                         <constraint firstItem="CXb-1p-GiJ" firstAttribute="centerX" secondItem="tIW-au-ItB" secondAttribute="centerX" id="dQR-nU-UcW"/>
-                                        <constraint firstItem="LHm-qB-BQq" firstAttribute="top" secondItem="tIW-au-ItB" secondAttribute="top" constant="11" id="eZ0-vz-8GW"/>
+                                        <constraint firstItem="CXb-1p-GiJ" firstAttribute="top" secondItem="gIl-OQ-fHr" secondAttribute="bottom" constant="15" id="jAi-05-72n"/>
                                         <constraint firstAttribute="trailing" secondItem="gIl-OQ-fHr" secondAttribute="trailing" id="kXO-67-ST9"/>
                                         <constraint firstItem="LHm-qB-BQq" firstAttribute="centerX" secondItem="tIW-au-ItB" secondAttribute="centerX" id="leK-Dr-quW"/>
-                                        <constraint firstItem="tNI-cH-aFU" firstAttribute="top" secondItem="LHm-qB-BQq" secondAttribute="bottom" constant="4" id="pEA-h5-jjM"/>
                                         <constraint firstItem="tNI-cH-aFU" firstAttribute="centerX" secondItem="tIW-au-ItB" secondAttribute="centerX" id="vPG-9J-Jhp"/>
+                                        <constraint firstAttribute="trailing" secondItem="Uhf-Qp-hhS" secondAttribute="trailing" constant="16" id="wFu-GI-IlY"/>
                                         <constraint firstItem="gIl-OQ-fHr" firstAttribute="leading" secondItem="tIW-au-ItB" secondAttribute="leading" id="xkA-We-ZFd"/>
+                                        <constraint firstAttribute="bottom" secondItem="CXb-1p-GiJ" secondAttribute="bottom" constant="15" id="yjj-TI-pXa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="tNI-cH-aFU" id="KtF-h1-B4N"/>
+                                    <outlet property="raiseMoneyStatusLabel" destination="NOD-YJ-QGN" id="vYc-mK-lQT"/>
+                                    <outlet property="raiseMoneyStatusProgressView" destination="5oF-U3-eV4" id="mXE-4J-5sk"/>
+                                    <outlet property="subscribeButton" destination="CXb-1p-GiJ" id="E8H-FF-5oF"/>
+                                    <outlet property="textView" destination="MUg-cQ-szk" id="Ku7-yH-ToC"/>
+                                    <outlet property="titleLabel" destination="LHm-qB-BQq" id="lvI-rE-Z3o"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="Eai-sZ-lYf">
-                                <rect key="frame" x="0.0" y="294" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectNewsHeaderCell" rowHeight="44" id="Eai-sZ-lYf" customClass="ProjectNewsHeaderCell" customModule="CharityApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="250" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eai-sZ-lYf" id="7sG-xh-123">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1237,6 +1255,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reO-HN-e6A">
                                             <rect key="frame" x="334" y="10.5" width="25" height="25"/>
                                             <state key="normal" image="plus-filled"/>
+                                            <connections>
+                                                <action selector="plusButtonWasTapped:" destination="Eai-sZ-lYf" eventType="touchUpInside" id="qS6-Qr-QFD"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -1282,7 +1303,7 @@
         <image name="video-camera" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x84-Bd-xby"/>
+        <segue reference="sNS-h7-7rp"/>
         <segue reference="84z-Tk-iGd"/>
         <segue reference="Wal-pk-5ip"/>
     </inferredMetricsTieBreakers>

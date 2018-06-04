@@ -22,4 +22,6 @@ class NewsVC: UITableViewController {
         news.append(news1)
         // TODO: Load real news for the user from firebase
     }
+    
+    
 }

@@ -61,8 +61,11 @@ class ProjectsVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdenifiers.editProject {
             let navigationController = segue.destination as! UINavigationController
-            let projectDetailsVC = navigationController.topViewController as! ConfigureProjectVC
-            
+            let configureProjectVC = navigationController.topViewController as! ConfigureProjectVC
+            let cellSender = sender as! ProjectCell
+            configureProjectVC.project = cellSender.project
+        } else if segue.identifier == SegueIdenifiers.showProjectDetails {
+            let projectDetailsVC = segue.destination as! ProjectDetailsVC
             let cellSender = sender as! ProjectCell
             projectDetailsVC.project = cellSender.project
         }
@@ -98,7 +101,7 @@ extension ProjectsVC: ProjectCellDelegate {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in
-            
+            self.performSegue(withIdentifier: SegueIdenifiers.showProjectDetails, sender: cell)
         }
         let editAction = UIAlertAction(title: "Edit", style: .default) { (_) in
             self.performSegue(withIdentifier: SegueIdenifiers.editProject, sender: cell)
@@ -142,5 +145,6 @@ extension ProjectsVC {
     
     struct SegueIdenifiers {
         static let editProject = "EditProject"
+        static let showProjectDetails = "ShowProjectDetails"
     }
 }
