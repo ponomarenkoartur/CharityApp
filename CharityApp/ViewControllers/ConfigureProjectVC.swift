@@ -1,5 +1,5 @@
 //
-//  ProjectDetailsVC.swift
+//  ConfigureProjectVC.swift
 //  CharityApp
 //
 //  Created by Artur on 6/1/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectDetailsVC: UITableViewController {
+class ConfigureProjectVC: UITableViewController {
 
     // MARK: - Outlets
     
@@ -65,7 +65,7 @@ class ProjectDetailsVC: UITableViewController {
     
 }
 
-extension ProjectDetailsVC {
+extension ConfigureProjectVC {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // Hide 'delete' section if add new project
         if let _ = project {

@@ -892,7 +892,7 @@
         <!--Add Project-->
         <scene sceneID="EwM-xh-QB6">
             <objects>
-                <tableViewController id="KBR-nf-oad" customClass="ProjectDetailsVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="KBR-nf-oad" customClass="ConfigureProjectVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="o1K-ux-De5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1271,7 +1271,7 @@
         <image name="video-camera" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wfL-BF-rva"/>
+        <segue reference="x84-Bd-xby"/>
         <segue reference="84z-Tk-iGd"/>
         <segue reference="Wal-pk-5ip"/>
     </inferredMetricsTieBreakers>

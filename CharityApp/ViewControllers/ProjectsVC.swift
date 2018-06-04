@@ -61,7 +61,7 @@ class ProjectsVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdenifiers.editProject {
             let navigationController = segue.destination as! UINavigationController
-            let projectDetailsVC = navigationController.topViewController as! ProjectDetailsVC
+            let projectDetailsVC = navigationController.topViewController as! ConfigureProjectVC
             
             let cellSender = sender as! ProjectCell
             projectDetailsVC.project = cellSender.project

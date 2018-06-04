@@ -26,7 +26,7 @@
 		75479B6820B5AAD20021B73A /* OrganizationNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479B6720B5AAD20021B73A /* OrganizationNews.swift */; };
 		75479B6A20B5AADD0021B73A /* ProjectNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479B6920B5AADD0021B73A /* ProjectNews.swift */; };
 		7547FCD020C1BFC400FE8E65 /* DonationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCCF20C1BFC400FE8E65 /* DonationsVC.swift */; };
-		7547FCD420C1C28600FE8E65 /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCD320C1C28600FE8E65 /* ProjectDetailsVC.swift */; };
+		7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */; };
 		7547FCD620C1C6CF00FE8E65 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */; };
 		754B04F9209DD9AB00A13967 /* CustomSwitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B04F8209DD9AB00A13967 /* CustomSwitchButton.swift */; };
 		755F80E7204F07EB006DAAA5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80E6204F07EB006DAAA5 /* Project.swift */; };
@@ -75,7 +75,7 @@
 		75479B6720B5AAD20021B73A /* OrganizationNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNews.swift; sourceTree = "<group>"; };
 		75479B6920B5AADD0021B73A /* ProjectNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNews.swift; sourceTree = "<group>"; };
 		7547FCCF20C1BFC400FE8E65 /* DonationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsVC.swift; sourceTree = "<group>"; };
-		7547FCD320C1C28600FE8E65 /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
+		7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureProjectVC.swift; sourceTree = "<group>"; };
 		7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		754B04F8209DD9AB00A13967 /* CustomSwitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomSwitchButton.swift; path = "CharityApp/Other views/CustomSwitchButton.swift"; sourceTree = SOURCE_ROOT; };
 		755F80E6204F07EB006DAAA5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 				756C772B20BC61120008203F /* ProjectPickerVC.swift */,
 				7578DBDF20BC797F008892D3 /* NewsDetailsVC.swift */,
 				7547FCCF20C1BFC400FE8E65 /* DonationsVC.swift */,
-				7547FCD320C1C28600FE8E65 /* ProjectDetailsVC.swift */,
+				7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */,
 				7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */,
 			);
 			path = ViewControllers;
@@ -391,7 +391,7 @@
 			files = (
 				75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */,
 				758D7EB420B5D21D00D84569 /* UIView extension.swift in Sources */,
-				7547FCD420C1C28600FE8E65 /* ProjectDetailsVC.swift in Sources */,
+				7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */,
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
 				7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */,
 				755F80E7204F07EB006DAAA5 /* Project.swift in Sources */,
