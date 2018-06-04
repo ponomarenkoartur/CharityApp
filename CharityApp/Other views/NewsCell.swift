@@ -36,11 +36,11 @@ class NewsCell: UITableViewCell {
         didSet {
             // Hide view accoriding to cell appointment
             if news is OrganizationNews {
-                if superview!.subviews.contains(projectNameButton) {
+                if let superview = superview, superview.subviews.contains(projectNameButton) {
                     projectNameButton.removeFromSuperview()
                 }
             } else if news is ProjectNews {
-                if superview!.subviews.contains(logoImageView) {
+                if let superview = superview, superview.subviews.contains(logoImageView) {
                     logoImageView.removeFromSuperview()
                 }
             }

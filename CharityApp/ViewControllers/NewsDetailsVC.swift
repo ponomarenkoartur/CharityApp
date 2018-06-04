@@ -1,5 +1,5 @@
 //
-//  NewsDetailsVC.swift
+//  ConfigureNewsVC.swift
 //  CharityApp
 //
 //  Created by Artur on 5/28/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsDetailsVC: UITableViewController {
+class ConfigureNewsVC: UITableViewController {
 
     // MARK: - Outlets
     
@@ -21,6 +21,7 @@ class NewsDetailsVC: UITableViewController {
     // MARK: - Properties
     
     var news: News?
+    var project: Project?
     var isOrganizationNews = true
     
     // MARK: - View Lifecycle
@@ -28,9 +29,14 @@ class NewsDetailsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set appearence of standart 'project picker' cell
-        projectPickerTableViewCell.imageView!.image = imageWithImage(#imageLiteral(resourceName: "logo-simplified"), scaledToSize: CGSize(width: 30, height: 30))
-        projectPickerTableViewCell.textLabel!.text = "Organization"
+        // Set initial appearence of 'project picker' cell
+        if isOrganizationNews {
+            projectPickerTableViewCell.imageView!.image = imageWithImage(#imageLiteral(resourceName: "logo-simplified"), scaledToSize: CGSize(width: 30, height: 30))
+            projectPickerTableViewCell.textLabel!.text = "Organization"
+        } else if let project = project {
+            projectPickerTableViewCell.textLabel!.text = project.title
+            projectPickerTableViewCell.accessoryType = .none
+        }
         // If edit news
         if let news = news {
             title = "Edit news"
@@ -101,7 +107,7 @@ class NewsDetailsVC: UITableViewController {
     }
 }
 
-extension NewsDetailsVC {
+extension ConfigureNewsVC {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // Hide 'delete' section if add new news
         if let _ = news {

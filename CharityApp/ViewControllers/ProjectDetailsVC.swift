@@ -69,10 +69,6 @@ class ProjectDetailsVC: UITableViewController {
                     cell.isSubscribed = currentUser.isSubscribedProject(project)
                 }
             }
-        case TableViewCellIdentifiers.projectNewsHeader:
-            if let cell = cell as? ProjectNewsHeaderCell {
-                cell.delegate = self
-            }
         case TableViewCellIdentifiers.news:
             if let cell = cell as? NewsCell,
                 let news = news {
@@ -95,7 +91,9 @@ class ProjectDetailsVC: UITableViewController {
         }
     }
     
-    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
     
     // MARK: - Navigation
     
@@ -104,6 +102,11 @@ class ProjectDetailsVC: UITableViewController {
             let navigationVC = segue.destination as! UINavigationController
             let configureProjectVC = navigationVC.topViewController as! ConfigureProjectVC
             configureProjectVC.project = project
+        } else if segue.identifier == SegueIdentifiers.addProjectNews {
+            let navigationVC = segue.destination as! UINavigationController
+            let configureProjectNewsVC = navigationVC.topViewController as! ConfigureNewsVC
+            configureProjectNewsVC.isOrganizationNews = false
+            configureProjectNewsVC.project = project
         }
     }
 }
@@ -122,12 +125,6 @@ extension ProjectDetailsVC: NewsCellDelegate {
     }
     
     func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News) {
-        
-    }
-}
-
-extension ProjectDetailsVC: ProjectNewsHeaderCellDelegate {
-    func projectNewsHeaderCellDidTapPlusButton(_ cell: ProjectNewsHeaderCell) {
         
     }
 }
@@ -153,6 +150,7 @@ extension ProjectDetailsVC {
         static let news = "NewsCell"
     }
     struct SegueIdentifiers {
+        static let addProjectNews = "AddProjectNews"
         static let editProject = "EditProject"
     }
 }

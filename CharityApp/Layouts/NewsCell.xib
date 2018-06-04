@@ -18,18 +18,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="389" height="178.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TC-Kl-lsi">
-                        <rect key="frame" x="323" y="11" width="50" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="2X4-0w-nVA"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="RTK-pR-YMw"/>
-                        </constraints>
-                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <state key="normal" image="more-filled"/>
-                        <connections>
-                            <action selector="moreButtonWasTapped:" destination="78t-RO-XHv" eventType="touchUpInside" id="oXO-MP-4Qh"/>
-                        </connections>
-                    </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Text goes here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qaz-vy-JQb">
                         <rect key="frame" x="16" y="90" width="357" height="45"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -90,21 +78,33 @@
                             <action selector="projectNameButtonWasTapped:" destination="78t-RO-XHv" eventType="touchUpInside" id="lpL-7y-hf4"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TC-Kl-lsi">
+                        <rect key="frame" x="329" y="0.0" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="KTl-1T-cem"/>
+                            <constraint firstAttribute="width" constant="60" id="ZVk-8A-jXu"/>
+                        </constraints>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <state key="normal" image="more-filled"/>
+                        <connections>
+                            <action selector="moreButtonWasTapped:" destination="78t-RO-XHv" eventType="touchUpInside" id="oXO-MP-4Qh"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3TC-Kl-lsi" secondAttribute="trailing" id="2B2-AL-zXP"/>
                     <constraint firstItem="MYc-bm-Zq8" firstAttribute="top" secondItem="SEJ-cC-DY8" secondAttribute="bottom" constant="4" id="4XM-ea-6sF"/>
                     <constraint firstAttribute="trailing" secondItem="Qaz-vy-JQb" secondAttribute="trailing" constant="16" id="6qY-ao-Xsx"/>
                     <constraint firstItem="Qaz-vy-JQb" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="7Vb-kn-67P"/>
-                    <constraint firstAttribute="trailing" secondItem="3TC-Kl-lsi" secondAttribute="trailing" constant="16" id="8zr-5c-Pgy"/>
                     <constraint firstItem="Qaz-vy-JQb" firstAttribute="top" secondItem="MYc-bm-Zq8" secondAttribute="bottom" constant="8" id="BmL-DP-GCO"/>
                     <constraint firstItem="1O3-kY-YOq" firstAttribute="centerY" secondItem="SDg-a2-1e8" secondAttribute="centerY" id="Cfw-Ma-sQ2"/>
-                    <constraint firstItem="3TC-Kl-lsi" firstAttribute="top" secondItem="eDN-4I-GX5" secondAttribute="top" id="L1a-9R-fS8"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" constant="11" id="L7F-Cd-lRL"/>
                     <constraint firstItem="MYc-bm-Zq8" firstAttribute="leading" secondItem="eDN-4I-GX5" secondAttribute="leading" id="S36-mC-vmi"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="TkC-Gt-b6u"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="leading" secondItem="gjB-ob-tdW" secondAttribute="trailing" constant="8" id="Tkd-Hq-W8I"/>
                     <constraint firstItem="SDg-a2-1e8" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="a5Z-zJ-Fgm"/>
                     <constraint firstAttribute="bottom" secondItem="SDg-a2-1e8" secondAttribute="bottom" constant="10" id="bHf-3R-tqs"/>
+                    <constraint firstItem="3TC-Kl-lsi" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" id="dEu-oH-sn7"/>
                     <constraint firstItem="MYc-bm-Zq8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eDN-4I-GX5" secondAttribute="bottom" constant="4" id="drK-rT-YMY"/>
                     <constraint firstItem="SDg-a2-1e8" firstAttribute="top" secondItem="Qaz-vy-JQb" secondAttribute="bottom" constant="8" id="fug-fM-Jsj"/>
                     <constraint firstItem="gjB-ob-tdW" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" constant="11" id="gfg-Ef-Ag8"/>

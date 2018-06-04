@@ -35,12 +35,12 @@ class HomeVC: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == SegueIdenifiers.composeNews {
             let navigationController = segue.destination as! UINavigationController
-            let addNewsVC = navigationController.topViewController  as! NewsDetailsVC
+            let addNewsVC = navigationController.topViewController  as! ConfigureNewsVC
             addNewsVC.isOrganizationNews = true
         } else if segue.identifier == SegueIdenifiers.editNews {
             let cellSender = sender as! NewsCell
             let navigationController = segue.destination as! UINavigationController
-            let newsDetailsVC = navigationController.topViewController as! NewsDetailsVC
+            let newsDetailsVC = navigationController.topViewController as! ConfigureNewsVC
             newsDetailsVC.news = cellSender.news
         }
     }

@@ -29,7 +29,7 @@
         <!--Add News-->
         <scene sceneID="Viz-7Z-FCg">
             <objects>
-                <tableViewController id="iox-dk-yiP" customClass="NewsDetailsVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="iox-dk-yiP" customClass="ConfigureNewsVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="V3J-hg-gvN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1032,7 +1032,7 @@
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwH-HD-bhA">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwH-HD-bhA">
                                             <rect key="frame" x="309" y="11" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="IB7-bh-NF4"/>
@@ -1153,13 +1153,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-Qp-hhS">
-                                            <rect key="frame" x="334" y="14.5" width="25" height="25"/>
-                                            <state key="normal" image="pencil-filled"/>
-                                            <connections>
-                                                <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="EditProject" id="sNS-h7-7rp"/>
-                                            </connections>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.01.18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNI-cH-aFU">
                                             <rect key="frame" x="166.5" y="46.5" width="42" height="14"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
@@ -1211,21 +1204,32 @@
                                                 <action selector="subscribeButtonWasTapped:" destination="5Cx-Yn-Dx9" eventType="touchUpInside" id="jXV-Ko-gFl"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uhf-Qp-hhS">
+                                            <rect key="frame" x="323" y="0.0" width="52" height="52"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="FN7-sQ-15z"/>
+                                                <constraint firstAttribute="width" constant="52" id="gyp-Jj-nhs"/>
+                                            </constraints>
+                                            <state key="normal" image="pencil-filled"/>
+                                            <connections>
+                                                <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="EditProject" id="sNS-h7-7rp"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="MUg-cQ-szk" secondAttribute="trailing" constant="16" id="3Im-SS-6t9"/>
-                                        <constraint firstItem="Uhf-Qp-hhS" firstAttribute="centerY" secondItem="LHm-qB-BQq" secondAttribute="centerY" id="9eZ-5F-TT2"/>
                                         <constraint firstItem="MUg-cQ-szk" firstAttribute="top" secondItem="tNI-cH-aFU" secondAttribute="bottom" constant="4" id="CVW-TN-0lg"/>
+                                        <constraint firstItem="Uhf-Qp-hhS" firstAttribute="top" secondItem="tIW-au-ItB" secondAttribute="top" id="GIC-jB-fxm"/>
                                         <constraint firstItem="MUg-cQ-szk" firstAttribute="leading" secondItem="tIW-au-ItB" secondAttribute="leading" constant="16" id="Ifm-68-nNc"/>
                                         <constraint firstItem="LHm-qB-BQq" firstAttribute="top" secondItem="tIW-au-ItB" secondAttribute="top" constant="11" id="Ogt-Se-91T"/>
                                         <constraint firstItem="gIl-OQ-fHr" firstAttribute="top" secondItem="MUg-cQ-szk" secondAttribute="bottom" constant="8" id="RWM-El-njO"/>
                                         <constraint firstItem="tNI-cH-aFU" firstAttribute="top" secondItem="LHm-qB-BQq" secondAttribute="bottom" constant="4" id="Ra0-XL-d5x"/>
                                         <constraint firstItem="CXb-1p-GiJ" firstAttribute="centerX" secondItem="tIW-au-ItB" secondAttribute="centerX" id="dQR-nU-UcW"/>
+                                        <constraint firstAttribute="trailing" secondItem="Uhf-Qp-hhS" secondAttribute="trailing" id="dnF-9O-ToC"/>
                                         <constraint firstItem="CXb-1p-GiJ" firstAttribute="top" secondItem="gIl-OQ-fHr" secondAttribute="bottom" constant="15" id="jAi-05-72n"/>
                                         <constraint firstAttribute="trailing" secondItem="gIl-OQ-fHr" secondAttribute="trailing" id="kXO-67-ST9"/>
                                         <constraint firstItem="LHm-qB-BQq" firstAttribute="centerX" secondItem="tIW-au-ItB" secondAttribute="centerX" id="leK-Dr-quW"/>
                                         <constraint firstItem="tNI-cH-aFU" firstAttribute="centerX" secondItem="tIW-au-ItB" secondAttribute="centerX" id="vPG-9J-Jhp"/>
-                                        <constraint firstAttribute="trailing" secondItem="Uhf-Qp-hhS" secondAttribute="trailing" constant="16" id="wFu-GI-IlY"/>
                                         <constraint firstItem="gIl-OQ-fHr" firstAttribute="leading" secondItem="tIW-au-ItB" secondAttribute="leading" id="xkA-We-ZFd"/>
                                         <constraint firstAttribute="bottom" secondItem="CXb-1p-GiJ" secondAttribute="bottom" constant="15" id="yjj-TI-pXa"/>
                                     </constraints>
@@ -1239,32 +1243,37 @@
                                     <outlet property="titleLabel" destination="LHm-qB-BQq" id="lvI-rE-Z3o"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectNewsHeaderCell" rowHeight="44" id="Eai-sZ-lYf" customClass="ProjectNewsHeaderCell" customModule="CharityApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="250" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectNewsHeaderCell" rowHeight="64" id="Eai-sZ-lYf" customClass="ProjectNewsHeaderCell" customModule="CharityApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="250" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eai-sZ-lYf" id="7sG-xh-123">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Project news" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCD-ct-Fct">
-                                            <rect key="frame" x="143.5" y="13.5" width="88.5" height="18"/>
+                                            <rect key="frame" x="143.5" y="23" width="88.5" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reO-HN-e6A">
-                                            <rect key="frame" x="334" y="10.5" width="25" height="25"/>
+                                            <rect key="frame" x="311" y="0.0" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="07f-rh-Ity"/>
+                                                <constraint firstAttribute="height" constant="64" id="wWC-bm-s4u"/>
+                                            </constraints>
                                             <state key="normal" image="plus-filled"/>
                                             <connections>
-                                                <action selector="plusButtonWasTapped:" destination="Eai-sZ-lYf" eventType="touchUpInside" id="qS6-Qr-QFD"/>
+                                                <segue destination="kWs-GC-N7y" kind="presentation" identifier="AddProjectNews" id="8Qd-dJ-vSA"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="reO-HN-e6A" secondAttribute="trailing" constant="16" id="4Kc-CR-Izz"/>
                                         <constraint firstItem="xCD-ct-Fct" firstAttribute="centerX" secondItem="7sG-xh-123" secondAttribute="centerX" id="5I0-ek-Yoe"/>
+                                        <constraint firstItem="reO-HN-e6A" firstAttribute="top" secondItem="7sG-xh-123" secondAttribute="top" id="b08-pB-Jbu"/>
+                                        <constraint firstAttribute="bottom" secondItem="reO-HN-e6A" secondAttribute="bottom" id="bon-8x-DBI"/>
+                                        <constraint firstAttribute="trailing" secondItem="reO-HN-e6A" secondAttribute="trailing" id="ehA-0P-3Qx"/>
                                         <constraint firstItem="xCD-ct-Fct" firstAttribute="centerY" secondItem="7sG-xh-123" secondAttribute="centerY" id="ob7-8q-fJT"/>
-                                        <constraint firstItem="reO-HN-e6A" firstAttribute="centerY" secondItem="xCD-ct-Fct" secondAttribute="centerY" id="qIZ-Vt-vIY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1305,6 +1314,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="sNS-h7-7rp"/>
         <segue reference="84z-Tk-iGd"/>
-        <segue reference="Wal-pk-5ip"/>
+        <segue reference="8Qd-dJ-vSA"/>
     </inferredMetricsTieBreakers>
 </document>
