@@ -37,10 +37,8 @@ class NewsCell: UITableViewCell {
     // MARK: Cell Lifecycle
     
     override func awakeFromNib() {
-       
-       projectNameButton.imageView!.heightAnchor.constraint(equalToConstant: 5)
-        projectNameButton.imageView!.widthAnchor.constraint(equalToConstant: 5)
-        
+        // Set appearence of 'projectNameButton'
+        projectNameButton.imageView?.contentMode = .scaleAspectFit
         if isLiked {
             likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
         } else {

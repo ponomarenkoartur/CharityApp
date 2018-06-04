@@ -27,7 +27,7 @@
                         </connections>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Text goes here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qaz-vy-JQb">
-                        <rect key="frame" x="16" y="90" width="357" height="45"/>
+                        <rect key="frame" x="16" y="80" width="357" height="55"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -63,14 +63,17 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.01.2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYc-bm-Zq8">
-                        <rect key="frame" x="64" y="68" width="56" height="14"/>
+                        <rect key="frame" x="64" y="58" width="56" height="14"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5I-XL-AB5">
-                        <rect key="frame" x="64" y="39" width="93" height="25"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                        <rect key="frame" x="64" y="39" width="95" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="jI0-4j-3j8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                         <state key="normal" title="ProjectName" image="need-filled">
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
@@ -95,6 +98,7 @@
                     <constraint firstItem="gjB-ob-tdW" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" constant="11" id="gfg-Ef-Ag8"/>
                     <constraint firstItem="3TC-Kl-lsi" firstAttribute="centerY" secondItem="eDN-4I-GX5" secondAttribute="centerY" id="nXj-3z-bd3"/>
                     <constraint firstAttribute="trailing" secondItem="1O3-kY-YOq" secondAttribute="trailing" constant="16" id="nZY-4c-Ub2"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h5I-XL-AB5" secondAttribute="trailing" constant="16" id="qB1-aP-0xu"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="tqE-eS-IJX"/>
                     <constraint firstItem="gjB-ob-tdW" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="uaX-CK-ts8"/>
                 </constraints>
