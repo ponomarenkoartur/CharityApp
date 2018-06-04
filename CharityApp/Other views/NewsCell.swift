@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol OrganizationNewsCellDelegate: class {
-    func organizationNewsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: OrganizationNews)
-    func organizationNewsCellDidLike(_ cell: UITableViewCell, onNews news: OrganizationNews)
-    func organizationNewsCellDidUnlike(_ cell: UITableViewCell, onNews news: OrganizationNews)
+protocol NewsCellDelegate: class {
+    func newsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: News)
+    func newsCellDidLike(_ cell: UITableViewCell, onNews news: News)
+    func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News)
 }
 
-class OrganizationNewsCell: UITableViewCell {
+class NewsCell: UITableViewCell {
     
     // MARK: - Outlets
     
@@ -23,16 +23,24 @@ class OrganizationNewsCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    @IBOutlet weak var projectNameButton: UIButton!
+    
     
     // MARK: - Properties
     
-    weak var delegate: OrganizationNewsCellDelegate?
-    var news: OrganizationNews?
+    weak var delegate: NewsCellDelegate?
+    var news: News?
     var isLiked = false
     
     // MARK: Cell Lifecycle
     
     override func awakeFromNib() {
+       
+       projectNameButton.imageView!.heightAnchor.constraint(equalToConstant: 5)
+        projectNameButton.imageView!.widthAnchor.constraint(equalToConstant: 5)
+        
         if isLiked {
             likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
         } else {
@@ -44,7 +52,7 @@ class OrganizationNewsCell: UITableViewCell {
     
     @IBAction func moreButtonWasTapped(_ sender: UIButton) {
         if let news = news {
-            delegate?.organizationNewsCellDidTapMoreButton(self, onNews: news)            
+            delegate?.newsCellDidTapMoreButton(self, onNews: news)            
         }
     }
     
@@ -54,12 +62,12 @@ class OrganizationNewsCell: UITableViewCell {
             likeButton.titleLabel!.text!.removeFirst()
             if isLiked {
                 news.likesCount -= 1
-                delegate?.organizationNewsCellDidUnlike(self, onNews: news)
+                delegate?.newsCellDidUnlike(self, onNews: news)
                 likeButton.setTitle(" \(news.likesCount)", for: .normal)
                 likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
             } else {
                 news.likesCount += 1
-                delegate?.organizationNewsCellDidLike(self, onNews: news)
+                delegate?.newsCellDidLike(self, onNews: news)
                 likeButton.setTitle(" \(news.likesCount)", for: .normal)
                 likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
             }

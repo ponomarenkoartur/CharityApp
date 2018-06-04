@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750A2D8620C5A035005937AD /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750A2D8520C5A035005937AD /* NewsCell.xib */; };
 		7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */; };
 		7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179039204EFD1A00476E17 /* AppDelegate.swift */; };
 		7517903C204EFD1A00476E17 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517903B204EFD1A00476E17 /* HomeVC.swift */; };
@@ -20,7 +21,7 @@
 		75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D9320503C260015D506 /* IDatabaseResultListener.swift */; };
 		75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D95205059030015D506 /* SnapshotConvertible.swift */; };
 		75308AAD2054481400AB1364 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAC2054481400AB1364 /* AccountVC.swift */; };
-		75308AAF2054536E00AB1364 /* OrganizationNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* OrganizationNewsCell.swift */; };
+		75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* NewsCell.swift */; };
 		75308AB22054549E00AB1364 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AB12054549E00AB1364 /* Functions.swift */; };
 		75479B6420B59CC20021B73A /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479B6320B59CC20021B73A /* MainTabBar.swift */; };
 		75479B6820B5AAD20021B73A /* OrganizationNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75479B6720B5AAD20021B73A /* OrganizationNews.swift */; };
@@ -54,6 +55,7 @@
 		19A8CD0548096350A1118D67 /* Pods-CharityApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp.debug.xcconfig"; sourceTree = "<group>"; };
 		351D9F021CBE898F11AA1E9E /* Pods-CharityApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharityApp/Pods-CharityApp.release.xcconfig"; sourceTree = "<group>"; };
 		3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		750A2D8520C5A035005937AD /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		75179036204EFD1A00476E17 /* CharityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75179039204EFD1A00476E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 		75246D9320503C260015D506 /* IDatabaseResultListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabaseResultListener.swift; sourceTree = "<group>"; };
 		75246D95205059030015D506 /* SnapshotConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotConvertible.swift; sourceTree = "<group>"; };
 		75308AAC2054481400AB1364 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
-		75308AAE2054536E00AB1364 /* OrganizationNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNewsCell.swift; sourceTree = "<group>"; };
+		75308AAE2054536E00AB1364 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		75308AB12054549E00AB1364 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		75479B6320B59CC20021B73A /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		75479B6720B5AAD20021B73A /* OrganizationNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNews.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				7517903D204EFD1A00476E17 /* Main.storyboard */,
 				75179042204EFD1A00476E17 /* LaunchScreen.storyboard */,
+				750A2D8520C5A035005937AD /* NewsCell.xib */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -259,7 +262,7 @@
 		75F2365F209CA5C6007AC1D2 /* Other views */ = {
 			isa = PBXGroup;
 			children = (
-				75308AAE2054536E00AB1364 /* OrganizationNewsCell.swift */,
+				75308AAE2054536E00AB1364 /* NewsCell.swift */,
 				754B04F8209DD9AB00A13967 /* CustomSwitchButton.swift */,
 				75479B6320B59CC20021B73A /* MainTabBar.swift */,
 				7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */,
@@ -330,6 +333,7 @@
 			files = (
 				75179044204EFD1A00476E17 /* LaunchScreen.storyboard in Resources */,
 				75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */,
+				750A2D8620C5A035005937AD /* NewsCell.xib in Resources */,
 				7517903F204EFD1A00476E17 /* Main.storyboard in Resources */,
 				75F2365E209CA2F1007AC1D2 /* Assets.xcassets in Resources */,
 			);
@@ -418,7 +422,7 @@
 				754B04F9209DD9AB00A13967 /* CustomSwitchButton.swift in Sources */,
 				7547FCD020C1BFC400FE8E65 /* DonationsVC.swift in Sources */,
 				75A5F3D8204F00E500137D28 /* ImageContentContainer.swift in Sources */,
-				75308AAF2054536E00AB1364 /* OrganizationNewsCell.swift in Sources */,
+				75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */,
 				7517903C204EFD1A00476E17 /* HomeVC.swift in Sources */,
 				7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */,
 				751E4903209AE697003CDAE1 /* RecoverPasswordViewController.swift in Sources */,
