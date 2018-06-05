@@ -80,7 +80,8 @@ class ConfigureNewsVC: UITableViewController {
                         print(status)
                     }
                 }
-            } else if let project = self.project {
+            } else if let project = self.project,
+                let projectKey = project.key {
                 if let news = self.news as? ProjectNews {
                     // Edit existing project news
                     news.title = self.titleTextField.text!
@@ -90,7 +91,8 @@ class ConfigureNewsVC: UITableViewController {
                     })
                 } else {
                     // Add project news
-                    let news = ProjectNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, date: Date(), imageUrlsCollection: [:], videoUrlsCollection: [:], tagsCollection: [])
+                    
+                    let news = ProjectNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, parentProjectKey: projectKey, parentProjectTitle: project.title)
                     DataService.instance.uploadProjectNews(news, ofProject: project, sendComplete: { (status) in
                         print(status)
                     })
@@ -121,8 +123,9 @@ class ConfigureNewsVC: UITableViewController {
         let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 1))!
         
         let controller = segue.source as! ProjectPickerVC
-        if let project = controller.project {
-            news = ProjectNews(key: nil, title: "", text: "", date: Date())
+        if let project = controller.project,
+            let projectKey = project.key {
+            news = ProjectNews(key: nil, title: "", text: "", parentProjectKey: projectKey, parentProjectTitle: project.title)
             cell.imageView!.isHidden = true
             cell.textLabel!.text = project.title
         } else {

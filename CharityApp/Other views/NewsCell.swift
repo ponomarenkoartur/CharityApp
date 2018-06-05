@@ -28,7 +28,6 @@ class NewsCell: UITableViewCell {
     
     @IBOutlet weak var projectNameButton: UIButton!
     
-    
     // MARK: - Properties
     
     weak var delegate: NewsCellDelegate?
@@ -40,7 +39,15 @@ class NewsCell: UITableViewCell {
                     projectNameButton.removeFromSuperview()
                 } else if news is ProjectNews {
                     logoImageView.removeFromSuperview()
-                }                
+                }
+            }
+        }
+    }
+    var project: Project? {
+        didSet {
+            if let project = project {
+                projectNameButton.setTitle(project.title, for: .normal)
+                projectNameButton.sizeToFit()                
             }
         }
     }

@@ -91,7 +91,6 @@ extension HomeVC: NewsCellDelegate {
             return
         }
     
-        DataService.instance.updateLikeCountOfNews(organizationNews, ofProject: nil)
         DataService.instance.likeNews(organizationNews, ofProject: nil, byUser: currentUser) { status in
             if status, let key = news.key {
                 currentUser.likedOrganizationNewsKeys.append(key)
@@ -104,7 +103,6 @@ extension HomeVC: NewsCellDelegate {
             let currentUser = AuthService.instance.currentUser else {
             return
         }
-            DataService.instance.updateLikeCountOrganizationNews(organizationNews)
         DataService.instance.unlikeNews(organizationNews, ofProject: nil, byUser: currentUser) { (status) in
             if status {
                 for i in 0..<currentUser.likedOrganizationNewsKeys.count {

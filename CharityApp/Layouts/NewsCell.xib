@@ -70,7 +70,6 @@
                             <constraint firstAttribute="height" constant="25" id="abN-3Q-Sb9"/>
                         </constraints>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="ProjectName" image="need-filled">
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
@@ -79,10 +78,10 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TC-Kl-lsi">
-                        <rect key="frame" x="329" y="0.0" width="60" height="60"/>
+                        <rect key="frame" x="319" y="0.0" width="70" height="70"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="60" id="KTl-1T-cem"/>
-                            <constraint firstAttribute="width" constant="60" id="ZVk-8A-jXu"/>
+                            <constraint firstAttribute="height" constant="70" id="KTl-1T-cem"/>
+                            <constraint firstAttribute="width" constant="70" id="ZVk-8A-jXu"/>
                         </constraints>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <state key="normal" image="more-filled"/>

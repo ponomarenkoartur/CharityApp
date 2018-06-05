@@ -143,7 +143,6 @@ extension ProjectDetailsVC: NewsCellDelegate {
                 return
         }
         
-        DataService.instance.updateLikeCountOfNews(projectNews, ofProject: project)
         DataService.instance.likeNews(projectNews, ofProject: project, byUser: currentUser) { status in
             if status,
                 let newsKey = news.key,
@@ -165,14 +164,13 @@ extension ProjectDetailsVC: NewsCellDelegate {
                 return
         }
         
-        DataService.instance.updateLikeCountOfNews(projectNews, ofProject: project)
+        DataService.instance.unlikeNews(projectNews, ofProject: project, byUser: currentUser) { (status) in
+            print(status)
+        }
         
     }
     
     func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News) {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) else {
-            return
-        }
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     } 
 }

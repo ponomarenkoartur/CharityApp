@@ -84,27 +84,6 @@ class DataService {
         }
     }
     
-    func updateLikeCountOrganizationNews(_ news: News) {
-        if let key = news.key {
-            REF_ORGANIZATION_NEWS.child(key).child("likes").setValue(news.likesCount)
-        }
-    }
-    
-    func updateLikeCountOfNews(_ news: News, ofProject project: Project?) {
-        guard let newsKey = news.key  else {
-            return
-        }
-       
-        if let project = project,
-            let projectKey = project.key {
-            // Update likeCount of project news
-            REF_PROJECTS.child(projectKey).child("news").child(newsKey).child("likes").setValue(news.likesCount)
-        } else {
-            // Update likeCount of organization news
-         REF_ORGANIZATION_NEWS.child(newsKey).child("likes").setValue(news.likesCount)
-        }
-    }
-    
     // MARK: - Project News
     
     func getAllNewsOfProject(_ project: Project, handler: @escaping (_ projectsNewsCollection: [ProjectNews]) -> ()) {
@@ -146,23 +125,93 @@ class DataService {
     }
     
     func updateProjectNews(_ news: ProjectNews, ofProject project: Project, updateComplete: @escaping (_ status: Bool) -> ()) {
-        if let newsKey = news.key, let projectKey = project.key {
-         REF_PROJECTS.child(projectKey).child("news").child(newsKey).updateChildValues(news.convertToSnapshot())
-            updateComplete(true)
-        } else {
+        guard let projectKey = project.key, let newsKey = news.key else {
             updateComplete(false)
+            return
         }
+        REF_PROJECTS.child(projectKey).child("news").child(newsKey).updateChildValues(news.convertToSnapshot())
+        updateComplete(true)
+    }
+    
+    func getAllProjectNews(handler: @escaping (_ newsCollection: [ProjectNews]) -> ()) {
+        var newsCollection = [ProjectNews]()
+        
+        REF_PROJECTS.observeSingleEvent(of: .value) { (projectsSnapshot) in
+            guard let projectsSnapshot = projectsSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            for projectSnapshot in projectsSnapshot {
+                guard let newsCollectionSnapshot = projectSnapshot.childSnapshot(forPath: "news").children.allObjects as? [DataSnapshot] else {
+                    return
+                }
+                
+                let projectKey = projectSnapshot.childSnapshot(forPath: "charityNeedKey").value as! String
+                let projectTitle = projectSnapshot.childSnapshot(forPath: "title").value as! String
+                
+                for newsSnapshot in newsCollectionSnapshot {
+                    let news = ProjectNews(snapshot: newsSnapshot)
+                    news.parentProjectKey = projectKey
+                    news.parentProjectTitle = projectTitle
+                    newsCollection.append(news)
+                }
+            }
+            
+            handler(newsCollection)
+        }
+    }
+
+    // MARK: - News
+    
+    func getAllNews(handler: @escaping (_ newsCollection: [News]) -> ()) {
+        var newsCollection = [News]()
+        getAllOrganizationNews { (organizationNewsCollection) in
+            newsCollection.append(contentsOf: organizationNewsCollection)
+            
+            self.getAllProjectNews(handler: { (projectNewsCollection) in
+                newsCollection.append(contentsOf: projectNewsCollection)
+                
+                handler(newsCollection)
+            })
+        }
+    }
+    
+    private func updateLikeCountOfNews(_ news: News, ofProjectWithKey projectKey: String?) {
+        guard let newsKey = news.key  else {
+            return
+        }
+        if news is ProjectNews,
+            let projectKey = projectKey {
+            // Update likeCount of project news
+            REF_PROJECTS.child(projectKey).child("news").child(newsKey).child("likes").setValue(news.likesCount)
+        } else {
+            // Update likeCount of organization news
+            REF_ORGANIZATION_NEWS.child(newsKey).child("likes").setValue(news.likesCount)
+        }
+    }
+    
+    private func updateLikeCountOfNews(_ news: News, ofProject project: Project?) {
+        updateLikeCountOfNews(news, ofProjectWithKey: project?.key)
     }
     
     // MARK: - Projects
     
-    func uploadProject(_ project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
-        let newsReference = REF_PROJECTS.childByAutoId()
-        project.key = newsReference.key
-        newsReference.updateChildValues(project.convertToSnapshot())
-        sendComplete(true)
+    func getProjectByKey(_ key: String, handler: @escaping (_ project: Project) -> ()) {
+        REF_PROJECTS.observeSingleEvent(of: .value) { (projectsSnapshot) in
+            guard let projectsSnapshot = projectsSnapshot.children.allObjects as? [DataSnapshot] else {
+                return
+            }
+            
+            for projectSnapshot in projectsSnapshot {
+                let projectKey = projectSnapshot.childSnapshot(forPath: "charityNeedKey").value as! String
+                if projectKey == key {
+                    let project = Project(snapshot: projectSnapshot)
+                    handler(project)
+                    break
+                }
+            }
+        }
     }
-    
     
     func getAllProjects(handler: @escaping (_ projects: [Project]) -> ()) {
         var projects = [Project]()
@@ -180,6 +229,14 @@ class DataService {
         }
     }
     
+    
+    func uploadProject(_ project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
+        let newsReference = REF_PROJECTS.childByAutoId()
+        project.key = newsReference.key
+        newsReference.updateChildValues(project.convertToSnapshot())
+        sendComplete(true)
+    }
+
     func removeProject(_ project: Project, deleteComplete: @escaping (_ status: Bool) -> ()) {
         if let key = project.key {
             REF_PROJECTS.child(key).removeValue()
@@ -212,10 +269,18 @@ class DataService {
     }
     
     func likeNews(_ news: News, ofProject project: Project?, byUser user: User, handler: @escaping (_ result: Bool) -> ()) {
+        likeNews(news, ofProjectWithKey: project?.key, byUser: user) { (status) in
+            handler(status)
+        }
+    }
+    
+    func likeNews(_ news: News, ofProjectWithKey projectKey: String?, byUser user: User, handler: @escaping (_ result: Bool) -> ()) {
         guard let userKey = user.key, let newsKey = news.key  else {
             handler(false)
             return
         }
+        self.updateLikeCountOfNews(news, ofProjectWithKey: projectKey)
+        
         if news is OrganizationNews {
             // Check if "likedOrganizationNews" already has a value
             REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
@@ -228,8 +293,7 @@ class DataService {
                 handler(true)
             }
         } else if news is ProjectNews,
-            let project = project,
-            let projectKey = project.key {
+            let projectKey = projectKey {
             // Check if "likedNewsPosts" for certain projectKey already has a value
             REF_USERS.child(userKey).child("likedNewsPosts").child(projectKey).observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""

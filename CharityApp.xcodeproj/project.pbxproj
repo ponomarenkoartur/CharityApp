@@ -20,6 +20,7 @@
 		7523F64020B071AC005D8CEA /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F63F20B071AC005D8CEA /* RegistrationVC.swift */; };
 		75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D9320503C260015D506 /* IDatabaseResultListener.swift */; };
 		75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D95205059030015D506 /* SnapshotConvertible.swift */; };
+		752B3D2920C6AFBD002A7603 /* NewsCellContainerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B3D2820C6AFBD002A7603 /* NewsCellContainerTableVC.swift */; };
 		75308AAD2054481400AB1364 /* AccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAC2054481400AB1364 /* AccountVC.swift */; };
 		75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* NewsCell.swift */; };
 		75308AB22054549E00AB1364 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AB12054549E00AB1364 /* Functions.swift */; };
@@ -70,6 +71,7 @@
 		7523F63F20B071AC005D8CEA /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		75246D9320503C260015D506 /* IDatabaseResultListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDatabaseResultListener.swift; sourceTree = "<group>"; };
 		75246D95205059030015D506 /* SnapshotConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotConvertible.swift; sourceTree = "<group>"; };
+		752B3D2820C6AFBD002A7603 /* NewsCellContainerTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellContainerTableVC.swift; sourceTree = "<group>"; };
 		75308AAC2054481400AB1364 /* AccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVC.swift; sourceTree = "<group>"; };
 		75308AAE2054536E00AB1364 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		75308AB12054549E00AB1364 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				758D7EB120B5D02900D84569 /* ProjectsVC.swift */,
 				751E4902209AE697003CDAE1 /* RecoverPasswordViewController.swift */,
 				7523F63F20B071AC005D8CEA /* RegistrationVC.swift */,
+				752B3D2820C6AFBD002A7603 /* NewsCellContainerTableVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */,
 				758D7EB420B5D21D00D84569 /* UIView extension.swift in Sources */,
 				75B0024120C5B74A007B8435 /* ProjectDetailsVC.swift in Sources */,
+				752B3D2920C6AFBD002A7603 /* NewsCellContainerTableVC.swift in Sources */,
 				7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */,
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
 				7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */,
