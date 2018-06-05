@@ -16,6 +16,11 @@ class ProjectsVC: UITableViewController {
     
     // MARK: - View Lifecycle
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.separatorInset = UIEdgeInsets.zero
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         DataService.instance.getAllProjects { (projects) in

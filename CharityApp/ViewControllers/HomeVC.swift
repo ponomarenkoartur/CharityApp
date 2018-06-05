@@ -15,11 +15,15 @@ class HomeVC: UITableViewController {
     
     var newsCollection = [OrganizationNews]()
     
+    // MARK: - View Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let cellNib = UINib(nibName: TableViewCellIdenifiers.newsCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdenifiers.newsCell)
+        
+        tableView.separatorInset = UIEdgeInsets.zero
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -15,6 +15,13 @@ class ProjectDetailsVC: UITableViewController {
     var project: Project?
     var newsCollection = [ProjectNews]()
     
+    // MARK: - View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.separatorInset = UIEdgeInsets.zero
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
