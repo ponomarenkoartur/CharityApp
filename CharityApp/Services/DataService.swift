@@ -318,6 +318,7 @@ class DataService {
             handler(false)
             return
         }
+        self.updateLikeCountOfNews(news, ofProjectWithKey: projectKey)
         if news is OrganizationNews {
             REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""
