@@ -35,7 +35,6 @@ class ProjectDetailsVC: UITableViewController {
                 self.tableView.reloadSections(indexSet as IndexSet, with: .fade)
             }
         }
-        
     }
     
     // MARK: - Table view data source
@@ -48,6 +47,12 @@ class ProjectDetailsVC: UITableViewController {
         switch section {
         case 0, 1:
             return 1
+//        case 2:
+//            if let project = project {
+//                return project.imageUrlsCollection.count
+//            } else {
+//                return 0
+//            }
         case 2:
             return newsCollection.count
         default:
@@ -64,6 +69,13 @@ class ProjectDetailsVC: UITableViewController {
         case 1:
             cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.projectNewsHeader, for: indexPath)
             configureCell(cell, forNews: nil)
+//        case 2:
+//            cell = ImageCell(style: .default, reuseIdentifier: TableViewCellIdentifiers.image)
+//            if let project = project {
+//                let imageUrlString = project.imageUrlsCollection[indexPath.row]
+//                configureCell(cell, forImageUrl: imageUrlString)
+//            }
+//            return cell
         case 2:
             cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.news, for: indexPath) as! NewsCell
             let news = newsCollection[indexPath.row]
@@ -73,6 +85,14 @@ class ProjectDetailsVC: UITableViewController {
         }
 
         return cell
+    }
+    
+    func configureCell(_ cell: UITableViewCell, forImageUrl url: String) {
+        if let cell = cell as? ImageCell {
+            cell.imageURL = url
+            let url = URL(string: url)
+            cell.myImageView.loadImage(url: url!)
+        }
     }
     
     func configureCell(_ cell: UITableViewCell, forNews news: News?) {
@@ -194,6 +214,7 @@ extension ProjectDetailsVC {
         static let mainInfo = "MainInfoCell"
         static let projectNewsHeader = "ProjectNewsHeaderCell"
         static let news = "NewsCell"
+        static let image = "ImageCell"
     }
     struct SegueIdentifiers {
         static let addProjectNews = "AddProjectNews"

@@ -96,7 +96,7 @@ extension ProjectsVC: ProjectCellDelegate {
     func projectCellDidUnsubscribe(_ cell: UITableViewCell, fromProject project: Project) {
         if let currentUser = AuthService.instance.currentUser {
             DataService.instance.unsubcribeUser(currentUser, fromProject: project) { (status) in
-                if status {
+                if status, currentUser.subcribedProjectsKeys.count > 0 {
                     for i in 0..<currentUser.subcribedProjectsKeys.count {
                         if currentUser.subcribedProjectsKeys[i] == project.key {
                             currentUser.subcribedProjectsKeys.remove(at: i)

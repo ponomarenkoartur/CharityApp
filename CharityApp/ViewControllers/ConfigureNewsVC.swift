@@ -76,7 +76,7 @@ class ConfigureNewsVC: UITableViewController {
                     }
                 } else {
                     // Add organization news
-                    let news = OrganizationNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, date: Date(), imageUrlsCollection: [:], tagsCollection: [])
+                    let news = OrganizationNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, date: Date(), imageUrlsCollection: [], tagsCollection: [])
                     DataService.instance.uploadOrganizationNews(news) { (status) in
                         print(status)
                     }

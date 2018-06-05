@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="389" height="178.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Text goes here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qaz-vy-JQb">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Text goes here..." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Qaz-vy-JQb">
                         <rect key="frame" x="16" y="90" width="357" height="45"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -45,7 +45,7 @@
                             <action selector="likeButtonWasTapped:" destination="78t-RO-XHv" eventType="touchUpInside" id="Me5-5U-9bG"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDN-4I-GX5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eDN-4I-GX5">
                         <rect key="frame" x="69" y="11" width="37.5" height="24"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                         <nil key="textColor"/>
@@ -97,6 +97,7 @@
                     <constraint firstItem="Qaz-vy-JQb" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="7Vb-kn-67P"/>
                     <constraint firstItem="Qaz-vy-JQb" firstAttribute="top" secondItem="MYc-bm-Zq8" secondAttribute="bottom" constant="8" id="BmL-DP-GCO"/>
                     <constraint firstItem="1O3-kY-YOq" firstAttribute="centerY" secondItem="SDg-a2-1e8" secondAttribute="centerY" id="Cfw-Ma-sQ2"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eDN-4I-GX5" secondAttribute="trailing" constant="80" id="GX5-64-JFG"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" constant="11" id="L7F-Cd-lRL"/>
                     <constraint firstItem="MYc-bm-Zq8" firstAttribute="leading" secondItem="eDN-4I-GX5" secondAttribute="leading" id="S36-mC-vmi"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="TkC-Gt-b6u"/>

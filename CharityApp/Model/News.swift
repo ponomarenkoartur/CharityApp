@@ -16,7 +16,7 @@ class News: InfoItem {
     // MARK: - Initialization
     
     init(key: String?, title: String, text: String, date:
-        Date, likesCount: Int = 0, imageUrlsCollection: [String : String] = [:], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = []) {
+        Date, likesCount: Int = 0, imageUrlsCollection: [String] = [], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = []) {
         self.likesCount = likesCount
         super.init(key: key, title: title, text: text, date: date, imageUrlsCollection: imageUrlsCollection, videoUrlsCollection: videoUrlsCollection, tagsCollection: tagsCollection)
     }

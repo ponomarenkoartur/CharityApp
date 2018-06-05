@@ -13,7 +13,7 @@ class ProjectNews: News {
     var parentProjectKey: String?
     var parentProjectTitle: String?
     
-    init(key: String?, title: String, text: String, parentProjectKey: String?, parentProjectTitle: String?, date: Date = Date(), likesCount: Int = 0, imageUrlsCollection: [String : String] = [:], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = []) {
+    init(key: String?, title: String, text: String, parentProjectKey: String?, parentProjectTitle: String?, date: Date = Date(), likesCount: Int = 0, imageUrlsCollection: [String] = [], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = []) {
         self.parentProjectKey = parentProjectKey
         self.parentProjectTitle = parentProjectTitle
         super.init(key: key, title: title, text: text, date: date, likesCount: likesCount, imageUrlsCollection: imageUrlsCollection, videoUrlsCollection: videoUrlsCollection, tagsCollection: tagsCollection)

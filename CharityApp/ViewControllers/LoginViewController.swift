@@ -44,7 +44,10 @@ class LoginViewController: UIViewController {
             let password = passwordTextField.text {
             AuthService.instance.loginUser(withEmail: email, andPassword: password) { (status, errorCode) in
                 if status {
-                    self.performSegue(withIdentifier: "Login", sender: nil)
+                    DataService.instance.getCurrentUser { (user) in
+                        AuthService.instance.currentUser = user
+                                            self.performSegue(withIdentifier: "Login", sender: nil)
+                    }
                 } else {
                     if let errorCode = errorCode {
                         // TODO: Replace standart alert controller with custim hud view

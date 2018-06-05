@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-let DB_BASE = Database.database().reference().child("Example22")
+let DB_BASE = Database.database().reference().child("Example")
 
 class DataService {
     static let instance = DataService()

@@ -16,14 +16,14 @@ class InfoItem: NSObject, ImageContentCollectionContainer, VideoContentCollectio
     var title: String
     var text: String
     let date: Date
-    var imageUrlsCollection: [String : String]
+    var imageUrlsCollection: [String]
     var videoUrlsCollection: [String : String]
     var tagsCollection: [String]
     
     // MARK: - Initialization
     
     init(key: String?, title: String, text: String, date:
-        Date, imageUrlsCollection: [String : String] = [:], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = []) {
+        Date, imageUrlsCollection: [String] = [], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = []) {
         self.key = key
         self.title = title
         self.text = text
@@ -42,7 +42,15 @@ class InfoItem: NSObject, ImageContentCollectionContainer, VideoContentCollectio
         title = snapshot.childSnapshot(forPath: "title").value as! String
         text = snapshot.childSnapshot(forPath: "text").value as! String
         date = dateFormatter.date(from: snapshot.childSnapshot(forPath: "dateString").value as! String)!
-        imageUrlsCollection = [:]
+        imageUrlsCollection = []
+        for imageUrlSnapshot in snapshot.childSnapshot(forPath: "imageUrls").children {
+            guard let imageUrlSnapshot = imageUrlSnapshot as? DataSnapshot else {
+                break
+            }
+                let imageUrlString = imageUrlSnapshot.value as! String
+                imageUrlsCollection.append(imageUrlString)
+            
+        }
         videoUrlsCollection = [:]
         tagsCollection = tags
     }

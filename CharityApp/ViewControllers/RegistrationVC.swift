@@ -41,7 +41,8 @@ class RegistrationVC: UITableViewController {
                     alert.message = "Account successfully created."
                     
                     self.present(alert, animated: true) {
-                        self.performSegue(withIdentifier: "LoginAfterRegistration", sender: nil)
+                        self.dismiss(animated: true)
+//                        self.performSegue(withIdentifier: "LoginAfterRegistration", sender: nil)
                     }
                 } else {
                     if let errorCode = errorCode {
