@@ -45,22 +45,26 @@ class User: SnapshotConvertible {
                 let projectName = likedProjectNews.key
                 var likedProjectNewsString = likedProjectNews.value as! String
                 
-                // Delete last comma
-                likedProjectNewsString.removeLast()
-
                 likedProjectNewsKeys[projectName] = []
-                likedProjectNewsKeys[likedProjectNews.key] = likedProjectNewsString.split { $0 == "," }.map(String.init)
+                if !likedProjectNewsString.isEmpty {
+                    // Delete last comma
+                    likedProjectNewsString.removeLast()
+                    
+                    likedProjectNewsKeys[likedProjectNews.key] = likedProjectNewsString.split { $0 == "," }.map(String.init)
+                }
+                
             }
         }
         
+        likedOrganizationNewsKeys = []
         if let likedOrganizationNewsKeysString = snapshot.childSnapshot(forPath: "likedOrganizationNews").value as? String {
-            // Delete last comma
-            var likedOrganizationNewsKeysCorrectString = likedOrganizationNewsKeysString
-            likedOrganizationNewsKeysCorrectString.removeLast()
-            
-                likedOrganizationNewsKeys = likedOrganizationNewsKeysCorrectString.split { $0 == "," }.map(String.init)
-        } else {
-            likedOrganizationNewsKeys = []
+            if !likedOrganizationNewsKeysString.isEmpty {
+                // Delete last comma
+                var likedOrganizationNewsKeysCorrectString = likedOrganizationNewsKeysString
+                likedOrganizationNewsKeysCorrectString.removeLast()
+                
+                likedOrganizationNewsKeys = likedOrganizationNewsKeysCorrectString.split { $0 == "," }.map(String.init)                
+            }
         }
         
         if let subcribedProjectsKeysString = snapshot.childSnapshot(forPath: "subcribedNeeds").value as? String {

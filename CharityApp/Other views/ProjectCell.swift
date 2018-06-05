@@ -62,13 +62,8 @@ class ProjectCell: UITableViewCell {
             subscribeButton.titleLabel!.text!.removeFirst()
             if isSubscribed {
                 delegate?.projectCellDidUnsubscribe(self, fromProject: project)
-                subscribeButton.setImage(#imageLiteral(resourceName: "bell-outline"), for: .normal)
-                subscribeButton.setTitle("Subscribe", for: .normal)
-                
             } else {
                 delegate?.projectCellDidSubscribe(self, toProject: project)
-                subscribeButton.setImage(#imageLiteral(resourceName: "bell-filled"), for: .normal)
-                subscribeButton.setTitle("Unsubscribe", for: .normal)
             }
             isSubscribed = !isSubscribed
         }

@@ -461,6 +461,9 @@
                     <navigationItem key="navigationItem" title="News" id="09e-NT-Mou">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Mn-dU-5gn"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Xzq-3L-kS0" kind="show" identifier="ShowProjectDetails" id="Yth-wU-4d4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Msh-WM-b9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1313,6 +1316,7 @@
         <image name="video-camera" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="f93-be-r8H"/>
         <segue reference="x84-Bd-xby"/>
         <segue reference="84z-Tk-iGd"/>
         <segue reference="iHG-iJ-fdo"/>

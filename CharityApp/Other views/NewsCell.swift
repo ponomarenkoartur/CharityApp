@@ -12,7 +12,7 @@ import UIKit
     func newsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: News)
     func newsCellDidLike(_ cell: UITableViewCell, onNews news: News)
     func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News)
-    @objc optional func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News)
+    @objc optional func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News, ofProject project: Project)
 }
 
 class NewsCell: UITableViewCell {
@@ -94,8 +94,8 @@ class NewsCell: UITableViewCell {
     }
     
     @IBAction func projectNameButtonWasTapped(_ sender: UIButton!) {
-        if let news = news {
-            delegate?.newsCellDidTapProjectNameButton!(self, onNews: news)
+        if let news = news, let project = project {
+            delegate?.newsCellDidTapProjectNameButton!(self, onNews: news, ofProject: project)
         }
     }
     

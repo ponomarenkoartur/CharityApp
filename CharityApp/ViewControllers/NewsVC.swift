@@ -68,6 +68,16 @@ class NewsVC: UITableViewController {
             }
         }
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == SegueIdentifiers.showProjectDetails {
+            let cellSender = sender as! NewsCell
+            let projectDetailsVC = segue.destination as! ProjectDetailsVC
+            projectDetailsVC.project = cellSender.project
+        }
+    }
 }
 
 extension NewsVC: NewsCellDelegate {
@@ -125,11 +135,18 @@ extension NewsVC: NewsCellDelegate {
             }
         }
     }
+    
+    func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News, ofProject project: Project) {
+        performSegue(withIdentifier: SegueIdentifiers.showProjectDetails, sender: cell)
+    }
 }
 
 extension NewsVC {
     struct TableViewCellIdentifiers {
         static let newsCell = "NewsCell"
+    }
+    struct SegueIdentifiers {
+        static let showProjectDetails = "ShowProjectDetails"
     }
 }
 
