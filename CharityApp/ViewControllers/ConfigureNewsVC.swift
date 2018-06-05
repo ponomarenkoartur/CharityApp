@@ -17,7 +17,6 @@ class ConfigureNewsVC: UITableViewController {
     @IBOutlet weak var deleteTableViewCell: UITableViewCell!
     @IBOutlet weak var projectPickerTableViewCell: UITableViewCell!
     
-    
     // MARK: - Properties
     
     var news: News?
@@ -89,6 +88,15 @@ class ConfigureNewsVC: UITableViewController {
         present(alert, animated: true)
     }
     
+    // MARK: Tableview delegate
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if !isOrganizationNews {
+            return nil
+        } else {
+            return indexPath
+        }
+    }
     
     // MARK: - Navigation
 
