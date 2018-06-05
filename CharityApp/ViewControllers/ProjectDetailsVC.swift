@@ -19,7 +19,23 @@ class ProjectDetailsVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let cellNib = UINib(nibName: TableViewCellIdentifiers.news, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.news)
+        
         tableView.separatorInset = UIEdgeInsets.zero
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let project = project {
+            DataService.instance.getAllNewsOfProject(project) { (newsCollection) in
+                self.newsCollection = newsCollection.sorted(by: { $0.date > $1.date })
+                let indexSet = IndexSet(integer: 2)
+                self.tableView.reloadSections(indexSet as IndexSet, with: .fade)
+            }
+        }
+        
     }
     
     // MARK: - Table view data source
@@ -112,7 +128,6 @@ class ProjectDetailsVC: UITableViewController {
         } else if segue.identifier == SegueIdentifiers.addProjectNews {
             let navigationVC = segue.destination as! UINavigationController
             let configureProjectNewsVC = navigationVC.topViewController as! ConfigureNewsVC
-            configureProjectNewsVC.isOrganizationNews = false
             configureProjectNewsVC.project = project
         }
     }

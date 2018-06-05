@@ -20,8 +20,8 @@ class HomeVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cellNib = UINib(nibName: TableViewCellIdenifiers.newsCell, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdenifiers.newsCell)
+        let cellNib = UINib(nibName: TableViewCellIdentifiers.newsCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.newsCell)
         
         tableView.separatorInset = UIEdgeInsets.zero
     }
@@ -60,7 +60,7 @@ extension HomeVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let news = newsCollection[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdenifiers.newsCell, for: indexPath) as! NewsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.newsCell, for: indexPath) as! NewsCell
         configure(cell, for: news)
         return cell
     }
@@ -159,7 +159,7 @@ extension HomeVC: NewsCellDelegate {
 }
 
 extension HomeVC {
-    struct TableViewCellIdenifiers {
+    struct TableViewCellIdentifiers {
         static let newsCell = "NewsCell"
     }
     

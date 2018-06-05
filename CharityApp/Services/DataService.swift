@@ -50,17 +50,6 @@ class DataService {
         sendComplete(true)
     }
     
-    func uploadProjectNews(_ news: ProjectNews, for project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
-        if let projectKey = project.key {
-            let newsReference = REF_PROJECTS.child(projectKey).child("news").childByAutoId()
-            news.key = newsReference.key
-            newsReference.updateChildValues(news.convertToSnapshot())
-            sendComplete(true)
-        } else {
-            sendComplete(false)
-        }
-    }
-    
     func getAllOrganizationNews(handler: @escaping (_ newsCollection: [OrganizationNews]) -> ()) {
         var newsCollection = [OrganizationNews]()
         REF_ORGANIZATION_NEWS.observeSingleEvent(of: .value) { (newsCollectionSnapshot) in
@@ -98,6 +87,55 @@ class DataService {
     func updateLikeCountOrganizationNews(_ news: News) {
         if let key = news.key {
             REF_ORGANIZATION_NEWS.child(key).child("likes").setValue(news.likesCount)
+        }
+    }
+    
+    // MARK: - Project News
+    
+    func getAllNewsOfProject(_ project: Project, handler: @escaping (_ projectsNewsCollection: [ProjectNews]) -> ()) {
+        var newsCollection = [ProjectNews]()
+        if let projectKey = project.key {
+            REF_PROJECTS.child(projectKey).child("news").observeSingleEvent(of: .value) { (newsCollectionSnapshot) in
+                guard let newsCollectionSnapshot = newsCollectionSnapshot.children.allObjects as? [DataSnapshot] else {
+                    return
+                }
+                
+                for newsSnaphot in newsCollectionSnapshot {
+                    let news = ProjectNews(snapshot: newsSnaphot)
+                    newsCollection.append(news)
+                }
+                
+                handler(newsCollection)
+            }
+        }
+    }
+    
+    func uploadProjectNews(_ news: ProjectNews, ofProject project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
+        if let projectKey = project.key {
+            let newsReference = REF_PROJECTS.child(projectKey).child("news").childByAutoId()
+            news.key = newsReference.key
+            newsReference.updateChildValues(news.convertToSnapshot())
+            sendComplete(true)
+        } else {
+            sendComplete(false)
+        }
+    }
+    
+    func removeProjectNews(_ news: ProjectNews, ofProject project: Project, deleteComplete: @escaping (_ status: Bool) -> ()) {
+        if let newsKey = news.key, let projectKey = project.key {
+            REF_PROJECTS.child(projectKey).child("news").child(newsKey).removeValue()
+            deleteComplete(true)
+        } else {
+            deleteComplete(false)
+        }
+    }
+    
+    func updateProjectNews(_ news: ProjectNews, ofProject project: Project, updateComplete: @escaping (_ status: Bool) -> ()) {
+        if let newsKey = news.key, let projectKey = project.key {
+         REF_PROJECTS.child(projectKey).child("news").child(newsKey).updateChildValues(news.convertToSnapshot())
+            updateComplete(true)
+        } else {
+            updateComplete(false)
         }
     }
     

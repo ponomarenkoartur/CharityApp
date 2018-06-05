@@ -67,22 +67,33 @@ class ConfigureNewsVC: UITableViewController {
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             if self.isOrganizationNews {
                 if let news = self.news as? OrganizationNews {
+                    // Edit existing organization news
                     news.title = self.titleTextField.text!
                     news.text = self.messageTextView.text
                     DataService.instance.updateOrganizationNews(news) { (status) in
                         print(status)
                     }
                 } else {
+                    // Add organization news
                     let news = OrganizationNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, date: Date(), imageUrlsCollection: [:], tagsCollection: [])
                     DataService.instance.uploadOrganizationNews(news) { (status) in
                         print(status)
                     }
                 }
-            } else {
-                if let _ = self.news {
-                    // TODO: Update existed project news
+            } else if let project = self.project {
+                if let news = self.news as? ProjectNews {
+                    // Edit existing project news
+                    news.title = self.titleTextField.text!
+                    news.text = self.messageTextView.text
+                    DataService.instance.updateProjectNews(news, ofProject: project, updateComplete: { (status) in
+                        print(status)
+                    })
                 } else {
-                    // TODO: Add existed project news
+                    // Add project news
+                    let news = ProjectNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, date: Date(), imageUrlsCollection: [:], videoUrlsCollection: [:], tagsCollection: [])
+                    DataService.instance.uploadProjectNews(news, ofProject: project, sendComplete: { (status) in
+                        print(status)
+                    })
                 }
             }
             self.dismiss(animated: true)
