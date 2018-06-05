@@ -90,6 +90,21 @@ class DataService {
         }
     }
     
+    func updateLikeCountOfNews(_ news: News, ofProject project: Project?) {
+        guard let newsKey = news.key  else {
+            return
+        }
+       
+        if let project = project,
+            let projectKey = project.key {
+            // Update likeCount of project news
+            REF_PROJECTS.child(projectKey).child("news").child(newsKey).child("likes").setValue(news.likesCount)
+        } else {
+            // Update likeCount of organization news
+         REF_ORGANIZATION_NEWS.child(newsKey).child("likes").setValue(news.likesCount)
+        }
+    }
+    
     // MARK: - Project News
     
     func getAllNewsOfProject(_ project: Project, handler: @escaping (_ projectsNewsCollection: [ProjectNews]) -> ()) {
@@ -196,8 +211,13 @@ class DataService {
         }
     }
     
-    func likeOrganizationNews(_ news: OrganizationNews, forUser user: User, handler: @escaping (_ result: Bool) -> ()) {
-        if let userKey = user.key, let newsKey = news.key {
+    func likeNews(_ news: News, ofProject project: Project?, byUser user: User, handler: @escaping (_ result: Bool) -> ()) {
+        guard let userKey = user.key, let newsKey = news.key  else {
+            handler(false)
+            return
+        }
+        if news is OrganizationNews {
+            // Check if "likedOrganizationNews" already has a value
             REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""
                 if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
@@ -207,13 +227,28 @@ class DataService {
                 self.REF_USERS.child(userKey).child("likedOrganizationNews").setValue(likedNewsString)
                 handler(true)
             }
-        } else {
-            handler(false)
+        } else if news is ProjectNews,
+            let project = project,
+            let projectKey = project.key {
+            // Check if "likedNewsPosts" for certain projectKey already has a value
+            REF_USERS.child(userKey).child("likedNewsPosts").child(projectKey).observeSingleEvent(of: .value) { (snapshot) in
+                var likedNewsString = ""
+                if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
+                    likedNewsString = valueSnapshot as! String
+                }
+                likedNewsString.append(contentsOf: "\(newsKey),")
+                self.REF_USERS.child(userKey).child("likedNewsPosts").child(projectKey).setValue(likedNewsString)
+                handler(true)
+            }
         }
     }
     
-    func unlikeOrganizationNews(_ news: OrganizationNews, forUser user: User, handler: @escaping (_ result: Bool) -> ()) {
-        if let userKey = user.key, let newsKey = news.key {
+    func unlikeNews(_ news: News, ofProject project: Project?, byUser user: User, handler: @escaping (_ result: Bool) -> ()) {
+        guard let userKey = user.key, let newsKey = news.key  else {
+            handler(false)
+            return
+        }
+        if news is OrganizationNews {
             REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""
                 if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
@@ -223,8 +258,19 @@ class DataService {
                 self.REF_USERS.child(userKey).child("likedOrganizationNews").setValue(likedNewsString)
                 handler(true)
             }
-        } else {
-            handler(false)
+        } else if news is ProjectNews,
+            let project = project,
+            let projectKey = project.key {
+            // Check if "likedNewsPosts" for certain projectKey already has a value
+            REF_USERS.child(userKey).child("likedNewsPosts").child(projectKey).observeSingleEvent(of: .value) { (snapshot) in
+                var likedNewsString = ""
+                if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
+                    likedNewsString = valueSnapshot as! String
+                }
+                likedNewsString = likedNewsString.replacingOccurrences(of: "\(newsKey),", with: "")
+                self.REF_USERS.child(userKey).child("likedNewsPosts").child(projectKey).setValue(likedNewsString)
+                handler(true)
+            }
         }
     }
     

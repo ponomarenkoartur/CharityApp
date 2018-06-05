@@ -86,29 +86,30 @@ extension HomeVC {
 
 extension HomeVC: NewsCellDelegate {
     func newsCellDidLike(_ cell: UITableViewCell, onNews news: News) {
-        if let organizationNews = news as? OrganizationNews {
-            DataService.instance.updateLikeCountOrganizationNews(organizationNews)
-            if let currentUser = AuthService.instance.currentUser {
-                DataService.instance.likeOrganizationNews(organizationNews, forUser: currentUser) { status in
-                    if status, let key = news.key {
-                        currentUser.likedOrganizationNewsKeys.append(key)
-                    }
-                }
+        guard let organizationNews = news as? OrganizationNews,
+            let currentUser = AuthService.instance.currentUser else {
+            return
+        }
+    
+        DataService.instance.updateLikeCountOfNews(organizationNews, ofProject: nil)
+        DataService.instance.likeNews(organizationNews, ofProject: nil, byUser: currentUser) { status in
+            if status, let key = news.key {
+                currentUser.likedOrganizationNewsKeys.append(key)
             }
         }
     }
     
     func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News) {
-        if let organizationNews = news as? OrganizationNews {
+        guard let organizationNews = news as? OrganizationNews,
+            let currentUser = AuthService.instance.currentUser else {
+            return
+        }
             DataService.instance.updateLikeCountOrganizationNews(organizationNews)
-            if let currentUser = AuthService.instance.currentUser {
-                DataService.instance.unlikeOrganizationNews(organizationNews, forUser: currentUser) { (status) in
-                    if status {
-                        for i in 0..<currentUser.likedOrganizationNewsKeys.count {
-                            if currentUser.likedOrganizationNewsKeys[i] == organizationNews.key {
-                                currentUser.likedOrganizationNewsKeys.remove(at: i)
-                            }
-                        }
+        DataService.instance.unlikeNews(organizationNews, ofProject: nil, byUser: currentUser) { (status) in
+            if status {
+                for i in 0..<currentUser.likedOrganizationNewsKeys.count {
+                    if currentUser.likedOrganizationNewsKeys[i] == organizationNews.key {
+                        currentUser.likedOrganizationNewsKeys.remove(at: i)
                     }
                 }
             }

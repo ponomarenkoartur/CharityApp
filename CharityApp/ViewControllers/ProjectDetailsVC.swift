@@ -101,12 +101,10 @@ class ProjectDetailsVC: UITableViewController {
                 cell.likeButton.setTitle("\(news.likesCount)", for: .normal)
                 cell.delegate = self
                 cell.news = news
-                if let currentUser = AuthService.instance.currentUser {
-                    if let news = news as? OrganizationNews {
-                        cell.isLiked = currentUser.isLikedNews(news, ofProject: nil)
-                    } else if let news = news as? ProjectNews, let project = project {
-                        cell.isLiked = currentUser.isLikedNews(news, ofProject: project)
-                    }
+                if let currentUser = AuthService.instance.currentUser,
+                    let news = news as? ProjectNews,
+                    let project = project {
+                    cell.isLiked = currentUser.isLikedNews(news, ofProject: project)
                 }
             }
         default:
@@ -139,16 +137,45 @@ extension ProjectDetailsVC: NewsCellDelegate {
     }
     
     func newsCellDidLike(_ cell: UITableViewCell, onNews news: News) {
+        guard let projectNews = news as? ProjectNews,
+            let project = project,
+            let currentUser = AuthService.instance.currentUser else {
+                return
+        }
         
+        DataService.instance.updateLikeCountOfNews(projectNews, ofProject: project)
+        DataService.instance.likeNews(projectNews, ofProject: project, byUser: currentUser) { status in
+            if status,
+                let newsKey = news.key,
+                let projectKey = project.key {
+                if currentUser.likedProjectNewsKeys.keys.contains(projectKey) {
+                   currentUser.likedProjectNewsKeys[projectKey]!.append(newsKey)
+                } else {
+                   currentUser.likedProjectNewsKeys[projectKey] = []
+                    currentUser.likedProjectNewsKeys[projectKey]!.append(newsKey)
+                }
+            }
+        }
     }
     
     func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News) {
+        guard let projectNews = news as? ProjectNews,
+            let project = project,
+            let currentUser = AuthService.instance.currentUser else {
+                return
+        }
+        
+        DataService.instance.updateLikeCountOfNews(projectNews, ofProject: project)
         
     }
     
     func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News) {
-        
-    }
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ProjectCell else {
+            return
+        }
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+        cell.titleLabel.shake()        
+    } 
 }
 
 extension ProjectDetailsVC: ProjectCellDelegate {
