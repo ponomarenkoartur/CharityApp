@@ -73,6 +73,11 @@ class ProjectsVC: UITableViewController {
             let projectDetailsVC = segue.destination as! ProjectDetailsVC
             let cellSender = sender as! ProjectCell
             projectDetailsVC.project = cellSender.project
+        } else if segue.identifier == SegueIdenifiers.addProjectNews {
+            let navigationVC = segue.destination as! UINavigationController
+            let configureNewsVC = navigationVC.topViewController as! ConfigureNewsVC
+            let cellSender = sender as! ProjectCell
+            configureNewsVC.project = cellSender.project
         }
     }
 }
@@ -108,6 +113,9 @@ extension ProjectsVC: ProjectCellDelegate {
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in
             self.performSegue(withIdentifier: SegueIdenifiers.showProjectDetails, sender: cell)
         }
+        let addNewsAction = UIAlertAction(title: "Add news", style: .default) { (_) in
+            self.performSegue(withIdentifier: SegueIdenifiers.addProjectNews, sender: cell)
+        }
         let editAction = UIAlertAction(title: "Edit", style: .default) { (_) in
             self.performSegue(withIdentifier: SegueIdenifiers.editProject, sender: cell)
         }
@@ -135,6 +143,7 @@ extension ProjectsVC: ProjectCellDelegate {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         alert.addAction(moreInfoAction)
+        alert.addAction(addNewsAction)
         alert.addAction(editAction)
         alert.addAction(deleteAction)
         alert.addAction(cancelAction)
@@ -151,5 +160,6 @@ extension ProjectsVC {
     struct SegueIdenifiers {
         static let editProject = "EditProject"
         static let showProjectDetails = "ShowProjectDetails"
+        static let addProjectNews = "AddProjectNews"
     }
 }

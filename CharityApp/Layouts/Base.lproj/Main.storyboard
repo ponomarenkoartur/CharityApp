@@ -1125,6 +1125,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="EditProject" id="wfL-BF-rva"/>
+                        <segue destination="kWs-GC-N7y" kind="presentation" identifier="AddProjectNews" id="jXl-M7-vHD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kC9-kD-zaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1312,8 +1313,8 @@
         <image name="video-camera" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sNS-h7-7rp"/>
+        <segue reference="wfL-BF-rva"/>
         <segue reference="84z-Tk-iGd"/>
-        <segue reference="8Qd-dJ-vSA"/>
+        <segue reference="jXl-M7-vHD"/>
     </inferredMetricsTieBreakers>
 </document>

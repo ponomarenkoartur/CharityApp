@@ -20,7 +20,13 @@ class ConfigureNewsVC: UITableViewController {
     // MARK: - Properties
     
     var news: News?
-    var project: Project?
+    var project: Project? {
+        didSet {
+            if let _ = project {
+                isOrganizationNews = false
+            }
+        }
+    }
     var isOrganizationNews = true
     
     // MARK: - View Lifecycle
