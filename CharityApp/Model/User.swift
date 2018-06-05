@@ -33,7 +33,6 @@ class User: SnapshotConvertible {
     }
     
     init(snapshot: DataSnapshot) {
-        print(snapshot)
         key = snapshot.key as String
         email = snapshot.childSnapshot(forPath: "email").value as! String
         accountCreationDate = dateFormatter.date(from: snapshot.childSnapshot(forPath: "accountCreationDate").value as! String)!

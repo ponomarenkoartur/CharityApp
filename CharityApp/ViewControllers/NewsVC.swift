@@ -29,7 +29,6 @@ class NewsVC: UITableViewController {
         DataService.instance.getAllNews { (newsCollection) in
             self.newsCollection = newsCollection.sorted(by: { $0.date > $1.date })
             self.tableView.reloadData()
-            print(newsCollection.count)
         }
     }
     

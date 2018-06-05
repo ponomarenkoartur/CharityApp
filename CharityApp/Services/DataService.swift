@@ -48,6 +48,7 @@ class DataService {
         news.key = newsReference.key
         newsReference.updateChildValues(news.convertToSnapshot())
         sendComplete(true)
+        NotificationSenderService.instance.sendNotification(withTopic: "OrganizationNews", newsId: news.key!, newsTitle: news.title, newsText: news.text)
     }
     
     func getAllOrganizationNews(handler: @escaping (_ newsCollection: [OrganizationNews]) -> ()) {
