@@ -249,6 +249,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrganizationInfoCell" rowHeight="280" id="DpO-1X-bBV">
+                                <rect key="frame" x="0.0" y="28" width="375" height="280"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DpO-1X-bBV" id="K3d-En-zF4">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="279.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="NHL-s7-y1I">
+                                            <rect key="frame" x="67" y="62" width="240" height="125"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="125" id="2JA-Yh-Xlp"/>
+                                                <constraint firstAttribute="width" constant="240" id="kkz-81-c4C"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuť pomáhat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQE-xy-770">
+                                            <rect key="frame" x="106" y="10" width="162" height="32"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Organization info goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uHw-wv-Gt9">
+                                            <rect key="frame" x="16" y="195" width="343" height="31.5"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKA-20-Fe7">
+                                            <rect key="frame" x="16" y="236.5" width="343" height="33"/>
+                                            <color key="backgroundColor" red="0.87058823529411766" green="0.12549019607843137" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <state key="normal" title="DONATE">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uHw-wv-Gt9" firstAttribute="top" secondItem="NHL-s7-y1I" secondAttribute="bottom" constant="8" id="1my-3I-Zn5"/>
+                                        <constraint firstItem="uHw-wv-Gt9" firstAttribute="leading" secondItem="K3d-En-zF4" secondAttribute="leading" constant="16" id="2pM-Vj-a1a"/>
+                                        <constraint firstItem="NHL-s7-y1I" firstAttribute="centerX" secondItem="K3d-En-zF4" secondAttribute="centerX" id="6SU-jU-VhB"/>
+                                        <constraint firstItem="WQE-xy-770" firstAttribute="centerX" secondItem="K3d-En-zF4" secondAttribute="centerX" id="8X8-cF-cWA"/>
+                                        <constraint firstAttribute="trailing" secondItem="uHw-wv-Gt9" secondAttribute="trailing" constant="16" id="Cm0-Go-jr6"/>
+                                        <constraint firstAttribute="trailing" secondItem="PKA-20-Fe7" secondAttribute="trailing" constant="16" id="FLx-zC-kue"/>
+                                        <constraint firstAttribute="bottom" secondItem="PKA-20-Fe7" secondAttribute="bottom" constant="10" id="OMC-xZ-X23"/>
+                                        <constraint firstItem="PKA-20-Fe7" firstAttribute="top" secondItem="uHw-wv-Gt9" secondAttribute="bottom" constant="10" id="WFU-yS-amy"/>
+                                        <constraint firstItem="NHL-s7-y1I" firstAttribute="top" secondItem="WQE-xy-770" secondAttribute="bottom" constant="20" id="b3e-bc-Aya"/>
+                                        <constraint firstItem="WQE-xy-770" firstAttribute="top" secondItem="K3d-En-zF4" secondAttribute="top" constant="10" id="m9s-hy-LWK"/>
+                                        <constraint firstItem="PKA-20-Fe7" firstAttribute="leading" secondItem="K3d-En-zF4" secondAttribute="leading" constant="16" id="ulA-zm-4NM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="LAe-MR-iAb" id="x33-lj-vqD"/>
                             <outlet property="delegate" destination="LAe-MR-iAb" id="9BA-10-Cxc"/>
@@ -268,7 +320,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEM-Cn-Am9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="-2516"/>
+            <point key="canvasLocation" x="1605.5999999999999" y="-2516.4917541229388"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="WZD-fj-rbL">
@@ -1317,8 +1369,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="f93-be-r8H"/>
-        <segue reference="x84-Bd-xby"/>
+        <segue reference="sNS-h7-7rp"/>
         <segue reference="84z-Tk-iGd"/>
-        <segue reference="jXl-M7-vHD"/>
+        <segue reference="8Qd-dJ-vSA"/>
     </inferredMetricsTieBreakers>
 </document>

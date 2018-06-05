@@ -54,15 +54,30 @@ extension HomeVC {
     
     // MARK: - UITableViewDataSource
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsCollection.count
+        if section == 0 {
+            return 1
+        } else {
+            return newsCollection.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let news = newsCollection[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.newsCell, for: indexPath) as! NewsCell
-        configure(cell, for: news)
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationInfo, for: indexPath)
+            return cell
+        } else if indexPath.section == 1 {
+            let news = newsCollection[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.newsCell, for: indexPath) as! NewsCell
+            configure(cell, for: news)
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
     
     // MARK: - UITableViewDelegate
@@ -160,6 +175,7 @@ extension HomeVC: NewsCellDelegate {
 extension HomeVC {
     struct TableViewCellIdentifiers {
         static let newsCell = "NewsCell"
+        static let organizationInfo = "OrganizationInfoCell"
     }
     
     struct SegueIdenifiers {
