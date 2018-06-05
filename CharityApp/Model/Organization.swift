@@ -29,4 +29,13 @@ class Organization: NewsCollectionContainer {
         self.newsCollection = newsCollection
         self.projectsCollection = projectsCollection
     }
+    
+    init(snaphot: DataSnapshot) {
+        self.name = snaphot.childSnapshot(forPath: "name").value as! String
+        self.description = snaphot.childSnapshot(forPath: "description").value as! String
+        self.contactInformation = snaphot.childSnapshot(forPath: "contactInformation").value as! String
+        self.defaultAccountNumber = snaphot.childSnapshot(forPath: "defaultAccountNumber").value as! String
+        newsCollection = [:]
+        projectsCollection = [:]
+    }
 }

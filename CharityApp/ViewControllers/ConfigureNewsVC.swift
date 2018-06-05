@@ -38,6 +38,7 @@ class ConfigureNewsVC: UITableViewController {
         if isOrganizationNews {
             projectPickerTableViewCell.imageView!.image = imageWithImage(#imageLiteral(resourceName: "logo-simplified"), scaledToSize: CGSize(width: 30, height: 30))
             projectPickerTableViewCell.textLabel!.text = "Organization"
+            projectPickerTableViewCell.accessoryType = .none
         } else if let project = project {
             projectPickerTableViewCell.textLabel!.text = project.title
             projectPickerTableViewCell.accessoryType = .none

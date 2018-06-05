@@ -48,6 +48,7 @@
 		75B0024120C5B74A007B8435 /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0024020C5B74A007B8435 /* ProjectDetailsVC.swift */; };
 		75BF5D4420978873000AFFB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF5D4320978873000AFFB2 /* LoginViewController.swift */; };
 		75CCDE6520C6D26A00B79510 /* NotificationSenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6420C6D26A00B79510 /* NotificationSenderService.swift */; };
+		75CCDE6720C6FE6100B79510 /* OrganizationInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */; };
 		75F2365E209CA2F1007AC1D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F2365D209CA2F1007AC1D2 /* Assets.xcassets */; };
 		75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FECA42204EFE8A00003210 /* GoogleService-Info.plist */; };
 		84DF44B8240A11C6AFED4CA6 /* Pods_CharityApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */; };
@@ -101,6 +102,7 @@
 		75B0024020C5B74A007B8435 /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
 		75BF5D4320978873000AFFB2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75CCDE6420C6D26A00B79510 /* NotificationSenderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSenderService.swift; sourceTree = "<group>"; };
+		75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfoCell.swift; sourceTree = "<group>"; };
 		75F2365D209CA2F1007AC1D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CharityApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		75FECA42204EFE8A00003210 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +274,7 @@
 				75308AAE2054536E00AB1364 /* NewsCell.swift */,
 				75479B6320B59CC20021B73A /* MainTabBar.swift */,
 				7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */,
+				75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */,
 			);
 			path = "Other views";
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				752B3D2920C6AFBD002A7603 /* NewsCellContainerTableVC.swift in Sources */,
 				7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */,
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
+				75CCDE6720C6FE6100B79510 /* OrganizationInfoCell.swift in Sources */,
 				7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */,
 				755F80E7204F07EB006DAAA5 /* Project.swift in Sources */,
 				759DA1B820B723DA001AC827 /* VideoContentContainer.swift in Sources */,

@@ -18,6 +18,7 @@ class DataService {
     private var _REF_USERS = DB_BASE.child("users")
     private var _REF_PROJECTS = DB_BASE.child("charityNeeds")
     private var _REF_ORGANIZATION_NEWS = DB_BASE.child("organizationNews")
+    private var _REF_ORGANIZATION_INFO = DB_BASE.child("organizationInfo")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -35,10 +36,23 @@ class DataService {
         return _REF_ORGANIZATION_NEWS
     }
     
+    var REF_ORGANIZATION_INFO: DatabaseReference {
+        return _REF_ORGANIZATION_INFO
+    }
+    
     var currentUser: User?
     
     func createDBUser(uid: String, userData: [String: Any]) {
         REF_USERS.child(uid).updateChildValues(userData)
+    }
+    
+    // MARK: - Organization
+    
+    func getOrganization(handler: @escaping (_ organization: Organization) -> ()) {
+        REF_ORGANIZATION_INFO.observeSingleEvent(of: .value) { (snapshot) in
+            let organizaton = Organization(snaphot: snapshot)
+            handler(organizaton)
+        }
     }
     
     // MARK: - Organization news

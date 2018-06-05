@@ -13,6 +13,7 @@ class HomeVC: UITableViewController {
 
     // MARK: - Properties
     
+    var organization: Organization?
     var newsCollection = [OrganizationNews]()
     
     // MARK: - View Lifecycle
@@ -32,12 +33,16 @@ class HomeVC: UITableViewController {
             self.newsCollection = newsCollection.sorted(by: { $0.date > $1.date })
             self.tableView.reloadData()
         }
+        
+        DataService.instance.getOrganization { (organization) in
+            self.organization = organization
+        }
     }
 
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdenifiers.composeNews {
+        if segue.identifier == SegueIdenifiers.addOrganizationNews {
             let navigationController = segue.destination as! UINavigationController
             let addNewsVC = navigationController.topViewController  as! ConfigureNewsVC
             addNewsVC.isOrganizationNews = true
@@ -55,11 +60,13 @@ extension HomeVC {
     // MARK: - UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
+            return 1
+        } else if section == 1 {
             return 1
         } else {
             return newsCollection.count
@@ -68,9 +75,15 @@ extension HomeVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationInfo, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationInfo, for: indexPath) as! OrganizationInfoCell
+            if let organization = organization {
+                configureCell(cell, forOrganization: organization)
+            }
             return cell
         } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationNewsLabel, for: indexPath)
+            return cell
+        } else if indexPath.section == 2 {
             let news = newsCollection[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.newsCell, for: indexPath) as! NewsCell
             configure(cell, for: news)
@@ -81,6 +94,12 @@ extension HomeVC {
     }
     
     // MARK: - UITableViewDelegate
+    
+    func configureCell(_ cell: OrganizationInfoCell, forOrganization organization: Organization) {
+        cell.titleLabel.text = organization.name
+        cell.descriptionTextView.text = organization.description
+        cell.linkButton.setTitle(organization.contactInformation, for: .normal)
+    }
     
     func configure(_ cell: NewsCell, for news: OrganizationNews) {
         cell.titleLabel.text = news.title
@@ -176,10 +195,12 @@ extension HomeVC {
     struct TableViewCellIdentifiers {
         static let newsCell = "NewsCell"
         static let organizationInfo = "OrganizationInfoCell"
+        static let organizationNewsLabel = "OrganizationNewsLabel"
     }
     
     struct SegueIdenifiers {
         static let composeNews = "ComposeNews"
         static let editNews = "EditOrganizationNews"
+        static let addOrganizationNews = "AddOrganizationNews"
     }
 }
