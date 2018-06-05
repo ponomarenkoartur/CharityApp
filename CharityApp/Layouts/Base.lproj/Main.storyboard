@@ -1035,11 +1035,11 @@
                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwH-HD-bhA">
-                                            <rect key="frame" x="309" y="11" width="50" height="50"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OwH-HD-bhA">
+                                            <rect key="frame" x="305" y="0.0" width="70" height="70"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="50" id="IB7-bh-NF4"/>
-                                                <constraint firstAttribute="height" constant="50" id="wg5-Uz-hlb"/>
+                                                <constraint firstAttribute="width" constant="70" id="IB7-bh-NF4"/>
+                                                <constraint firstAttribute="height" constant="70" id="wg5-Uz-hlb"/>
                                             </constraints>
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <state key="normal" image="more-filled"/>
@@ -1085,7 +1085,7 @@
                                         <constraint firstAttribute="trailing" secondItem="OSR-wi-7qV" secondAttribute="trailing" id="9az-Sf-eZR"/>
                                         <constraint firstItem="cY3-dC-ao4" firstAttribute="leading" secondItem="ExK-ag-NLj" secondAttribute="leading" id="AdN-B8-Vbo"/>
                                         <constraint firstItem="cY3-dC-ao4" firstAttribute="baseline" secondItem="oVm-hU-1bb" secondAttribute="baseline" id="BQg-5E-Xhk"/>
-                                        <constraint firstAttribute="trailing" secondItem="OwH-HD-bhA" secondAttribute="trailing" constant="16" id="G3T-GR-894"/>
+                                        <constraint firstAttribute="trailing" secondItem="OwH-HD-bhA" secondAttribute="trailing" id="G3T-GR-894"/>
                                         <constraint firstItem="OSR-wi-7qV" firstAttribute="leading" secondItem="iag-jd-RUs" secondAttribute="leading" id="Hca-qD-9sC"/>
                                         <constraint firstItem="ExK-ag-NLj" firstAttribute="top" secondItem="TEk-V2-IcR" secondAttribute="bottom" constant="8" id="IWo-Q7-58E"/>
                                         <constraint firstItem="OSR-wi-7qV" firstAttribute="centerX" secondItem="iag-jd-RUs" secondAttribute="centerX" id="Jfk-eC-IF9"/>
@@ -1099,7 +1099,7 @@
                                         <constraint firstAttribute="bottom" secondItem="cY3-dC-ao4" secondAttribute="bottom" constant="8.5" id="YW1-bD-Qyo"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TEk-V2-IcR" secondAttribute="trailing" constant="16" id="gcO-tN-YCX"/>
                                         <constraint firstItem="TEk-V2-IcR" firstAttribute="top" secondItem="Mzx-FP-twV" secondAttribute="bottom" constant="4" id="muR-Fa-kOb"/>
-                                        <constraint firstItem="OwH-HD-bhA" firstAttribute="top" secondItem="iag-jd-RUs" secondAttribute="top" constant="11" id="vV2-aQ-YGT"/>
+                                        <constraint firstItem="OwH-HD-bhA" firstAttribute="top" secondItem="iag-jd-RUs" secondAttribute="top" id="vV2-aQ-YGT"/>
                                         <constraint firstItem="ExK-ag-NLj" firstAttribute="leading" secondItem="TEk-V2-IcR" secondAttribute="leading" id="x2O-oZ-JbP"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -1319,6 +1319,6 @@
         <segue reference="f93-be-r8H"/>
         <segue reference="x84-Bd-xby"/>
         <segue reference="84z-Tk-iGd"/>
-        <segue reference="iHG-iJ-fdo"/>
+        <segue reference="jXl-M7-vHD"/>
     </inferredMetricsTieBreakers>
 </document>
