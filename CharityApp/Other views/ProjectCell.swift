@@ -30,18 +30,22 @@ class ProjectCell: UITableViewCell {
     
     weak var delegate: ProjectCellDelegate?
     var project: Project?
-    var isSubscribed = false
+    var isSubscribed = false {
+        didSet {
+            if isSubscribed {
+                subscribeButton.setImage(#imageLiteral(resourceName: "bell-filled"), for: .normal)
+                subscribeButton.setTitle("Unsubscribe", for: .normal)
+            } else {
+                subscribeButton.setImage(#imageLiteral(resourceName: "bell-outline"), for: .normal)
+                subscribeButton.setTitle("Subscribe", for: .normal)
+            }
+        }
+    }
     
     // MARK: - Cell Lifecycle
     
     override func awakeFromNib() {        
-        if isSubscribed {
-            subscribeButton.setImage(#imageLiteral(resourceName: "bell-filled"), for: .normal)
-            subscribeButton.setTitle("Unsubscribe", for: .normal)
-        } else {
-            subscribeButton.setImage(#imageLiteral(resourceName: "bell-outline"), for: .normal)
-            subscribeButton.setTitle("Subscribe", for: .normal)
-        }
+        
     }
     
     // MARK: - Actions

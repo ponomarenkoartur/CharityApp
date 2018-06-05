@@ -75,6 +75,7 @@ extension HomeVC {
         cell.delegate = self
         cell.news = news
         if let currentUser = AuthService.instance.currentUser {
+            print(currentUser.convertToSnapshot())
             cell.isLiked = currentUser.isLikedNews(news, ofProject: nil)
         }
     }

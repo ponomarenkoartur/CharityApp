@@ -22,13 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Perform segue from 'Login' if user is signed in.
         if let _ = Auth.auth().currentUser {
-            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let mainTabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarVC")
-            window?.makeKeyAndVisible()
-            window?.rootViewController?.present(mainTabBarVC, animated: true)
-            
             DataService.instance.getCurrentUser { (user) in
                 AuthService.instance.currentUser = user
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let mainTabBarVC = storyboard.instantiateViewController(withIdentifier: "MainTabBarVC")
+                self.window?.makeKeyAndVisible()
+                self.window?.rootViewController?.present(mainTabBarVC, animated: true)
             }
         }
         

@@ -46,22 +46,26 @@ class NewsCell: UITableViewCell {
     var project: Project? {
         didSet {
             if let project = project {
-                projectNameButton.setTitle(project.title, for: .normal)
-                projectNameButton.sizeToFit()                
+                projectNameButton?.setTitle(project.title, for: .normal)
+                projectNameButton?.sizeToFit()
             }
         }
     }
-    var isLiked = false
+    var isLiked = false {
+        didSet {
+            // Set appearence of 'likeButton'
+            if isLiked {
+                likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
+            } else {
+                likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
+            }
+        }
+    }
     
     // MARK: Cell Lifecycle
     
     override func awakeFromNib() {
-        // Set appearence of 'likeButton'
-        if isLiked {
-            likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
-        } else {
-            likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
-        }
+        
     }
     
     // MARK: - Actions

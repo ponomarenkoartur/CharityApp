@@ -53,7 +53,7 @@ class User: SnapshotConvertible {
             }
         }
         
-        if let likedOrganizationNewsKeysString = snapshot.childSnapshot(forPath: "likedOrganizationNewsIds").value as? String {
+        if let likedOrganizationNewsKeysString = snapshot.childSnapshot(forPath: "likedOrganizationNews").value as? String {
             // Delete last comma
             var likedOrganizationNewsKeysCorrectString = likedOrganizationNewsKeysString
             likedOrganizationNewsKeysCorrectString.removeLast()
@@ -63,7 +63,7 @@ class User: SnapshotConvertible {
             likedOrganizationNewsKeys = []
         }
         
-        if let subcribedProjectsKeysString = snapshot.childSnapshot(forPath: "subcribedProjectsIds").value as? String {
+        if let subcribedProjectsKeysString = snapshot.childSnapshot(forPath: "subcribedNeeds").value as? String {
             // Delete last comma
             var subcribedProjectsKeysCorrectString = subcribedProjectsKeysString
             subcribedProjectsKeysCorrectString.removeLast()
@@ -76,20 +76,23 @@ class User: SnapshotConvertible {
     
     // MARK: - Methods
     
-    func isLikedNews(_ news: News, ofProject project: Project?) -> Bool {
+    func isLikedNews(_ news: News, ofProjectWithKey projectKey: String?) -> Bool {
         guard let newsKey = news.key else {
             return false
         }
         if let _ = news as? OrganizationNews {
             return likedOrganizationNewsKeys.contains(newsKey)
         } else if let _ = news as? ProjectNews,
-                let project = project,
-                let projectKey = project.key,
-                let likedNewsOfProjectString = likedProjectNewsKeys[projectKey] {
+            let projectKey = projectKey,
+            let likedNewsOfProjectString = likedProjectNewsKeys[projectKey] {
             return likedNewsOfProjectString.contains(newsKey)
         } else {
             return false
         }
+    }
+    
+    func isLikedNews(_ news: News, ofProject project: Project?) -> Bool {
+        return isLikedNews(news, ofProjectWithKey: project?.key)
     }
     
     func isSubscribedProject(_ project: Project) -> Bool {

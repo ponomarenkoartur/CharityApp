@@ -308,6 +308,12 @@ class DataService {
     }
     
     func unlikeNews(_ news: News, ofProject project: Project?, byUser user: User, handler: @escaping (_ result: Bool) -> ()) {
+        unlikeNews(news, ofProjectWithKey: project?.key, byUser: user) { (status) in
+            handler(status)
+        }
+    }
+    
+    func unlikeNews(_ news: News, ofProjectWithKey projectKey: String?, byUser user: User, handler: @escaping (_ result: Bool) -> ()) {
         guard let userKey = user.key, let newsKey = news.key  else {
             handler(false)
             return
@@ -323,8 +329,7 @@ class DataService {
                 handler(true)
             }
         } else if news is ProjectNews,
-            let project = project,
-            let projectKey = project.key {
+            let projectKey = projectKey {
             // Check if "likedNewsPosts" for certain projectKey already has a value
             REF_USERS.child(userKey).child("likedNewsPosts").child(projectKey).observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""

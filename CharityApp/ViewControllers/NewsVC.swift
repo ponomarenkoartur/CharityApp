@@ -57,10 +57,15 @@ class NewsVC: UITableViewController {
             let projectKey = news.parentProjectKey {
             DataService.instance.getProjectByKey(projectKey) { (project) in
                 cell.project = project
+                
             }
-        }
-        if let currentUser = AuthService.instance.currentUser {
-            cell.isLiked = currentUser.isLikedNews(news, ofProject: nil)
+            if let currentUser = AuthService.instance.currentUser {
+                cell.isLiked = currentUser.isLikedNews(news, ofProjectWithKey: news.parentProjectKey)
+            }
+        } else {
+            if let currentUser = AuthService.instance.currentUser {
+                cell.isLiked = currentUser.isLikedNews(news, ofProject: nil)
+            }
         }
     }
 }
@@ -71,11 +76,54 @@ extension NewsVC: NewsCellDelegate {
     }
     
     func newsCellDidLike(_ cell: UITableViewCell, onNews news: News) {
-        
+        guard let currentUser = AuthService.instance.currentUser else {
+                return
+        }
+        if let news = news as? ProjectNews,
+            let projectKey = news.parentProjectKey {
+            DataService.instance.likeNews(news, ofProjectWithKey: projectKey, byUser: currentUser) { status in
+                if status,
+                    let newsKey = news.key,
+                    let projectKey = news.parentProjectKey {
+                    if currentUser.likedProjectNewsKeys.keys.contains(projectKey) {
+                        currentUser.likedProjectNewsKeys[projectKey]!.append(newsKey)
+                    } else {
+                        currentUser.likedProjectNewsKeys[projectKey] = []
+                        currentUser.likedProjectNewsKeys[projectKey]!.append(newsKey)
+                    }
+                }
+            }
+        } else if let news = news as? OrganizationNews {
+            DataService.instance.likeNews(news, ofProject: nil, byUser: currentUser) { status in
+                if status, let newsKey = news.key {
+                    currentUser.likedOrganizationNewsKeys.append(newsKey)
+                }
+            }
+        }
     }
     
     func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News) {
+        guard let currentUser = AuthService.instance.currentUser else {
+            return
+        }
         
+        if let news = news as? ProjectNews,
+            let projectKey = news.parentProjectKey {
+            
+            DataService.instance.unlikeNews(news, ofProjectWithKey: projectKey, byUser: currentUser) { (status) in
+                print(status)
+            }
+        } else if let news = news as? OrganizationNews {
+            DataService.instance.unlikeNews(news, ofProject: nil, byUser: currentUser) { (status) in
+                if status {
+                    for i in 0..<currentUser.likedOrganizationNewsKeys.count {
+                        if currentUser.likedOrganizationNewsKeys[i] == news.key {
+                            currentUser.likedOrganizationNewsKeys.remove(at: i)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
