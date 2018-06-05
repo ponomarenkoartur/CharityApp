@@ -255,7 +255,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" id="dGA-lC-aee">
-                        <barButtonItem key="rightBarButtonItem" image="pencil-filled" id="pGE-b8-Mpo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pGE-b8-Mpo">
                             <connections>
                                 <segue destination="kWs-GC-N7y" kind="presentation" identifier="ComposeNews" id="iHG-iJ-fdo"/>
                             </connections>
@@ -459,7 +459,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="News" id="09e-NT-Mou">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="5Mn-dU-5gn"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5Mn-dU-5gn"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Msh-WM-b9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1117,7 +1117,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Projects" id="fDQ-In-6y1">
-                        <barButtonItem key="rightBarButtonItem" image="pencil-filled" id="tYE-PR-Sdl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tYE-PR-Sdl">
                             <connections>
                                 <segue destination="h1Y-0Q-MH3" kind="presentation" identifier="AddProject" id="x84-Bd-xby"/>
                             </connections>
@@ -1313,8 +1313,8 @@
         <image name="video-camera" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sNS-h7-7rp"/>
+        <segue reference="x84-Bd-xby"/>
         <segue reference="84z-Tk-iGd"/>
-        <segue reference="8Qd-dJ-vSA"/>
+        <segue reference="iHG-iJ-fdo"/>
     </inferredMetricsTieBreakers>
 </document>
