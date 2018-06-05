@@ -170,11 +170,10 @@ extension ProjectDetailsVC: NewsCellDelegate {
     }
     
     func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News) {
-        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ProjectCell else {
+        guard let cell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) else {
             return
         }
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        cell.titleLabel.shake()        
     } 
 }
 
