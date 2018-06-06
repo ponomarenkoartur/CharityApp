@@ -6,8 +6,8 @@
 //  Copyright © 2018 Artur. All rights reserved.
 //
 
-import Foundation
 import Firebase
+import UIKit
 
 class AuthService {
     static let instance = AuthService()
@@ -39,6 +39,17 @@ class AuthService {
                 return
             }
             loginComplete(true, nil)
+        }
+    }
+    
+    func logout(handler: @escaping (_ status: Bool) -> ()) {
+        do {
+            try Auth.auth().signOut()
+            currentUser = nil
+            handler(true)
+        } catch {
+            handler(false)
+            print(error)
         }
     }
 }
