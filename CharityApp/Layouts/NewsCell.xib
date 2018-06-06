@@ -45,7 +45,7 @@
                             <action selector="likeButtonWasTapped:" destination="78t-RO-XHv" eventType="touchUpInside" id="Me5-5U-9bG"/>
                         </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eDN-4I-GX5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eDN-4I-GX5">
                         <rect key="frame" x="69" y="11" width="37.5" height="24"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                         <nil key="textColor"/>
@@ -59,7 +59,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.01.2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYc-bm-Zq8">
-                        <rect key="frame" x="69" y="68" width="56" height="14"/>
+                        <rect key="frame" x="16" y="68" width="56" height="14"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -99,7 +99,6 @@
                     <constraint firstItem="1O3-kY-YOq" firstAttribute="centerY" secondItem="SDg-a2-1e8" secondAttribute="centerY" id="Cfw-Ma-sQ2"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eDN-4I-GX5" secondAttribute="trailing" constant="80" id="GX5-64-JFG"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" constant="11" id="L7F-Cd-lRL"/>
-                    <constraint firstItem="MYc-bm-Zq8" firstAttribute="leading" secondItem="eDN-4I-GX5" secondAttribute="leading" id="S36-mC-vmi"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="TkC-Gt-b6u"/>
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="leading" secondItem="gjB-ob-tdW" secondAttribute="trailing" constant="8" id="Tkd-Hq-W8I"/>
                     <constraint firstItem="SDg-a2-1e8" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="a5Z-zJ-Fgm"/>
@@ -108,6 +107,7 @@
                     <constraint firstItem="MYc-bm-Zq8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eDN-4I-GX5" secondAttribute="bottom" constant="4" id="drK-rT-YMY"/>
                     <constraint firstItem="SDg-a2-1e8" firstAttribute="top" secondItem="Qaz-vy-JQb" secondAttribute="bottom" constant="8" id="fug-fM-Jsj"/>
                     <constraint firstItem="gjB-ob-tdW" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" constant="11" id="gfg-Ef-Ag8"/>
+                    <constraint firstItem="MYc-bm-Zq8" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="mUa-Bz-UGj"/>
                     <constraint firstAttribute="trailing" secondItem="1O3-kY-YOq" secondAttribute="trailing" constant="16" id="nZY-4c-Ub2"/>
                     <constraint firstItem="SEJ-cC-DY8" firstAttribute="leading" secondItem="eDN-4I-GX5" secondAttribute="leading" id="tO0-el-vCU"/>
                     <constraint firstItem="gjB-ob-tdW" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="uaX-CK-ts8"/>
