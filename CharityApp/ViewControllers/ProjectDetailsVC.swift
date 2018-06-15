@@ -88,11 +88,7 @@ class ProjectDetailsVC: UITableViewController {
     }
     
     func configureCell(_ cell: UITableViewCell, forImageUrl url: String) {
-        if let cell = cell as? ImageCell {
-            cell.imageURL = url
-            let url = URL(string: url)
-            cell.myImageView.loadImage(url: url!)
-        }
+        
     }
     
     func configureCell(_ cell: UITableViewCell, forNews news: News?) {

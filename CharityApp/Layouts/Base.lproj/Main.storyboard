@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VLs-QW-0T9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VJd-Uy-AOK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -899,7 +899,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCb-9B-XM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="-516"/>
+            <point key="canvasLocation" x="2436" y="-466"/>
         </scene>
         <!--Add Project-->
         <scene sceneID="EwM-xh-QB6">
@@ -1057,7 +1057,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gnf-CZ-9W9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3246" y="-520"/>
+            <point key="canvasLocation" x="3246" y="-466"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Fp-un-EAJ">
@@ -1342,30 +1342,8 @@
                                     <outlet property="titleLabel" destination="LHm-qB-BQq" id="lvI-rE-Z3o"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="167" id="kkg-eO-Kfk" customClass="ImageCell">
-                                <rect key="frame" x="0.0" y="250" width="375" height="167"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kkg-eO-Kfk" id="053-ds-6DK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="166.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZhP-zd-AJy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
-                                        </imageView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="ZhP-zd-AJy" firstAttribute="leading" secondItem="053-ds-6DK" secondAttribute="leading" id="CP5-cS-KKb"/>
-                                        <constraint firstAttribute="bottom" secondItem="ZhP-zd-AJy" secondAttribute="bottom" id="Jfy-XF-nNv"/>
-                                        <constraint firstItem="ZhP-zd-AJy" firstAttribute="top" secondItem="053-ds-6DK" secondAttribute="top" id="Ka8-12-V7M"/>
-                                        <constraint firstAttribute="trailing" secondItem="ZhP-zd-AJy" secondAttribute="trailing" id="utp-eh-HTl"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="myImageView" destination="ZhP-zd-AJy" id="wwa-1y-gqT"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProjectNewsHeaderCell" rowHeight="64" id="Eai-sZ-lYf" customClass="ProjectNewsHeaderCell" customModule="CharityApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="417" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="250" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eai-sZ-lYf" id="7sG-xh-123">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
@@ -1436,6 +1414,6 @@
         <segue reference="f93-be-r8H"/>
         <segue reference="sNS-h7-7rp"/>
         <segue reference="84z-Tk-iGd"/>
-        <segue reference="Wal-pk-5ip"/>
+        <segue reference="8Qd-dJ-vSA"/>
     </inferredMetricsTieBreakers>
 </document>

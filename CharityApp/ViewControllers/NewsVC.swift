@@ -26,10 +26,14 @@ class NewsVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        DataService.instance.getAllNews { (newsCollection) in
-            self.newsCollection = newsCollection.sorted(by: { $0.date > $1.date })
-            self.tableView.reloadData()
-        }
+//        DataService.instance.getAllNews { (newsCollection) in
+//            self.newsCollection = newsCollection.sorted(by: { $0.date > $1.date })
+//            self.tableView.reloadData()
+//        }
+        
+        let news0 = OrganizationNews(key: nil, title: "Title0", text: "text", date: Date(), likesCount: 0, imageUrlsCollection: [], videoUrlsCollection: [:], tagsCollection: [])
+        newsCollection.append(news0)
+        tableView.reloadData()
     }
     
     // MARK: - TablewView Data Source
@@ -66,6 +70,7 @@ class NewsVC: UITableViewController {
                 cell.isLiked = currentUser.isLikedNews(news, ofProject: nil)
             }
         }
+        cell.images = [#imageLiteral(resourceName: "logo"), #imageLiteral(resourceName: "logo-simplified"), #imageLiteral(resourceName: "logo"), #imageLiteral(resourceName: "logo-simplified")]
     }
     
     // MARK: - Navigation

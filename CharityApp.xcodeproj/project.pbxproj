@@ -31,7 +31,6 @@
 		7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */; };
 		7547FCD620C1C6CF00FE8E65 /* NewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */; };
 		755F80E7204F07EB006DAAA5 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80E6204F07EB006DAAA5 /* Project.swift */; };
-		755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */; };
 		756C772C20BC61120008203F /* ProjectPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756C772B20BC61120008203F /* ProjectPickerVC.swift */; };
 		7578DBE020BC797F008892D3 /* ConfigureNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578DBDF20BC797F008892D3 /* ConfigureNewsVC.swift */; };
 		758D7EB220B5D02900D84569 /* ProjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758D7EB120B5D02900D84569 /* ProjectsVC.swift */; };
@@ -49,8 +48,8 @@
 		75BF5D4420978873000AFFB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF5D4320978873000AFFB2 /* LoginViewController.swift */; };
 		75CCDE6520C6D26A00B79510 /* NotificationSenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6420C6D26A00B79510 /* NotificationSenderService.swift */; };
 		75CCDE6720C6FE6100B79510 /* OrganizationInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */; };
-		75CCDE6920C705EE00B79510 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6820C705EE00B79510 /* ImageCell.swift */; };
 		75CCDE6B20C7092F00B79510 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6A20C7092F00B79510 /* UIImageView+DownloadImage.swift */; };
+		75DB9E7B20D394840063C50A /* ImagesSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DB9E7A20D394840063C50A /* ImagesSet.swift */; };
 		75F2365E209CA2F1007AC1D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F2365D209CA2F1007AC1D2 /* Assets.xcassets */; };
 		75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FECA42204EFE8A00003210 /* GoogleService-Info.plist */; };
 		84DF44B8240A11C6AFED4CA6 /* Pods_CharityApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */; };
@@ -86,7 +85,6 @@
 		7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureProjectVC.swift; sourceTree = "<group>"; };
 		7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsVC.swift; sourceTree = "<group>"; };
 		755F80E6204F07EB006DAAA5 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFireDatabase.swift; sourceTree = "<group>"; };
 		756C772B20BC61120008203F /* ProjectPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectPickerVC.swift; sourceTree = "<group>"; };
 		7578DBDF20BC797F008892D3 /* ConfigureNewsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureNewsVC.swift; sourceTree = "<group>"; };
 		758D7EB120B5D02900D84569 /* ProjectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsVC.swift; sourceTree = "<group>"; };
@@ -105,8 +103,8 @@
 		75BF5D4320978873000AFFB2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		75CCDE6420C6D26A00B79510 /* NotificationSenderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSenderService.swift; sourceTree = "<group>"; };
 		75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfoCell.swift; sourceTree = "<group>"; };
-		75CCDE6820C705EE00B79510 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		75CCDE6A20C7092F00B79510 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		75DB9E7A20D394840063C50A /* ImagesSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSet.swift; sourceTree = "<group>"; };
 		75F2365D209CA2F1007AC1D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CharityApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		75FECA42204EFE8A00003210 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,7 +239,6 @@
 				7523F62F20B02446005D8CEA /* User.swift */,
 				75479B6920B5AADD0021B73A /* ProjectNews.swift */,
 				75479B6720B5AAD20021B73A /* OrganizationNews.swift */,
-				755F80EA204F1868006DAAA5 /* MyFireDatabase.swift */,
 				758D7EBB20B5D9B900D84569 /* InfoItem.swift */,
 				75A5F3D5204F00C000137D28 /* News.swift */,
 				75A5F3D2204F000400137D28 /* Protocols */,
@@ -280,7 +277,7 @@
 				75479B6320B59CC20021B73A /* MainTabBar.swift */,
 				7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */,
 				75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */,
-				75CCDE6820C705EE00B79510 /* ImageCell.swift */,
+				75DB9E7A20D394840063C50A /* ImagesSet.swift */,
 			);
 			path = "Other views";
 			sourceTree = "<group>";
@@ -412,6 +409,7 @@
 				758D7EB420B5D21D00D84569 /* UIView extension.swift in Sources */,
 				75B0024120C5B74A007B8435 /* ProjectDetailsVC.swift in Sources */,
 				75CCDE6520C6D26A00B79510 /* NotificationSenderService.swift in Sources */,
+				75DB9E7B20D394840063C50A /* ImagesSet.swift in Sources */,
 				752B3D2920C6AFBD002A7603 /* NewsCellContainerTableVC.swift in Sources */,
 				7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */,
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
@@ -430,14 +428,12 @@
 				7578DBE020BC797F008892D3 /* ConfigureNewsVC.swift in Sources */,
 				756C772C20BC61120008203F /* ProjectPickerVC.swift in Sources */,
 				758D7EB820B5D25000D84569 /* UIColor extension.swift in Sources */,
-				755F80EB204F1868006DAAA5 /* MyFireDatabase.swift in Sources */,
 				75246D9420503C260015D506 /* IDatabaseResultListener.swift in Sources */,
 				75479B6420B59CC20021B73A /* MainTabBar.swift in Sources */,
 				75479B6820B5AAD20021B73A /* OrganizationNews.swift in Sources */,
 				7523F64020B071AC005D8CEA /* RegistrationVC.swift in Sources */,
 				758D7EB620B5D23900D84569 /* UIViewController extension.swift in Sources */,
 				75308AB22054549E00AB1364 /* Functions.swift in Sources */,
-				75CCDE6920C705EE00B79510 /* ImageCell.swift in Sources */,
 				7523F63220B04650005D8CEA /* DataService.swift in Sources */,
 				7547FCD020C1BFC400FE8E65 /* DonationsVC.swift in Sources */,
 				75A5F3D8204F00E500137D28 /* ImageContentContainer.swift in Sources */,

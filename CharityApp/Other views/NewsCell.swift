@@ -25,15 +25,16 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var logoImageView: UIImageView!
-    
     @IBOutlet weak var projectNameButton: UIButton!
+    @IBOutlet weak var imagesSet: ImagesSet!
+    @IBOutlet var imageViewsSet: [UIImageView]!
     
     // MARK: - Properties
     
     weak var delegate: NewsCellDelegate?
     var news: News? {
         didSet {
-            // Hide view accoriding to cell appointment
+            // Hide certain views accoriding to cell appointment
             if oldValue == nil {
                 if news is OrganizationNews {
                     projectNameButton.removeFromSuperview()
@@ -62,10 +63,17 @@ class NewsCell: UITableViewCell {
         }
     }
     
+    var images: [UIImage] = [] {
+        didSet {
+            imagesSet.imageViewCount = images.count
+            imagesSet.images = images
+        }
+    }
+    
     // MARK: Cell Lifecycle
     
     override func awakeFromNib() {
-        
+        imagesSet.imageViews = imageViewsSet
     }
     
     // MARK: - Actions
