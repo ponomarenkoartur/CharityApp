@@ -150,9 +150,9 @@
                     <constraint firstItem="eDN-4I-GX5" firstAttribute="leading" secondItem="gjB-ob-tdW" secondAttribute="trailing" constant="8" id="Tkd-Hq-W8I"/>
                     <constraint firstItem="qob-mF-B1K" firstAttribute="top" secondItem="Qaz-vy-JQb" secondAttribute="bottom" constant="8" id="Zhx-di-YhP"/>
                     <constraint firstItem="SDg-a2-1e8" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="a5Z-zJ-Fgm"/>
+                    <constraint firstItem="MYc-bm-Zq8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gjB-ob-tdW" secondAttribute="bottom" constant="4" id="aB9-5h-YLp"/>
                     <constraint firstAttribute="bottom" secondItem="SDg-a2-1e8" secondAttribute="bottom" constant="10" id="bHf-3R-tqs"/>
                     <constraint firstItem="3TC-Kl-lsi" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" id="dEu-oH-sn7"/>
-                    <constraint firstItem="MYc-bm-Zq8" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eDN-4I-GX5" secondAttribute="bottom" constant="4" id="drK-rT-YMY"/>
                     <constraint firstItem="gjB-ob-tdW" firstAttribute="top" secondItem="hAK-eX-8zS" secondAttribute="top" constant="11" id="gfg-Ef-Ag8"/>
                     <constraint firstItem="SDg-a2-1e8" firstAttribute="top" secondItem="qob-mF-B1K" secondAttribute="bottom" constant="8" id="iLC-re-xqH"/>
                     <constraint firstItem="MYc-bm-Zq8" firstAttribute="leading" secondItem="hAK-eX-8zS" secondAttribute="leading" constant="16" id="mUa-Bz-UGj"/>
