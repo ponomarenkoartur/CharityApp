@@ -47,9 +47,8 @@ class InfoItem: NSObject, ImageContentCollectionContainer, VideoContentCollectio
             guard let imageUrlSnapshot = imageUrlSnapshot as? DataSnapshot else {
                 break
             }
-                let imageUrlString = imageUrlSnapshot.value as! String
-                imageUrlsCollection.append(imageUrlString)
-            
+            let imageUrlString = imageUrlSnapshot.value as! String
+            imageUrlsCollection.append(imageUrlString)
         }
         videoUrlsCollection = [:]
         tagsCollection = tags

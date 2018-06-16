@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="226" id="n6M-2Q-aTX" customClass="ImageCell" customModule="CharityApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="226"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n6M-2Q-aTX" id="USY-4S-l7V">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="225.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="a5N-b0-sX4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="225.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="225.5" id="623-Ab-fs3"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="a5N-b0-sX4" secondAttribute="bottom" id="ABo-zr-UBc"/>
+                    <constraint firstItem="a5N-b0-sX4" firstAttribute="leading" secondItem="USY-4S-l7V" secondAttribute="leading" id="GjM-lU-zFI"/>
+                    <constraint firstItem="a5N-b0-sX4" firstAttribute="top" secondItem="USY-4S-l7V" secondAttribute="top" id="VPk-uJ-SIB"/>
+                    <constraint firstAttribute="trailing" secondItem="a5N-b0-sX4" secondAttribute="trailing" id="mUq-nA-UEU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="myImageView" destination="a5N-b0-sX4" id="blW-er-XDv"/>
+            </connections>
+            <point key="canvasLocation" x="202.5" y="178"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="logo" width="302" height="203"/>
+    </resources>
+</document>

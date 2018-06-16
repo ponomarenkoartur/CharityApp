@@ -15,7 +15,7 @@ class Project: InfoItem, NewsCollectionContainer {
     var isCompleted: Bool
     var needMoney: Double
     var collectedMoney: Double
-    var newsCollection: [String: News]
+    var newsCollection: [News]
     
     // MARK: - Computed properties
     
@@ -26,7 +26,7 @@ class Project: InfoItem, NewsCollectionContainer {
     // MARK: - Initialization
     
     init(key: String?, title: String, text: String, date:
-        Date, isCompleted: Bool, needMoney: Double, collectedMoney: Double = 0, imageUrlsCollection: [String] = [], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = [], newsCollection: [String: News] = [:]) {
+        Date, isCompleted: Bool, needMoney: Double, collectedMoney: Double = 0, imageUrlsCollection: [String] = [], videoUrlsCollection: [String : String] = [:], tagsCollection: [String] = [], newsCollection: [News] = []) {
         self.isCompleted = isCompleted
         self.needMoney = needMoney
         self.collectedMoney = collectedMoney
@@ -39,8 +39,7 @@ class Project: InfoItem, NewsCollectionContainer {
         needMoney = snapshot.childSnapshot(forPath: "needMoney").value as! Double
         collectedMoney = snapshot.childSnapshot(forPath: "collectedMoney").value as! Double
         
-        
-        newsCollection = [:]
+        newsCollection = []
         super.init(snapshot: snapshot)
         key = snapshot.childSnapshot(forPath: "charityNeedKey").value as? String
     }

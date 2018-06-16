@@ -69,5 +69,18 @@ class ProjectCell: UITableViewCell {
         }
     }
     
+    // MARK: - Methods
     
+    func configureForProject(_ project: Project) {
+        titleLabel.text = project.title
+        dateLabel.text = dateFormatter.string(from: project.date)
+        textView.text = project.text
+        raiseMoneyStatusLabel.text = "\(project.collectedMoney)/\(project.needMoney)"
+        raiseMoneyStatusProgressView.progress = Float(project.progress)
+        self.project = project
+        
+        if let currentUser = AuthService.instance.currentUser {
+            isSubscribed = currentUser.isSubscribedProject(project)
+        }
+    }
 }

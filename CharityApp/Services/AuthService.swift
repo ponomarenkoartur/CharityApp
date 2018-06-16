@@ -23,7 +23,7 @@ class AuthService {
                 }
                 return
             }
-            let user = User(key: nil, email: email)
+            let user = User(key: nil)
             DataService.instance.createDBUser(uid: userInDatabase.uid, userData: user.convertToSnapshot())
             userCreationComplete(true, nil)
         }

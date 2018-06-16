@@ -22,6 +22,8 @@ extension UIImageView {
                         strongSelf.image = image
                     }
                 }
+            } else {
+                print(error)
             }
         }
         downloadTask.resume()

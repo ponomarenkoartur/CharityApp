@@ -13,14 +13,16 @@ class ProjectDetailsVC: UITableViewController {
     // MARK: - Properties
     
     var project: Project?
-    var newsCollection = [ProjectNews]()
     
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cellNib = UINib(nibName: TableViewCellIdentifiers.news, bundle: nil)
+        var cellNib = UINib(nibName: TableViewCellIdentifiers.image, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.image)
+        
+        cellNib = UINib(nibName: TableViewCellIdentifiers.news, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.news)
         
         tableView.separatorInset = UIEdgeInsets.zero
@@ -28,103 +30,59 @@ class ProjectDetailsVC: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let project = project {
-            DataService.instance.getAllNewsOfProject(project) { (newsCollection) in
-                self.newsCollection = newsCollection.sorted(by: { $0.date > $1.date })
-                let indexSet = IndexSet(integer: 2)
-                self.tableView.reloadSections(indexSet as IndexSet, with: .fade)
-            }
+        guard let project = project else { return }
+        DataService.instance.getAllNewsOfProject(project) { (newsCollection) in
+            project.newsCollection = newsCollection.sorted(by: { $0.date > $1.date })
+            let indexSet = IndexSet(integer: 3)
+            self.tableView.reloadSections(indexSet as IndexSet, with: .fade)
         }
     }
     
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let project = project else { return 0 }
         switch section {
-        case 0, 1:
+        case 0, 2:
             return 1
-//        case 2:
-//            if let project = project {
-//                return project.imageUrlsCollection.count
-//            } else {
-//                return 0
-//            }
-        case 2:
-            return newsCollection.count
+        case 1:
+            print(project.imageUrlsCollection.count)
+            return project.imageUrlsCollection.count
+        case 3:
+            return project.newsCollection.count
         default:
             return 0
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
+        guard let project = project else { return UITableViewCell() }
         switch indexPath.section {
         case 0:
-            cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.mainInfo, for: indexPath)
-            configureCell(cell, forNews: nil)
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.mainInfo, for: indexPath) as! ProjectCell
+            cell.configureForProject(project)
+            cell.delegate = self
+            return cell
         case 1:
-            cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.projectNewsHeader, for: indexPath)
-            configureCell(cell, forNews: nil)
-//        case 2:
-//            cell = ImageCell(style: .default, reuseIdentifier: TableViewCellIdentifiers.image)
-//            if let project = project {
-//                let imageUrlString = project.imageUrlsCollection[indexPath.row]
-//                configureCell(cell, forImageUrl: imageUrlString)
-//            }
-//            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.image, for: indexPath) as! ImageCell
+            let imageUrlString = project.imageUrlsCollection[indexPath.row]
+            cell.configure(forUrlString: imageUrlString)
+            return cell
         case 2:
-            cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.news, for: indexPath) as! NewsCell
-            let news = newsCollection[indexPath.row]
-            configureCell(cell, forNews: news)
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.projectNewsHeader, for: indexPath)
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.news, for: indexPath) as! NewsCell
+            let news = project.newsCollection[indexPath.row]
+            cell.configureForNews(news)
+            cell.delegate = self
+            return cell
         default:
-            cell = UITableViewCell()
-        }
-
-        return cell
-    }
-    
-    func configureCell(_ cell: UITableViewCell, forImageUrl url: String) {
-        
-    }
-    
-    func configureCell(_ cell: UITableViewCell, forNews news: News?) {
-        switch cell.reuseIdentifier {
-        case TableViewCellIdentifiers.mainInfo:
-            if let cell = cell as? ProjectCell,
-                let project = project {
-                cell.titleLabel.text = project.title
-                cell.dateLabel.text = dateFormatter.string(from: project.date)
-                cell.textView.text = project.text
-                cell.raiseMoneyStatusLabel.text = "\(project.collectedMoney)/\(project.needMoney)"
-                cell.raiseMoneyStatusProgressView.progress = Float(project.progress)
-                cell.delegate = self
-                cell.project = project
-                
-                if let currentUser = AuthService.instance.currentUser {
-                    cell.isSubscribed = currentUser.isSubscribedProject(project)
-                }
-            }
-        case TableViewCellIdentifiers.news:
-            if let cell = cell as? NewsCell,
-                let news = news {
-                cell.titleLabel.text = news.title
-                cell.dateLabel.text = dateFormatter.string(from: news.date)
-                cell.textView.text = news.text
-                cell.likeButton.setTitle("\(news.likesCount)", for: .normal)
-                cell.delegate = self
-                cell.news = news
-                if let currentUser = AuthService.instance.currentUser,
-                    let news = news as? ProjectNews,
-                    let project = project {
-                    cell.isLiked = currentUser.isLikedNews(news, ofProject: project)
-                }
-            }
-        default:
-            break
+            return UITableViewCell()
         }
     }
     

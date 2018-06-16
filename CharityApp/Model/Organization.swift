@@ -16,12 +16,12 @@ class Organization: NewsCollectionContainer {
     var description: String
     var contactInformation: String
     var defaultAccountNumber: String
-    var newsCollection: [String: News]
+    var newsCollection: [News]
     var projectsCollection: [String: Project]
     
     // MARK: - Initialization
     
-    init(name: String, description: String, contactInformation: String, defaultAccountNumber: String, newsCollection: [String: News] = [:], projectsCollection: [String: Project] = [:]) {
+    init(name: String, description: String, contactInformation: String, defaultAccountNumber: String, newsCollection: [News] = [], projectsCollection: [String: Project] = [:]) {
         self.name = name
         self.description = description
         self.contactInformation = contactInformation
@@ -35,7 +35,7 @@ class Organization: NewsCollectionContainer {
         self.description = snaphot.childSnapshot(forPath: "description").value as! String
         self.contactInformation = snaphot.childSnapshot(forPath: "contactInformation").value as! String
         self.defaultAccountNumber = snaphot.childSnapshot(forPath: "defaultAccountNumber").value as! String
-        newsCollection = [:]
+        newsCollection = []
         projectsCollection = [:]
     }
 }

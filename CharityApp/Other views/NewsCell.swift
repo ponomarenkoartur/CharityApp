@@ -27,14 +27,16 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var projectNameButton: UIButton!
     @IBOutlet weak var imagesSet: ImagesSet!
-    @IBOutlet var imageViewsSet: [UIImageView]!
+    @IBOutlet private var imageViewsSet: [UIImageView]!
     
     // MARK: - Properties
     
     weak var delegate: NewsCellDelegate?
     var news: News? {
         didSet {
-            // Hide certain views accoriding to cell appointment
+            guard let news = news else { return }
+            
+            // Hide certain views according to cell's appointment
             if oldValue == nil {
                 if news is OrganizationNews {
                     projectNameButton.removeFromSuperview()
@@ -60,13 +62,6 @@ class NewsCell: UITableViewCell {
             } else {
                 likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
             }
-        }
-    }
-    
-    var images: [UIImage] = [] {
-        didSet {
-            imagesSet.imageViewCount = images.count
-            imagesSet.images = images
         }
     }
     
@@ -104,6 +99,22 @@ class NewsCell: UITableViewCell {
     @IBAction func projectNameButtonWasTapped(_ sender: UIButton!) {
         if let news = news, let project = project {
             delegate?.newsCellDidTapProjectNameButton!(self, onNews: news, ofProject: project)
+        }
+    }
+    
+    // MARK: - Methods
+    
+    func configureForNews(_ news: News) {
+        titleLabel.text = news.title
+        dateLabel.text = dateFormatter.string(from: news.date)
+        textView.text = news.text
+        likeButton.setTitle("\(news.likesCount)", for: .normal)
+        imagesSet.urlStrings = news.imageUrlsCollection
+        self.news = news
+        if let currentUser = AuthService.instance.currentUser,
+            let news = news as? ProjectNews,
+            let project = project {
+            isLiked = currentUser.isLikedNews(news, ofProject: project)
         }
     }
     

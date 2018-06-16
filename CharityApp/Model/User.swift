@@ -13,8 +13,6 @@ class User: SnapshotConvertible {
     // MARK: - Properties
     
     var key: String?
-    let email: String
-    let accountCreationDate: Date
     var isAdmin: Bool
     var likedProjectNewsKeys: [String: [String]]
     var likedOrganizationNewsKeys: [String]
@@ -22,10 +20,8 @@ class User: SnapshotConvertible {
     
     // MARK: - Initialization
     
-    init(key: String?, email: String, accountCreationDate: Date = Date(), isAdmin: Bool = false, likedNewsKeys: [String: [String]] = [:], likedOrganizationNewsKeys: [String] = [], subcribedProjectsKeys: [String] = []) {
+    init(key: String?, isAdmin: Bool = false, likedNewsKeys: [String: [String]] = [:], likedOrganizationNewsKeys: [String] = [], subcribedProjectsKeys: [String] = []) {
         self.key = key
-        self.email = email
-        self.accountCreationDate = accountCreationDate
         self.isAdmin = isAdmin
         self.likedProjectNewsKeys = likedNewsKeys
         self.likedOrganizationNewsKeys = likedOrganizationNewsKeys
@@ -33,12 +29,8 @@ class User: SnapshotConvertible {
     }
     
     init(snapshot: DataSnapshot) {
+        print(snapshot)
         key = snapshot.key as String
-        
-        // TODO: fix this
-        email = ""
-//        email = snapshot.childSnapshot(forPath: "email").value as! String
-        accountCreationDate = dateFormatter.date(from: snapshot.childSnapshot(forPath: "accountCreationDate").value as! String)!
         isAdmin = snapshot.childSnapshot(forPath: "admin").value as! Bool
         
         likedProjectNewsKeys = [:]
@@ -71,10 +63,12 @@ class User: SnapshotConvertible {
         
         if let subcribedProjectsKeysString = snapshot.childSnapshot(forPath: "subcribedNeeds").value as? String {
             // Delete last comma
-            var subcribedProjectsKeysCorrectString = subcribedProjectsKeysString
-            subcribedProjectsKeysCorrectString.removeLast()
+            var correctedString = subcribedProjectsKeysString
+            if !correctedString.isEmpty {
+                correctedString.removeLast()
+            }
             
-            subcribedProjectsKeys = subcribedProjectsKeysCorrectString.split { $0 == "," }.map(String.init)
+            subcribedProjectsKeys = correctedString.split { $0 == "," }.map(String.init)
         } else {
             subcribedProjectsKeys = []
         }
@@ -112,8 +106,6 @@ class User: SnapshotConvertible {
     
     func convertToSnapshot() -> [String: Any] {
         let snapshot: [String: Any] = [
-            "email": email,
-            "accountCreationDate": dateFormatter.string(from: accountCreationDate),
             "admin": isAdmin,
             "likedNewsIds": likedProjectNewsKeys,
             "likedOrganizationNewsIds": likedOrganizationNewsKeys,

@@ -11,19 +11,22 @@ import UIKit
 class ImagesSet: UIView {
 
     var imageViews: [UIImageView]!
-    var images: [UIImage] = [] {
+    var urlStrings: [String] = [] {
         didSet {
-            let upperBound = maxImageViewCount > images.count ? images.count : maxImageViewCount
+            imageViewCount = urlStrings.count
+            let upperBound = maxImageViewCount > urlStrings.count ? urlStrings.count : maxImageViewCount
             for i in 0..<upperBound {
-                imageViews[i].image = images[i]
+                if let url = URL(string: urlStrings[i]) {
+                    imageViews[i].loadImage(url: url)
+                }
             }
         }
     }
     
-    let maxImageViewCount = 4
-    let minImageViewCount = 0
+    private let maxImageViewCount = 4
+    private let minImageViewCount = 0
     
-    var imageViewCount = 4 {
+    private var imageViewCount = 4 {
         didSet {
             if imageViewCount < minImageViewCount {
                 imageViewCount = minImageViewCount
