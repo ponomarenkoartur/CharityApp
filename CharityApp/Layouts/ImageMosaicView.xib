@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageMosaicView" customModule="CharityApp" customModuleProvider="target">
+            <connections>
+                <outletCollection property="imageViews" destination="efS-Eq-96N" collectionClass="NSMutableArray" id="yef-2e-HdG"/>
+                <outletCollection property="imageViews" destination="MtG-Mn-CYA" collectionClass="NSMutableArray" id="jNs-47-GqB"/>
+                <outletCollection property="imageViews" destination="Nfb-7T-lFk" collectionClass="NSMutableArray" id="nRd-Dg-jRY"/>
+                <outletCollection property="imageViews" destination="lRJ-k5-nbi" collectionClass="NSMutableArray" id="CzL-0x-CNM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Yrj-MI-hoX">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="216"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-stub" translatesAutoresizingMaskIntoConstraints="NO" id="efS-Eq-96N">
+                    <rect key="frame" x="0.0" y="0.0" width="187" height="216"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-stub" translatesAutoresizingMaskIntoConstraints="NO" id="lRJ-k5-nbi">
+                    <rect key="frame" x="288" y="108" width="96" height="108"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-stub" translatesAutoresizingMaskIntoConstraints="NO" id="Nfb-7T-lFk">
+                    <rect key="frame" x="192" y="108" width="91" height="108"/>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-stub" translatesAutoresizingMaskIntoConstraints="NO" id="MtG-Mn-CYA">
+                    <rect key="frame" x="192" y="0.0" width="192" height="103"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Nfb-7T-lFk" secondAttribute="bottom" id="4Ea-8q-O5T"/>
+                <constraint firstAttribute="bottom" secondItem="efS-Eq-96N" secondAttribute="bottom" id="7yM-j6-sBi"/>
+                <constraint firstAttribute="trailing" secondItem="lRJ-k5-nbi" secondAttribute="trailing" id="Cjs-Nl-4yr"/>
+                <constraint firstItem="lRJ-k5-nbi" firstAttribute="height" secondItem="Yrj-MI-hoX" secondAttribute="height" multiplier="0.5" id="Cu7-Zh-csm"/>
+                <constraint firstItem="MtG-Mn-CYA" firstAttribute="top" secondItem="Yrj-MI-hoX" secondAttribute="top" id="DUf-0p-QYY"/>
+                <constraint firstItem="efS-Eq-96N" firstAttribute="leading" secondItem="Yrj-MI-hoX" secondAttribute="leading" id="PJE-Ew-ZYK"/>
+                <constraint firstItem="lRJ-k5-nbi" firstAttribute="leading" secondItem="Nfb-7T-lFk" secondAttribute="trailing" constant="5" id="Rha-Gh-pS3"/>
+                <constraint firstAttribute="bottom" secondItem="lRJ-k5-nbi" secondAttribute="bottom" id="TRD-GF-fnI"/>
+                <constraint firstItem="efS-Eq-96N" firstAttribute="width" secondItem="Yrj-MI-hoX" secondAttribute="height" multiplier="187:216" id="X3C-U1-QWN"/>
+                <constraint firstItem="Nfb-7T-lFk" firstAttribute="height" secondItem="lRJ-k5-nbi" secondAttribute="height" id="XBG-GO-30Z"/>
+                <constraint firstItem="MtG-Mn-CYA" firstAttribute="leading" secondItem="efS-Eq-96N" secondAttribute="trailing" constant="5" id="YLl-WT-Pfh"/>
+                <constraint firstItem="Nfb-7T-lFk" firstAttribute="top" secondItem="MtG-Mn-CYA" secondAttribute="bottom" constant="5" id="ZtP-CY-13z"/>
+                <constraint firstItem="Nfb-7T-lFk" firstAttribute="leading" secondItem="MtG-Mn-CYA" secondAttribute="leading" id="hTu-Qg-O80"/>
+                <constraint firstAttribute="trailing" secondItem="Nfb-7T-lFk" secondAttribute="trailing" priority="999" id="iBB-NB-dWK"/>
+                <constraint firstAttribute="trailing" secondItem="MtG-Mn-CYA" secondAttribute="trailing" id="ilo-lj-p8X"/>
+                <constraint firstAttribute="bottom" secondItem="MtG-Mn-CYA" secondAttribute="bottom" priority="999" id="k8g-r2-aVx"/>
+                <constraint firstItem="lRJ-k5-nbi" firstAttribute="width" secondItem="Yrj-MI-hoX" secondAttribute="width" multiplier="0.25" id="p7L-VR-TJ4"/>
+                <constraint firstItem="MtG-Mn-CYA" firstAttribute="width" secondItem="Yrj-MI-hoX" secondAttribute="width" multiplier="0.5" id="r6o-Hb-jih"/>
+                <constraint firstAttribute="trailing" secondItem="efS-Eq-96N" secondAttribute="trailing" priority="999" id="vBN-gL-hcc"/>
+                <constraint firstItem="efS-Eq-96N" firstAttribute="top" secondItem="Yrj-MI-hoX" secondAttribute="top" id="xJe-gj-XSU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="65" y="-295"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="image-stub" width="1000" height="1000"/>
+    </resources>
+</document>

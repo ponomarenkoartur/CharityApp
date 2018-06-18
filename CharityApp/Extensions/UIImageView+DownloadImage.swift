@@ -23,7 +23,7 @@ extension UIImageView {
                     }
                 }
             } else {
-                print(error)
+                print("Image could not be loaded. Error: \(error!)")
             }
         }
         downloadTask.resume()

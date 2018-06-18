@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectDetailsVC: UITableViewController {
+class ProjectDetailsVC: NewsCellContainerTableVC {
     
     // MARK: - Properties
     
@@ -64,7 +64,7 @@ class ProjectDetailsVC: UITableViewController {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.mainInfo, for: indexPath) as! ProjectCell
-            cell.configureForProject(project)
+            cell.configure(forProject: project)
             cell.delegate = self
             return cell
         case 1:
@@ -78,7 +78,7 @@ class ProjectDetailsVC: UITableViewController {
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.news, for: indexPath) as! NewsCell
             let news = project.newsCollection[indexPath.row]
-            cell.configureForNews(news)
+            cell.configure(forNews: news)
             cell.delegate = self
             return cell
         default:
@@ -105,46 +105,8 @@ class ProjectDetailsVC: UITableViewController {
     }
 }
 
-extension ProjectDetailsVC: NewsCellDelegate {
-    func newsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: News) {
-        
-    }
-    
-    func newsCellDidLike(_ cell: UITableViewCell, onNews news: News) {
-        guard let projectNews = news as? ProjectNews,
-            let project = project,
-            let currentUser = AuthService.instance.currentUser else {
-                return
-        }
-        
-        DataService.instance.likeNews(projectNews, ofProject: project, byUser: currentUser) { status in
-            if status,
-                let newsKey = news.key,
-                let projectKey = project.key {
-                if currentUser.likedProjectNewsKeys.keys.contains(projectKey) {
-                   currentUser.likedProjectNewsKeys[projectKey]!.append(newsKey)
-                } else {
-                   currentUser.likedProjectNewsKeys[projectKey] = []
-                    currentUser.likedProjectNewsKeys[projectKey]!.append(newsKey)
-                }
-            }
-        }
-    }
-    
-    func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News) {
-        guard let projectNews = news as? ProjectNews,
-            let project = project,
-            let currentUser = AuthService.instance.currentUser else {
-                return
-        }
-        
-        DataService.instance.unlikeNews(projectNews, ofProject: project, byUser: currentUser) { (status) in
-            print(status)
-        }
-        
-    }
-    
-    func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News) {
+extension ProjectDetailsVC {
+    func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: ProjectNews) {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     } 
 }

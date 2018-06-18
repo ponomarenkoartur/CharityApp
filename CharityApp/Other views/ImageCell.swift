@@ -18,7 +18,7 @@ class ImageCell: UITableViewCell {
     
     func configure(forUrlString urlString: String) {
         if let url = URL(string: urlString) {
-            myImageView.loadImage(url: url)
+            let _ = myImageView.loadImage(url: url)
         }
     }
 }

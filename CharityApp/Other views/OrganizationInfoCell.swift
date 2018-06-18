@@ -19,4 +19,10 @@ class OrganizationInfoCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    func configure(forOrganization organization: Organization) {
+        titleLabel.text = organization.name
+        descriptionTextView.text = organization.description
+        linkButton.setTitle(organization.contactInformation, for: .normal)
+    }
 }

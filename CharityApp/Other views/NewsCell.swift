@@ -12,7 +12,7 @@ import UIKit
     func newsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: News)
     func newsCellDidLike(_ cell: UITableViewCell, onNews news: News)
     func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News)
-    @objc optional func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: News, ofProject project: Project)
+    @objc optional func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: ProjectNews)
 }
 
 class NewsCell: UITableViewCell {
@@ -26,34 +26,13 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var projectNameButton: UIButton!
-    @IBOutlet weak var imagesSet: ImagesSet!
-    @IBOutlet private var imageViewsSet: [UIImageView]!
+    @IBOutlet weak var imageMosaicView: ImageMosaicView!
     
     // MARK: - Properties
     
     weak var delegate: NewsCellDelegate?
-    var news: News? {
-        didSet {
-            guard let news = news else { return }
-            
-            // Hide certain views according to cell's appointment
-            if oldValue == nil {
-                if news is OrganizationNews {
-                    projectNameButton.removeFromSuperview()
-                } else if news is ProjectNews {
-                    logoImageView.removeFromSuperview()
-                }
-            }
-        }
-    }
-    var project: Project? {
-        didSet {
-            if let project = project {
-                projectNameButton?.setTitle(project.title, for: .normal)
-                projectNameButton?.sizeToFit()
-            }
-        }
-    }
+    var news: News?
+    
     var isLiked = false {
         didSet {
             // Set appearence of 'likeButton'
@@ -65,10 +44,12 @@ class NewsCell: UITableViewCell {
         }
     }
     
-    // MARK: Cell Lifecycle
+    // MARK: - Cell Lifecycle
     
     override func awakeFromNib() {
-        imagesSet.imageViews = imageViewsSet
+        for view in imageMosaicView.imageViews {
+            view.image = #imageLiteral(resourceName: "image-stub")
+        }
     }
     
     // MARK: - Actions
@@ -84,38 +65,48 @@ class NewsCell: UITableViewCell {
             isLiked = !isLiked
             if isLiked {
                 news.likesCount += 1
-                delegate?.newsCellDidLike(self, onNews: news)
                 likeButton.setTitle("\(news.likesCount)", for: .normal)
-                likeButton.setImage(#imageLiteral(resourceName: "heart-filled"), for: .normal)
+                delegate?.newsCellDidLike(self, onNews: news)
             } else {
                 news.likesCount -= 1
-                delegate?.newsCellDidUnlike(self, onNews: news)
                 likeButton.setTitle("\(news.likesCount)", for: .normal)
-                likeButton.setImage(#imageLiteral(resourceName: "heart-outine"), for: .normal)
+                delegate?.newsCellDidUnlike(self, onNews: news)
             }
         }
     }
     
     @IBAction func projectNameButtonWasTapped(_ sender: UIButton!) {
-        if let news = news, let project = project {
-            delegate?.newsCellDidTapProjectNameButton!(self, onNews: news, ofProject: project)
+        if let news = news as? ProjectNews {
+            delegate?.newsCellDidTapProjectNameButton!(self, onNews: news)            
         }
     }
     
     // MARK: - Methods
     
-    func configureForNews(_ news: News) {
+    func configure(forNews news: News, ofProject project: Project? = nil) {
+        self.news = news
         titleLabel.text = news.title
         dateLabel.text = dateFormatter.string(from: news.date)
         textView.text = news.text
         likeButton.setTitle("\(news.likesCount)", for: .normal)
-        imagesSet.urlStrings = news.imageUrlsCollection
-        self.news = news
-        if let currentUser = AuthService.instance.currentUser,
-            let news = news as? ProjectNews,
-            let project = project {
-            isLiked = currentUser.isLikedNews(news, ofProject: project)
+        imageMosaicView.urlStrings = news.imageUrlsCollection
+        
+        // Set appearence of 'projectNameButton'
+        if let news = news as? ProjectNews,
+           let projectTitle = news.parentProjectTitle {
+            projectNameButton?.setTitle(projectTitle, for: .normal)
+            projectNameButton?.sizeToFit()
+        }
+        
+
+        if news is OrganizationNews {
+            projectNameButton?.removeFromSuperview()
+        } else if news is ProjectNews {
+            logoImageView?.removeFromSuperview()
+        }
+        
+        if let user = AuthService.instance.currentUser {
+            isLiked = user.isLikedNews(news, ofProject: project)
         }
     }
-    
 }

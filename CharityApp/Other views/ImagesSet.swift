@@ -17,7 +17,7 @@ class ImagesSet: UIView {
             let upperBound = maxImageViewCount > urlStrings.count ? urlStrings.count : maxImageViewCount
             for i in 0..<upperBound {
                 if let url = URL(string: urlStrings[i]) {
-                    imageViews[i].loadImage(url: url)
+                    let _ = imageViews[i].loadImage(url: url)
                 }
             }
         }

@@ -1,4 +1,4 @@
-
+//
 //  ViewController.swift
 //  CharityApp
 //
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeVC: UITableViewController {
+class HomeVC: NewsCellContainerTableVC {
 
     // MARK: - Properties
     
@@ -53,102 +53,10 @@ class HomeVC: UITableViewController {
             newsDetailsVC.news = cellSender.news
         }
     }
-}
-
-extension HomeVC {
     
-    // MARK: - UITableViewDataSource
+    // MARK: - NewsCellDelegate
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else if section == 1 {
-            return 1
-        } else {
-            return newsCollection.count
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationInfo, for: indexPath) as! OrganizationInfoCell
-            if let organization = organization {
-                configureCell(cell, forOrganization: organization)
-            }
-            return cell
-        } else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationNewsLabel, for: indexPath)
-            return cell
-        } else if indexPath.section == 2 {
-            let news = newsCollection[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.newsCell, for: indexPath) as! NewsCell
-            configure(cell, for: news)
-            return cell
-        } else {
-            return UITableViewCell()
-        }
-    }
-    
-    // MARK: - UITableViewDelegate
-    
-    func configureCell(_ cell: OrganizationInfoCell, forOrganization organization: Organization) {
-        cell.titleLabel.text = organization.name
-        cell.descriptionTextView.text = organization.description
-        cell.linkButton.setTitle(organization.contactInformation, for: .normal)
-    }
-    
-    func configure(_ cell: NewsCell, for news: OrganizationNews) {
-        cell.titleLabel.text = news.title
-        cell.dateLabel.text = dateFormatter.string(from: news.date)
-        cell.textView.text = news.text
-        cell.likeButton.setTitle("\(news.likesCount)", for: .normal)
-        cell.delegate = self
-        cell.news = news
-        if let currentUser = AuthService.instance.currentUser {
-            cell.isLiked = currentUser.isLikedNews(news, ofProject: nil)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
-    }
-}
-
-extension HomeVC: NewsCellDelegate {
-    func newsCellDidLike(_ cell: UITableViewCell, onNews news: News) {
-        guard let organizationNews = news as? OrganizationNews,
-            let currentUser = AuthService.instance.currentUser else {
-            return
-        }
-    
-        DataService.instance.likeNews(organizationNews, ofProject: nil, byUser: currentUser) { status in
-            if status, let key = news.key {
-                currentUser.likedOrganizationNewsKeys.append(key)
-            }
-        }
-    }
-    
-    func newsCellDidUnlike(_ cell: UITableViewCell, onNews news: News) {
-        guard let organizationNews = news as? OrganizationNews,
-            let currentUser = AuthService.instance.currentUser else {
-            return
-        }
-        DataService.instance.unlikeNews(organizationNews, ofProject: nil, byUser: currentUser) { (status) in
-            if status {
-                for i in 0..<currentUser.likedOrganizationNewsKeys.count {
-                    if currentUser.likedOrganizationNewsKeys[i] == organizationNews.key {
-                        currentUser.likedOrganizationNewsKeys.remove(at: i)
-                    }
-                }
-            }
-        }
-    }
-    
-    func newsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: News) {
+    override func newsCellDidTapMoreButton(_ cell: UITableViewCell, onNews news: News) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let moreInfoAction = UIAlertAction(title: "More Info", style: .default) { (_) in
@@ -188,6 +96,50 @@ extension HomeVC: NewsCellDelegate {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+}
+
+extension HomeVC {
+    
+    // MARK: - UITableViewDataSource
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else if section == 1 {
+            return 1
+        } else {
+            return newsCollection.count
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationInfo, for: indexPath) as! OrganizationInfoCell
+            if let organization = organization {
+                cell.configure(forOrganization: organization)
+            }
+            return cell
+        } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationNewsLabel, for: indexPath)
+            return cell
+        } else if indexPath.section == 2 {
+            let news = newsCollection[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.newsCell, for: indexPath) as! NewsCell
+            cell.configure(forNews: news)
+            cell.delegate = self
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
     }
 }
 

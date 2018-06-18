@@ -71,7 +71,7 @@ class ProjectCell: UITableViewCell {
     
     // MARK: - Methods
     
-    func configureForProject(_ project: Project) {
+    func configure(forProject project: Project) {
         titleLabel.text = project.title
         dateLabel.text = dateFormatter.string(from: project.date)
         textView.text = project.text
