@@ -22,8 +22,8 @@ class ProjectDetailsVC: NewsCellContainerTableVC {
         var cellNib = UINib(nibName: TableViewCellIdentifiers.image, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.image)
         
-        cellNib = UINib(nibName: TableViewCellIdentifiers.news, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.news)
+        cellNib = UINib(nibName: TableViewCellIdentifiers.projectNewsCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.projectNewsCell)
         
         tableView.separatorInset = UIEdgeInsets.zero
     }
@@ -76,9 +76,9 @@ class ProjectDetailsVC: NewsCellContainerTableVC {
             let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.projectNewsHeader, for: indexPath)
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.news, for: indexPath) as! NewsCell
             let news = project.newsCollection[indexPath.row]
-            cell.configure(forNews: news)
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.projectNewsCell, for: indexPath) as! ProjectNewsCell
+            cell.configure(forNews: news, ofProject: project)
             cell.delegate = self
             return cell
         default:
@@ -129,7 +129,7 @@ extension ProjectDetailsVC {
     struct TableViewCellIdentifiers {
         static let mainInfo = "MainInfoCell"
         static let projectNewsHeader = "ProjectNewsHeaderCell"
-        static let news = "NewsCell"
+        static let projectNewsCell = "ProjectNewsCell"
         static let image = "ImageCell"
     }
     struct SegueIdentifiers {

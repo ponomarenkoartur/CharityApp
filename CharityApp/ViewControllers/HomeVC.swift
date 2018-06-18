@@ -21,9 +21,8 @@ class HomeVC: NewsCellContainerTableVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cellNib = UINib(nibName: TableViewCellIdentifiers.newsCell, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.newsCell)
-        
+        let cellNib = UINib(nibName: TableViewCellIdentifiers.organizationNewsCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.organizationNewsCell)
         tableView.separatorInset = UIEdgeInsets.zero
     }
     
@@ -129,7 +128,7 @@ extension HomeVC {
             return cell
         } else if indexPath.section == 2 {
             let news = newsCollection[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.newsCell, for: indexPath) as! NewsCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationNewsCell, for: indexPath) as! OrganizationNewsCell
             cell.configure(forNews: news)
             cell.delegate = self
             return cell
@@ -145,7 +144,7 @@ extension HomeVC {
 
 extension HomeVC {
     struct TableViewCellIdentifiers {
-        static let newsCell = "NewsCell"
+        static let organizationNewsCell = "OrganizationNewsCell"
         static let organizationInfo = "OrganizationInfoCell"
         static let organizationNewsLabel = "OrganizationNewsLabel"
     }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7501C44B20D59DAB00DDD9D1 /* ImageMosaicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7501C44A20D59DAB00DDD9D1 /* ImageMosaicView.xib */; };
 		7501C44D20D5A06500DDD9D1 /* ImageMosaicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501C44C20D5A06500DDD9D1 /* ImageMosaicView.swift */; };
-		750A2D8620C5A035005937AD /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750A2D8520C5A035005937AD /* NewsCell.xib */; };
+		750A2D8620C5A035005937AD /* ProjectNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750A2D8520C5A035005937AD /* ProjectNewsCell.xib */; };
 		7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */; };
 		7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75179039204EFD1A00476E17 /* AppDelegate.swift */; };
 		7517903C204EFD1A00476E17 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517903B204EFD1A00476E17 /* HomeVC.swift */; };
@@ -51,6 +51,9 @@
 		75CCDE6520C6D26A00B79510 /* NotificationSenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6420C6D26A00B79510 /* NotificationSenderService.swift */; };
 		75CCDE6720C6FE6100B79510 /* OrganizationInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */; };
 		75CCDE6B20C7092F00B79510 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6A20C7092F00B79510 /* UIImageView+DownloadImage.swift */; };
+		75D8283120D830D70069FFB1 /* ProjectNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8283020D830D70069FFB1 /* ProjectNewsCell.swift */; };
+		75D8283320D831150069FFB1 /* OrganizationNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8283220D831150069FFB1 /* OrganizationNewsCell.swift */; };
+		75D8283520D83A220069FFB1 /* OrganizationNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D8283420D83A220069FFB1 /* OrganizationNewsCell.xib */; };
 		75DB9E7B20D394840063C50A /* ImagesSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DB9E7A20D394840063C50A /* ImagesSet.swift */; };
 		75F2365E209CA2F1007AC1D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F2365D209CA2F1007AC1D2 /* Assets.xcassets */; };
 		75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FECA42204EFE8A00003210 /* GoogleService-Info.plist */; };
@@ -63,7 +66,7 @@
 		3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7501C44A20D59DAB00DDD9D1 /* ImageMosaicView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageMosaicView.xib; sourceTree = "<group>"; };
 		7501C44C20D5A06500DDD9D1 /* ImageMosaicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMosaicView.swift; sourceTree = "<group>"; };
-		750A2D8520C5A035005937AD /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		750A2D8520C5A035005937AD /* ProjectNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectNewsCell.xib; sourceTree = "<group>"; };
 		7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		75179036204EFD1A00476E17 /* CharityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75179039204EFD1A00476E17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +111,9 @@
 		75CCDE6420C6D26A00B79510 /* NotificationSenderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSenderService.swift; sourceTree = "<group>"; };
 		75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfoCell.swift; sourceTree = "<group>"; };
 		75CCDE6A20C7092F00B79510 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
+		75D8283020D830D70069FFB1 /* ProjectNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNewsCell.swift; sourceTree = "<group>"; };
+		75D8283220D831150069FFB1 /* OrganizationNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNewsCell.swift; sourceTree = "<group>"; };
+		75D8283420D83A220069FFB1 /* OrganizationNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationNewsCell.xib; sourceTree = "<group>"; };
 		75DB9E7A20D394840063C50A /* ImagesSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSet.swift; sourceTree = "<group>"; };
 		75F2365D209CA2F1007AC1D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CharityApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		75FECA42204EFE8A00003210 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -191,9 +197,10 @@
 			children = (
 				7517903D204EFD1A00476E17 /* Main.storyboard */,
 				75179042204EFD1A00476E17 /* LaunchScreen.storyboard */,
-				750A2D8520C5A035005937AD /* NewsCell.xib */,
+				750A2D8520C5A035005937AD /* ProjectNewsCell.xib */,
 				759DBC4E20D448DE00339582 /* ImageCell.xib */,
 				7501C44A20D59DAB00DDD9D1 /* ImageMosaicView.xib */,
+				75D8283420D83A220069FFB1 /* OrganizationNewsCell.xib */,
 			);
 			path = Layouts;
 			sourceTree = "<group>";
@@ -284,6 +291,8 @@
 				75DB9E7A20D394840063C50A /* ImagesSet.swift */,
 				759DBC5020D4493C00339582 /* ImageCell.swift */,
 				7501C44C20D5A06500DDD9D1 /* ImageMosaicView.swift */,
+				75D8283020D830D70069FFB1 /* ProjectNewsCell.swift */,
+				75D8283220D831150069FFB1 /* OrganizationNewsCell.swift */,
 			);
 			path = "Other views";
 			sourceTree = "<group>";
@@ -351,7 +360,8 @@
 			files = (
 				75179044204EFD1A00476E17 /* LaunchScreen.storyboard in Resources */,
 				75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */,
-				750A2D8620C5A035005937AD /* NewsCell.xib in Resources */,
+				750A2D8620C5A035005937AD /* ProjectNewsCell.xib in Resources */,
+				75D8283520D83A220069FFB1 /* OrganizationNewsCell.xib in Resources */,
 				759DBC4F20D448DE00339582 /* ImageCell.xib in Resources */,
 				7517903F204EFD1A00476E17 /* Main.storyboard in Resources */,
 				75F2365E209CA2F1007AC1D2 /* Assets.xcassets in Resources */,
@@ -423,6 +433,7 @@
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
 				75CCDE6720C6FE6100B79510 /* OrganizationInfoCell.swift in Sources */,
 				7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */,
+				75D8283120D830D70069FFB1 /* ProjectNewsCell.swift in Sources */,
 				7501C44D20D5A06500DDD9D1 /* ImageMosaicView.swift in Sources */,
 				755F80E7204F07EB006DAAA5 /* Project.swift in Sources */,
 				759DA1B820B723DA001AC827 /* VideoContentContainer.swift in Sources */,
@@ -445,6 +456,7 @@
 				7523F63220B04650005D8CEA /* DataService.swift in Sources */,
 				7547FCD020C1BFC400FE8E65 /* DonationsVC.swift in Sources */,
 				75A5F3D8204F00E500137D28 /* ImageContentContainer.swift in Sources */,
+				75D8283320D831150069FFB1 /* OrganizationNewsCell.swift in Sources */,
 				75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */,
 				7517903C204EFD1A00476E17 /* HomeVC.swift in Sources */,
 				7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */,

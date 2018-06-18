@@ -24,8 +24,6 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var projectNameButton: UIButton!
     @IBOutlet weak var imageMosaicView: ImageMosaicView!
     
     // MARK: - Properties
@@ -47,6 +45,7 @@ class NewsCell: UITableViewCell {
     // MARK: - Cell Lifecycle
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         for view in imageMosaicView.imageViews {
             view.image = #imageLiteral(resourceName: "image-stub")
         }
@@ -75,12 +74,6 @@ class NewsCell: UITableViewCell {
         }
     }
     
-    @IBAction func projectNameButtonWasTapped(_ sender: UIButton!) {
-        if let news = news as? ProjectNews {
-            delegate?.newsCellDidTapProjectNameButton!(self, onNews: news)            
-        }
-    }
-    
     // MARK: - Methods
     
     func configure(forNews news: News, ofProject project: Project? = nil) {
@@ -90,20 +83,6 @@ class NewsCell: UITableViewCell {
         textView.text = news.text
         likeButton.setTitle("\(news.likesCount)", for: .normal)
         imageMosaicView.urlStrings = news.imageUrlsCollection
-        
-        // Set appearence of 'projectNameButton'
-        if let news = news as? ProjectNews,
-           let projectTitle = news.parentProjectTitle {
-            projectNameButton?.setTitle(projectTitle, for: .normal)
-            projectNameButton?.sizeToFit()
-        }
-        
-
-        if news is OrganizationNews {
-            projectNameButton?.removeFromSuperview()
-        } else if news is ProjectNews {
-            logoImageView?.removeFromSuperview()
-        }
         
         if let user = AuthService.instance.currentUser {
             isLiked = user.isLikedNews(news, ofProject: project)

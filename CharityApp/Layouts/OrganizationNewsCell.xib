@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrganizationNewsCell" rowHeight="405" id="61Z-EK-t99" customClass="OrganizationNewsCell" customModule="CharityApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="389" height="405"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="61Z-EK-t99" id="eEP-aU-ajO">
+                <rect key="frame" x="0.0" y="0.0" width="389" height="404.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" editable="NO" text="Text goes here..." textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="36t-ax-ftN">
+                        <rect key="frame" x="16" y="82" width="357" height="38"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWo-Z3-CkG">
+                        <rect key="frame" x="296" y="369.5" width="77" height="25"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <state key="normal" title=" Share" image="share-filled">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdE-0h-S0a">
+                        <rect key="frame" x="16" y="369.5" width="89" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="89" id="6Rk-ko-wiV"/>
+                        </constraints>
+                        <color key="tintColor" red="0.86506233809999999" green="0.24047465409999999" blue="0.19557666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="9999" image="heart-filled">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </state>
+                        <connections>
+                            <action selector="likeButtonWasTapped:" destination="61Z-EK-t99" eventType="touchUpInside" id="3gz-xs-69b"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWm-NH-ujQ">
+                        <rect key="frame" x="69" y="11" width="37.5" height="24"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-simplified" translatesAutoresizingMaskIntoConstraints="NO" id="WAx-Kh-gG5">
+                        <rect key="frame" x="16" y="11" width="45" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="AFc-ud-hta"/>
+                            <constraint firstAttribute="height" constant="45" id="Rw3-36-Xt6"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01.01.2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVg-ke-hW0">
+                        <rect key="frame" x="16" y="60" width="56" height="14"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrB-mo-e2A">
+                        <rect key="frame" x="319" y="0.0" width="70" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="HJn-AS-DiK"/>
+                            <constraint firstAttribute="height" constant="70" id="UFv-ss-x6r"/>
+                        </constraints>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <state key="normal" image="more-filled"/>
+                        <connections>
+                            <action selector="moreButtonWasTapped:" destination="61Z-EK-t99" eventType="touchUpInside" id="j2p-Vr-Znf"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bhi-uh-dRA" customClass="ImageMosaicView" customModule="CharityApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="130" width="389" height="229.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WAx-Kh-gG5" firstAttribute="leading" secondItem="eEP-aU-ajO" secondAttribute="leading" constant="16" id="14n-2N-U2k"/>
+                    <constraint firstAttribute="trailing" secondItem="kWo-Z3-CkG" secondAttribute="trailing" constant="16" id="3sA-nU-b0g"/>
+                    <constraint firstItem="WAx-Kh-gG5" firstAttribute="top" secondItem="eEP-aU-ajO" secondAttribute="top" constant="11" id="4cP-v8-3Xx"/>
+                    <constraint firstItem="Bhi-uh-dRA" firstAttribute="leading" secondItem="eEP-aU-ajO" secondAttribute="leading" id="4zT-p8-0oQ"/>
+                    <constraint firstItem="36t-ax-ftN" firstAttribute="leading" secondItem="eEP-aU-ajO" secondAttribute="leading" constant="16" id="5bo-cm-Fdj"/>
+                    <constraint firstItem="wrB-mo-e2A" firstAttribute="top" secondItem="eEP-aU-ajO" secondAttribute="top" id="6sL-lY-YLA"/>
+                    <constraint firstAttribute="trailing" secondItem="36t-ax-ftN" secondAttribute="trailing" constant="16" id="AIO-4Z-PS3"/>
+                    <constraint firstItem="wWm-NH-ujQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eEP-aU-ajO" secondAttribute="leading" constant="16" id="Bdq-aR-E21"/>
+                    <constraint firstItem="rVg-ke-hW0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wWm-NH-ujQ" secondAttribute="bottom" constant="4" id="EPl-pf-oH1"/>
+                    <constraint firstItem="kWo-Z3-CkG" firstAttribute="top" secondItem="Bhi-uh-dRA" secondAttribute="bottom" constant="10" id="HXf-dV-oSn"/>
+                    <constraint firstItem="36t-ax-ftN" firstAttribute="top" secondItem="rVg-ke-hW0" secondAttribute="bottom" constant="8" id="J68-Hd-y9r"/>
+                    <constraint firstAttribute="trailing" secondItem="Bhi-uh-dRA" secondAttribute="trailing" id="JvU-sB-mFg"/>
+                    <constraint firstItem="rVg-ke-hW0" firstAttribute="leading" secondItem="eEP-aU-ajO" secondAttribute="leading" constant="16" id="TyR-SA-IqD"/>
+                    <constraint firstItem="kWo-Z3-CkG" firstAttribute="centerY" secondItem="kdE-0h-S0a" secondAttribute="centerY" id="a2l-RH-Whh"/>
+                    <constraint firstItem="wWm-NH-ujQ" firstAttribute="top" secondItem="eEP-aU-ajO" secondAttribute="top" constant="11" id="hpW-IT-aop"/>
+                    <constraint firstItem="wWm-NH-ujQ" firstAttribute="leading" secondItem="WAx-Kh-gG5" secondAttribute="trailing" constant="8" id="hsQ-yp-kNk"/>
+                    <constraint firstItem="rVg-ke-hW0" firstAttribute="top" secondItem="WAx-Kh-gG5" secondAttribute="bottom" constant="4" id="jkF-uQ-KcE"/>
+                    <constraint firstItem="Bhi-uh-dRA" firstAttribute="top" secondItem="36t-ax-ftN" secondAttribute="bottom" constant="10" id="kao-aC-aig"/>
+                    <constraint firstAttribute="trailing" secondItem="wrB-mo-e2A" secondAttribute="trailing" id="ovF-we-awp"/>
+                    <constraint firstItem="kdE-0h-S0a" firstAttribute="leading" secondItem="eEP-aU-ajO" secondAttribute="leading" constant="16" id="pqh-hR-h24"/>
+                    <constraint firstAttribute="bottom" secondItem="kdE-0h-S0a" secondAttribute="bottom" constant="10" id="qCY-2T-CX3"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wWm-NH-ujQ" secondAttribute="trailing" constant="80" id="vQT-QR-cVD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="rVg-ke-hW0" id="g2u-RF-1UL"/>
+                <outlet property="imageMosaicView" destination="Bhi-uh-dRA" id="s6F-4q-6qO"/>
+                <outlet property="likeButton" destination="kdE-0h-S0a" id="xzB-4P-qkW"/>
+                <outlet property="logoImageView" destination="WAx-Kh-gG5" id="5Qw-9p-QNO"/>
+                <outlet property="shareButton" destination="kWo-Z3-CkG" id="aHh-qK-hpw"/>
+                <outlet property="textView" destination="36t-ax-ftN" id="sRS-5p-vy5"/>
+                <outlet property="titleLabel" destination="wWm-NH-ujQ" id="20I-jV-blW"/>
+            </connections>
+            <point key="canvasLocation" x="-8224" y="412"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart-filled" width="25" height="25"/>
+        <image name="logo-simplified" width="110" height="114"/>
+        <image name="more-filled" width="25" height="25"/>
+        <image name="share-filled" width="25" height="25"/>
+    </resources>
+</document>

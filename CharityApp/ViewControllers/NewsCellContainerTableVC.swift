@@ -65,4 +65,3 @@ class NewsCellContainerTableVC: UITableViewController, NewsCellDelegate {
         }
     }
 }
-

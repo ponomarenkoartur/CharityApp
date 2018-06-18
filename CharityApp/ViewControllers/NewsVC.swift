@@ -19,8 +19,11 @@ class NewsVC: NewsCellContainerTableVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cellNib = UINib(nibName: TableViewCellIdentifiers.newsCell, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.newsCell)
+        var cellNib = UINib(nibName: TableViewCellIdentifiers.organizationNewsCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.organizationNewsCell)
+        
+        cellNib = UINib(nibName: TableViewCellIdentifiers.projectNewsCell, bundle: nil)
+        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.projectNewsCell)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +44,12 @@ class NewsVC: NewsCellContainerTableVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let news = newsCollection[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.newsCell, for: indexPath) as! NewsCell
+        var cell: NewsCell
+        if news is ProjectNews {
+            cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.projectNewsCell, for: indexPath) as! ProjectNewsCell
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationNewsCell, for: indexPath) as! OrganizationNewsCell
+        }
         cell.configure(forNews: news)
         cell.delegate = self
         return cell
@@ -65,7 +73,8 @@ class NewsVC: NewsCellContainerTableVC {
 
 extension NewsVC {
     struct TableViewCellIdentifiers {
-        static let newsCell = "NewsCell"
+        static let organizationNewsCell = "OrganizationNewsCell"
+        static let projectNewsCell = "ProjectNewsCell"
     }
     struct SegueIdentifiers {
         static let showProjectDetails = "ShowProjectDetails"
