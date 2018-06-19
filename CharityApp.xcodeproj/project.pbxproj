@@ -54,7 +54,6 @@
 		75D8283120D830D70069FFB1 /* ProjectNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8283020D830D70069FFB1 /* ProjectNewsCell.swift */; };
 		75D8283320D831150069FFB1 /* OrganizationNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8283220D831150069FFB1 /* OrganizationNewsCell.swift */; };
 		75D8283520D83A220069FFB1 /* OrganizationNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75D8283420D83A220069FFB1 /* OrganizationNewsCell.xib */; };
-		75DB9E7B20D394840063C50A /* ImagesSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DB9E7A20D394840063C50A /* ImagesSet.swift */; };
 		75F2365E209CA2F1007AC1D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F2365D209CA2F1007AC1D2 /* Assets.xcassets */; };
 		75FECA43204EFE8A00003210 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75FECA42204EFE8A00003210 /* GoogleService-Info.plist */; };
 		84DF44B8240A11C6AFED4CA6 /* Pods_CharityApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C2B44918CC1D63D0426659A /* Pods_CharityApp.framework */; };
@@ -114,7 +113,6 @@
 		75D8283020D830D70069FFB1 /* ProjectNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectNewsCell.swift; sourceTree = "<group>"; };
 		75D8283220D831150069FFB1 /* OrganizationNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationNewsCell.swift; sourceTree = "<group>"; };
 		75D8283420D83A220069FFB1 /* OrganizationNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationNewsCell.xib; sourceTree = "<group>"; };
-		75DB9E7A20D394840063C50A /* ImagesSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSet.swift; sourceTree = "<group>"; };
 		75F2365D209CA2F1007AC1D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = CharityApp/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		75FECA42204EFE8A00003210 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,7 +286,6 @@
 				75479B6320B59CC20021B73A /* MainTabBar.swift */,
 				7513ECFE20BF1E8C001D79EA /* ProjectCell.swift */,
 				75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */,
-				75DB9E7A20D394840063C50A /* ImagesSet.swift */,
 				759DBC5020D4493C00339582 /* ImageCell.swift */,
 				7501C44C20D5A06500DDD9D1 /* ImageMosaicView.swift */,
 				75D8283020D830D70069FFB1 /* ProjectNewsCell.swift */,
@@ -427,7 +424,6 @@
 				758D7EB420B5D21D00D84569 /* UIView extension.swift in Sources */,
 				75B0024120C5B74A007B8435 /* ProjectDetailsVC.swift in Sources */,
 				75CCDE6520C6D26A00B79510 /* NotificationSenderService.swift in Sources */,
-				75DB9E7B20D394840063C50A /* ImagesSet.swift in Sources */,
 				752B3D2920C6AFBD002A7603 /* NewsCellContainerTableVC.swift in Sources */,
 				7547FCD420C1C28600FE8E65 /* ConfigureProjectVC.swift in Sources */,
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,

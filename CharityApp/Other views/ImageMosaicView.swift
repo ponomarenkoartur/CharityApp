@@ -27,6 +27,7 @@ class ImageMosaicView: UIView {
             let upperBound = maxImageViewCount > urlStrings.count ? urlStrings.count : maxImageViewCount
             for i in 0..<upperBound {
                 if let url = URL(string: urlStrings[i]) {
+                    imageViews[i].image = #imageLiteral(resourceName: "image-stub")
                     let _ = imageViews[i].loadImage(url: url)
                 }
             }

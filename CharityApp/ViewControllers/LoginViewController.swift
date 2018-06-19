@@ -59,6 +59,9 @@ class LoginViewController: UIViewController {
                         case .userNotFound:
                             alert.title = "Wrong email"
                             alert.message = "You entered wrong email.\nThere are no user with this email."
+                        case .invalidEmail:
+                            alert.title = "Invalid email"
+                            alert.message = "Entered email is not valid."
                         case .wrongPassword:
                             alert.title = "Wrong password"
                             alert.message = "You entered wrong password."
