@@ -90,7 +90,6 @@
                     <constraint firstItem="wrB-mo-e2A" firstAttribute="top" secondItem="eEP-aU-ajO" secondAttribute="top" id="6sL-lY-YLA"/>
                     <constraint firstAttribute="trailing" secondItem="36t-ax-ftN" secondAttribute="trailing" constant="16" id="AIO-4Z-PS3"/>
                     <constraint firstItem="wWm-NH-ujQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="eEP-aU-ajO" secondAttribute="leading" constant="16" id="Bdq-aR-E21"/>
-                    <constraint firstItem="rVg-ke-hW0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wWm-NH-ujQ" secondAttribute="bottom" constant="4" id="EPl-pf-oH1"/>
                     <constraint firstItem="kWo-Z3-CkG" firstAttribute="top" secondItem="Bhi-uh-dRA" secondAttribute="bottom" constant="10" id="HXf-dV-oSn"/>
                     <constraint firstItem="36t-ax-ftN" firstAttribute="top" secondItem="rVg-ke-hW0" secondAttribute="bottom" constant="8" id="J68-Hd-y9r"/>
                     <constraint firstAttribute="trailing" secondItem="Bhi-uh-dRA" secondAttribute="trailing" id="JvU-sB-mFg"/>
@@ -98,11 +97,12 @@
                     <constraint firstItem="kWo-Z3-CkG" firstAttribute="centerY" secondItem="kdE-0h-S0a" secondAttribute="centerY" id="a2l-RH-Whh"/>
                     <constraint firstItem="wWm-NH-ujQ" firstAttribute="top" secondItem="eEP-aU-ajO" secondAttribute="top" constant="11" id="hpW-IT-aop"/>
                     <constraint firstItem="wWm-NH-ujQ" firstAttribute="leading" secondItem="WAx-Kh-gG5" secondAttribute="trailing" constant="8" id="hsQ-yp-kNk"/>
-                    <constraint firstItem="rVg-ke-hW0" firstAttribute="top" secondItem="WAx-Kh-gG5" secondAttribute="bottom" constant="4" id="jkF-uQ-KcE"/>
+                    <constraint firstItem="rVg-ke-hW0" firstAttribute="top" secondItem="WAx-Kh-gG5" secondAttribute="bottom" priority="999" constant="4" id="jkF-uQ-KcE"/>
                     <constraint firstItem="Bhi-uh-dRA" firstAttribute="top" secondItem="36t-ax-ftN" secondAttribute="bottom" constant="10" id="kao-aC-aig"/>
                     <constraint firstAttribute="trailing" secondItem="wrB-mo-e2A" secondAttribute="trailing" id="ovF-we-awp"/>
                     <constraint firstItem="kdE-0h-S0a" firstAttribute="leading" secondItem="eEP-aU-ajO" secondAttribute="leading" constant="16" id="pqh-hR-h24"/>
                     <constraint firstAttribute="bottom" secondItem="kdE-0h-S0a" secondAttribute="bottom" constant="10" id="qCY-2T-CX3"/>
+                    <constraint firstItem="rVg-ke-hW0" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wWm-NH-ujQ" secondAttribute="bottom" constant="4" id="qMQ-B8-wjy"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wWm-NH-ujQ" secondAttribute="trailing" constant="80" id="vQT-QR-cVD"/>
                 </constraints>
             </tableViewCellContentView>

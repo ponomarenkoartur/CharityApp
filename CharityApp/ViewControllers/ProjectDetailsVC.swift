@@ -38,6 +38,17 @@ class ProjectDetailsVC: NewsCellContainerTableVC {
         }
     }
     
+    // MARK: - Actions
+    
+    @IBAction func addProjectNewsButtonWasTapped(_ sender: UIButton) {
+        let homeTabStoryboard = UIStoryboard(name: "HomeTab", bundle: nil)
+        let navigationVC = homeTabStoryboard.instantiateViewController(withIdentifier: "ConfigureNewsNavigationVC") as! UINavigationController
+        let addProjectNewsVC = navigationVC.viewControllers.first as! ConfigureNewsVC
+        addProjectNewsVC.project = project
+        show(navigationVC, sender: nil)
+    }
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -97,10 +108,6 @@ class ProjectDetailsVC: NewsCellContainerTableVC {
             let navigationVC = segue.destination as! UINavigationController
             let configureProjectVC = navigationVC.topViewController as! ConfigureProjectVC
             configureProjectVC.project = project
-        } else if segue.identifier == SegueIdentifiers.addProjectNews {
-            let navigationVC = segue.destination as! UINavigationController
-            let configureProjectNewsVC = navigationVC.topViewController as! ConfigureNewsVC
-            configureProjectNewsVC.project = project
         }
     }
 }

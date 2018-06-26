@@ -36,6 +36,15 @@ class NewsVC: NewsCellContainerTableVC {
         tableView.reloadData()
     }
     
+    // MARK: - Actions
+    
+    @IBAction func addNewsButtonWasTapped(_ sender: UIBarButtonItem) {
+        let homeTabStoryboard = UIStoryboard(name: "HomeTab", bundle: nil)
+        let navigationVC = homeTabStoryboard.instantiateViewController(withIdentifier: "ConfigureNewsNavigationVC") as! UINavigationController
+        let addNewsVC = navigationVC.viewControllers.first as! ConfigureNewsVC
+        show(navigationVC, sender: nil)
+    }
+    
     // MARK: - TablewView Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,19 +64,22 @@ class NewsVC: NewsCellContainerTableVC {
         return cell
     }
     
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == SegueIdentifiers.showProjectDetails {
-            let cellSender = sender as! NewsCell
-            let projectDetailsVC = segue.destination as! ProjectDetailsVC
-            if let news = cellSender.news as? ProjectNews,
-                let projectKey = news.parentProjectKey {
-                DataService.instance.getProjectByKey(projectKey) { (project) in
-                    projectDetailsVC.project = project
-                }
+}
+
+extension NewsVC {
+    func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: ProjectNews) {
+        let projectTabStoryBoard = UIStoryboard(name: "ProjectsTab", bundle: nil)
+        let projectDetailsVC = projectTabStoryBoard.instantiateViewController(withIdentifier: "ProjectDetailsVC") as! ProjectDetailsVC
+        
+        if let newsCell = cell as? NewsCell,
+            let news = newsCell.news as? ProjectNews,
+            let projectKey = news.parentProjectKey {
+            DataService.instance.getProjectByKey(projectKey) { (project) in
+                projectDetailsVC.project = project
+                self.show(projectDetailsVC, sender: nil)
             }
         }
+        
     }
 }
 

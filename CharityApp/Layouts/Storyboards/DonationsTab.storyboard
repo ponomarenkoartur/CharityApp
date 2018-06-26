@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZZL-ud-gDX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="lgb-hF-dmh">
+            <objects>
+                <navigationController id="ZZL-ud-gDX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="money-bag-outline" selectedImage="money-bag-filled" id="XYu-gS-MU9"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B3T-WE-kI6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dgq-00-xzW" kind="relationship" relationship="rootViewController" id="Wfz-8e-Q8E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQw-gA-Yp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="1021"/>
+        </scene>
+        <!--Donations-->
+        <scene sceneID="CWj-YU-HNm">
+            <objects>
+                <viewController id="dgq-00-xzW" customClass="DonationsVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iey-k8-iRA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWU-fn-8sX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dWU-fn-8sX" firstAttribute="top" secondItem="9jS-ue-g8v" secondAttribute="top" id="2Ot-OK-zWp"/>
+                            <constraint firstItem="9jS-ue-g8v" firstAttribute="trailing" secondItem="dWU-fn-8sX" secondAttribute="trailing" id="4h8-V0-M3h"/>
+                            <constraint firstItem="9jS-ue-g8v" firstAttribute="bottom" secondItem="dWU-fn-8sX" secondAttribute="bottom" id="drj-M2-40n"/>
+                            <constraint firstItem="dWU-fn-8sX" firstAttribute="leading" secondItem="9jS-ue-g8v" secondAttribute="leading" id="tp6-0D-zIn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9jS-ue-g8v"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Donations" id="7LQ-1J-vSW"/>
+                    <connections>
+                        <outlet property="webView" destination="dWU-fn-8sX" id="RV3-tv-cZJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcx-Dd-vub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607" y="1021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="money-bag-filled" width="25" height="25"/>
+        <image name="money-bag-outline" width="25" height="25"/>
+    </resources>
+</document>
