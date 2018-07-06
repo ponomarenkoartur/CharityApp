@@ -26,7 +26,6 @@ class ImageMosaicView: UIView {
             imageViewCount = urlStrings.count
             let upperBound = maxImageViewCount > urlStrings.count ? urlStrings.count : maxImageViewCount
             for i in 0..<upperBound {
-                imageViews[i].image = #imageLiteral(resourceName: "image-stub")
                 imageViews[i].loadImageUsingCache(withUrlString: urlStrings[i])
             }
         }
@@ -66,7 +65,7 @@ class ImageMosaicView: UIView {
     
     // MARK: - Methods
     
-    func loadViewFromNib() -> UIView {
+    private func loadViewFromNib() -> UIView {
         let bundle = Bundle.init(for: type(of: self))
         let nib = UINib(nibName: "ImageMosaicView", bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
@@ -77,5 +76,11 @@ class ImageMosaicView: UIView {
         ]
         addSubview(view)
         return view
+    }
+    
+    func appearDefaultImages() {
+        for imageView in imageViews {
+            imageView.image = #imageLiteral(resourceName: "image-stub")
+        }
     }
 }

@@ -76,6 +76,11 @@ class NewsCell: UITableViewCell {
     
     // MARK: - Methods
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageMosaicView.appearDefaultImages()
+    }
+    
     func configure(forNews news: News, ofProject project: Project? = nil) {
         self.news = news
         titleLabel.text = news.title
