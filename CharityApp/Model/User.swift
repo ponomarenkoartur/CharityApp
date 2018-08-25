@@ -80,9 +80,9 @@ class User: SnapshotConvertible {
         guard let newsKey = news.key else {
             return false
         }
-        if let _ = news as? OrganizationNews {
+        if let _ = news as? OrgNews {
             return likedOrganizationNewsKeys.contains(newsKey)
-        } else if let _ = news as? ProjectNews,
+        } else if let _ = news as? ProjNews,
             let projectKey = projectKey,
             let likedNewsOfProjectString = likedProjectNewsKeys[projectKey] {
             return likedNewsOfProjectString.contains(newsKey)

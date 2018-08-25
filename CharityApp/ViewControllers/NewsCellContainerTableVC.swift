@@ -18,7 +18,7 @@ class NewsCellContainerTableVC: UITableViewController, NewsCellDelegate {
         guard let user = AuthService.instance.currentUser else {
             return
         }
-        if let news = news as? ProjectNews,
+        if let news = news as? ProjNews,
             let projectKey = news.parentProjectKey {
             DataService.instance.likeNews(news, ofProjectWithKey: projectKey, byUser: user) { status in
                 if status,
@@ -32,7 +32,7 @@ class NewsCellContainerTableVC: UITableViewController, NewsCellDelegate {
                     }
                 }
             }
-        } else if let news = news as? OrganizationNews {
+        } else if let news = news as? OrgNews {
             DataService.instance.likeNews(news, ofProject: nil, byUser: user) { status in
                 if status, let key = news.key {
                     user.likedOrganizationNewsKeys.append(key)
@@ -46,13 +46,13 @@ class NewsCellContainerTableVC: UITableViewController, NewsCellDelegate {
             return
         }
         
-        if let news = news as? ProjectNews,
+        if let news = news as? ProjNews,
             let projectKey = news.parentProjectKey {
             
             DataService.instance.unlikeNews(news, ofProjectWithKey: projectKey, byUser: currentUser) { (status) in
                 print(status)
             }
-        } else if let news = news as? OrganizationNews {
+        } else if let news = news as? OrgNews {
             DataService.instance.unlikeNews(news, ofProject: nil, byUser: currentUser) { (status) in
                 if status {
                     for i in 0..<currentUser.likedOrganizationNewsKeys.count {

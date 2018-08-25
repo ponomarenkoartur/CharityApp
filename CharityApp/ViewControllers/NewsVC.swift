@@ -54,7 +54,7 @@ class NewsVC: NewsCellContainerTableVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let news = newsCollection[indexPath.row]
         var cell: NewsCell
-        if news is ProjectNews {
+        if news is ProjNews {
             cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.projectNewsCell, for: indexPath) as! ProjectNewsCell
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.organizationNewsCell, for: indexPath) as! OrganizationNewsCell
@@ -67,12 +67,12 @@ class NewsVC: NewsCellContainerTableVC {
 }
 
 extension NewsVC {
-    func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: ProjectNews) {
+    func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: ProjNews) {
         let projectTabStoryBoard = UIStoryboard(name: "ProjectsTab", bundle: nil)
         let projectDetailsVC = projectTabStoryBoard.instantiateViewController(withIdentifier: "ProjectDetailsVC") as! ProjectDetailsVC
         
         if let newsCell = cell as? NewsCell,
-            let news = newsCell.news as? ProjectNews,
+            let news = newsCell.news as? ProjNews,
             let projectKey = news.parentProjectKey {
             DataService.instance.getProjectByKey(projectKey) { (project) in
                 projectDetailsVC.project = project

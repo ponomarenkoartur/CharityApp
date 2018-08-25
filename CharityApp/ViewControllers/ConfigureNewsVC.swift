@@ -49,9 +49,9 @@ class ConfigureNewsVC: UITableViewController {
             titleTextField.text = news.title
             messageTextView.text = news.text
             // If edit organization news
-            if news is OrganizationNews {
+            if news is OrgNews {
                 projectPickerTableViewCell.isHidden = false
-            } else if news is ProjectNews {
+            } else if news is ProjNews {
                 projectPickerTableViewCell.isHidden = true
             }
         }
@@ -67,7 +67,7 @@ class ConfigureNewsVC: UITableViewController {
         let alert = UIAlertController(title: "Do you want to add news?", message: "Are you shure want to add the news?", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             if self.isOrganizationNews {
-                if let news = self.news as? OrganizationNews {
+                if let news = self.news as? OrgNews {
                     // Edit existing organization news
                     news.title = self.titleTextField.text!
                     news.text = self.messageTextView.text
@@ -76,14 +76,14 @@ class ConfigureNewsVC: UITableViewController {
                     }
                 } else {
                     // Add organization news
-                    let news = OrganizationNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, date: Date(), imageUrlsCollection: [], tagsCollection: [])
+                    let news = OrgNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, date: Date(), imageUrlsCollection: [], tagsCollection: [])
                     DataService.instance.uploadOrganizationNews(news) { (status) in
                         print(status)
                     }
                 }
             } else if let project = self.project,
                 let projectKey = project.key {
-                if let news = self.news as? ProjectNews {
+                if let news = self.news as? ProjNews {
                     // Edit existing project news
                     news.title = self.titleTextField.text!
                     news.text = self.messageTextView.text
@@ -93,7 +93,7 @@ class ConfigureNewsVC: UITableViewController {
                 } else {
                     // Add project news
                     
-                    let news = ProjectNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, parentProjectKey: projectKey, parentProjectTitle: project.title)
+                    let news = ProjNews(key: nil, title: self.titleTextField.text!, text: self.messageTextView.text, parentProjectKey: projectKey, parentProjectTitle: project.title)
                     DataService.instance.uploadProjectNews(news, ofProject: project, sendComplete: { (status) in
                         print(status)
                     })
@@ -126,7 +126,7 @@ class ConfigureNewsVC: UITableViewController {
         let controller = segue.source as! ProjectPickerVC
         if let project = controller.project,
             let projectKey = project.key {
-            news = ProjectNews(key: nil, title: "", text: "", parentProjectKey: projectKey, parentProjectTitle: project.title)
+            news = ProjNews(key: nil, title: "", text: "", parentProjectKey: projectKey, parentProjectTitle: project.title)
             cell.imageView!.isHidden = true
             cell.textLabel!.text = project.title
         } else {

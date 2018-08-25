@@ -1,5 +1,5 @@
 //
-//  OrganizationNews.swift
+//  OrgNews.swift
 //  CharityApp
 //
 //  Created by Artur on 5/23/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OrganizationNews: News {
+class OrgNews: News {
     
     // MARK: SnapshotConvertible
     

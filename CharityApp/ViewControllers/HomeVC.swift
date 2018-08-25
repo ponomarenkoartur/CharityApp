@@ -14,7 +14,7 @@ class HomeVC: NewsCellContainerTableVC {
     // MARK: - Properties
     
     var organization: Organization?
-    var newsCollection = [OrganizationNews]()
+    var newsCollection = [OrgNews]()
     
     // MARK: - View Lifecycle
     
@@ -67,7 +67,7 @@ class HomeVC: NewsCellContainerTableVC {
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             let alert = UIAlertController(title: "Are you shure want to delete this news?", message: nil, preferredStyle: .actionSheet)
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
-                if let organizationNews = news as? OrganizationNews {
+                if let organizationNews = news as? OrgNews {
                     DataService.instance.removeOrganizationNews(organizationNews, deleteComplete: { (status) in
                         if status {
                             let index = self.newsCollection.index(of: organizationNews)

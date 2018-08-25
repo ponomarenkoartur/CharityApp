@@ -1,5 +1,5 @@
 //
-//  ProjectNews.swift
+//  ProjNews.swift
 //  CharityApp
 //
 //  Created by Artur on 5/23/18.
@@ -8,7 +8,7 @@
 
 import Firebase
 
-class ProjectNews: News {
+class ProjNews: News {
     
     var parentProjectKey: String?
     var parentProjectTitle: String?

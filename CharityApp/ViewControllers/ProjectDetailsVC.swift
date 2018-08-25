@@ -113,7 +113,7 @@ class ProjectDetailsVC: NewsCellContainerTableVC {
 }
 
 extension ProjectDetailsVC {
-    func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: ProjectNews) {
+    func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: ProjNews) {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     } 
 }

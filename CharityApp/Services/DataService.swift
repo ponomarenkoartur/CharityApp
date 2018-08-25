@@ -57,7 +57,7 @@ class DataService {
     
     // MARK: - Organization news
     
-    func uploadOrganizationNews(_ news: OrganizationNews, sendComplete: @escaping (_ status: Bool) -> ()) {
+    func uploadOrganizationNews(_ news: OrgNews, sendComplete: @escaping (_ status: Bool) -> ()) {
         let newsReference = REF_ORGANIZATION_NEWS.childByAutoId()
         news.key = newsReference.key
         newsReference.updateChildValues(news.convertToSnapshot())
@@ -65,15 +65,15 @@ class DataService {
         NotificationSenderService.instance.sendNotification(withTopic: "OrganizationNews", newsId: news.key!, newsTitle: news.title, newsText: news.text)
     }
     
-    func getAllOrganizationNews(handler: @escaping (_ newsCollection: [OrganizationNews]) -> ()) {
-        var newsCollection = [OrganizationNews]()
+    func getAllOrganizationNews(handler: @escaping (_ newsCollection: [OrgNews]) -> ()) {
+        var newsCollection = [OrgNews]()
         REF_ORGANIZATION_NEWS.observeSingleEvent(of: .value) { (newsCollectionSnapshot) in
             guard let newsCollectionSnapshot = newsCollectionSnapshot.children.allObjects as? [DataSnapshot] else {
                 return
             }
             
             for newsSnaphot in newsCollectionSnapshot {
-                let news = OrganizationNews(snapshot: newsSnaphot)
+                let news = OrgNews(snapshot: newsSnaphot)
                 newsCollection.append(news)
             }
             
@@ -81,7 +81,7 @@ class DataService {
         }
     }
     
-    func removeOrganizationNews(_ news: OrganizationNews, deleteComplete: @escaping (_ status: Bool) -> ()) {
+    func removeOrganizationNews(_ news: OrgNews, deleteComplete: @escaping (_ status: Bool) -> ()) {
         if let key = news.key {
             REF_ORGANIZATION_NEWS.child(key).removeValue()
             deleteComplete(true)
@@ -90,7 +90,7 @@ class DataService {
         }
     }
     
-    func updateOrganizationNews(_ news: OrganizationNews, updateComplete: @escaping (_ status: Bool) -> ()) {
+    func updateOrganizationNews(_ news: OrgNews, updateComplete: @escaping (_ status: Bool) -> ()) {
         if let key = news.key {
             REF_ORGANIZATION_NEWS.child(key).updateChildValues(news.convertToSnapshot())
             updateComplete(true)
@@ -101,8 +101,8 @@ class DataService {
     
     // MARK: - Project News
     
-    func getAllNewsOfProject(_ project: Project, handler: @escaping (_ projectsNewsCollection: [ProjectNews]) -> ()) {
-        var newsCollection = [ProjectNews]()
+    func getAllNewsOfProject(_ project: Project, handler: @escaping (_ projectsNewsCollection: [ProjNews]) -> ()) {
+        var newsCollection = [ProjNews]()
         if let projectKey = project.key {
             REF_PROJECTS.child(projectKey).child("news").observeSingleEvent(of: .value) { (newsCollectionSnapshot) in
                 guard let newsCollectionSnapshot = newsCollectionSnapshot.children.allObjects as? [DataSnapshot] else {
@@ -110,7 +110,7 @@ class DataService {
                 }
                 
                 for newsSnaphot in newsCollectionSnapshot {
-                    let news = ProjectNews(snapshot: newsSnaphot)
+                    let news = ProjNews(snapshot: newsSnaphot)
                     newsCollection.append(news)
                 }
                 
@@ -119,7 +119,7 @@ class DataService {
         }
     }
     
-    func uploadProjectNews(_ news: ProjectNews, ofProject project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
+    func uploadProjectNews(_ news: ProjNews, ofProject project: Project, sendComplete: @escaping (_ status: Bool) -> ()) {
         if let projectKey = project.key {
             let newsReference = REF_PROJECTS.child(projectKey).child("news").childByAutoId()
             news.key = newsReference.key
@@ -130,7 +130,7 @@ class DataService {
         }
     }
     
-    func removeProjectNews(_ news: ProjectNews, ofProject project: Project, deleteComplete: @escaping (_ status: Bool) -> ()) {
+    func removeProjectNews(_ news: ProjNews, ofProject project: Project, deleteComplete: @escaping (_ status: Bool) -> ()) {
         if let newsKey = news.key, let projectKey = project.key {
             REF_PROJECTS.child(projectKey).child("news").child(newsKey).removeValue()
             deleteComplete(true)
@@ -139,7 +139,7 @@ class DataService {
         }
     }
     
-    func updateProjectNews(_ news: ProjectNews, ofProject project: Project, updateComplete: @escaping (_ status: Bool) -> ()) {
+    func updateProjectNews(_ news: ProjNews, ofProject project: Project, updateComplete: @escaping (_ status: Bool) -> ()) {
         guard let projectKey = project.key, let newsKey = news.key else {
             updateComplete(false)
             return
@@ -148,8 +148,8 @@ class DataService {
         updateComplete(true)
     }
     
-    func getAllProjectNews(handler: @escaping (_ newsCollection: [ProjectNews]) -> ()) {
-        var newsCollection = [ProjectNews]()
+    func getAllProjectNews(handler: @escaping (_ newsCollection: [ProjNews]) -> ()) {
+        var newsCollection = [ProjNews]()
         
         REF_PROJECTS.observeSingleEvent(of: .value) { (projectsSnapshot) in
             guard let projectsSnapshot = projectsSnapshot.children.allObjects as? [DataSnapshot] else {
@@ -165,7 +165,7 @@ class DataService {
                 let projectTitle = projectSnapshot.childSnapshot(forPath: "title").value as! String
                 
                 for newsSnapshot in newsCollectionSnapshot {
-                    let news = ProjectNews(snapshot: newsSnapshot)
+                    let news = ProjNews(snapshot: newsSnapshot)
                     news.parentProjectKey = projectKey
                     news.parentProjectTitle = projectTitle
                     newsCollection.append(news)
@@ -195,7 +195,7 @@ class DataService {
         guard let newsKey = news.key  else {
             return
         }
-        if news is ProjectNews,
+        if news is ProjNews,
             let projectKey = projectKey {
             // Update likeCount of project news
             REF_PROJECTS.child(projectKey).child("news").child(newsKey).child("likes").setValue(news.likesCount)
@@ -296,7 +296,7 @@ class DataService {
         }
         self.updateLikeCountOfNews(news, ofProjectWithKey: projectKey)
         
-        if news is OrganizationNews {
+        if news is OrgNews {
             // Check if "likedOrganizationNews" already has a value
             REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""
@@ -307,7 +307,7 @@ class DataService {
                 self.REF_USERS.child(userKey).child("likedOrganizationNews").setValue(likedNewsString)
                 handler(true)
             }
-        } else if news is ProjectNews,
+        } else if news is ProjNews,
             let projectKey = projectKey {
             // Check if "likedNewsPosts" for certain projectKey already has a value
             REF_USERS.child(userKey).child("likedNewsPosts").child(projectKey).observeSingleEvent(of: .value) { (snapshot) in
@@ -334,7 +334,7 @@ class DataService {
             return
         }
         self.updateLikeCountOfNews(news, ofProjectWithKey: projectKey)
-        if news is OrganizationNews {
+        if news is OrgNews {
             REF_USERS.child(userKey).child("likedOrganizationNews").observeSingleEvent(of: .value) { (snapshot) in
                 var likedNewsString = ""
                 if let valueSnapshot = snapshot.value, !(valueSnapshot is NSNull) {
@@ -344,7 +344,7 @@ class DataService {
                 self.REF_USERS.child(userKey).child("likedOrganizationNews").setValue(likedNewsString)
                 handler(true)
             }
-        } else if news is ProjectNews,
+        } else if news is ProjNews,
             let projectKey = projectKey {
             // Check if "likedNewsPosts" for certain projectKey already has a value
             REF_USERS.child(userKey).child("likedNewsPosts").child(projectKey).observeSingleEvent(of: .value) { (snapshot) in
