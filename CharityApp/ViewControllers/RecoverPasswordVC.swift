@@ -1,5 +1,5 @@
 //
-//  RecoverPasswordViewController.swift
+//  RecoverPasswordVC.swift
 //  
 //
 //  Created by Artur on 5/3/18.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecoverPasswordViewController: UITableViewController {
+class RecoverPasswordVC: UITableViewController {
     
     // MARK: Outlets
 

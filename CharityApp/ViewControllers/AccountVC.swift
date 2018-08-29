@@ -24,7 +24,7 @@ class AccountVC: UITableViewController {
             let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { (_) in
                 AuthService.instance.logout(handler: { (logoutComplete) in
                     if logoutComplete {
-                        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginViewController
+                        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
                         self.present(loginVC!, animated: true, completion: nil)
                     } else {
                         let alert = UIAlertController(title: "Error", message: "Can not log out right now. It may be problem with internet connection.", preferredStyle: .alert)

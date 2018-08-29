@@ -15,7 +15,7 @@
 		7517903C204EFD1A00476E17 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7517903B204EFD1A00476E17 /* HomeVC.swift */; };
 		7517903F204EFD1A00476E17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7517903D204EFD1A00476E17 /* Main.storyboard */; };
 		75179044204EFD1A00476E17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75179042204EFD1A00476E17 /* LaunchScreen.storyboard */; };
-		751E4903209AE697003CDAE1 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E4902209AE697003CDAE1 /* RecoverPasswordViewController.swift */; };
+		751E4903209AE697003CDAE1 /* RecoverPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E4902209AE697003CDAE1 /* RecoverPasswordVC.swift */; };
 		7523F62E20B023E8005D8CEA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F62D20B023E8005D8CEA /* AuthService.swift */; };
 		7523F63020B02446005D8CEA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F62F20B02446005D8CEA /* User.swift */; };
 		7523F63220B04650005D8CEA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F63120B04650005D8CEA /* DataService.swift */; };
@@ -53,7 +53,7 @@
 		75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3D9204F013C00137D28 /* NewsContainer.swift */; };
 		75A5F3DE204F01E200137D28 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F3DD204F01E200137D28 /* Organization.swift */; };
 		75B0024120C5B74A007B8435 /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0024020C5B74A007B8435 /* ProjectDetailsVC.swift */; };
-		75BF5D4420978873000AFFB2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF5D4320978873000AFFB2 /* LoginViewController.swift */; };
+		75BF5D4420978873000AFFB2 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BF5D4320978873000AFFB2 /* LoginVC.swift */; };
 		75CCDE6520C6D26A00B79510 /* NotificationSenderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6420C6D26A00B79510 /* NotificationSenderService.swift */; };
 		75CCDE6720C6FE6100B79510 /* OrganizationInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */; };
 		75CCDE6B20C7092F00B79510 /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CCDE6A20C7092F00B79510 /* UIImageView+DownloadImage.swift */; };
@@ -79,7 +79,7 @@
 		7517903E204EFD1A00476E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75179043204EFD1A00476E17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75179045204EFD1A00476E17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		751E4902209AE697003CDAE1 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecoverPasswordViewController.swift; path = "/Volumes/Files Speed/Development/CharityApp/CharityApp/ViewControllers/RecoverPasswordViewController.swift"; sourceTree = "<absolute>"; };
+		751E4902209AE697003CDAE1 /* RecoverPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecoverPasswordVC.swift; path = "/Volumes/Files Speed/Development/CharityApp/CharityApp/ViewControllers/RecoverPasswordVC.swift"; sourceTree = "<absolute>"; };
 		7523F62D20B023E8005D8CEA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		7523F62F20B02446005D8CEA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7523F63120B04650005D8CEA /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		75A5F3D9204F013C00137D28 /* NewsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsContainer.swift; sourceTree = "<group>"; };
 		75A5F3DD204F01E200137D28 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		75B0024020C5B74A007B8435 /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
-		75BF5D4320978873000AFFB2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		75BF5D4320978873000AFFB2 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		75CCDE6420C6D26A00B79510 /* NotificationSenderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSenderService.swift; sourceTree = "<group>"; };
 		75CCDE6620C6FE6100B79510 /* OrganizationInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfoCell.swift; sourceTree = "<group>"; };
 		75CCDE6A20C7092F00B79510 /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
@@ -232,12 +232,12 @@
 				7547FCD320C1C28600FE8E65 /* ConfigureProjectVC.swift */,
 				7547FCCF20C1BFC400FE8E65 /* DonationsVC.swift */,
 				7517903B204EFD1A00476E17 /* HomeVC.swift */,
-				75BF5D4320978873000AFFB2 /* LoginViewController.swift */,
+				75BF5D4320978873000AFFB2 /* LoginVC.swift */,
 				7547FCD520C1C6CF00FE8E65 /* NewsVC.swift */,
 				75B0024020C5B74A007B8435 /* ProjectDetailsVC.swift */,
 				756C772B20BC61120008203F /* ProjectPickerVC.swift */,
 				758D7EB120B5D02900D84569 /* ProjectsVC.swift */,
-				751E4902209AE697003CDAE1 /* RecoverPasswordViewController.swift */,
+				751E4902209AE697003CDAE1 /* RecoverPasswordVC.swift */,
 				7523F63F20B071AC005D8CEA /* RegistrationVC.swift */,
 				752B3D2820C6AFBD002A7603 /* NewsCellContainerTableVC.swift */,
 			);
@@ -482,7 +482,7 @@
 				755F80E7204F07EB006DAAA5 /* Project.swift in Sources */,
 				759DA1B820B723DA001AC827 /* VideoContentContainer.swift in Sources */,
 				75308AAD2054481400AB1364 /* AccountVC.swift in Sources */,
-				75BF5D4420978873000AFFB2 /* LoginViewController.swift in Sources */,
+				75BF5D4420978873000AFFB2 /* LoginVC.swift in Sources */,
 				7523F62E20B023E8005D8CEA /* AuthService.swift in Sources */,
 				758D7EBC20B5D9B900D84569 /* InfoItem.swift in Sources */,
 				758D7EB220B5D02900D84569 /* ProjectsVC.swift in Sources */,
@@ -504,7 +504,7 @@
 				75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */,
 				7517903C204EFD1A00476E17 /* HomeVC.swift in Sources */,
 				7517903A204EFD1A00476E17 /* AppDelegate.swift in Sources */,
-				751E4903209AE697003CDAE1 /* RecoverPasswordViewController.swift in Sources */,
+				751E4903209AE697003CDAE1 /* RecoverPasswordVC.swift in Sources */,
 				75CCDE6B20C7092F00B79510 /* UIImageView+DownloadImage.swift in Sources */,
 				7523F63020B02446005D8CEA /* User.swift in Sources */,
 				7547FCD620C1C6CF00FE8E65 /* NewsVC.swift in Sources */,

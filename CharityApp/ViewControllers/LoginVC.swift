@@ -1,5 +1,5 @@
 
-//  LoginViewController.swift
+//  LoginVC.swift
 //  CharityApp
 //
 //  Created by Artur on 4/30/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginVC: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
