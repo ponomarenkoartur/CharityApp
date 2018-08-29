@@ -21,6 +21,7 @@
 		7523F63220B04650005D8CEA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F63120B04650005D8CEA /* DataService.swift */; };
 		7523F64020B071AC005D8CEA /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523F63F20B071AC005D8CEA /* RegistrationVC.swift */; };
 		75246D96205059030015D506 /* SnapshotConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75246D95205059030015D506 /* SnapshotConvertible.swift */; };
+		752954AC2136A96500C3BF9F /* LoginScreenButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752954AB2136A96500C3BF9F /* LoginScreenButton.swift */; };
 		752B3D2920C6AFBD002A7603 /* NewsCellContainerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752B3D2820C6AFBD002A7603 /* NewsCellContainerTableVC.swift */; };
 		75308AAD2054481400AB1364 /* AccountTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAC2054481400AB1364 /* AccountTabVC.swift */; };
 		75308AAF2054536E00AB1364 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75308AAE2054536E00AB1364 /* NewsCell.swift */; };
@@ -85,6 +86,7 @@
 		7523F63120B04650005D8CEA /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7523F63F20B071AC005D8CEA /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
 		75246D95205059030015D506 /* SnapshotConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotConvertible.swift; sourceTree = "<group>"; };
+		752954AB2136A96500C3BF9F /* LoginScreenButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenButton.swift; sourceTree = "<group>"; };
 		752B3D2820C6AFBD002A7603 /* NewsCellContainerTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellContainerTableVC.swift; sourceTree = "<group>"; };
 		75308AAC2054481400AB1364 /* AccountTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTabVC.swift; sourceTree = "<group>"; };
 		75308AAE2054536E00AB1364 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 			children = (
 				752954A12136A59900C3BF9F /* Cells */,
 				7501C44C20D5A06500DDD9D1 /* ImageMosaicView.swift */,
+				752954AB2136A96500C3BF9F /* LoginScreenButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				75A5F3DA204F013C00137D28 /* NewsContainer.swift in Sources */,
 				75CCDE6720C6FE6100B79510 /* OrganizationInfoCell.swift in Sources */,
 				7513ECFF20BF1E8C001D79EA /* ProjectCell.swift in Sources */,
+				752954AC2136A96500C3BF9F /* LoginScreenButton.swift in Sources */,
 				75D8283120D830D70069FFB1 /* ProjectNewsCell.swift in Sources */,
 				7501C44D20D5A06500DDD9D1 /* ImageMosaicView.swift in Sources */,
 				755F80E7204F07EB006DAAA5 /* Project.swift in Sources */,

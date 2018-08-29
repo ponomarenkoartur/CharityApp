@@ -13,14 +13,9 @@ class LoginVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet var buttonsWithFilledBackground: [UIButton]!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-        buttonsWithFilledBackground.forEach { button in
-            button.roundCorners(withRadius: 5)
-        }
     }
     
     @IBAction func beginEditingPassword(_ sender: UITextField) {
