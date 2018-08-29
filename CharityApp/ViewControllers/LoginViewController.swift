@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         buttonsWithFilledBackground.forEach { button in
-            print(button)
             button.roundCorners(withRadius: 5)
         }
     }
@@ -40,38 +39,35 @@ class LoginViewController: UIViewController {
             return
         }
         
-        if let email = emailTextField.text,
-            let password = passwordTextField.text {
-            AuthService.instance.loginUser(withEmail: email, andPassword: password) { (status, errorCode) in
-                if status {
-                    DataService.instance.getCurrentUser { (user) in
-                        AuthService.instance.currentUser = user
-                                            self.performSegue(withIdentifier: "Login", sender: nil)
-                    }
-                } else {
-                    if let errorCode = errorCode {
-                        // TODO: Replace standart alert controller with custim hud view
-                        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-                        let okAction = UIAlertAction(title: "OK", style: .default)
-                        alert.addAction(okAction)
-                        
-                        switch errorCode {
-                        case .userNotFound:
-                            alert.title = "Wrong email"
-                            alert.message = "You entered wrong email.\nThere are no user with this email."
-                        case .invalidEmail:
-                            alert.title = "Invalid email"
-                            alert.message = "Entered email is not valid."
-                        case .wrongPassword:
-                            alert.title = "Wrong password"
-                            alert.message = "You entered wrong password."
-                        default:
-                            alert.title = "Error"
-                        }
-                        
-                        self.present(alert, animated: true)
-                    }
+        guard let email = emailTextField.text,
+            let password = passwordTextField.text else { return }
+        AuthService.instance.loginUser(withEmail: email, andPassword: password) { (status, errorCode) in
+            if status {
+                DataService.instance.getCurrentUser { (user) in
+                    AuthService.instance.currentUser = user
+                    self.performSegue(withIdentifier: "Login", sender: nil)
                 }
+            } else if let errorCode = errorCode {
+                // TODO: Replace standart alert controller with custim hud view
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default)
+                alert.addAction(okAction)
+                
+                switch errorCode {
+                case .userNotFound:
+                    alert.title = "Wrong email"
+                    alert.message = "You entered wrong email.\nThere are no user with this email."
+                case .invalidEmail:
+                    alert.title = "Invalid email"
+                    alert.message = "Entered email is not valid."
+                case .wrongPassword:
+                    alert.title = "Wrong password"
+                    alert.message = "You entered wrong password."
+                default:
+                    alert.title = "Error"
+                }
+                
+                self.present(alert, animated: true)
             }
         }
     }
