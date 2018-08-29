@@ -1,5 +1,5 @@
 //
-//  AccountController.swift
+//  AccountTabVC.swift
 //  CharityApp
 //
 //  Created by Artur on 3/10/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccountVC: UITableViewController {
+class AccountTabVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

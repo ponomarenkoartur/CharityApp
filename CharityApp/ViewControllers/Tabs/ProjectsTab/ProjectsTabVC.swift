@@ -1,5 +1,5 @@
 //
-//  ProjectsVC.swift
+//  ProjectsTabVC.swift
 //  CharityApp
 //
 //  Created by Artur on 5/23/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectsVC: UITableViewController {
+class ProjectsTabVC: UITableViewController {
 
     // MARK: - Properties
     
@@ -82,7 +82,7 @@ class ProjectsVC: UITableViewController {
     }
 }
 
-extension ProjectsVC: ProjectCellDelegate {
+extension ProjectsTabVC: ProjectCellDelegate {
     func projectCellDidSubscribe(_ cell: UITableViewCell, toProject project: Project) {
         if let currentUser = AuthService.instance.currentUser {
             DataService.instance.subcribeUser(currentUser, toProject: project) { (status) in
@@ -152,7 +152,7 @@ extension ProjectsVC: ProjectCellDelegate {
     }
 }
 
-extension ProjectsVC {
+extension ProjectsTabVC {
     struct TableViewCellIdentifiers {
         static let projectCell = "ProjectCell"
     }

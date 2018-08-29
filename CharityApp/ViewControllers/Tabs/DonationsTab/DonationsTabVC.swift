@@ -1,5 +1,5 @@
 //
-//  DonationsVC.swift
+//  DonationsTabVC.swift
 //  CharityApp
 //
 //  Created by Artur on 6/1/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DonationsVC: UIViewController {
+class DonationsTabVC: UIViewController {
     
     // MARK: - Outlets
     

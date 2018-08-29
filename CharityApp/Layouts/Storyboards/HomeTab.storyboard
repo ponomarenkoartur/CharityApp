@@ -242,7 +242,7 @@
         <!--Home-->
         <scene sceneID="Yhe-uy-Rg6">
             <objects>
-                <tableViewController id="hYJ-jm-6df" customClass="HomeVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="hYJ-jm-6df" customClass="HomeTabVC" customModule="CharityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4mQ-Ij-nTm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,14 +256,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="tmv-4E-75a">
-                                            <rect key="frame" x="67" y="62" width="240" height="125"/>
+                                            <rect key="frame" x="67.5" y="62" width="240" height="125"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="125" id="B3C-bW-xiK"/>
                                                 <constraint firstAttribute="width" constant="240" id="R8R-aw-10d"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuť pomáhat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4Y-4E-Mdu">
-                                            <rect key="frame" x="106" y="10" width="162" height="32"/>
+                                            <rect key="frame" x="106.5" y="10" width="162" height="32"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -293,7 +293,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N85-B6-iws">
-                                            <rect key="frame" x="29" y="273" width="318" height="27"/>
+                                            <rect key="frame" x="28.5" y="273" width="318" height="27"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <state key="normal" title="http://chutpomahat.cz/index.php/seznam-3/91-kontakty"/>
                                         </button>

@@ -1,5 +1,5 @@
 //
-//  NewsVC.swift
+//  NewsTabVC.swift
 //  CharityApp
 //
 //  Created by Artur on 6/1/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsVC: NewsCellContainerTableVC {
+class NewsTabVC: NewsCellContainerTableVC {
 
     // MARK: - Properties
     
@@ -66,7 +66,7 @@ class NewsVC: NewsCellContainerTableVC {
     
 }
 
-extension NewsVC {
+extension NewsTabVC {
     func newsCellDidTapProjectNameButton(_ cell: UITableViewCell, onNews news: ProjNews) {
         let projectTabStoryBoard = UIStoryboard(name: "ProjectsTab", bundle: nil)
         let projectDetailsVC = projectTabStoryBoard.instantiateViewController(withIdentifier: "ProjectDetailsVC") as! ProjectDetailsVC
@@ -83,7 +83,7 @@ extension NewsVC {
     }
 }
 
-extension NewsVC {
+extension NewsTabVC {
     struct TableViewCellIdentifiers {
         static let organizationNewsCell = "OrganizationNewsCell"
         static let projectNewsCell = "ProjectNewsCell"

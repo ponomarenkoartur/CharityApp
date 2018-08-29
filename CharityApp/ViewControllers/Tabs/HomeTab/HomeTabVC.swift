@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class HomeVC: NewsCellContainerTableVC {
+class HomeTabVC: NewsCellContainerTableVC {
 
     // MARK: - Properties
     
@@ -98,7 +98,7 @@ class HomeVC: NewsCellContainerTableVC {
     }
 }
 
-extension HomeVC {
+extension HomeTabVC {
     
     // MARK: - UITableViewDataSource
     
@@ -142,7 +142,7 @@ extension HomeVC {
     }
 }
 
-extension HomeVC {
+extension HomeTabVC {
     struct TableViewCellIdentifiers {
         static let organizationNewsCell = "OrganizationNewsCell"
         static let organizationInfo = "OrganizationInfoCell"
